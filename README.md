@@ -1,25 +1,23 @@
-# SQL Commands Cheat Sheet
+# SQL
 
-## Table of Contents
-- [Introduction](#introduction)
-- [Basic Commands](#basic-commands)
-- [Data Definition Language (DDL)](#data-definition-language-ddl)
-- [Data Manipulation Language (DML)](#data-manipulation-language-dml)
-- [Data Control Language (DCL)](#data-control-language-dcl)
-- [Transaction Control Language (TCL)](#transaction-control-language-tcl)
-- [Joins](#joins)
-- [Indexes](#indexes)
-- [Views](#views)
-- [Functions](#functions)
-- [Stored Procedures](#stored-procedures)
-- [Resources](#resources)
+## Spis Treści
+- [Wprowadzenie](#wprowadzenie)
+- [Podstawowe Komendy](#podstawowe-komendy)
+- [Język Definicji Danych (DDL)](#język-definicji-danych-ddl)
+- [Język Manipulacji Danymi (DML)](#język-manipulacji-danymi-dml)
+- [Język Kontroli Danych (DCL)](#język-kontroli-danych-dcl)
+- [Język Kontroli Transakcji (TCL)](#język-kontroli-transakcji-tcl)
+- [Joins (łączenia)](#joins-łączenia)
+- [Indeksy](#indeksy)
+- [Widoki](#widoki)
+- [Funkcje](#funkcje)
+- [Procedury składowane](#procedury-składowane)
+- [Zasoby](#zasoby)
 
-## Introduction
-SQL (Structured Query Language) is a standard language for accessing and manipulating databases. This cheat sheet provides an overview of the most common SQL commands and concepts.
+## Wprowadzenie
+SQL (Structured Query Language) to standardowy język do dostępu i manipulacji bazami danych. Ten cheat sheet zawiera przegląd najczęściej używanych komend i koncepcji SQL.
 
-## Basic Commands
-- **SELECT**: Used to select data from a database.
+## Podstawowe Komendy
+- **SELECT**: Używane do wybierania danych z bazy danych.
   ```sql
-  SELECT column1, column2 FROM table_name;
-  SELECT column1, column2 FROM table_name WHERE condition;
-
+  SELECT kolumna1, kolumna2 FROM nazwa_tabeli;
