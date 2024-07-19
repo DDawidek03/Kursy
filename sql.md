@@ -91,7 +91,7 @@ Język Definicji Danych (DDL) w SQL jest używany do definiowania struktury bazy
 | DEFAULT | Ustawia domyślną wartość dla kolumny, gdy nie zostanie dostarczona żadna wartość |
 | AUTO_INCREMENT | Automatycznie zwiększa wartość kolumny przy każdym dodawaniu nowego rekordu (tylko MySQL) |
 
-### 1. **ALTER TABLE**: Modyfikuje istniejącą tabelę
+1. **ALTER TABLE**: Modyfikuje istniejącą tabelę
    
 | **Operacja**                 | **Opis**                                        | **Przykład**                                              |
 |------------------------------|-------------------------------------------------|-----------------------------------------------------------|
@@ -100,7 +100,7 @@ Język Definicji Danych (DDL) w SQL jest używany do definiowania struktury bazy
 | **MODIFY COLUMN**            | Zmienia typ danych lub atrybuty istniejącej kolumny | ``` ALTER TABLE Produkty MODIFY COLUMN Cena Float; ``` |
 | **RENAME COLUMN**            | Zmienia nazwę istniejącej kolumny               | ``` ALTER TABLE Produkty RENAME COLUMN Opis TO Opis_skrócony; ``` |
 
-### 2. **DROP TABLE**: Usuwa tabelę
+2. **DROP TABLE**: Usuwa tabelę
   ```sql
     DROP TABLE nazwa_tabeli;
   ```
@@ -115,6 +115,15 @@ Język Definicji Danych (DDL) w SQL jest używany do definiowania struktury bazy
    CREATE INDEX nazwa_indeksu ON nazwa_tabeli (kolumna1, kolumna2, ...);
     ```
    **Przykład**: ``` CREATE INDEX idx_nazwisko ON pracownicy (nazwisko);  ```
+ 
+- **DROP INDEX**: Usuwa indeks.
+  
+  ```sql
+  DROP INDEX nazwa_indeksu;
+  ```
+  
+  **Przykład**: ``` DROP INDEX idx_nazwisko ```
+
   
 ## Język Manipulacji Danymi (DML)
 
@@ -123,6 +132,26 @@ Język Definicji Danych (DDL) w SQL jest używany do definiowania struktury bazy
   ```sql
     INSERT INTO nazwa_tabeli (kolumna1, kolumna2, ...) VALUES (wartość1, wartość2, ...);
   ```
+   **Przykład**: ``` INSERT INTO Pracownicy (ID, Imię, Nazwisko) VALUES ('1','Anna', 'Kowalska');  ```
+
+- **UPDATE**: Aktualizuje istniejące dane w tabeli
+  ```sql
+  UPDATE nazwa_tabeli
+  SET kolumna1 = wartość1, kolumna2 = wartość2, ...
+  WHERE warunek;
+  ```
+
+  **Przykład**: ```UPDATE klienci SET email = 'nowy_email@example.com' WHERE id = 1;```
+
+- **DELETE**: Usuwa dane z tabeli
+
+  ```sql
+    DELETE FROM nazwa_tabeli
+    WHERE warunek;
+  ```
+
+  **Przykład** ```DELETE FROM Pracownicy WHERE ID = 3;```
+
   
 ## Procedury składowane
 
