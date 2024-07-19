@@ -212,7 +212,7 @@ Funkcje w SQL to wbudowane narzędzia służące do wykonywania operacji na dany
 ## Funkcje tekstowe
 
 
-## Funkcja numeryczne
+## Funkcje numeryczne
 
 ## Procedury składowane
 
