@@ -3,16 +3,16 @@
 
 ## 📄 Spis Treści
 
-- ### 📖 [Wprowadzenie](#wprowadzenie)
-- ### 🛠️ [Język Definicji Danych (DDL)](#język-definicji-danych-ddl)
-- ### 📑 [Indeksy](#indeksy)
-- ### 📝 [Język Manipulacji Danymi (DML)](#język-manipulacji-danymi-dml)
-- ### 🔣 [Funkcje](#funkcje)
-- ### 🔗 [Joins (łączenia)](#joins-łączenia)
-- ### 🔍 [Widoki](#widoki)
-- ### 🔐 [Język Kontroli Danych (DCL)](#język-kontroli-danych-dcl)
-- ### 📋 [Procedury składowane](#procedury-składowane)
-- ### 📚 [Teoria](#teoria)
+- 📖 [Wprowadzenie](#wprowadzenie)
+- 🛠️ [Język Definicji Danych (DDL)](#język-definicji-danych-ddl)
+- 📑 [Indeksy](#indeksy)
+- 📝 [Język Manipulacji Danymi (DML)](#język-manipulacji-danymi-dml)
+- 🔣 [Funkcje](#funkcje)
+- 🔗 [Joins (łączenia)](#joins-łączenia)
+- 🔍 [Widoki](#widoki)
+- 🔐 [Język Kontroli Danych (DCL)](#język-kontroli-danych-dcl)
+- 📋 [Procedury składowane](#procedury-składowane)
+- 📚 [Teoria](#teoria)
 
 ## Wprowadzenie
 SQL (Structured Query Language) to standardowy język zapytań używany do komunikacji z bazami danych. Został zaprojektowany do zarządzania i manipulacji danymi przechowywanymi w systemach zarządzania bazami danych (DBMS). SQL jest wszechstronny i używany w różnych typach baz danych, takich jak MySQL, PostgreSQL, SQLite, Microsoft SQL Server i Oracle.
@@ -51,11 +51,11 @@ Język Definicji Danych (DDL) w SQL jest używany do definiowania struktury bazy
     
   **Przykład**:
   ```sql
-      CREATE TABLE klienci (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        imie VARCHAR(50),
-        nazwisko VARCHAR(50),
-        email VARCHAR(100) UNIQUE
+  CREATE TABLE klienci (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    imie VARCHAR(50),
+    nazwisko VARCHAR(50),
+    email VARCHAR(100) UNIQUE
       );
   ```
 
@@ -105,10 +105,7 @@ Język Definicji Danych (DDL) w SQL jest używany do definiowania struktury bazy
     DROP TABLE nazwa_tabeli;
   ```
   
-  **Przykład**:
-  ```sql
-      ALTER TABLE Produkty ADD COLUMN Opis TEXT;
-  ```
+  **Przykład**: ``` ALTER TABLE Produkty ADD COLUMN Opis TEXT; ```
 
 
 ## Indeksy
@@ -117,11 +114,15 @@ Język Definicji Danych (DDL) w SQL jest używany do definiowania struktury bazy
    ```sql
    CREATE INDEX nazwa_indeksu ON nazwa_tabeli (kolumna1, kolumna2, ...);
     ```
-   **Przykład**:
-    ```sql
-      CREATE INDEX idx_nazwisko ON pracownicy (nazwisko);
-    ```
+   **Przykład**: ``` CREATE INDEX idx_nazwisko ON pracownicy (nazwisko);  ```
+  
 ## Język Manipulacji Danymi (DML)
 
+- **INSERT INTO**: Wstawia nowe dane do tabeli.
+  
+  ```sql
+    INSERT INTO nazwa_tabeli (kolumna1, kolumna2, ...) VALUES (wartość1, wartość2, ...);
+  ```
+  
 ## Procedury składowane
 
