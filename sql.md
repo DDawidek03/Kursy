@@ -14,7 +14,7 @@
 - [Teoria](#teoria)
 
 
-## 📖 Wprowadzenie
+## Wprowadzenie
 SQL (Structured Query Language) to standardowy język zapytań używany do komunikacji z bazami danych. Został zaprojektowany do zarządzania i manipulacji danymi przechowywanymi w systemach zarządzania bazami danych (DBMS). SQL jest wszechstronny i używany w różnych typach baz danych, takich jak MySQL, PostgreSQL, SQLite, Microsoft SQL Server i Oracle.
 
 ### Dlaczego SQL jest ważny?
@@ -36,7 +36,7 @@ SQL (Structured Query Language) to standardowy język zapytań używany do komun
 - **TCL (Transaction Control Language)**: Zawiera komendy do zarządzania transakcjami, takie jak `COMMIT`, `ROLLBACK`, `SAVEPOINT`.
 
 
-## 🛠️ Język Definicji Danych (DDL)
+## Język Definicji Danych (DDL)
 Język Definicji Danych (DDL) w SQL jest używany do definiowania struktury bazy danych, w tym tworzenia, modyfikowania i usuwania tabel, indeksów i widoków.
 
 **CREATE TABLE**: Tworzy nową tabelę.
@@ -111,7 +111,7 @@ Język Definicji Danych (DDL) w SQL jest używany do definiowania struktury bazy
   ```
 
 
-## 📑 Indeksy
+## Indeksy
 - **CREATE INDEX**: Tworzy indeks na tabeli.
    
    ```sql
@@ -122,5 +122,5 @@ Język Definicji Danych (DDL) w SQL jest używany do definiowania struktury bazy
       CREATE INDEX idx_nazwisko ON pracownicy (nazwisko);
     ```
 
-## 📋 Procedury składowane
+## Procedury składowane
 
