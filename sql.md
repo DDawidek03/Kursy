@@ -2,16 +2,16 @@
 
 
 ## 📄 Spis Treści
-- [📖 Wprowadzenie](#wprowadzenie)
-- [🛠️ Język Definicji Danych (DDL)](#język-definicji-danych-ddl)
-- [📝 Język Manipulacji Danymi (DML)](#język-manipulacji-danymi-dml)
-- [🔐 Język Kontroli Danych (DCL)](#język-kontroli-danych-dcl)
-- [🔗 Joins (łączenia)](#joins-łączenia)
-- [📑 Indeksy](#indeksy)
-- [🔍 Widoki](#widoki)
-- [🔣 Funkcje](#funkcje)
-- [📋 Procedury składowane](#procedury-składowane)
-- [📚 Teoria](#teoria)
+- [Wprowadzenie](#wprowadzenie)
+- [Język Definicji Danych (DDL)](#język-definicji-danych-ddl)
+- [Język Manipulacji Danymi (DML)](#język-manipulacji-danymi-dml)
+- [Język Kontroli Danych (DCL)](#język-kontroli-danych-dcl)
+- [Joins (łączenia)](#joins-łączenia)
+- [Indeksy](#indeksy)
+- [Widoki](#widoki)
+- [Funkcje](#funkcje)
+- [Procedury składowane](#procedury-składowane)
+- [Teoria](#teoria)
 
 
 ## 📖 Wprowadzenie
