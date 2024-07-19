@@ -48,7 +48,7 @@ W kolejnych sekcjach tego cheat sheeta znajdziesz przegląd najczęściej używa
 ## 🛠️ Język Definicji Danych (DDL)
 Język Definicji Danych (DDL) w SQL jest używany do definiowania struktury bazy danych, w tym tworzenia, modyfikowania i usuwania tabel, indeksów i widoków.
 
-- **CREATE TABLE**: Tworzy nową tabelę.
+1. **CREATE TABLE**: Tworzy nową tabelę.
     ```sql
     CREATE TABLE nazwa_tabeli (
     kolumna1 typ_danych ,atrybut',
@@ -56,15 +56,35 @@ Język Definicji Danych (DDL) w SQL jest używany do definiowania struktury bazy
     ...
     );
     ```
-  **Przykład**:
-  ```sql
-    CREATE TABLE klienci (
-      id INT AUTO_INCREMENT PRIMARY KEY,
-      imie VARCHAR(50),
-      nazwisko VARCHAR(50),
-      email VARCHAR(100) UNIQUE
-    );
-  ```
+    
+    **Przykład**:
+    ```sql
+      CREATE TABLE klienci (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        imie VARCHAR(50),
+        nazwisko VARCHAR(50),
+        email VARCHAR(100) UNIQUE
+      );
+    ```
+1. **ALTER TABLE**: Modyfikuje istniejącą tabelę
+   
+| **Operacja**                 | **Opis**                                        | **Przykład**                                              |
+|------------------------------|-------------------------------------------------|-----------------------------------------------------------|
+| **ADD COLUMN**               | Dodaje nową kolumnę do istniejącej tabeli       | ``` ALTER TABLE Produkty ADD COLUMN Opis TEXT; ```    |
+| **DROP COLUMN**              | Usuwa kolumnę z istniejącej tabeli               | ``` ALTER TABLE Produkty DROP COLUMN Opis; ```        |
+| **MODIFY COLUMN**            | Zmienia typ danych lub atrybuty istniejącej kolumny | ``` ALTER TABLE Produkty MODIFY COLUMN Cena Float; ``` |
+| **RENAME COLUMN**            | Zmienia nazwę istniejącej kolumny                | ``` ALTER TABLE Produkty RENAME COLUMN Opis TO Opis_skrócony; ``` |
+
+2. **DROP TABLE**: Usuwa tabelę
+    ```sql
+    DROP TABLE nazwa_tabeli;
+    ```
+  
+    **Przykład**:
+      ```sql
+        ALTER TABLE Produkty ADD COLUMN Opis TEXT;
+      ```
+  
 ### **Atrybuty kolumn**
 
 | Nazwa | Zastosowanie |
