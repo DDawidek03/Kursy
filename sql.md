@@ -209,7 +209,7 @@ Funkcje w SQL to wbudowane narzędzia służące do wykonywania operacji na dany
 | MIN()   | Zwraca minimalną wartość w kolumnie.         | `SELECT MIN(cena) FROM produkty;`   |
 | MAX()   | Zwraca maksymalną wartość w kolumnie.        | `SELECT MAX(cena) FROM produkty;`   |
 
-## Funkcja Tekstowa
+## Funkcje tekstowe
 
 
 ## Funkcja Numeryczne
