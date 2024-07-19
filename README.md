@@ -33,5 +33,13 @@ Język Definicji Danych (DDL) w SQL jest używany do definiowania struktury bazy
   ...
   );
 - **Atrybuty**:
-| Nazwa | Zastoswanie |
+
+| Nazwa | Zastosowanie |
+|-------|--------------|
 | PRIMARY KEY | Określa klucz główny dla tabeli |
+| NOT NULL | Wartość kolumny nie może być pusta |
+| UNIQUE | Wszystkie wartości w kolumnie muszą być unikalne |
+| FOREIGN KEY | Określa klucz obcy, który odwołuje się do klucza głównego innej tabeli |
+| CHECK | Upewnia się, że wszystkie wartości w kolumnie spełniają określony warunek |
+| DEFAULT | Ustawia domyślną wartość dla kolumny, gdy nie zostanie dostarczona żadna wartość |
+| AUTO_INCREMENT | Automatycznie zwiększa wartość kolumny przy każdym dodawaniu nowego rekordu (tylko MySQL) |
