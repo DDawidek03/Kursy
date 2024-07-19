@@ -120,18 +120,5 @@ Język Definicji Danych (DDL) w SQL jest używany do definiowania struktury bazy
     ```sql
       CREATE INDEX idx_nazwisko ON pracownicy (nazwisko);
     ```
-## 📝 Język Manipulacji Danymi (DML)
-
-- **SELECT**: Używane do wybierania danych z bazy danych.
-  ```sql
-  SELECT kolumna1, kolumna2 FROM nazwa_tabeli;
-
-## 🔣 Funkcje
-
-## 🔗 Joins (łączenia)
-
-## 🔍 Widoki
-
-## 🔐 Język Kontroli Danych (DCL)
 
 ## 📋 Procedury składowane
