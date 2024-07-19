@@ -1,5 +1,6 @@
 # 📘 SQL
 
+
 ## 📄 Spis Treści
 - [📖 Wprowadzenie](#wprowadzenie)
 - [🔧 Podstawowe Komendy](#podstawowe-komendy)
@@ -12,7 +13,6 @@
 - [🔣 Funkcje](#funkcje)
 - [📋 Procedury składowane](#procedury-składowane)
 - [📚 Teoria](#teoria)
-
 
 
 ## 📖 Wprowadzenie
@@ -36,12 +36,14 @@ SQL (Structured Query Language) to standardowy język zapytań używany do komun
 - **DCL (Data Control Language)**: Zawiera komendy do zarządzania uprawnieniami, takie jak `GRANT`, `REVOKE`.
 - **TCL (Transaction Control Language)**: Zawiera komendy do zarządzania transakcjami, takie jak `COMMIT`, `ROLLBACK`, `SAVEPOINT`.
 
+W kolejnych sekcjach tego cheat sheeta znajdziesz przegląd najczęściej używanych komend SQL oraz przykłady ich zastosowania.
+
 
 ## 🔧 Podstawowe Komendy
 - **SELECT**: Używane do wybierania danych z bazy danych.
   ```sql
   SELECT kolumna1, kolumna2 FROM nazwa_tabeli;
-  ```
+
   
 ## 🛠️ Język Definicji Danych (DDL)
 Język Definicji Danych (DDL) w SQL jest używany do definiowania struktury bazy danych, w tym tworzenia, modyfikowania i usuwania tabel, indeksów i widoków.
