@@ -153,7 +153,7 @@ Język Definicji Danych (DDL) w SQL jest używany do definiowania struktury bazy
   **Przykład** ```DELETE FROM Pracownicy WHERE ID = 3;```
 
 
-## Zapytania SQL (wszukujace oraz klauzule)
+## Zapytania SQL
 
 **SELECT**: Wyszukiwanie danych w tabeli
 
