@@ -11,7 +11,7 @@
 - [Widoki](#widoki)
 - [Funkcje](#funkcje)
 - [Procedury składowane](#procedury-składowane)
-- [Zasoby](#zasoby)
+- [Teoria](#teoria)
 
 ## Wprowadzenie
 SQL (Structured Query Language) to standardowy język do dostępu i manipulacji bazami danych. Ten cheat sheet zawiera przegląd najczęściej używanych komend i koncepcji SQL.
