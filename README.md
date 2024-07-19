@@ -21,3 +21,5 @@ SQL (Structured Query Language) is a standard language for accessing and manipul
 - **SELECT**: Used to select data from a database.
   ```sql
   SELECT column1, column2 FROM table_name;
+  SELECT column1, column2 FROM table_name WHERE condition;
+
