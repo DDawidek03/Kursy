@@ -1,4 +1,4 @@
-# 📘 SQL Cheat Sheet
+# 📘 SQL
 
 ## 📄 Spis Treści
 - [📖 Wprowadzenie](#wprowadzenie)
@@ -13,16 +13,37 @@
 - [📋 Procedury składowane](#procedury-składowane)
 - [📚 Teoria](#teoria)
 
+
+
 ## 📖 Wprowadzenie
-SQL (Structured Query Language) to standardowy język do dostępu i manipulacji bazami danych. Ten cheat sheet zawiera przegląd najczęściej używanych komend i koncepcji SQL.
+SQL (Structured Query Language) to standardowy język zapytań używany do komunikacji z bazami danych. Został zaprojektowany do zarządzania i manipulacji danymi przechowywanymi w systemach zarządzania bazami danych (DBMS). SQL jest wszechstronny i używany w różnych typach baz danych, takich jak MySQL, PostgreSQL, SQLite, Microsoft SQL Server i Oracle.
+
+### Dlaczego SQL jest ważny?
+- **Łatwość użycia**: SQL ma prostą i przejrzystą składnię, co ułatwia naukę i stosowanie nawet przez osoby niebędące programistami.
+- **Wszechstronność**: SQL umożliwia wykonywanie różnorodnych operacji na danych, od prostych zapytań po skomplikowane analizy danych.
+- **Standard**: SQL jest standardowym językiem używanym przez większość systemów zarządzania bazami danych, co oznacza, że umiejętności SQL są przenośne między różnymi platformami.
+- **Zarządzanie danymi**: SQL pozwala na tworzenie, modyfikowanie i usuwanie struktur baz danych oraz zarządzanie danymi za pomocą operacji takich jak wstawianie, aktualizacja, usuwanie i selekcja danych.
+
+### Zastosowania SQL
+- **Tworzenie i zarządzanie bazami danych**: SQL pozwala na definiowanie struktury bazy danych, tworzenie tabel, indeksów, widoków i procedur składowanych.
+- **Manipulacja danymi**: SQL umożliwia wstawianie, aktualizowanie, usuwanie i selekcję danych przechowywanych w bazie danych.
+- **Zarządzanie użytkownikami i bezpieczeństwem**: SQL pozwala na kontrolę dostępu do danych i zarządzanie uprawnieniami użytkowników.
+- **Analiza danych**: SQL jest często używany do analizowania danych i generowania raportów dzięki możliwości wykonywania złożonych zapytań i agregacji danych.
+
+### Podstawowe elementy SQL
+- **DML (Data Manipulation Language)**: Obejmuje komendy do manipulacji danymi, takie jak `SELECT`, `INSERT`, `UPDATE`, `DELETE`.
+- **DDL (Data Definition Language)**: Zawiera komendy do definiowania struktury bazy danych, takie jak `CREATE`, `ALTER`, `DROP`.
+- **DCL (Data Control Language)**: Zawiera komendy do zarządzania uprawnieniami, takie jak `GRANT`, `REVOKE`.
+- **TCL (Transaction Control Language)**: Zawiera komendy do zarządzania transakcjami, takie jak `COMMIT`, `ROLLBACK`, `SAVEPOINT`.
+
 
 ## 🔧 Podstawowe Komendy
 - **SELECT**: Używane do wybierania danych z bazy danych.
   ```sql
   SELECT kolumna1, kolumna2 FROM nazwa_tabeli;
-
+  ```
   
-## Język Definicji Danych (DDL)
+## 🛠️ Język Definicji Danych (DDL)
 Język Definicji Danych (DDL) w SQL jest używany do definiowania struktury bazy danych, w tym tworzenia, modyfikowania i usuwania tabel, indeksów i widoków.
 
 - **CREATE TABLE**: Tworzy nową tabelę.
