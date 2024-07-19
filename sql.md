@@ -50,7 +50,7 @@ Język Definicji Danych (DDL) w SQL jest używany do definiowania struktury bazy
 1. **CREATE TABLE**: Tworzy nową tabelę.
     ```sql
     CREATE TABLE nazwa_tabeli (
-    kolumna1 typ_danych ,atrybut',
+    kolumna1 typ_danych ,atrybut,
     kolumna2 typ_danych,
     ...
     );
@@ -83,7 +83,17 @@ Język Definicji Danych (DDL) w SQL jest używany do definiowania struktury bazy
       ```sql
         ALTER TABLE Produkty ADD COLUMN Opis TEXT;
       ```
-  
+
+3. **CREATE INDEX**: Tworzy indeks na tabeli.
+   
+   ```sql
+   CREATE INDEX nazwa_indeksu ON nazwa_tabeli (kolumna1, kolumna2, ...);
+    ```
+   **Przykład**:
+      ```sql
+        CREATE INDEX idx_nazwisko ON pracownicy (nazwisko);
+      ```
+      
 ### **Atrybuty kolumn**
 
 | Nazwa | Zastosowanie |
