@@ -1,16 +1,15 @@
-# 📘 SQL
+# 📘 Kurs SQL
 
 
 ## 📄 Spis Treści
 - [📖 Wprowadzenie](#wprowadzenie)
-- [🔧 Podstawowe Komendy](#podstawowe-komendy)
 - [🛠️ Język Definicji Danych (DDL)](#język-definicji-danych-ddl)
-- [📝 Język Manipulacji Danymi (DML)](#język-manipulacji-danymi-dml)
-- [🔐 Język Kontroli Danych (DCL)](#język-kontroli-danych-dcl)
-- [🔗 Joins (łączenia)](#joins-łączenia)
 - [📑 Indeksy](#indeksy)
-- [🔍 Widoki](#widoki)
+- [📝 Język Manipulacji Danymi (DML)](#język-manipulacji-danymi-dml)
 - [🔣 Funkcje](#funkcje)
+- [🔗 Joins (łączenia)](#joins-łączenia)
+- [🔍 Widoki](#widoki)
+- [🔐 Język Kontroli Danych (DCL)](#język-kontroli-danych-dcl)
 - [📋 Procedury składowane](#procedury-składowane)
 - [📚 Teoria](#teoria)
 
@@ -35,66 +34,49 @@ SQL (Structured Query Language) to standardowy język zapytań używany do komun
 - **DDL (Data Definition Language)**: Zawiera komendy do definiowania struktury bazy danych, takie jak `CREATE`, `ALTER`, `DROP`.
 - **DCL (Data Control Language)**: Zawiera komendy do zarządzania uprawnieniami, takie jak `GRANT`, `REVOKE`.
 - **TCL (Transaction Control Language)**: Zawiera komendy do zarządzania transakcjami, takie jak `COMMIT`, `ROLLBACK`, `SAVEPOINT`.
-
-
-
-## 🔧 Podstawowe Komendy
-- **SELECT**: Używane do wybierania danych z bazy danych.
-  ```sql
-  SELECT kolumna1, kolumna2 FROM nazwa_tabeli;
-
   
 ## 🛠️ Język Definicji Danych (DDL)
 Język Definicji Danych (DDL) w SQL jest używany do definiowania struktury bazy danych, w tym tworzenia, modyfikowania i usuwania tabel, indeksów i widoków.
 
-1. **CREATE TABLE**: Tworzy nową tabelę.
-    ```sql
+**CREATE TABLE**: Tworzy nową tabelę.
+  ```sql
     CREATE TABLE nazwa_tabeli (
     kolumna1 typ_danych ,atrybut,
     kolumna2 typ_danych,
     ...
     );
-    ```
+  ```
     
-    **Przykład**:
-    ```sql
+  **Przykład**:
+  ```sql
       CREATE TABLE klienci (
         id INT AUTO_INCREMENT PRIMARY KEY,
         imie VARCHAR(50),
         nazwisko VARCHAR(50),
         email VARCHAR(100) UNIQUE
       );
-    ```
-1. **ALTER TABLE**: Modyfikuje istniejącą tabelę
-   
-| **Operacja**                 | **Opis**                                        | **Przykład**                                              |
-|------------------------------|-------------------------------------------------|-----------------------------------------------------------|
-| **ADD COLUMN**               | Dodaje nową kolumnę do istniejącej tabeli       | ``` ALTER TABLE Produkty ADD COLUMN Opis TEXT; ```    |
-| **DROP COLUMN**              | Usuwa kolumnę z istniejącej tabeli               | ``` ALTER TABLE Produkty DROP COLUMN Opis; ```        |
-| **MODIFY COLUMN**            | Zmienia typ danych lub atrybuty istniejącej kolumny | ``` ALTER TABLE Produkty MODIFY COLUMN Cena Float; ``` |
-| **RENAME COLUMN**            | Zmienia nazwę istniejącej kolumny                | ``` ALTER TABLE Produkty RENAME COLUMN Opis TO Opis_skrócony; ``` |
+  ```
+**Typy danych**
 
-2. **DROP TABLE**: Usuwa tabelę
-    ```sql
-    DROP TABLE nazwa_tabeli;
-    ```
-  
-    **Przykład**:
-      ```sql
-        ALTER TABLE Produkty ADD COLUMN Opis TEXT;
-      ```
+| **Typ danych**       | **Opis**                                                                                         | **Przykład**                             |
+|----------------------|--------------------------------------------------------------------------------------------------|-----------------------------------------|
+| **INT**              | Liczba całkowita.                                                                            | `id INT`                                |
+| **FLOAT**            | Liczba zmiennoprzecinkowa o pojedynczej precyzji.                                                 | `price FLOAT`                           |
+| **DOUBLE**           | Liczba zmiennoprzecinkowa o podwójnej precyzji.                                                  | `weight DOUBLE`                         |
+| **DECIMAL**          | Liczba dziesiętna o określonej precyzji i skali.                                                 | `amount DECIMAL(10, 2)`                 |
+| **CHAR**             | Stała długość łańcucha znaków. Długość od 0 do 255 znaków.                                        | `code CHAR(5)`                          |
+| **VARCHAR**          | Zmienna długość łańcucha znaków. Długość od 0 do 65,535 znaków.                                 | `name VARCHAR(100)`                     |
+| **TEXT**             | Długi łańcuch tekstowy. Maksymalna długość 65,535 znaków.                                        | `description TEXT`                      |
+| **DATE**             | Data w formacie `YYYY-MM-DD`.                                                                    | `birthdate DATE`                        |
+| **DATETIME**         | Data i czas w formacie `YYYY-MM-DD HH:MM:SS`.                                                     | `created_at DATETIME`                   |
+| **TIMESTAMP**        | Data i czas w formacie `YYYY-MM-DD HH:MM:SS`, z dodatkowym automatycznym aktualizowaniem.         | `updated_at TIMESTAMP`                  |
+| **TIME**             | Czas w formacie `HH:MM:SS`.                                                                     | `start_time TIME`                       |
+| **YEAR**             | Rok w formacie `YYYY`.                                                                         | `year YEAR`                             |
+| **ENUM**             | Lista możliwych wartości. Ogranicza pole do jednej z predefiniowanych wartości.                    | `status ENUM('active', 'inactive')`     |
+| **SET**              | Lista możliwych wartości. Można przypisać wiele wartości naraz.                                  | `flags SET('flag1', 'flag2', 'flag3')`  |
+| **BIT**              | Bit lub sekwencja bitów.                                                                         | `flag BIT(1)`                           |
 
-3. **CREATE INDEX**: Tworzy indeks na tabeli.
-   
-   ```sql
-   CREATE INDEX nazwa_indeksu ON nazwa_tabeli (kolumna1, kolumna2, ...);
-    ```
-   **Przykład**:
-      ```sql
-        CREATE INDEX idx_nazwisko ON pracownicy (nazwisko);
-      ```
-      
-### **Atrybuty kolumn**
+**Atrybuty kolumn**
 
 | Nazwa | Zastosowanie |
 |-------|--------------|
@@ -106,4 +88,51 @@ Język Definicji Danych (DDL) w SQL jest używany do definiowania struktury bazy
 | DEFAULT | Ustawia domyślną wartość dla kolumny, gdy nie zostanie dostarczona żadna wartość |
 | AUTO_INCREMENT | Automatycznie zwiększa wartość kolumny przy każdym dodawaniu nowego rekordu (tylko MySQL) |
 
+# 
+# 
+
+### 1. **ALTER TABLE**: Modyfikuje istniejącą tabelę
+   
+| **Operacja**                 | **Opis**                                        | **Przykład**                                              |
+|------------------------------|-------------------------------------------------|-----------------------------------------------------------|
+| **ADD COLUMN**               | Dodaje nową kolumnę do istniejącej tabeli       | ``` ALTER TABLE Produkty ADD COLUMN Opis TEXT; ```    |
+| **DROP COLUMN**              | Usuwa kolumnę z istniejącej tabeli              | ``` ALTER TABLE Produkty DROP COLUMN Opis; ```        |
+| **MODIFY COLUMN**            | Zmienia typ danych lub atrybuty istniejącej kolumny | ``` ALTER TABLE Produkty MODIFY COLUMN Cena Float; ``` |
+| **RENAME COLUMN**            | Zmienia nazwę istniejącej kolumny               | ``` ALTER TABLE Produkty RENAME COLUMN Opis TO Opis_skrócony; ``` |
+
+### 2. **DROP TABLE**: Usuwa tabelę
+  ```sql
+    DROP TABLE nazwa_tabeli;
+  ```
+  
+  **Przykład**:
+  ```sql
+      ALTER TABLE Produkty ADD COLUMN Opis TEXT;
+  ```
+
+
+## 📑 Indeksy
+- **CREATE INDEX**: Tworzy indeks na tabeli.
+   
+   ```sql
+   CREATE INDEX nazwa_indeksu ON nazwa_tabeli (kolumna1, kolumna2, ...);
+    ```
+   **Przykład**:
+    ```sql
+      CREATE INDEX idx_nazwisko ON pracownicy (nazwisko);
+    ```
 ## 📝 Język Manipulacji Danymi (DML)
+
+- **SELECT**: Używane do wybierania danych z bazy danych.
+  ```sql
+  SELECT kolumna1, kolumna2 FROM nazwa_tabeli;
+
+## 🔣 Funkcje
+
+## 🔗 Joins (łączenia)
+
+## 🔍 Widoki
+
+## 🔐 Język Kontroli Danych (DCL)
+
+## 📋 Procedury składowane
