@@ -34,17 +34,19 @@ SQL (Structured Query Language) to standardowy język zapytań używany do komun
 - **DDL (Data Definition Language)**: Zawiera komendy do definiowania struktury bazy danych, takie jak `CREATE`, `ALTER`, `DROP`.
 - **DCL (Data Control Language)**: Zawiera komendy do zarządzania uprawnieniami, takie jak `GRANT`, `REVOKE`.
 - **TCL (Transaction Control Language)**: Zawiera komendy do zarządzania transakcjami, takie jak `COMMIT`, `ROLLBACK`, `SAVEPOINT`.
-  
+
+
 ## 🛠️ Język Definicji Danych (DDL)
 Język Definicji Danych (DDL) w SQL jest używany do definiowania struktury bazy danych, w tym tworzenia, modyfikowania i usuwania tabel, indeksów i widoków.
 
 **CREATE TABLE**: Tworzy nową tabelę.
   ```sql
-    CREATE TABLE nazwa_tabeli (
-    kolumna1 typ_danych ,atrybut,
+  CREATE TABLE nazwa_tabeli (
+    kolumna1 typ_danych,
     kolumna2 typ_danych,
     ...
-    );
+  );
+
   ```
     
   **Przykład**:
