@@ -28,21 +28,22 @@ SQL (Structured Query Language) to standardowy język do dostępu i manipulacji 
 Język Definicji Danych (DDL) w SQL jest używany do definiowania struktury bazy danych, w tym tworzenia, modyfikowania i usuwania tabel, indeksów i widoków.
 
 - **CREATE TABLE**: Tworzy nową tabelę.
+    ```sql
+    CREATE TABLE nazwa_tabeli (
+    kolumna1 typ_danych ,atrybut',
+    kolumna2 typ_danych,
+    ...
+    );
+    ```
+  **Przykład**:
   ```sql
-  CREATE TABLE nazwa_tabeli (
-  kolumna1 typ_danych ,atrybut',
-  kolumna2 typ_danych,
-  ...
-  );
-- **Przykład**:
-  ```sql
-  CREATE TABLE klienci (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    imie VARCHAR(50),
-    nazwisko VARCHAR(50),
-    email VARCHAR(100) UNIQUE
-  );
-
+    CREATE TABLE klienci (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      imie VARCHAR(50),
+      nazwisko VARCHAR(50),
+      email VARCHAR(100) UNIQUE
+    );
+  ```
 ### **Atrybuty kolumn**
 
 | Nazwa | Zastosowanie |
