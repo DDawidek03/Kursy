@@ -14,7 +14,7 @@
 - 📋 [Procedury składowane](#procedury-składowane)
 - 📚 [Teoria](#teoria)
 
-## Wprowadzenie 📖
+## Wprowadzenie        📖
 SQL (Structured Query Language) to standardowy język zapytań używany do komunikacji z bazami danych. Został zaprojektowany do zarządzania i manipulacji danymi przechowywanymi w systemach zarządzania bazami danych (DBMS). SQL jest wszechstronny i używany w różnych typach baz danych, takich jak MySQL, PostgreSQL, SQLite, Microsoft SQL Server i Oracle.
 
 ### Dlaczego SQL jest ważny?
