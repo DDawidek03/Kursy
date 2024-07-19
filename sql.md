@@ -9,7 +9,7 @@
 - 📝 [Język Manipulacji Danymi (DML)](#język-manipulacji-danymi-dml)
     - 🔭 [Zapytania SQL (wszukujace oraz klauzule)](#Zapytania-SQL)
 - 🔣 [Funkcje](#funkcje)
-  - [Funkcje agregujące](#funkcje-agregujące)
+  - 📊 [Funkcje agregujące](#funkcje-agregujące)
   - [Funkcje Tekstowe](#funkcje-tekstowe)
 - 🔗 [Joins (łączenia)](#joins-łączenia)
 - 🔍 [Widoki](#widoki)
