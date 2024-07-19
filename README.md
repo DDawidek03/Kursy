@@ -32,7 +32,7 @@ Język Definicji Danych (DDL) w SQL jest używany do definiowania struktury bazy
   kolumna2 typ_danych,
   ...
   );
-- **Atrybuty**:
+## **Atrybuty**:
 
 | Nazwa | Zastosowanie |
 |-------|--------------|
