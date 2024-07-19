@@ -3,7 +3,6 @@
 
 ## 📄 Spis Treści
 - [📖 Wprowadzenie](#wprowadzenie)
-- [🔧 Podstawowe Komendy](#podstawowe-komendy)
 - [🛠️ Język Definicji Danych (DDL)](#język-definicji-danych-ddl)
 - [📝 Język Manipulacji Danymi (DML)](#język-manipulacji-danymi-dml)
 - [🔐 Język Kontroli Danych (DCL)](#język-kontroli-danych-dcl)
@@ -88,9 +87,6 @@ Język Definicji Danych (DDL) w SQL jest używany do definiowania struktury bazy
 | CHECK | Upewnia się, że wszystkie wartości w kolumnie spełniają określony warunek |
 | DEFAULT | Ustawia domyślną wartość dla kolumny, gdy nie zostanie dostarczona żadna wartość |
 | AUTO_INCREMENT | Automatycznie zwiększa wartość kolumny przy każdym dodawaniu nowego rekordu (tylko MySQL) |
-
-# 
-# 
 
 ### 1. **ALTER TABLE**: Modyfikuje istniejącą tabelę
    
