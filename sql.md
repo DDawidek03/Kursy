@@ -10,6 +10,7 @@
     - 🔭 [Zapytania SQL (wszukujace oraz klauzule)](#Zapytania-SQL)
 - 🔣 [Funkcje](#funkcje)
   - 📊 [Funkcje agregujące](#funkcje-agregujące)
+  - 📖 [Funkcje tekstowe](#funkcje-tekstowe)
   - 🔢 [Funkcje numeryczne](#funkcje-numeryczne)
   - ⏳ [Funkcje daty i czasu](#funkcje-daty-i-czasu)
   - 🔍 [Funkcje logiczne](#funkcje-logiczne)
