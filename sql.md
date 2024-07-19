@@ -10,7 +10,10 @@
     - 🔭 [Zapytania SQL (wszukujace oraz klauzule)](#Zapytania-SQL)
 - 🔣 [Funkcje](#funkcje)
   - 📊 [Funkcje agregujące](#funkcje-agregujące)
-  - [Funkcje Tekstowe](#funkcje-tekstowe)
+  - 📖 [Funkcje Tekstowe](#funkcje-tekstowe)
+  - 🔢 [Funkcje Numeryczne](#funkcje-numeryczne)
+  - ⏳ [Funkcje Daty i Czasu](#funkcje-daty-i-czasu)
+  -  [Funkcje Logiczne](#funkcje-logiczne)
 - 🔗 [Joins (łączenia)](#joins-łączenia)
 - 🔍 [Widoki](#widoki)
 - 🔐 [Język Kontroli Danych (DCL)](#język-kontroli-danych-dcl)
@@ -205,6 +208,11 @@ Funkcje w SQL to wbudowane narzędzia służące do wykonywania operacji na dany
 | AVG()   | Zwraca średnią wartość w kolumnie.           | `SELECT AVG(wiek) FROM klienci;`    |
 | MIN()   | Zwraca minimalną wartość w kolumnie.         | `SELECT MIN(cena) FROM produkty;`   |
 | MAX()   | Zwraca maksymalną wartość w kolumnie.        | `SELECT MAX(cena) FROM produkty;`   |
+
+## Funkcja Tekstowa
+
+
+## Funkcja Numeryczne
 
 ## Procedury składowane
 
