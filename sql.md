@@ -197,6 +197,14 @@ Klauzula `LIKE` jest używana do wyszukiwania określonego wzorca w kolumnie tek
 Funkcje w SQL to wbudowane narzędzia służące do wykonywania operacji na danych, takich jak obliczenia matematyczne, manipulacje tekstem, czy agregacje wyników. Ułatwiają one przetwarzanie i analizę danych w bazach danych, umożliwiając bardziej złożone zapytania i operacje.
 
 ## Funkcje Agregujące
-  
+
+| Funkcja | Opis                                        | Przykład                            |
+|---------|---------------------------------------------|-------------------------------------|
+| COUNT() | Zwraca liczbę wierszy spełniających warunek. | `SELECT COUNT(*) FROM klienci;`     |
+| SUM()   | Zwraca sumę wartości w kolumnie.             | `SELECT SUM(cena) FROM produkty;`   |
+| AVG()   | Zwraca średnią wartość w kolumnie.           | `SELECT AVG(wiek) FROM klienci;`    |
+| MIN()   | Zwraca minimalną wartość w kolumnie.         | `SELECT MIN(cena) FROM produkty;`   |
+| MAX()   | Zwraca maksymalną wartość w kolumnie.        | `SELECT MAX(cena) FROM produkty;`   |
+
 ## Procedury składowane
 
