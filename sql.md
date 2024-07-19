@@ -214,5 +214,10 @@ Funkcje w SQL to wbudowane narzędzia służące do wykonywania operacji na dany
 
 ## Funkcje Numeryczne
 
+
+## Funkcje daty i czasu
+
+## Funkcje logiczne 
+
 ## Procedury składowane
 
