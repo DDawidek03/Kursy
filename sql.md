@@ -211,13 +211,48 @@ Funkcje w SQL to wbudowane narzędzia służące do wykonywania operacji na dany
 
 ## Funkcje Tekstowe
 
+| Funkcja    | Opis                                                         | Przykład                                      |
+|------------|--------------------------------------------------------------|-----------------------------------------------|
+| CONCAT()   | Łączy dwa lub więcej ciągi znaków.                            | `SELECT CONCAT(imie, ' ', nazwisko) FROM klienci;` |
+| LENGTH()   | Zwraca długość ciągu znaków.                                   | `SELECT LENGTH(nazwa) FROM produkty;`          |
+| UPPER()    | Konwertuje ciąg znaków na wielkie litery.                      | `SELECT UPPER(imie) FROM klienci;`             |
+| LOWER()    | Konwertuje ciąg znaków na małe litery.                         | `SELECT LOWER(nazwisko) FROM klienci;`          |
+| SUBSTRING()| Zwraca fragment ciągu znaków.                                  | `SELECT SUBSTRING(imie, 1, 3) FROM klienci;`    |
+| REPLACE()  | Zastępuje wszystkie wystąpienia podciągu innym podciągiem.     | `SELECT REPLACE(nazwa, 'stary', 'nowy') FROM produkty;` |
+| TRIM()     | Usuwa białe znaki z początku i końca ciągu znaków.              | `SELECT TRIM(imie) FROM klienci;`               |
 
 ## Funkcje Numeryczne
 
+| Funkcja   | Opis                                                         | Przykład                |
+|-----------|--------------------------------------------------------------|-------------------------|
+| ABS()     | Zwraca wartość bezwzględną liczby.                            | `SELECT ABS(-10);`      |
+| CEILING() | Zwraca najmniejszą liczbę całkowitą większą lub równą danej liczbie. | `SELECT CEILING(5.7);`  |
+| FLOOR()   | Zwraca największą liczbę całkowitą mniejszą lub równą danej liczbie. | `SELECT FLOOR(5.7);`    |
+| ROUND()   | Zaokrągla liczbę do określonej liczby miejsc po przecinku.     | `SELECT ROUND(5.678, 2);` |
+| MOD()     | Zwraca resztę z dzielenia jednej liczby przez drugą.           | `SELECT MOD(10, 3);`    |
+| POWER()   | Podnosi liczbę do określonej potęgi.                            | `SELECT POWER(2, 3);`   |
 
-## Funkcje daty i czasu
+## Funkcje Daty i Czasu
 
-## Funkcje logiczne 
+| Funkcja   | Opis                                      | Przykład                           |
+|-----------|-------------------------------------------|------------------------------------|
+| NOW()     | Zwraca bieżącą datę i czas.                 | `SELECT NOW();`                    |
+| CURDATE() | Zwraca bieżącą datę.                        | `SELECT CURDATE();`                |
+| CURTIME() | Zwraca bieżący czas.                        | `SELECT CURTIME();`                |
+| DATE_ADD() | Dodaje określoną ilość czasu do daty.        | `SELECT DATE_ADD('2024-07-19', INTERVAL 5 DAY);` |
+| DATE_SUB() | Odejmuje określoną ilość czasu od daty.      | `SELECT DATE_SUB('2024-07-19', INTERVAL 5 DAY);` |
+| DATEDIFF() | Zwraca różnicę między dwiema datami.         | `SELECT DATEDIFF('2024-07-19', '2024-07-14');` |
+| YEAR()    | Zwraca rok z daty.                           | `SELECT YEAR(NOW());`              |
+| MONTH()   | Zwraca miesiąc z daty.                       | `SELECT MONTH(NOW());`             |
+| DAY()     | Zwraca dzień z daty.                         | `SELECT DAY(NOW());`               |
+
+## Funkcje Logiczne 
+
+| Funkcja   | Opis                                                                                      | Przykład                                              |
+|-----------|-------------------------------------------------------------------------------------------|-------------------------------------------------------|
+| IF()      | Zwraca jedną wartość, jeśli warunek jest spełniony, a inną wartość, jeśli nie jest.       | `SELECT IF(wiek > 18, 'Dorosły', 'Nieletni') FROM klienci;` |
+| IFNULL()  | Zwraca określoną wartość, jeśli dane są NULL.                                             | `SELECT IFNULL(email, 'brak') FROM klienci;`           |
+| NULLIF()  | Zwraca NULL, jeśli dwa wyrażenia są równe.                                                | `SELECT NULLIF(cena, 0) FROM produkty;`                |
 
 ## Procedury składowane
 
