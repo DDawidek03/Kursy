@@ -36,7 +36,6 @@ SQL (Structured Query Language) to standardowy język zapytań używany do komun
 - **DCL (Data Control Language)**: Zawiera komendy do zarządzania uprawnieniami, takie jak `GRANT`, `REVOKE`.
 - **TCL (Transaction Control Language)**: Zawiera komendy do zarządzania transakcjami, takie jak `COMMIT`, `ROLLBACK`, `SAVEPOINT`.
 
-W kolejnych sekcjach tego cheat sheeta znajdziesz przegląd najczęściej używanych komend SQL oraz przykłady ich zastosowania.
 
 
 ## 🔧 Podstawowe Komendy
