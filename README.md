@@ -28,8 +28,10 @@ Język Definicji Danych (DDL) w SQL jest używany do definiowania struktury bazy
 - **CREATE TABLE**: Tworzy nową tabelę.
   ```sql
   CREATE TABLE nazwa_tabeli (
-  kolumna1 typ_danych,
-  kolumna2 typ_danych
+  kolumna1 typ_danych ,atrybut',
+  kolumna2 typ_danych,
   ...
   );
-
+- **Atrybuty**:
+| Nazwa | Zastoswanie |
+| PRIMARY KEY | Określa klucz główny dla tabeli |
