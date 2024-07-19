@@ -7,6 +7,7 @@
 - 🛠️ [Język Definicji Danych (DDL)](#język-definicji-danych-ddl)
 - 📑 [Indeksy](#indeksy)
 - 📝 [Język Manipulacji Danymi (DML)](#język-manipulacji-danymi-dml)
+    - 🔭 [Zapytania SQL (wszukujace oraz klauzule)](#Zapytania-SQL)
 - 🔣 [Funkcje](#funkcje)
 - 🔗 [Joins (łączenia)](#joins-łączenia)
 - 🔍 [Widoki](#widoki)
@@ -149,8 +150,45 @@ Język Definicji Danych (DDL) w SQL jest używany do definiowania struktury bazy
     DELETE FROM nazwa_tabeli
     WHERE warunek;
   ```
-
   **Przykład** ```DELETE FROM Pracownicy WHERE ID = 3;```
+
+
+## Zapytania SQL (wszukujace oraz klauzule)
+
+**SELECT**: Wyszukiwanie danych w tabeli
+
+  ```sql
+  SELECT kolumna1,kolumna2,... from tabela
+  ```
+
+  **Przykład** ```SELECT imie,nazwisko FROM uczniowie;```
+
+### **1. WHERE**
+
+Klauzula `WHERE` jest używana do filtrowania rekordów w zapytaniu SQL w oparciu o określone warunki.
+
+| **Operacja**       | **Opis**                                                                                         | **Przykład**                             |
+|--------------------|--------------------------------------------------------------------------------------------------|-----------------------------------------|
+| **WHERE**          | Filtruje rekordy na podstawie określonego warunku.                                               | `SELECT * FROM klienci WHERE wiek > 30;` |
+| **AND**            | Łączy wiele warunków, zwracając rekordy, które spełniają wszystkie warunki.                      | `SELECT * FROM klienci WHERE wiek > 30 AND miasto = 'Warszawa';` |
+| **OR**             | Łączy wiele warunków, zwracając rekordy, które spełniają przynajmniej jeden z warunków.           | `SELECT * FROM klienci WHERE wiek > 30 OR miasto = 'Warszawa';` |
+| **NOT**            | Neguje warunek, zwracając rekordy, które nie spełniają określonego warunku.                       | `SELECT * FROM klienci WHERE NOT miasto = 'Warszawa';` |
+| **BETWEEN**        | Zwraca rekordy, których wartości mieszczą się w określonym zakresie.                              | `SELECT * FROM produkty WHERE cena BETWEEN 10 AND 50;` |
+| **IN**             | Zwraca rekordy, których wartości są zgodne z dowolną wartością na liście.                         | `SELECT * FROM klienci WHERE kraj IN ('Polska', 'Niemcy', 'Francja');` |
+| **LIKE**           | Zwraca rekordy, których wartości pasują do określonego wzorca.                                    | `SELECT * FROM klienci WHERE imie LIKE 'A%';` |
+| **IS NULL**        | Zwraca rekordy, które mają wartość NULL w określonej kolumnie.                                    | `SELECT * FROM klienci WHERE email IS NULL;` |
+| **IS NOT NULL**    | Zwraca rekordy, które nie mają wartości NULL w określonej kolumnie.                               | `SELECT * FROM klienci WHERE email IS NOT NULL;` |
+
+### **2. LIKE**
+
+Klauzula `LIKE` jest używana do wyszukiwania określonego wzorca w kolumnie tekstowej.
+
+| **Operator**       | **Opis**                                                                                         | **Przykład**                             |
+|--------------------|--------------------------------------------------------------------------------------------------|-----------------------------------------|
+| **%**              | Zastępuje dowolną liczbę znaków.                                                                 | `SELECT * FROM klienci WHERE imie LIKE 'A%';` (znajduje imiona zaczynające się na 'A') |
+| **_**              | Zastępuje dokładnie jeden znak.                                                                  | `SELECT * FROM klienci WHERE imie LIKE '_a_';` (znajduje imiona z trzema literami, gdzie druga litera to 'a') |
+| **[charlist]**     | Zastępuje dowolny pojedynczy znak z listy znaków.                                                | `SELECT * FROM klienci WHERE imie LIKE '[AEIOU]%';` (znajduje imiona zaczynające się na dowolną z podanych liter) |
+| **[^charlist]**    | Zastępuje dowolny pojedynczy znak, który nie znajduje się na liście znaków.                      | `SELECT * FROM klienci WHERE imie LIKE '[^AEIOU]%';` (znajduje imiona nie zaczynające się na dowolną z podanych liter) |
 
   
 ## Procedury składowane
