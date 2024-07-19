@@ -254,5 +254,7 @@ Funkcje w SQL to wbudowane narzędzia służące do wykonywania operacji na dany
 | IFNULL()  | Zwraca określoną wartość, jeśli dane są NULL.                                             | `SELECT IFNULL(email, 'brak') FROM klienci;`           |
 | NULLIF()  | Zwraca NULL, jeśli dwa wyrażenia są równe.                                                | `SELECT NULLIF(cena, 0) FROM produkty;`                |
 
+## Joins (łączenia)
+
 ## Procedury składowane
 
