@@ -9,6 +9,8 @@
 - 📝 [Język Manipulacji Danymi (DML)](#język-manipulacji-danymi-dml)
     - 🔭 [Zapytania SQL (wszukujace oraz klauzule)](#Zapytania-SQL)
 - 🔣 [Funkcje](#funkcje)
+    - [Agregujące](funkcje-agregujace)
+    - [Tekstowe](funkcje-tekstowe)
 - 🔗 [Joins (łączenia)](#joins-łączenia)
 - 🔍 [Widoki](#widoki)
 - 🔐 [Język Kontroli Danych (DCL)](#język-kontroli-danych-dcl)
@@ -190,6 +192,11 @@ Klauzula `LIKE` jest używana do wyszukiwania określonego wzorca w kolumnie tek
 | **[charlist]**     | Zastępuje dowolny pojedynczy znak z listy znaków.                                                | `SELECT * FROM klienci WHERE imie LIKE '[AEIOU]%';` (znajduje imiona zaczynające się na dowolną z podanych liter) |
 | **[^charlist]**    | Zastępuje dowolny pojedynczy znak, który nie znajduje się na liście znaków.                      | `SELECT * FROM klienci WHERE imie LIKE '[^AEIOU]%';` (znajduje imiona nie zaczynające się na dowolną z podanych liter) |
 
+## Funkcje
+
+Funkcje w SQL to wbudowane narzędzia służące do wykonywania operacji na danych, takich jak obliczenia matematyczne, manipulacje tekstem, czy agregacje wyników. Ułatwiają one przetwarzanie i analizę danych w bazach danych, umożliwiając bardziej złożone zapytania i operacje.
+
+## Funkcje Agregujące
   
 ## Procedury składowane
 
