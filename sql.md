@@ -6,15 +6,15 @@
 - 🛠️ [Język Definicji Danych (DDL)](#język-definicji-danych-ddl)
 - 📝 [Język Manipulacji Danymi (DML)](#język-manipulacji-danymi-dml)
 - 🔐 [Język Kontroli Danych (DCL)](#język-kontroli-danych-dcl)
-- [🔗 Joins (łączenia)](#joins-łączenia)
-- [📑 Indeksy](#indeksy)
-- [🔍 Widoki](#widoki)
-- [🔣 Funkcje](#funkcje)
-- [📋 Procedury składowane](#procedury-składowane)
-- [📚 Teoria](#teoria)
+- 🔗 [Joins (łączenia)](#joins-łączenia)
+- 📑 [Indeksy](#indeksy)
+- 🔍 [Widoki](#widoki)
+- 🔣 [Funkcje](#funkcje)
+- 📋 [Procedury składowane](#procedury-składowane)
+- 📚 [Teoria](#teoria)
 
 
-## Wprowadzenie
+## 📖 Wprowadzenie
 SQL (Structured Query Language) to standardowy język zapytań używany do komunikacji z bazami danych. Został zaprojektowany do zarządzania i manipulacji danymi przechowywanymi w systemach zarządzania bazami danych (DBMS). SQL jest wszechstronny i używany w różnych typach baz danych, takich jak MySQL, PostgreSQL, SQLite, Microsoft SQL Server i Oracle.
 
 ### Dlaczego SQL jest ważny?
