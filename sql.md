@@ -8,6 +8,7 @@
 - 📑 [Indeksy](#indeksy)
 - 📝 [Język Manipulacji Danymi (DML)](#język-manipulacji-danymi-dml)
     - 🔭 [Zapytania SQL (wszukujace oraz klauzule)](#Zapytania-SQL)
+    - [Grupowanie, Sortowanie i Klauzula HAVING](#Grupowanie-Sortowanie-i-Klauzula-HAVING)
 - 🔣 [Funkcje](#funkcje)
   - 📊 [Funkcje agregujące](#funkcje-agregujące)
   - 📖 [Funkcje tekstowe](#funkcje-tekstowe)
@@ -195,11 +196,33 @@ Klauzula `LIKE` jest używana do wyszukiwania określonego wzorca w kolumnie tek
 | **[charlist]**     | Zastępuje dowolny pojedynczy znak z listy znaków.                                                | `SELECT * FROM klienci WHERE imie LIKE '[AEIOU]%';` (znajduje imiona zaczynające się na dowolną z podanych liter) |
 | **[^charlist]**    | Zastępuje dowolny pojedynczy znak, który nie znajduje się na liście znaków.                      | `SELECT * FROM klienci WHERE imie LIKE '[^AEIOU]%';` (znajduje imiona nie zaczynające się na dowolną z podanych liter) |
 
+### Grupowanie, Sortowanie i Klauzula HAVING
+
+ **1. Grupowanie danych**
+
+| **Funkcja/Klaza** | **Opis**                                                | **Przykład**                                      |
+|-------------------|---------------------------------------------------------|---------------------------------------------------|
+| `GROUP BY`        | Grupuje wiersze, które mają te same wartości w określonych kolumnach. | `SELECT kraj, COUNT(*) FROM klienci GROUP BY kraj;` |
+
+**2. Sortowanie danych**
+
+| **Funkcja/Klaza** | **Opis**                                                | **Przykład**                                      |
+|-------------------|---------------------------------------------------------|---------------------------------------------------|
+| `ORDER BY`        | Sortuje wynikowe wiersze na podstawie wartości jednej lub więcej kolumn. | `SELECT * FROM klienci ORDER BY nazwisko ASC;`    |
+
+ **3. Klauzula HAVING**
+
+| **Funkcja/Klaza** | **Opis**                                                | **Przykład**                                      |
+|-------------------|---------------------------------------------------------|---------------------------------------------------|
+| `HAVING`          | Filtruje wyniki po grupowaniu, podobnie jak `WHERE`, ale stosuje się do agregowanych danych. | `SELECT kraj, COUNT(*) FROM klienci GROUP BY kraj HAVING COUNT(*) > 5;` |
+
+
+
 ## Funkcje
 
 Funkcje w SQL to wbudowane narzędzia służące do wykonywania operacji na danych, takich jak obliczenia matematyczne, manipulacje tekstem, czy agregacje wyników. Ułatwiają one przetwarzanie i analizę danych w bazach danych, umożliwiając bardziej złożone zapytania i operacje.
 
-## Funkcje Agregujące
+### Funkcje Agregujące
 
 | Funkcja | Opis                                        | Przykład                            |
 |---------|---------------------------------------------|-------------------------------------|
@@ -209,7 +232,7 @@ Funkcje w SQL to wbudowane narzędzia służące do wykonywania operacji na dany
 | MIN()   | Zwraca minimalną wartość w kolumnie.         | `SELECT MIN(cena) FROM produkty;`   |
 | MAX()   | Zwraca maksymalną wartość w kolumnie.        | `SELECT MAX(cena) FROM produkty;`   |
 
-## Funkcje Tekstowe
+### Funkcje Tekstowe
 
 | Funkcja    | Opis                                                         | Przykład                                      |
 |------------|--------------------------------------------------------------|-----------------------------------------------|
@@ -221,7 +244,7 @@ Funkcje w SQL to wbudowane narzędzia służące do wykonywania operacji na dany
 | REPLACE()  | Zastępuje wszystkie wystąpienia podciągu innym podciągiem.     | `SELECT REPLACE(nazwa, 'stary', 'nowy') FROM produkty;` |
 | TRIM()     | Usuwa białe znaki z początku i końca ciągu znaków.              | `SELECT TRIM(imie) FROM klienci;`               |
 
-## Funkcje Numeryczne
+### Funkcje Numeryczne
 
 | Funkcja   | Opis                                                         | Przykład                |
 |-----------|--------------------------------------------------------------|-------------------------|
@@ -232,7 +255,7 @@ Funkcje w SQL to wbudowane narzędzia służące do wykonywania operacji na dany
 | MOD()     | Zwraca resztę z dzielenia jednej liczby przez drugą.           | `SELECT MOD(10, 3);`    |
 | POWER()   | Podnosi liczbę do określonej potęgi.                            | `SELECT POWER(2, 3);`   |
 
-## Funkcje Daty i Czasu
+### Funkcje Daty i Czasu
 
 | Funkcja   | Opis                                      | Przykład                           |
 |-----------|-------------------------------------------|------------------------------------|
@@ -246,13 +269,14 @@ Funkcje w SQL to wbudowane narzędzia służące do wykonywania operacji na dany
 | MONTH()   | Zwraca miesiąc z daty.                       | `SELECT MONTH(NOW());`             |
 | DAY()     | Zwraca dzień z daty.                         | `SELECT DAY(NOW());`               |
 
-## Funkcje Logiczne 
+### Funkcje Logiczne 
 
 | Funkcja   | Opis                                                                                      | Przykład                                              |
 |-----------|-------------------------------------------------------------------------------------------|-------------------------------------------------------|
 | IF()      | Zwraca jedną wartość, jeśli warunek jest spełniony, a inną wartość, jeśli nie jest.       | `SELECT IF(wiek > 18, 'Dorosły', 'Nieletni') FROM klienci;` |
 | IFNULL()  | Zwraca określoną wartość, jeśli dane są NULL.                                             | `SELECT IFNULL(email, 'brak') FROM klienci;`           |
 | NULLIF()  | Zwraca NULL, jeśli dwa wyrażenia są równe.                                                | `SELECT NULLIF(cena, 0) FROM produkty;`                |
+
 
 ## Joins (łączenia)
 
