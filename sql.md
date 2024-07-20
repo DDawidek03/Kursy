@@ -8,7 +8,7 @@
 - 📑 [Indeksy](#indeksy)
 - 📝 [Język Manipulacji Danymi (DML)](#język-manipulacji-danymi-dml)
     - 🔭 [Zapytania SQL (wszukujace oraz klauzule)](#Zapytania-SQL)
-    - [Grupowanie, Sortowanie i Klauzula HAVING](#Grupowanie-Sortowanie-i-Klauzula-HAVING)
+    - 📥 [Grupowanie, Sortowanie i Klauzula HAVING](#Grupowanie-Sortowanie-i-Klauzula-HAVING)
 - 🔣 [Funkcje](#funkcje)
   - 📊 [Funkcje agregujące](#funkcje-agregujące)
   - 📖 [Funkcje tekstowe](#funkcje-tekstowe)
@@ -214,7 +214,7 @@ Klauzula `LIKE` jest używana do wyszukiwania określonego wzorca w kolumnie tek
 
 | **Funkcja/Klaza** | **Opis**                                                | **Przykład**                                      |
 |-------------------|---------------------------------------------------------|---------------------------------------------------|
-| `HAVING`          | Filtruje wyniki po grupowaniu, podobnie jak `WHERE`, ale stosuje się do agregowanych danych. | `SELECT kraj, COUNT(*) FROM klienci GROUP BY kraj HAVING COUNT(*) > 5;` |
+|    `HAVING`       | Filtruje wyniki po grupowaniu, podobnie jak `WHERE`, ale stosuje się do agregowanych danych. | `SELECT kraj, COUNT(*) FROM klienci GROUP BY kraj HAVING COUNT(*) > 5;` |
 
 
 
@@ -277,8 +277,29 @@ Funkcje w SQL to wbudowane narzędzia służące do wykonywania operacji na dany
 | IFNULL()  | Zwraca określoną wartość, jeśli dane są NULL.                                             | `SELECT IFNULL(email, 'brak') FROM klienci;`           |
 | NULLIF()  | Zwraca NULL, jeśli dwa wyrażenia są równe.                                                | `SELECT NULLIF(cena, 0) FROM produkty;`                |
 
-
 ## Joins (łączenia)
+
+Łączenie tabel (JOIN) w SQL to potężna operacja umożliwiająca pobieranie danych z dwóch lub więcej tabel na podstawie określonych warunków. Istnieje kilka typów połączeń, które pozwalają na różne sposoby łączenia danych
+
+**1. Typy łączeń tabel**
+
+| Typ łączenia          | Opis                                                                                  | Przykład                                                                                     |
+|-----------------------|---------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
+| INNER JOIN        | Zwraca wiersze, które mają pasujące wartości w obu tabelach.                           | `SELECT a.*, b.* FROM tabelaA a INNER JOIN tabelaB b ON a.id = b.a_id;` |
+| LEFT JOIN (LEFT OUTER JOIN) | Zwraca wszystkie wiersze z lewej tabeli i pasujące wiersze z prawej tabeli.        | `SELECT a.*, b.* FROM tabelaA a LEFT JOIN tabelaB b ON a.id = b.a_id;` |
+| RIGHT JOIN (RIGHT OUTER JOIN) | Zwraca wszystkie wiersze z prawej tabeli i pasujące wiersze z lewej tabeli.       | `SELECT a.*, b.* FROM tabelaA a RIGHT JOIN tabelaB b ON a.id = b.a_id;`|
+| FULL JOIN (FULL OUTER JOIN) | Zwraca wszystkie wiersze, gdy jest dopasowanie w jednej z tabel.                   | *MySQL nie obsługuje FULL JOIN bezpośrednio, można go zasymulować przy użyciu UNION.*         |
+| CROSS JOIN        | Zwraca iloczyn kartezjański wierszy z obu tabel.                                       | `SELECT a.*, b.* FROM tabelaA a CROSS JOIN tabelaB b;`                  |
+| SELF JOIN         | Łączy wiersze w tej samej tabeli.                                                     | `SELECT a.*, b.* FROM tabelaA a INNER JOIN tabelaA b ON a.id = b.parent_id;`|
+
+**2. Opis**
+
+- **INNER JOIN**: Zwraca tylko te rekordy, które mają dopasowanie w obu tabelach.
+- **LEFT JOIN (LEFT OUTER JOIN)**: Zwraca wszystkie rekordy z lewej tabeli oraz dopasowane rekordy z prawej tabeli. Jeśli nie ma dopasowania, zwraca NULL dla kolumn z prawej tabeli.
+- **RIGHT JOIN (RIGHT OUTER JOIN)**: Zwraca wszystkie rekordy z prawej tabeli oraz dopasowane rekordy z lewej tabeli. Jeśli nie ma dopasowania, zwraca NULL dla kolumn z lewej tabeli.
+- **FULL JOIN (FULL OUTER JOIN)**: Zwraca wszystkie rekordy, które mają dopasowanie w jednej z tabel. (MySQL nie obsługuje tej klauzuli bezpośrednio, można użyć kombinacji LEFT i RIGHT JOIN z UNION).
+- **CROSS JOIN**: Zwraca iloczyn kartezjański tabel. Każdy rekord z jednej tabeli jest połączony z każdym rekordem z drugiej tabeli.
+- **SELF JOIN**: Używany do łączenia wierszy tej samej tabeli. Często używany do hierarchicznych struktur danych.
 
 ## Procedury składowane
 
