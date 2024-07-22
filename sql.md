@@ -371,19 +371,19 @@ Język Kontroli Danych (DCL) w SQL jest używany do kontrolowania dostępu do da
 
 **1.Tworzenie Użytkownika**
 - `CREATE USER`: Tworzy nowego użytkownika bazy danych.
-  ```sql
-  CREATE USER 'nazwa_użytkownika'@'host' IDENTIFIED BY 'hasło';
-  ```
+   ```sql
+   CREATE USER 'nazwa_użytkownika'@'host' IDENTIFIED BY 'hasło';
+   ```
 
-  **Przykład**: `CREATE USER 'jan_kowalski'@'localhost' IDENTIFIED BY 'bezpieczne_haslo';`
+**Przykład**: `CREATE USER 'jan_kowalski'@'localhost' IDENTIFIED BY 'bezpieczne_haslo';`
 
 **2.Usuwanie Użytkownika**
  - `DROP USER`: Usuwa istniejącego użytkownika bazy danych.
-    ```sql
-    DROP USER 'nazwa_użytkownika'@'host';
-    ```
+   ```sql
+   DROP USER 'nazwa_użytkownika'@'host';
+   ```
 
-    **Przykład**: `DROP USER 'jan_kowalski'@'localhost';`
+**Przykład**: `DROP USER 'jan_kowalski'@'localhost';`
 
 **3.Nadawanie Uprawnień**
 
@@ -400,22 +400,22 @@ Język Kontroli Danych (DCL) w SQL jest używany do kontrolowania dostępu do da
 | UPDATE        | Nadaje uprawnienie do modyfikowania zawartości tabeli                                          |
 | USAGE         | Nadaje dostęp do bazy danych bez dodatkowych uprawnień                                         |
 
-- `GRANT`: Przyznaje określone uprawnienia użytkownikowi.
-- `GRANT ALL PRIVILEGES`: Przyznaje wszystkie uprawnienia użytkownikowi.
+ - `GRANT`: Przyznaje określone uprawnienia użytkownikowi.
+ - `GRANT ALL PRIVILEGES`: Przyznaje wszystkie uprawnienia użytkownikowi.
 
-```sql
-GRANT uprawnienia ON nazwa_bazy.nazwa_tabeli TO 'nazwa_użytkownika'@'host';
-```
+   ```sql
+   GRANT uprawnienia ON nazwa_bazy.nazwa_tabeli TO 'nazwa_użytkownika'@'host';
+   ```
 
 **Przykład**: `GRANT SELECT, INSERT, UPDATE ON sklep.produkty TO 'jan_kowalski'@'localhost';`
 
 **4.Odbieranie Uprawnień**
 
- - `REVOKE`: Odbiera określone uprawnienia od użytkownika.
+- `REVOKE`: Odbiera określone uprawnienia od użytkownika.
 
- ```sql
- REVOKE uprawnienia ON nazwa_bazy.nazwa_tabeli FROM 'nazwa_użytkownika'@'host';
- ```
+   ```sql
+   REVOKE uprawnienia ON nazwa_bazy.nazwa_tabeli FROM 'nazwa_użytkownika'@'host';
+   ```
 
 ***Pzykład**: `REVOKE SELECT, INSERT ON sklep.produkty FROM 'jan_kowalski'@'localhost';`
 
@@ -423,9 +423,9 @@ GRANT uprawnienia ON nazwa_bazy.nazwa_tabeli TO 'nazwa_użytkownika'@'host';
 
 - `SHOW GRANTS`: Wyświetla uprawnienia użytkownika.
 
-```sql
-SHOW GRANTS FOR 'nazwa_użytkownika'@'host';
-```
+   ```sql
+   SHOW GRANTS FOR 'nazwa_użytkownika'@'host';
+   ```
 
 **Przykład**: `SHOW GRANTS FOR 'jan_kowalski'@'localhost';`
 
