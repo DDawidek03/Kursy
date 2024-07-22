@@ -2,17 +2,17 @@
 
 ## 📄 Spis Treści
 
-- [📖 Wprowadzenie](#wprowadzenie)
-- [🔢 Typy Danych](#typy-danych)
-- [🔁 Struktury Kontrolne](#struktury-kontrolne)
-- [📦 Moduły i Pakiety](#moduły-i-pakiety)
-- [🗃️ Praca z Plikami](#praca-z-plikami)
-- [🧰 Funkcje](#funkcje)
-- [🚀 Programowanie Obiektowe](#programowanie-obiektowe)
-- [📊 Matplotlib](#matplotlib)
-- [🖼️ Tkinter](#tkinter)
-- [🐼 Biblioteka Pandas](#biblioteka-pandas)
-- [🔍 Debugowanie i Testowanie](#debugowanie-i-testowanie)
+- 📖 [Wprowadzenie](#wprowadzenie)
+- 🔢 [Typy Danych](#typy-danych)
+- 🔁 [Struktury Kontrolne](#struktury-kontrolne)
+- 📦 [Moduły i Pakiety](#moduły-i-pakiety)
+- 🗃️ [Praca z Plikami](#praca-z-plikami)
+- 🧰 [Funkcje](#funkcje)
+- 🚀 [Programowanie Obiektowe](#programowanie-obiektowe)
+- 📊 [Matplotlib](#matplotlib)
+- 🖼️ [Tkinter](#tkinter)
+- 🐼 [Biblioteka Pandas](#biblioteka-pandas)
+- 🔍 [Debugowanie i Testowanie](#debugowanie-i-testowanie)
 
 ## 📖 Wprowadzenie
 
