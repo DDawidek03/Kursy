@@ -292,7 +292,6 @@ Funkcje w SQL to wbudowane narzędzia służące do wykonywania operacji na dany
 | CROSS JOIN        | Zwraca iloczyn kartezjański wierszy z obu tabel.                                       | `SELECT a.*, b.* FROM tabela1 as a CROSS JOIN tabela2 as b;`                  |
 | SELF JOIN         | Łączy wiersze w tej samej tabeli.                                                     | `SELECT a.*, b.* FROM tabela1 as a INNER JOIN tabela2 as b ON a.id = b.parent_id;`|
 
-`as` - **Alias** to tymczasowa nazwa nadawana tabeli lub kolumnie w celu ułatwienia odczytu i zrozumienia wyników zapytań. Alias nie zmienia danych w bazie, działa tylko na czas wykonania zapytania.
 **2. Opis**
 
 - **INNER JOIN**: Zwraca tylko te rekordy, które mają dopasowanie w obu tabelach.
@@ -301,6 +300,8 @@ Funkcje w SQL to wbudowane narzędzia służące do wykonywania operacji na dany
 - **FULL JOIN (FULL OUTER JOIN)**: Zwraca wszystkie rekordy, które mają dopasowanie w jednej z tabel. (MySQL nie obsługuje tej klauzuli bezpośrednio, można użyć kombinacji LEFT i RIGHT JOIN z UNION).
 - **CROSS JOIN**: Zwraca iloczyn kartezjański tabel. Każdy rekord z jednej tabeli jest połączony z każdym rekordem z drugiej tabeli.
 - **SELF JOIN**: Używany do łączenia wierszy tej samej tabeli. Często używany do hierarchicznych struktur danych.
+
+`as` - **Alias** to tymczasowa nazwa nadawana tabeli lub kolumnie w celu ułatwienia odczytu i zrozumienia wyników zapytań. Alias nie zmienia danych w bazie, działa tylko na czas wykonania zapytania.
 
 ## Widoki
 
@@ -364,5 +365,70 @@ Aby usunąć widok, używamy instrukcji `DROP VIEW`.
 DROP VIEW widok_nazwa;
 ```
 
-## Procedury składowane
+## Język Kontroli Danych (DCL)
+
+Język Kontroli Danych (DCL) w SQL jest używany do kontrolowania dostępu do danych w bazie danych. Obejmuje to tworzenie użytkowników, nadawanie uprawnień oraz ich odbieranie.
+
+**1.Tworzenie Użytkownika**
+- `CREATE USER`: Tworzy nowego użytkownika bazy danych.
+  ```sql
+  CREATE USER 'nazwa_użytkownika'@'host' IDENTIFIED BY 'hasło';
+  ```
+
+  **Przykład**: `CREATE USER 'jan_kowalski'@'localhost' IDENTIFIED BY 'bezpieczne_haslo';`
+
+**2.Usuwanie Użytkownika**
+ - `DROP USER`: Usuwa istniejącego użytkownika bazy danych.
+    ```sql
+    DROP USER 'nazwa_użytkownika'@'host';
+    ```
+
+    **Przykład**: `DROP USER 'jan_kowalski'@'localhost';`
+
+**3.Nadawanie Uprawnień**
+
+| Uprawnienie   | Opis                                                                                          |
+| ------------- | -------------------------------------------------------------------------------------------- |
+| ALL           | Nadaje wszystkie uprawnienia oprócz opcji nadawania uprawnień                                 |
+| ALTER         | Nadaje uprawnienie do modyfikowania struktury tabeli                                          |
+| CREATE        | Nadaje uprawnienie do tworzenia obiektów, takich jak bazy danych, tabele, kolumny              |
+| DELETE        | Nadaje uprawnienie do usuwania wierszy w wybranej tabeli                                      |
+| DROP          | Nadaje uprawnienie do usuwania tabeli                                                         |
+| INSERT        | Nadaje uprawnienie do wstawiania wierszy do tabeli                                             |
+| SELECT        | Nadaje uprawnienie do zapytania danych                                                        |
+| SHOW DATABASES| Nadaje uprawnienie do wyświetlania listy baz danych                                            |
+| UPDATE        | Nadaje uprawnienie do modyfikowania zawartości tabeli                                          |
+| USAGE         | Nadaje dostęp do bazy danych bez dodatkowych uprawnień                                         |
+
+- `GRANT`: Przyznaje określone uprawnienia użytkownikowi.
+- `GRANT ALL PRIVILEGES`: Przyznaje wszystkie uprawnienia użytkownikowi.
+
+```sql
+GRANT uprawnienia ON nazwa_bazy.nazwa_tabeli TO 'nazwa_użytkownika'@'host';
+```
+
+**Przykład**: `GRANT SELECT, INSERT, UPDATE ON sklep.produkty TO 'jan_kowalski'@'localhost';`
+
+**4.Odbieranie Uprawnień**
+
+ - `REVOKE`: Odbiera określone uprawnienia od użytkownika.
+
+ ```sql
+ REVOKE uprawnienia ON nazwa_bazy.nazwa_tabeli FROM 'nazwa_użytkownika'@'host';
+ ```
+
+***Pzykład**: `REVOKE SELECT, INSERT ON sklep.produkty FROM 'jan_kowalski'@'localhost';`
+
+**5.Wyświetlanie Uprawnień Użytkownika**
+
+- `SHOW GRANTS`: Wyświetla uprawnienia użytkownika.
+
+```sql
+SHOW GRANTS FOR 'nazwa_użytkownika'@'host';
+```
+
+**Przykład**: `SHOW GRANTS FOR 'jan_kowalski'@'localhost';`
+
+
+
 
