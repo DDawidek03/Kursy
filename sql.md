@@ -285,13 +285,14 @@ Funkcje w SQL to wbudowane narzędzia służące do wykonywania operacji na dany
 
 | Typ łączenia          | Opis                                                                                  | Przykład                                                                                     |
 |-----------------------|---------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
-| INNER JOIN        | Zwraca wiersze, które mają pasujące wartości w obu tabelach.                           | `SELECT a.*, b.* FROM tabelaA a INNER JOIN tabelaB b ON a.id = b.a_id;` |
-| LEFT JOIN (LEFT OUTER JOIN) | Zwraca wszystkie wiersze z lewej tabeli i pasujące wiersze z prawej tabeli.        | `SELECT a.*, b.* FROM tabelaA a LEFT JOIN tabelaB b ON a.id = b.a_id;` |
-| RIGHT JOIN (RIGHT OUTER JOIN) | Zwraca wszystkie wiersze z prawej tabeli i pasujące wiersze z lewej tabeli.       | `SELECT a.*, b.* FROM tabelaA a RIGHT JOIN tabelaB b ON a.id = b.a_id;`|
+| INNER JOIN        | Zwraca wiersze, które mają pasujące wartości w obu tabelach.                           | `SELECT a.*, b.* FROM tabela1 as a INNER JOIN tabela2 as b ON a.id = b.a_id;` |
+| LEFT JOIN (LEFT OUTER JOIN) | Zwraca wszystkie wiersze z lewej tabeli i pasujące wiersze z prawej tabeli.        | `SELECT a.*, b.* FROM tabela1 as a LEFT JOIN tabela2 as b ON a.id = b.a_id;` |
+| RIGHT JOIN (RIGHT OUTER JOIN) | Zwraca wszystkie wiersze z prawej tabeli i pasujące wiersze z lewej tabeli.       | `SELECT a.*, b.* FROM tabela1 as a RIGHT JOIN tabela2 as b ON a.id = b.a_id;`|
 | FULL JOIN (FULL OUTER JOIN) | Zwraca wszystkie wiersze, gdy jest dopasowanie w jednej z tabel.                   | *MySQL nie obsługuje FULL JOIN bezpośrednio, można go zasymulować przy użyciu UNION.*         |
-| CROSS JOIN        | Zwraca iloczyn kartezjański wierszy z obu tabel.                                       | `SELECT a.*, b.* FROM tabelaA a CROSS JOIN tabelaB b;`                  |
-| SELF JOIN         | Łączy wiersze w tej samej tabeli.                                                     | `SELECT a.*, b.* FROM tabelaA a INNER JOIN tabelaA b ON a.id = b.parent_id;`|
+| CROSS JOIN        | Zwraca iloczyn kartezjański wierszy z obu tabel.                                       | `SELECT a.*, b.* FROM tabela1 as a CROSS JOIN tabela2 as b;`                  |
+| SELF JOIN         | Łączy wiersze w tej samej tabeli.                                                     | `SELECT a.*, b.* FROM tabela1 as a INNER JOIN tabela2 as b ON a.id = b.parent_id;`|
 
+`as` - **Alias** to tymczasowa nazwa nadawana tabeli lub kolumnie w celu ułatwienia odczytu i zrozumienia wyników zapytań. Alias nie zmienia danych w bazie, działa tylko na czas wykonania zapytania.
 **2. Opis**
 
 - **INNER JOIN**: Zwraca tylko te rekordy, które mają dopasowanie w obu tabelach.
@@ -300,6 +301,68 @@ Funkcje w SQL to wbudowane narzędzia służące do wykonywania operacji na dany
 - **FULL JOIN (FULL OUTER JOIN)**: Zwraca wszystkie rekordy, które mają dopasowanie w jednej z tabel. (MySQL nie obsługuje tej klauzuli bezpośrednio, można użyć kombinacji LEFT i RIGHT JOIN z UNION).
 - **CROSS JOIN**: Zwraca iloczyn kartezjański tabel. Każdy rekord z jednej tabeli jest połączony z każdym rekordem z drugiej tabeli.
 - **SELF JOIN**: Używany do łączenia wierszy tej samej tabeli. Często używany do hierarchicznych struktur danych.
+
+## Widoki
+
+Widok to wirtualna tabela stworzona na podstawie zapytania SELECT. Widoki nie przechowują danych, lecz wynik zapytania, które je definiuje. Mogą być używane do uproszczenia złożonych zapytań, zapewnienia bezpieczeństwa danych i poprawy czytelności kodu.
+
+**1. Aby stworzyć widok, używamy instrukcji `CREATE VIEW`.**
+
+```sql
+CREATE VIEW widok_nazwa AS
+SELECT kolumna1, kolumna2, ...
+FROM tabela
+WHERE warunek;
+```
+
+**Przykład**: `CREATE VIEW Pracownicy_Wysokie_Zarobki AS SELECT Imie, Nazwisko FROM Pracownicy WHERE Zarobki > 50000;`
+
+**2. Używanie widoku**
+
+ Widok można traktować jak zwykłą tabelę w zapytaniach SELECT, INSERT, UPDATE oraz DELETE (jeśli widok jest modyfikowalny).
+```sql
+SELECT * FROM widok_nazwa;
+```
+
+**3. Aktualizacja widoku.**
+
+Widoki mogą być modyfikowalne, co oznacza, że można wprowadzać zmiany w danych przez widok, które zostaną odzwierciedlone w oryginalnych tabelach. Jednak nie wszystkie widoki są modyfikowalne.
+
+```sql
+UPDATE widok_nazwa
+SET kolumna = 'Przykładowy tekst'
+WHERE warunek;
+```
+
+**Przykład**: ` UPDATE aktywni_klienci
+SET email = 'nowy_email@example.com'
+WHERE id = 1;
+`
+
+**4.Modifikacja widoku**
+
+```sql
+CREATE OR REPLACE VIEW 
+widok_nazwa AS
+SELECT kolumna1, kolumna2, ...
+FROM tabela
+WHERE warunek;
+```
+
+**Przykład**: `CREATE OR REPLACE VIEW Pracownicy_ Wysokie_Zarobki AS
+SELECT Imię, Nazwisko
+FROM Pracownicy
+WHERE Zarobki > 60000;
+`
+
+
+**5.Usuwanie widoku**
+
+Aby usunąć widok, używamy instrukcji `DROP VIEW`.
+
+```sql
+DROP VIEW widok_nazwa;
+```
 
 ## Procedury składowane
 
