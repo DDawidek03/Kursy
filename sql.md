@@ -19,7 +19,6 @@
 - 🔍 [Widoki](#widoki)
 - 🔐 [Język Kontroli Danych (DCL)](#język-kontroli-danych-dcl)
 - 📋 [Procedury składowane](#procedury-składowane)
-- 📚 [Teoria](#teoria)
 
 ## Wprowadzenie
 SQL (Structured Query Language) to standardowy język zapytań używany do komunikacji z bazami danych. Został zaprojektowany do zarządzania i manipulacji danymi przechowywanymi w systemach zarządzania bazami danych (DBMS). SQL jest wszechstronny i używany w różnych typach baz danych, takich jak MySQL, PostgreSQL, SQLite, Microsoft SQL Server i Oracle.
@@ -41,6 +40,25 @@ SQL (Structured Query Language) to standardowy język zapytań używany do komun
 - **DDL (Data Definition Language)**: Zawiera komendy do definiowania struktury bazy danych, takie jak `CREATE`, `ALTER`, `DROP`.
 - **DCL (Data Control Language)**: Zawiera komendy do zarządzania uprawnieniami, takie jak `GRANT`, `REVOKE`.
 - **TCL (Transaction Control Language)**: Zawiera komendy do zarządzania transakcjami, takie jak `COMMIT`, `ROLLBACK`, `SAVEPOINT`.
+
+### Podstawowe Pojecia
+
+| Pojecie             | Definicja                                                                 |
+| ------------------ | ------------------------------------------------------------------------- |
+| **Tabela**         | Struktura danych w bazie danych, składająca się z wierszy i kolumn.          |
+| **Kolumna**        | Element tabeli odpowiadający konkretnemu typowi danych.                      |
+| **Wiersz**         | Jedna pojedyncza rekordowa jednostka danych w tabeli.                        |
+| **Główny klucz**   | Unikalna kolumna w tabeli, identyfikująca każdy rekord w tej tabeli.        |
+| **Klucz obcy**     | Kolumna lub zestaw kolumn w tabeli, odnoszące się do głównego klucza innej tabeli. |
+| **Indeks**         | Struktura danych przyspieszająca procesy wyszukiwania i dostępu do danych.   |
+| **Normalizacja**   | Proces projektowania bazy danych w celu minimalizacji redundancji danych.   |
+| **Zapytanie SQL**  | Polecenie lub zestaw poleceń w języku SQL do komunikacji z bazą danych.     |
+| **Schemat bazy danych** | Struktura definiująca organizację i relacje między tabelami w bazie danych. |
+| **Zapytanie JOIN** | Operacja łączenia danych z dwóch lub więcej tabel na podstawie określonych kolumn. |
+| **Procedura składowana** | Przechowywany w bazie danych zestaw instrukcji SQL, wielokrotnie wywoływany. |
+| **Widok**          | Wirtualna tabela wynikająca z zapytania SQL, umożliwiająca dostęp do danych w określony sposób. |
+| **Raportowanie**   | Proces tworzenia raportów na podstawie danych z bazy danych w celu analizy i prezentacji informacji. |
+| **Backup (Kopia zapasowa)** | Proces tworzenia kopii zapasowych danych i przywracania ich w przypadku awarii lub utraty. |
 
 
 ## Język Definicji Danych (DDL)
