@@ -430,5 +430,53 @@ Język Kontroli Danych (DCL) w SQL jest używany do kontrolowania dostępu do da
 **Przykład**: `SHOW GRANTS FOR 'jan_kowalski'@'localhost';`
 
 
+## Procedury składowane
+
+Procedury składowane to zestaw wcześniej skompilowanych instrukcji SQL przechowywanych w bazie danych, które można wykonywać wielokrotnie. Zapewniają one sposób na enkapsulację złożonej logiki i reguł biznesowych w samej bazie danych. Procedury składowane oferują wiele korzyści, w tym poprawioną wydajność, możliwość ponownego wykorzystania kodu i zwiększone bezpieczeństwo.
+
+Oto przykład prostego procedury składowanej w SQL:
+
+```sql
+CREATE PROCEDURE GetCustomerByID
+  @CustomerID INT
+AS
+BEGIN
+  SELECT * FROM Customers WHERE CustomerID = @CustomerID;
+END;
+```
+
+W powyższym przykładzie tworzymy procedurę składowaną o nazwie `GetCustomerByID`, która przyjmuje parametr wejściowy `@CustomerID` i pobiera informacje o kliencie z tabeli `Customers` na podstawie podanego identyfikatora.
+
+Procedury składowane mogą również mieć parametry wyjściowe, które mogą zwracać wartości do kodu wywołującego. Oto przykład:
+
+```sql
+CREATE PROCEDURE CalculateOrderTotal
+  @OrderID INT,
+  @TotalAmount DECIMAL(10, 2) OUTPUT
+AS
+BEGIN
+  SELECT @TotalAmount = SUM(Quantity * Price)
+  FROM OrderItems
+  WHERE OrderID = @OrderID;
+END;
+```
+
+W tym przykładzie procedura składowana `CalculateOrderTotal` oblicza całkowitą kwotę dla danego identyfikatora zamówienia i zwraca wynik przez parametr wyjściowy `@TotalAmount`.
+
+Procedury składowane można wykonywać za pomocą instrukcji `EXECUTE` lub `EXEC`. Oto przykład:
+
+```sql
+DECLARE @CustomerID INT = 1;
+EXECUTE GetCustomerByID @CustomerID;
+```
+
+W tym przykładzie deklarujemy zmienną `@CustomerID`, a następnie wykonujemy procedurę składowaną `GetCustomerByID`, przekazując `@CustomerID` jako parametr.
+
+Procedury składowane można również wywoływać z innych instrukcji SQL, takich jak `SELECT`, `INSERT`, `UPDATE` lub `DELETE`. Oto przykład:
+
+```sql
+SELECT * FROM Customers
+WHERE CustomerID IN (SELECT CustomerID FROM GetActiveCustomers);
+```
 
 
