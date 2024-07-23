@@ -8,30 +8,26 @@ Tutaj znajdziesz zasoby edukacyjne dotyczące różnych języków programowania.
 
 - [📘 Kurs SQL](./sql.md)
 - [🐍 Kurs Python](./python.md)
-- [💻 Kurs C++](./c++.md)
 
 ## 🌟 O Kursach
 
 ### 📘 Kurs SQL
+
 Poznaj podstawy oraz zaawansowane techniki pracy z bazami danych za pomocą języka SQL. Ten kurs obejmuje:
+
 - Tworzenie i zarządzanie bazami danych
 - Wydajne zapytania
 - Optymalizację wydajności
 - Praktyczne ćwiczenia
 
 ### 🐍 Kurs Python
+
 Python to wszechstronny język programowania idealny dla początkujących i zaawansowanych. W tym kursie znajdziesz:
+
 - Podstawy składni języka
 - Programowanie obiektowe
 - Przetwarzanie danych
 - Automatyzacja zadań
-
-### 💻 Kurs C++
-Zanurz się w świat programowania niskopoziomowego i wysokowydajnych aplikacji z C++. Ten kurs obejmuje:
-- Podstawy języka C++
-- Zarządzanie pamięcią
-- Programowanie obiektowe
-- Optymalizację kodu
 
 ## 🎯 Jak Zacząć?
 
@@ -47,4 +43,4 @@ Dziękujemy za odwiedzenie naszego repozytorium. Życzymy owocnej nauki! 🎓
 
 ---
 
-> Autor: Damian Dawidek  
+> Autor: Damian Dawidek
