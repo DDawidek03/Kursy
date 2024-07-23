@@ -46,7 +46,7 @@ Python jest dynamicznie typowanym językiem, co oznacza, że typ zmiennej jest o
 
 W Pythonie obowiązują pewne zasady i konwencje nazewnictwa zmiennych:
 
-- Zmienne mogą zaczynać się od litery lub podkreślenia (\_), ale nie od cyfry.
+- Zmienne mogą zaczynać się od litery lub podkreślenia ( \_ ), ale nie od cyfry.
 - Mogą zawierać litery, cyfry i podkreślenia.
 - Python rozróżnia wielkość liter, więc name i Name to dwie różne zmienne.
 - Stosowanie konwencji snake_case do nazewnictwa zmiennych (np. user_name, total_amount).
