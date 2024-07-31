@@ -69,6 +69,215 @@ Struktury kontrolne w Pythonie pozwalają na sterowanie przepływem wykonania pr
 
 ## Łańcuchy Znaków
 
+Łańcuchy znaków, zwane stringami, są jednym z podstawowych typów danych w Pythonie. To sekwencje znaków znajdujące się między
+cudzysłowami pojedynczymi lub podwójnymi. Łańcuch znaków to układ występujących po sobie
+znaków. Niekoniecznie musi być to układ liter.
+
+### Funkcje Łańcuchów Znaków
+
+- 🖨️ **`print()`** - wyświetla wynik na ekranie.
+
+```python
+print("Witaj, świecie!")  # Output: Witaj, świecie!
+```
+
+- 📏 **`len()`** - zwraca długość łańcucha.
+
+```python
+print(len("Python"))  # Output: 6
+```
+
+- 🔢 **`count()`** - zwraca liczbę wystąpień podłańcucha w łańcuchu.
+
+```python
+text = "banana"
+print(text.count("a"))  # Output: 3
+```
+
+- 🚀 **`max()`** - zwraca największy element w łańcuchu (alfabetycznie).
+
+```python
+text = "banana"
+print(max(text))  # Output: n
+```
+
+- ➕ **`append()`** - dodaje element na końcu listy (nie dotyczy łańcuchów, tylko list).
+
+```python
+my_list = [1, 2, 3]
+my_list.append(4)
+print(my_list)  # Output: [1, 2, 3, 4]
+```
+
+- 🔡 **`lower()`** - Zmienia wszytskie duze litery na małe w stringu
+
+```python
+zmienna = "TO JEST NAPIS"
+print(zmeinna.lower()) #to jest napis
+```
+
+- 🔠 **`upper()`** - Zmienia wszytskie małe litery na duze w stringu
+
+```python
+zmienna = "to jest napis"
+print(zmeinna.upper()) #TO JEST NAPIS
+```
+
+- 🔁 **`swapcase()`** - Odwraca rodzaj kazdej litery - małe na duze, duze na małe
+
+```python
+zmienna = "to JEST napis PODSTAWOWY"
+print(zmeinna.swapcase()) #TO jest NAPIS podstawowy
+```
+
+- **`capitalize()`** - Zmienia pierwszą literę w ciągu na dużą
+
+```python
+zmienna1 = "to jest napis podstawowy"
+print(zmienna1.capitalize()) #To jest napis podstawowy
+```
+
+- **`title()`** Zwraca string – tytuł, w którym wszystkie wyrazy zaczynają się dużą literą, a reszta jest małymi lub są to znaki nieliterowe
+
+```python
+zmienna1 = "To jest napis podstawowy"
+print(zmienna1.title()) #To Jest Napis Podstawowy
+```
+
+- **`join(seq)`** - Łączenie (konkatenacja) wyrazów w napisie seq w jeden napis, według separatora/stringu na jakim wywołujemy metodę. W przykładzie separatorem jest #
+
+```python
+lista1=["1","2","3","4","5"]
+zmienna2 = "#".join(lista1)
+print(zmienna2) #1#2#3#4#5
+
+#Ciekawostka: Można nie ustawiać żadnego separatora i uzyskać ciągłość zapisu:
+
+lista1=["1","2","3","4","5"]
+zmienna2 = "".join(lista1)
+print(zmienna2) 12345
+```
+
+- **`lstrip()`** - Usuwa białe znaki z początku napisu
+
+```python
+zmienna1="   to jest napis podstawowy"
+print(zmienna1.lstrip()) #to jest napis podstawowy
+```
+
+- **`rstrip()`** - Usuwa białe znaki z końca napisu
+
+```python
+zmienna1="to jest napis podstawowy     "
+print(zmienna1.rstrip()) #to jest napis podstawowy
+```
+
+- **`strip()`** - Usuwa białe znaki z początku oraz końca napisu
+
+```python
+zmienna1="     to jest napis podstawowy     "
+print(zmienna1.rstrip()) #to jest napis podstawowy
+```
+
+- **`replace(old,new)`** - Zamienia wszystkie wystąpienia na wskazany. ,,Jest mozliwość dodania parametru max, mający na celu wskazanie ilości zamienionych ciagów znaków''
+
+```python
+zmienna = "Michał Ola Kuba Wiktoria Kacper"
+
+zmiana = zmienna.replace("Michał", "Paweł")
+
+print(zmiana) #Paweł Ola Kuba Wiktoria Kacper
+
+zmienna2 = "Michał Ola Kuba Ola Kacper Ola"
+
+zmiana2 = zmienna.replace("Ola", "Wiktoria", 2)
+
+print(zmiana2) #Michał Wiktoria Kuba Wiktoria Kacper Ola
+```
+
+- **`len(string)`** - Zwraca długość ciągu znaków
+
+```python
+zmienna = "To jest napis"
+
+print(len(zmienna)) #13 znaki specjalne są liczone
+```
+
+- **`count(str,start,end)`** - Zlicza ilość wystąpień w ciagu znaków, zaczyna się od indeksu start a konczy sie indeksem end
+
+```python
+zmienna = "Michał Ola Kuba Ola Kacper Ola"
+print(zmienna.count("Ola",0,28)) #2
+```
+
+- **find(str,start,end)** - zwraca ilość wystąpień danego stringa w ciagu znaków, zwraca -1 jesli nie znajdzie stringa w łańcuchu
+
+```python
+zmienna = "Michał ma syna o imieniu Michał"
+print(zmienna.find("Michał",0,len(zmienna))) #0
+```
+
+### Formatowanie ciągów znaków
+
+- Występują trzy podstawowe sposoby formatowania łańcuchów znaków:
+  - Łączenie danych za pomocą przecinka
+    ```python
+    print("ten napis nie posiada zmiennych")
+    print("ten napis posiada zmienna x, która wynosi, x")
+    ```
+- Łączenie danych za pomocą funkcji format:
+
+```python
+print(" Liczba {} oraz liczba {} to liczby naturalne "
+.format(4,5))
+#Cyfra 4 jest przed cyfrą 5
+```
+
+- Łączenie danych za pomocą f-stringa:
+
+Aby utworzyć f-string, wystarczy dodać literę f przed cudzysłowem otwierającym ciąg znaków. Wewnątrz takiego ciągu możemy umieszczać wyrażenia w nawiasach klamrowych `{}`
+
+```python
+x=3
+y=5
+print(f"Liczby {x} oraz {y} to liczby naturalne")
+#Liczby 3 oraz 5 to liczby naturalne
+```
+
+### Indeksowanie Łańcucha Znaków
+
+Łańcuch znaków indeksuje się na dwa sposoby:
+
+- `Od lewej strony do prawej`
+- Od prawej strony do lewej
+
+| Łańcuch znaków | P   | Y   | T   | H   | O   | N   |
+| -------------- | --- | --- | --- | --- | --- | --- |
+| `Indesks`      | `0` | `1` | `2` | `3` | `4` | `5` |
+| Indesks        | -5  | -4  | -3  | -2  | -1  | 0   |
+
+### Slicing string
+
+To proces polegający na wykonaniu wycinka z łańcucha znaków.
+Wycinek tekstu nazywany jest podłańcuchem lub substringkiem
+
+`S[Start:Stop:Step]`
+
+Pozycje `Start` i `Stop` są obowiązkowe, natomiast pozycja `Step` jest opcjonalna.
+
+```python
+zmienna1= "abcdefghijk" <start:stop) <0;4)
+
+print(zmienna1[0:4]) #abcd
+print(zmienna1[1:]) #bcdefghijk
+print(zmienna1[:5]) #abcde
+print(zmienna1[:]) #abcdefghijk
+print(zmienna1[::-1]) #kjihgfedcba
+print(zmienna1[-5:-2]) #ghi
+print(zmienna1[-10:-4:2])# bdf
+print(zmienna1[-4:-10:-2]) #hfd
+```
+
 ## Instrukcje Warunkowe
 
 Instrukcje warunkowe pozwalają na wykonywanie różnych bloków kodu w zależności od warunków logicznych.
