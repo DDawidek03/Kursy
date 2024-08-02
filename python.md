@@ -8,7 +8,9 @@
   - ⛓️‍💥 [Łańcuchy Znaków](#łańcuchy-znaków)
   - 📜 [Instrukcje Warunkowe](#instrukcje-warunkowe)
   - 🔄 [Pętle](#pętle)
-  - 📋 [Listy, tablice i słowniki](#listy-tablice-i-słowniki)
+    - [Petla For](#petla-for)
+    - [Petla While](#petla-while)
+  - 📋 [Listy i słowniki](#listy-i-słowniki)
 - 📦 [Moduły i Pakiety](#moduły-i-pakiety)
 - 🗃️ [Praca z Plikami](#praca-z-plikami)
 - 🧰 [Funkcje](#funkcje)
@@ -137,6 +139,21 @@ zmienna1 = "to jest napis podstawowy"
 print(zmienna1.capitalize()) #To jest napis podstawowy
 ```
 
+- **`split()`** - używana do dzielenia łańcucha znaków (stringa) na mniejsze części, zazwyczaj według określonego separatora
+
+```python
+# Bez argumentów
+text = "To jest przykładowe zdanie"
+words = text.split()
+print(words)  # Output: ['To', 'jest', 'przykładowe', 'zdanie']
+
+# Z określonym separatorem
+text = "jabłko,banan,gruszka"
+fruits = text.split(',')
+print(fruits)  # Output: ['jabłko', 'banan', 'gruszka']
+
+```
+
 - **`title()`** Zwraca string – tytuł, w którym wszystkie wyrazy zaczynają się dużą literą, a reszta jest małymi lub są to znaki nieliterowe
 
 ```python
@@ -230,7 +247,7 @@ print(zmienna.find("Michał",0,len(zmienna))) #0
 ```python
 print(" Liczba {} oraz liczba {} to liczby naturalne "
 .format(4,5))
-#Cyfra 4 jest przed cyfrą 5
+#Liczba 4 oraz liczba 5 to liczby naturalne
 ```
 
 - Łączenie danych za pomocą f-stringa:
@@ -336,6 +353,164 @@ else:
     print("x jest mniejsze od 5")
 ```
 
+### Instrukcja `match case`
+
+Instrukcja **`match case`** w Pythonie, wprowadzona w Pythonie 3.10, służy do dopasowywania wzorców. Pozwala ona na dopasowywanie wzorców do wartości, zapewniając bardziej czytelny.
+
+```python
+dzien = str(input("Poodaj dzień tygodnia"))
+match dzien:
+    case 1:
+        print("Poniedziałek")
+    case 2:
+        print("Wtorek")
+    case 3:
+        print("Środa")
+    case 4:
+        print("Czwartek")
+    case 5:
+        print("Piątek")
+    case 6:
+        print("Sobota")
+    case 7:
+        print("Niedziela")
+    case _:
+        print("Nieznany dzień tygodnia")
+```
+
+Podkreślenie `_` jest używane jako znak wieloznaczny, który pasuje do dowolnej wartości nie dopasowanej przez wcześniejsze przypadki.
+
+Isnieje równiez uzycie operatorów logicznych:
+
+```python
+day = input("Podaj dzien tygodnia")
+
+match day:
+    case "Sobota" | "Niedziela":
+        print("Weekend")
+
+    case "Poniedziałek" | "Wtorek" | "Środa" | "Czwartek" | "Piątek":
+        print("Dzień roboczy")
+
+    case _:
+        print("Nieprawidłowy dzień")
+```
+
+### Hybryda if-match case
+
+Brak znaku logicznego oznacza operację logiczną AND
+
+```python
+numer1 = int(input("Pierwsza liczba: "))
+numer2 = int(input("Druga liczba: "))
+
+match numer1:
+    case 1 if numer2 > 20:
+        print(f"Pierwsza liczba to {numer1}, a druga liczba jest większa od 20")
+    case 2 if numer2 == 20:
+        print(f"Pierwsza liczba to {numer1}, a druga liczba jest równa 20")
+    case 3 if numer2 < 20:
+        print(f"Pierwsza liczba to {numer1}, a druga liczba jest mniejsza od 20")
+    case _:
+        print("Niepasujący przypadek")
+```
+
 ## Pętle
 
-## Listy, tablice i słowniki
+Pętle w Pythonie są używane do wielokrotnego wykonywania bloku kodu. Pozwalają one na efektywne przetwarzanie danych, powtarzanie operacji oraz automatyzację zadań
+
+### Petla **`For`**
+
+Co to są obiekty iterowalne (iterable):
+
+W Pythonie, obiekty sekwencyjne to obiekty, które przechowują sekwencje elementów wokreślonym porządku. Do najczęściej używanych obiektów sekwencyjnych w Pythonie należą:
+
+1. **`Listy (lists)`**: listy to obiekty sekwencyjne, które przechowują kolekcje wartości w określonym porządku. Listy mogą przechowywać wartości różnego typu i są mutowalne, co oznacza, że ich wartości mogą być zmieniane po utworzeniu.
+
+2. **`Krotki (tuples)`**: krotki to obiekty sekwencyjne, które są bardzo podobne do list, z tą różnicą, że są niezmienne (immutable), co oznacza, że po utworzeniu ich wartości nie mogą być zmieniane.
+
+3. **`Ciągi znaków (strings)`** : ciągi znaków to obiekty sekwencyjne, które przechowują sekwencje znaków w określonym porządku. Ciągi znaków są niezmienne (immutable).
+
+4. **`Bufory (bytearrays)`** : bufory to mutowalne obiekty sekwencyjne, które przechowują sekwencje bajtów w określonym porządku.
+
+5. **`Zakresy (ranges)`** : zakresy to obiekty sekwencyjne, które przechowują sekwencje liczb całkowitych w określonym porządku.
+
+- Petla `for`: listy
+
+```python
+list = [1,2,3,4,5,]
+for elment in list:
+    print(element, end=" ") #1 2 3 4 5
+    if elment == 2:
+        print(f"znaleziono element o numerze:  {element}")
+
+
+tab = [2,-1,3,-2,9]
+for i in tab:
+    if i % 2 == 0: # tak sprawdzamy podzielność przez konkretne liczby
+        continue
+    print(i**0.5)
+```
+
+- Petla `for`: łańcuchy znaków
+
+```python
+for char in "SQL":
+    if char.lower() == "q":
+        print("W słowie znajduje się 'q'")
+```
+
+- Pętla for - zakresy
+
+```python
+for i in range(1, 10):
+    print(i, end=" ")
+
+for x in range(10, 1, -1):
+    if x == 5:
+        break
+    print(x)
+
+
+# !! Zagniezdzona petla !!
+for a in range(1,5):
+    for b in range(2,6):
+        if a == 2 and b == 3:
+            break
+        print(f"Pierwsza liczba to {a}, druga to {b}")
+```
+
+Pętle nie zawsze muszą być realizowane od początku do końca. Czasami, w zależności od warunków, może być konieczne pominięcie niektórych kroków pętli lub przedwczesne zakończenie pętli.
+
+Do tego właśnie służą instrukcje `break` i `continue`.
+
+- Break to instrukcja wcześniejszego zakończenia pętli.
+
+- Continue to instrukcja pominięcia reszty pętli i przejścia do następnego kroku pętli. W tym przypadku pętla nie jest zakończona.
+
+### Petla **`While`**
+
+Pętla `while` jest wykonywana tak długo dopóki określony warunek będzie prawdziwy. Warunek po każdym wykonaniu jest ponownie sprawdzany i jeśli jest prawdziwy zwraca wartość `True`, kod w bloku jest wykonywany. Jeżeli warunek jest fałszywy, wtedy przyjmie wartość `False`, blok kodu wewnątrz pętli się nie wykona
+
+```python
+count = 0
+while count < 10:
+    print(count)
+    count += 1  # count = count + 1
+```
+
+W tym przykładzie zastosowano pętlę `while True`, która będzie działać w nieskończoność, chyba że zostanie przerwana przy użyciu instrukcji `break` wewnątrz pętli.
+
+```python
+while True:
+    wybor = int(input(" 1- zaloguj sie: \n co chcesz zrobic: "))
+
+    elif wybor == 1:
+
+        login = input("Podaj login ")
+        haslo = input("Podaj haslo ")
+        if sprawdzanie(login,haslo): # Ps. Nie nalezy przejmować sie uzytą funkcją
+            break
+```
+
+## Listy i słowniki
