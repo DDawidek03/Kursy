@@ -11,7 +11,7 @@ Tutaj znajdziesz zasoby edukacyjne dotyczące różnych języków programowania.
 
 ## 🌟 O Kursach
 
-### 📘 Kurs SQL
+### 📘 Kurs MySQL
 
 Poznaj podstawy oraz zaawansowane techniki pracy z bazami danych za pomocą języka SQL. Ten kurs obejmuje:
 

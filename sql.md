@@ -1,4 +1,4 @@
-# 📘 Kurs SQL
+# 📘 Kurs MySQL
 
 ## 📄 Spis Treści
 
@@ -18,6 +18,7 @@
 - 🔍 [Widoki](#widoki)
 - 🔐 [Język Kontroli Danych (DCL)](#język-kontroli-danych-dcl)
 - 📋 [Procedury składowane](#procedury-składowane)
+- ⚙️ [Optymalizacja](#Optymalizacja)
 
 ## Wprowadzenie
 
@@ -502,3 +503,227 @@ Procedury składowane można również wywoływać z innych instrukcji SQL, taki
 SELECT * FROM Customers
 WHERE CustomerID IN (SELECT CustomerID FROM GetActiveCustomers);
 ```
+
+## Optymalizacja
+
+Optymalizacja zapytań SQL jest kluczowym elementem, który pozwala na przyspieszenie działania bazy danych oraz redukcję obciążenia serwera. W szczególności w MySQL, dobrze zoptymalizowane zapytania mogą znacząco zwiększyć wydajność aplikacji.
+
+### 1.1. Używanie odpowiednich indeksów
+
+**Indeksy** to struktury danych, które umożliwiają szybki dostęp do wierszy w tabeli na podstawie wartości w jednej lub kilku kolumnach. Indeksy mogą znacznie przyspieszyć zapytania, ale ich nieodpowiednie użycie może również spowodować spadek wydajności, zwłaszcza podczas operacji `INSERT`, `UPDATE` lub `DELETE`.
+
+- **PRIMARY KEY**: Każda tabela powinna mieć indeks na kolumnie kluczowej (PRIMARY KEY). Indeks ten jest unikalny i nie może zawierać wartości NULL.
+
+- **UNIQUE INDEX**: Gwarantuje, że wszystkie wartości w indeksowanej kolumnie są unikalne. Może przyspieszyć zapytania wyszukujące na podstawie unikalnych wartości.
+
+- **REGULAR INDEX**: Tworzenie indeksu na kolumnach, które są często używane w warunkach `WHERE`, `ORDER BY`, `GROUP BY`, może znacznie przyspieszyć zapytania.
+
+- **FULLTEXT INDEX**: Używany głównie do wyszukiwania tekstu w polach typu `TEXT` lub `VARCHAR`. Przydaje się przy wyszukiwaniu pełnotekstowym, np. w aplikacjach typu wyszukiwarka.
+
+**Przykład**: Optymalizacja zapytania z użyciem indeksu
+
+```sql
+-- Przed optymalizacją
+SELECT * FROM employees WHERE last_name = 'Smith';
+
+-- Po dodaniu indeksu
+CREATE INDEX idx_last_name ON employees(last_name);
+
+SELECT * FROM employees WHERE last_name = 'Smith';
+```
+
+### 1.2. Zrozumienie planów wykonania zapytań (EXPLAIN)
+
+MySQL udostępnia polecenie `EXPLAIN`, które pozwala zrozumieć, jak zapytanie zostanie wykonane przez silnik bazy danych. Analizując wyniki `EXPLAIN`, możesz zidentyfikować, które części zapytania są kosztowne i jak można je zoptymalizować.
+
+**Przykład**: Analiza zapytania za pomocą `EXPLAIN`
+
+```sql
+EXPLAIN SELECT * FROM employees WHERE last_name = 'Smith';
+```
+
+Wynik `EXPLAIN` dostarcza informacji takich jak:
+
+- **select_type**: Typ operacji SELECT (np. SIMPLE, PRIMARY, SUBQUERY).
+- **table**: Nazwa tabeli.
+- **type**: Typ łączenia tabel (np. ALL, index, range).
+- **possible_keys**: Indeksy, które mogłyby zostać użyte.
+- **key**: Indeks, który został faktycznie użyty.
+- **rows**: Szacunkowa liczba wierszy, które będą przetwarzane.
+- **Extra**: Dodatkowe informacje, np. czy używany jest filtr, czy wykonywane są sortowania.
+
+### 1.3. Unikanie złożonych zapytań
+
+Złożone zapytania, takie jak te, które zawierają wiele operacji `JOIN` lub `SUBQUERY`, mogą być bardzo kosztowne pod względem zasobów. Czasami lepszym rozwiązaniem jest rozbicie złożonego zapytania na kilka prostszych lub zastosowanie alternatywnych metod, takich jak użycie widoków (views) lub tabel tymczasowych.
+
+**Przykład**: Optymalizacja złożonego zapytania
+
+```sql
+-- Przed optymalizacją: Złożone zapytanie z podzapytaniem
+SELECT * FROM orders WHERE order_id IN (SELECT order_id FROM order_items WHERE quantity > 100);
+
+-- Po optymalizacji: Użycie JOIN zamiast podzapytania
+SELECT o.* FROM orders o JOIN order_items oi ON o.order_id = oi.order_id WHERE oi.quantity > 100;
+```
+
+### 1.4. Używanie odpowiednich typów danych
+
+Dobór odpowiednich typów danych dla kolumn tabeli ma duże znaczenie dla wydajności. Na przykład używanie typu `INT` dla identyfikatorów (zamiast `VARCHAR`) zmniejsza rozmiar tabeli i przyspiesza operacje na indeksach. Z kolei `CHAR` może być bardziej efektywne niż `VARCHAR` dla krótkich, stałej długości danych.
+
+**Przykład**: Optymalizacja typów danych
+
+```sql
+-- Przed optymalizacją: Używanie VARCHAR dla identyfikatorów
+CREATE TABLE users (
+    user_id VARCHAR(255),
+    name VARCHAR(255),
+    PRIMARY KEY (user_id)
+);
+
+-- Po optymalizacji: Zmiana na INT dla identyfikatorów
+CREATE TABLE users (
+    user_id INT  AUTO_INCREMENT,
+    name VARCHAR(255),
+    PRIMARY KEY (user_id)
+);
+```
+
+### 2. Optymalizacja bazy danych
+
+Optymalizacja struktury bazy danych to kluczowy element w zarządzaniu dużymi zestawami danych i ich efektywnym przetwarzaniem. Obejmuje to takie techniki jak normalizacja, denormalizacja, archiwizacja starych danych i reorganizacja struktury tabel.
+
+#### 2.1. Normalizacja i denormalizacja danych
+
+**Normalizacja** to proces organizacji danych w bazie w taki sposób, aby zminimalizować redundancję i zapewnić integralność danych. Przykładami normalizacji są zasady normalnych form, jak pierwsza, druga czy trzecia normalna forma (1NF, 2NF, 3NF).
+
+**Przykład:**
+
+```sql
+-- Przykład normalizacji z 1NF do 2NF
+-- Tabela przed normalizacją (1NF):
+CREATE TABLE employees (
+    employee_id INT,
+    full_name VARCHAR(255),
+    department_id INT,
+    department_name VARCHAR(255)
+);
+
+-- Tabela po normalizacji (2NF):
+CREATE TABLE departments (
+    department_id INT PRIMARY KEY,
+    department_name VARCHAR(255)
+);
+
+CREATE TABLE employees (
+    employee_id INT PRIMARY KEY,
+    full_name VARCHAR(255),
+    department_id INT,
+    FOREIGN KEY (department_id) REFERENCES departments(department_id)
+);
+```
+
+**Denormalizacja**, z kolei, to celowe wprowadzenie redundancji do bazy danych, aby przyspieszyć niektóre operacje odczytu. Denormalizacja bywa przydatna, gdy zapytania wymagają częstego łączenia tabel.
+
+**Przykład:**
+
+```sql
+-- Przykład denormalizacji:
+-- Łączenie tabel employees i departments w jedną
+CREATE TABLE employees_with_department (
+    employee_id INT PRIMARY KEY,
+    full_name VARCHAR(255),
+    department_id INT,
+    department_name VARCHAR(255)
+);
+```
+
+#### 2.2. Archiwizacja starych danych
+
+Archiwizacja polega na przenoszeniu starych, rzadko używanych danych do oddzielnych tabel lub baz danych, aby odciążyć główne tabele produkcyjne. Przykładowo, dane historyczne mogą być przechowywane w oddzielnej tabeli, która nie jest regularnie przeszukiwana.
+
+**Przykład:**
+
+```sql
+-- Przeniesienie danych starszych niż 1 rok do tabeli archiwalnej
+CREATE TABLE orders_archive AS SELECT * FROM orders WHERE order_date < DATE_SUB(NOW(), INTERVAL 1 YEAR);
+
+-- Usunięcie zarchiwizowanych danych z tabeli głównej
+DELETE FROM orders WHERE order_date < DATE_SUB(NOW(), INTERVAL 1 YEAR);
+```
+
+#### 2.3. Reorganizacja struktury tabel
+
+Regularna reorganizacja tabel może poprawić wydajność, zwłaszcza jeśli tabele są często modyfikowane (INSERT, UPDATE, DELETE). W MySQL można użyć polecenia `OPTIMIZE TABLE`, które defragmentuje tabelę, zmniejsza jej rozmiar i poprawia szybkość dostępu.
+
+**Przykład:**
+
+```sql
+-- Optymalizacja tabeli poprzez defragmentację
+OPTIMIZE TABLE employees;
+```
+
+### 3. Konfiguracja MySQL
+
+Konfiguracja serwera MySQL ma ogromny wpływ na wydajność bazy danych. Odpowiednie dostosowanie parametrów takich jak `query_cache_size` czy `innodb_buffer_pool_size` może znacznie zwiększyć efektywność operacji.
+
+#### 3.1. Dostosowanie parametrów MySQL
+
+Kluczowe parametry konfiguracyjne:
+
+- **`query_cache_size`**: Określa ilość pamięci przeznaczonej na cache wyników zapytań. Zwiększenie tej wartości może przyspieszyć wykonywanie powtarzających się zapytań.
+
+- **`innodb_buffer_pool_size`**: Najważniejszy parametr dla wydajności w przypadku tabel InnoDB. Powinien być ustawiony na około 70-80% dostępnej pamięci RAM serwera.
+
+- **`tmp_table_size`** i **`max_heap_table_size`**: Określają maksymalny rozmiar tabel tymczasowych przechowywanych w pamięci.
+
+**Przykład:**
+
+```shell
+# Fragment pliku my.cnf (konfiguracja MySQL)
+[mysqld]
+innodb_buffer_pool_size = 4G
+query_cache_size = 256M
+tmp_table_size = 64M
+max_heap_table_size = 64M
+```
+
+#### 3.2. Monitorowanie wydajności MySQL
+
+Regularne monitorowanie wydajności MySQL za pomocą narzędzi takich jak `mysqltuner`, `MySQL Enterprise Monitor` czy `performance_schema` pozwala na identyfikację wąskich gardeł i dalszą optymalizację.
+
+**Przykład:**
+
+```shell
+# Uruchomienie mysqltuner do analizy wydajności
+mysqltuner
+```
+
+### 4. Przykłady i praktyki
+
+Optymalizacja MySQL to proces, który wymaga ciągłego monitorowania i dostosowywania. Oto kilka praktycznych przykładów, jak optymalizować zapytania i struktury bazy danych:
+
+#### 4.1. Przykłady zapytań przed i po optymalizacji
+
+**Przed optymalizacją:**
+
+```sql
+SELECT * FROM orders WHERE customer_id = 123 AND status = 'shipped';
+```
+
+**Po optymalizacji:**
+
+```sql
+CREATE INDEX idx_customer_status ON orders(customer_id, status);
+
+SELECT * FROM orders WHERE customer_id = 123 AND status = 'shipped';
+```
+
+#### 4.2. Scenariusze optymalizacji
+
+- **Złożone raporty**: Użycie widoków lub tabel tymczasowych do skomplikowanych zapytań raportujących.
+- **Duże zestawy danych**: Rozważenie partycjonowania tabel lub denormalizacji, aby przyspieszyć zapytania.
+- **Wysokie obciążenie**: Konfiguracja odpowiednich parametrów MySQL, takich jak `innodb_buffer_pool_size`, aby zoptymalizować wykorzystanie zasobów.
+
+### Podsumowanie
+
+Optymalizacja bazy danych MySQL to wieloaspektowe zadanie obejmujące zarówno optymalizację zapytań SQL, jak i struktury bazy danych oraz konfiguracji serwera. Kluczem do sukcesu jest regularne monitorowanie wydajności, odpowiednie indeksowanie oraz dostosowanie konfiguracji do specyficznych potrzeb aplikacji. Wprowadzanie tych technik w praktyce może znacząco poprawić szybkość i efektywność działania bazy danych, co w efekcie przełoży się na lepszą wydajność całego systemu.
