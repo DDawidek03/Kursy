@@ -6,7 +6,7 @@ Tutaj znajdziesz zasoby edukacyjne dotyczące różnych języków programowania.
 
 ## 📜 Spis Treści
 
-- [📘 Kurs SQL](./sql.md)
+- [📘 Kurs MySQL](./sql.md)
 - [🐍 Kurs Python](./python.md)
 
 ## 🌟 O Kursach
@@ -39,7 +39,7 @@ Python to wszechstronny język programowania idealny dla początkujących i zaaw
 
 Chcesz przyczynić się do rozwoju naszych kursów? Zapraszamy do współpracy! Wystarczy, że wykonasz fork repozytorium, wprowadzisz swoje zmiany, a następnie stworzysz Pull Request. Z radością przyjmiemy wszelkie sugestie i poprawki.
 
-Dziękujemy za odwiedzenie naszego repozytorium. Życzymy owocnej nauki! 🎓
+Dziękujemy za odwiedzenie mojego repozytorium. Życzę owocnej nauki! 🎓
 
 ---
 
