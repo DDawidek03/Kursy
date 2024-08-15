@@ -15,7 +15,7 @@
 - 🧰 [Funkcje](#funkcje)
 - 🚀 [Programowanie Obiektowe](#programowanie-obiektowe)
 - ⚠️ [Obsługa Błędów](#obsługa-błędów)
-- ⛁ [SQLite](#sqlite)
+- 🗄️ [SQLite](#sqlite)
 - 🖼️ [Tkinter](#tkinter)
 - 📊 [Matplotlib](#matplotlib) <- _Niedostępne_
 - 🐼 [Biblioteka Pandas](#biblioteka-pandas) <- _Niedostępne_
@@ -1354,108 +1354,94 @@ print(my_dog.bark())  # Wydrukuje: Buddy barks!
 
 ### 2. Konstruktor i Inicjalizacja
 
+Konstruktor to specjalna metoda, która przygotowuje nowo utworzony obiekt do działania, inicjalizując jego stan początkowy. Ogólnie rzecz biorąc, metoda to funkcja zdefiniowana wewnątrz klasy, która pozwala obiektom wykonywać zadania i manipulować swoimi danymi.
+
 - **Konstruktor (`__init__`)**: Jest to specjalna metoda używana do inicjalizacji nowych obiektów. Automatycznie wywoływana podczas tworzenia instancji klasy.
 
-**Przykład:**
+  **Przykład:**
 
-````python
-class Person:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
+  ```python
+  class Person:
+      def __init__(self, name, age):
+          self.name = name
+          self.age = age
 
-# Tworzenie obiektu klasy Person
-person1 = Person("Alice", 30)
-print(person1.name)  # Wydrukuje: Alice
-print(person1.age)   # Wydrukuje: 30
-```### Konstruktory w Pythonie
+  # Tworzenie obiektu klasy Person
+  person1 = Person("Alice", 30)
+  print(person1.name)  # Wydrukuje: Alice
+  print(person1.age)   # Wydrukuje: 30
+  ```
 
-**Konstruktor (`__init__`)**: Jest to specjalna metoda używana do inicjalizacji nowych obiektów. Automatycznie wywoływana podczas tworzenia instancji klasy.
+- **Konstruktor (`__new__`)**: Jest to metoda odpowiedzialna za tworzenie nowego obiektu. Wywoływana przed `__init__`, alokuje pamięć i zwraca nową instancję obiektu. Używana rzadziej, często w zaawansowanych technikach, takich jak wzorce projektowe.
 
-**Przykład:**
+  **Przykład:**
 
-```python
-class Person:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
+  ```python
+  class Singleton:
+      _instance = None
 
-# Tworzenie obiektu klasy Person
-person1 = Person("Alice", 30)
-print(person1.name)  # Wydrukuje: Alice
-print(person1.age)   # Wydrukuje: 30
-````
+      def __new__(cls):
+          if cls._instance is None:
+              cls._instance = super().__new__(cls)
+          return cls._instance
 
-**Konstruktor (`__new__`)**: Jest to metoda odpowiedzialna za tworzenie nowego obiektu. Wywoływana przed `__init__`, alokuje pamięć i zwraca nową instancję obiektu. Używana rzadziej, często w zaawansowanych technikach, takich jak wzorce projektowe.
+  # Tworzenie obiektów klasy Singleton
+  s1 = Singleton()
+  s2 = Singleton()
+  print(s1 is s2)  # Wydrukuje: True
+  ```
 
-**Przykład:**
+- **Konstruktor (`__del__`)**: Metoda wywoływana, gdy obiekt jest usuwany, często używana do czyszczenia zasobów przed zniszczeniem obiektu, takich jak zamykanie plików czy zwalnianie zasobów systemowych. Jest rzadko używana ze względu na działanie garbage collectora.
 
-```python
-class Singleton:
-    _instance = None
+  **Przykład:**
 
-    def __new__(cls):
-        if cls._instance is None:
-            cls._instance = super().__new__(cls)
-        return cls._instance
+  ```python
+  class Resource:
+      def __init__(self, name):
+          self.name = name
+          print(f"Resource {self.name} acquired")
 
-# Tworzenie obiektów klasy Singleton
-s1 = Singleton()
-s2 = Singleton()
-print(s1 is s2)  # Wydrukuje: True
-```
+      def __del__(self):
+          print(f"Resource {self.name} released")
 
-**Konstruktor (`__del__`)**: Metoda wywoływana, gdy obiekt jest usuwany, często używana do czyszczenia zasobów przed zniszczeniem obiektu, takich jak zamykanie plików czy zwalnianie zasobów systemowych. Jest rzadko używana ze względu na działanie garbage collectora.
+  # Tworzenie i usuwanie obiektu klasy Resource
+  r = Resource("test")
+  del r
+  ```
 
-**Przykład:**
+- **Metoda (`__repr__`)**: Służy do uzyskania formalnej, jednoznacznej reprezentacji obiektu, która powinna być taka, aby mogła być użyta do odtworzenia obiektu. Jest używana głównie do celów debugowania.
 
-```python
-class Resource:
-    def __init__(self, name):
-        self.name = name
-        print(f"Resource {self.name} acquired")
+  **Przykład:**
 
-    def __del__(self):
-        print(f"Resource {self.name} released")
+  ```python
+  class Book:
+      def __init__(self, title, author):
+          self.title = title
+          self.author = author
 
-# Tworzenie i usuwanie obiektu klasy Resource
-r = Resource("test")
-del r
-```
+      def __repr__(self):
+          return f"Book('{self.title}', '{self.author}')"
 
-**Metoda (`__repr__`)**: Służy do uzyskania formalnej, jednoznacznej reprezentacji obiektu, która powinna być taka, aby mogła być użyta do odtworzenia obiektu. Jest używana głównie do celów debugowania.
+  b = Book("1984", "George Orwell")
+  print(repr(b))  # Wydrukuje: Book('1984', 'George Orwell')
+  ```
 
-**Przykład:**
+- **Metoda (`__str__`)**: Służy do uzyskania przyjaznej reprezentacji obiektu dla użytkownika końcowego. Jest używana przez funkcję `print()` i inne operacje konwertujące obiekt na string.
 
-```python
-class Book:
-    def __init__(self, title, author):
-        self.title = title
-        self.author = author
+  **Przykład:**
 
-    def __repr__(self):
-        return f"Book('{self.title}', '{self.author}')"
+  ```python
+  class Book:
+      def __init__(self, title, author):
+          self.title = title
+          self.author = author
 
-b = Book("1984", "George Orwell")
-print(repr(b))  # Wydrukuje: Book('1984', 'George Orwell')
-```
+      def __str__(self):
+          return f"{self.title} by {self.author}"
 
-**Metoda (`__str__`)**: Służy do uzyskania przyjaznej reprezentacji obiektu dla użytkownika końcowego. Jest używana przez funkcję `print()` i inne operacje konwertujące obiekt na string.
-
-**Przykład:**
-
-```python
-class Book:
-    def __init__(self, title, author):
-        self.title = title
-        self.author = author
-
-    def __str__(self):
-        return f"{self.title} by {self.author}"
-
-b = Book("1984", "George Orwell")
-print(str(b))  # Wydrukuje: 1984 by George Orwell
-```
+  b = Book("1984", "George Orwell")
+  print(str(b))  # Wydrukuje: 1984 by George Orwell
+  ```
 
 ### Podsumowanie
 
