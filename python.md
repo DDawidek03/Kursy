@@ -8,17 +8,18 @@
   - ⛓️‍💥 [Łańcuchy Znaków](#łańcuchy-znaków)
   - 📜 [Instrukcje Warunkowe](#instrukcje-warunkowe)
   - 🔄 [Pętle](#pętle)
-    - [Petla For](#petla-for)
-    - [Petla While](#petla-while)
+    - 🔁 [Petla For](#petla-for)
+    - 🔂 [Petla While](#petla-while)
   - 📋 [Listy i słowniki](#listy-i-słowniki)
 - 🗃️ [Praca z Plikami](#praca-z-plikami)
 - 🧰 [Funkcje](#funkcje)
 - 🚀 [Programowanie Obiektowe](#programowanie-obiektowe)
-- ⛁ [SQLite3](#SQLite3)
-- 📊 [Matplotlib](#matplotlib)
+- ⚠️ [Obsługa Błędów](#obsługa-błędów)
+- ⛁ [SQLite](#sqlite)
 - 🖼️ [Tkinter](#tkinter)
-- 🐼 [Biblioteka Pandas](#biblioteka-pandas)
-- 🔍 [Debugowanie i Testowanie](#debugowanie-i-testowanie)
+- 📊 [Matplotlib](#matplotlib) <- _Niedostępne_
+- 🐼 [Biblioteka Pandas](#biblioteka-pandas) <- _Niedostępne_
+- 🔍 [Debugowanie i Testowanie](#debugowanie-i-testowanie) <- _Niedostępne_
 
 ## Wprowadzenie
 
@@ -132,14 +133,14 @@ zmienna = "to JEST napis PODSTAWOWY"
 print(zmeinna.swapcase()) #TO jest NAPIS podstawowy
 ```
 
-- **`capitalize()`** - Zmienia pierwszą literę w ciągu na dużą
+- 🔠 **`capitalize()`** - Zmienia pierwszą literę w ciągu na dużą
 
 ```python
 zmienna1 = "to jest napis podstawowy"
 print(zmienna1.capitalize()) #To jest napis podstawowy
 ```
 
-- **`split()`** - używana do dzielenia łańcucha znaków (stringa) na mniejsze części, zazwyczaj według określonego separatora
+- ✂️ **`split()`** - używana do dzielenia łańcucha znaków (stringa) na mniejsze części, zazwyczaj według określonego separatora
 
 ```python
 # Bez argumentów
@@ -154,14 +155,14 @@ print(fruits)  # Output: ['jabłko', 'banan', 'gruszka']
 
 ```
 
-- **`title()`** Zwraca string – tytuł, w którym wszystkie wyrazy zaczynają się dużą literą, a reszta jest małymi lub są to znaki nieliterowe
+- 📝 **`title()`** Zwraca string – tytuł, w którym wszystkie wyrazy zaczynają się dużą literą, a reszta jest małymi lub są to znaki nieliterowe
 
 ```python
 zmienna1 = "To jest napis podstawowy"
 print(zmienna1.title()) #To Jest Napis Podstawowy
 ```
 
-- **`join(seq)`** - Łączenie (konkatenacja) wyrazów w napisie seq w jeden napis, według separatora/stringu na jakim wywołujemy metodę. W przykładzie separatorem jest #
+- 🔗 **`join(seq)`** - Łączenie (konkatenacja) wyrazów w napisie seq w jeden napis, według separatora/stringu na jakim wywołujemy metodę. W przykładzie separatorem jest #
 
 ```python
 lista1=["1","2","3","4","5"]
@@ -175,28 +176,28 @@ zmienna2 = "".join(lista1)
 print(zmienna2) 12345
 ```
 
-- **`lstrip()`** - Usuwa białe znaki z początku napisu
+- 🧹 **`lstrip()`** - Usuwa białe znaki z początku napisu
 
 ```python
 zmienna1="   to jest napis podstawowy"
 print(zmienna1.lstrip()) #to jest napis podstawowy
 ```
 
-- **`rstrip()`** - Usuwa białe znaki z końca napisu
+- 🧹 **`rstrip()`** - Usuwa białe znaki z końca napisu
 
 ```python
 zmienna1="to jest napis podstawowy     "
 print(zmienna1.rstrip()) #to jest napis podstawowy
 ```
 
-- **`strip()`** - Usuwa białe znaki z początku oraz końca napisu
+- 🧼 **`strip()`** - Usuwa białe znaki z początku oraz końca napisu
 
 ```python
 zmienna1="     to jest napis podstawowy     "
 print(zmienna1.rstrip()) #to jest napis podstawowy
 ```
 
-- **`replace(old,new)`** - Zamienia wszystkie wystąpienia na wskazany. ,,Jest mozliwość dodania parametru max, mający na celu wskazanie ilości zamienionych ciagów znaków''
+- 🔄 **`replace(old,new)`** - Zamienia wszystkie wystąpienia na wskazany. ,,Jest mozliwość dodania parametru max, mający na celu wskazanie ilości zamienionych ciagów znaków''
 
 ```python
 zmienna = "Michał Ola Kuba Wiktoria Kacper"
@@ -212,7 +213,7 @@ zmiana2 = zmienna.replace("Ola", "Wiktoria", 2)
 print(zmiana2) #Michał Wiktoria Kuba Wiktoria Kacper Ola
 ```
 
-- **`len(string)`** - Zwraca długość ciągu znaków
+- 📏 **`len(string)`** - Zwraca długość ciągu znaków
 
 ```python
 zmienna = "To jest napis"
@@ -220,14 +221,14 @@ zmienna = "To jest napis"
 print(len(zmienna)) #13 znaki specjalne są liczone
 ```
 
-- **`count(str,start,end)`** - Zlicza ilość wystąpień w ciagu znaków, zaczyna się od indeksu start a konczy sie indeksem end
+- 🔍 **`count(str,start,end)`** - Zlicza ilość wystąpień w ciagu znaków, zaczyna się od indeksu start a konczy sie indeksem end
 
 ```python
 zmienna = "Michał Ola Kuba Ola Kacper Ola"
 print(zmienna.count("Ola",0,28)) #2
 ```
 
-- **find(str,start,end)** - zwraca ilość wystąpień danego stringa w ciagu znaków, zwraca -1 jesli nie znajdzie stringa w łańcuchu
+- 🔎 **`find(str,start,end)`** - zwraca ilość wystąpień danego stringa w ciagu znaków, zwraca -1 jesli nie znajdzie stringa w łańcuchu
 
 ```python
 zmienna = "Michał ma syna o imieniu Michał"
@@ -1357,6 +1358,22 @@ print(my_dog.bark())  # Wydrukuje: Buddy barks!
 
 **Przykład:**
 
+````python
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+# Tworzenie obiektu klasy Person
+person1 = Person("Alice", 30)
+print(person1.name)  # Wydrukuje: Alice
+print(person1.age)   # Wydrukuje: 30
+```### Konstruktory w Pythonie
+
+**Konstruktor (`__init__`)**: Jest to specjalna metoda używana do inicjalizacji nowych obiektów. Automatycznie wywoływana podczas tworzenia instancji klasy.
+
+**Przykład:**
+
 ```python
 class Person:
     def __init__(self, name, age):
@@ -1367,7 +1384,86 @@ class Person:
 person1 = Person("Alice", 30)
 print(person1.name)  # Wydrukuje: Alice
 print(person1.age)   # Wydrukuje: 30
+````
+
+**Konstruktor (`__new__`)**: Jest to metoda odpowiedzialna za tworzenie nowego obiektu. Wywoływana przed `__init__`, alokuje pamięć i zwraca nową instancję obiektu. Używana rzadziej, często w zaawansowanych technikach, takich jak wzorce projektowe.
+
+**Przykład:**
+
+```python
+class Singleton:
+    _instance = None
+
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+        return cls._instance
+
+# Tworzenie obiektów klasy Singleton
+s1 = Singleton()
+s2 = Singleton()
+print(s1 is s2)  # Wydrukuje: True
 ```
+
+**Konstruktor (`__del__`)**: Metoda wywoływana, gdy obiekt jest usuwany, często używana do czyszczenia zasobów przed zniszczeniem obiektu, takich jak zamykanie plików czy zwalnianie zasobów systemowych. Jest rzadko używana ze względu na działanie garbage collectora.
+
+**Przykład:**
+
+```python
+class Resource:
+    def __init__(self, name):
+        self.name = name
+        print(f"Resource {self.name} acquired")
+
+    def __del__(self):
+        print(f"Resource {self.name} released")
+
+# Tworzenie i usuwanie obiektu klasy Resource
+r = Resource("test")
+del r
+```
+
+**Metoda (`__repr__`)**: Służy do uzyskania formalnej, jednoznacznej reprezentacji obiektu, która powinna być taka, aby mogła być użyta do odtworzenia obiektu. Jest używana głównie do celów debugowania.
+
+**Przykład:**
+
+```python
+class Book:
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
+
+    def __repr__(self):
+        return f"Book('{self.title}', '{self.author}')"
+
+b = Book("1984", "George Orwell")
+print(repr(b))  # Wydrukuje: Book('1984', 'George Orwell')
+```
+
+**Metoda (`__str__`)**: Służy do uzyskania przyjaznej reprezentacji obiektu dla użytkownika końcowego. Jest używana przez funkcję `print()` i inne operacje konwertujące obiekt na string.
+
+**Przykład:**
+
+```python
+class Book:
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
+
+    def __str__(self):
+        return f"{self.title} by {self.author}"
+
+b = Book("1984", "George Orwell")
+print(str(b))  # Wydrukuje: 1984 by George Orwell
+```
+
+### Podsumowanie
+
+- **`__init__`**: Inicjalizuje obiekty. Wywoływana automatycznie podczas tworzenia instancji.
+- **`__new__`**: Tworzy nowe obiekty. Wywoływana przed `__init__`, często używana w zaawansowanych technikach programowania.
+- **`__del__`**: Odpowiada za czyszczenie zasobów przed zniszczeniem obiektu. Rzadko używana.
+- **`__repr__`**: Zwraca formalną, jednoznaczną reprezentację obiektu, używaną do debugowania.
+- **`__str__`**: Zwraca przyjazną dla użytkownika reprezentację obiektu. Używana przez funkcję `print()`.
 
 ### 3. Metody
 
@@ -1629,6 +1725,415 @@ del d['name']
 print(d['name'])  # Wydrukuje: None
 ```
 
+## Obsługa Błędów
+
+Obsługa błędów w Pythonie jest kluczowym elementem tworzenia stabilnych i odpornych na awarie aplikacji. Pozwala na zarządzanie wyjątkowymi sytuacjami, które mogą wystąpić podczas działania programu, jak np. błędy w dostępie do plików, błędy sieciowe, problemy z wprowadzeniem danych przez użytkownika i wiele innych. Python oferuje mechanizm obsługi wyjątków (`exceptions`), który umożliwia wykrywanie, przechwytywanie i reagowanie na te błędy.
+
+### Podstawy Obsługi Błędów
+
+Obsługa błędów w Pythonie opiera się na blokach `try`, `except`, `else` oraz `finally`. Oto jak działają te elementy:
+
+#### 1. Blok `try` i `except`
+
+Blok `try` zawiera kod, który może potencjalnie wywołać błąd. Jeżeli taki błąd wystąpi, wykonanie programu zostanie przerwane, a sterowanie zostanie przekazane do odpowiedniego bloku `except`, który obsłuży błąd.
+
+**Przykład:**
+
+```python
+try:
+    result = 10 / 0
+except ZeroDivisionError as e:
+    print(f"Błąd: {e}")
+```
+
+- **`ZeroDivisionError`**: Typ wyjątku, który jest zgłaszany, gdy próbujemy podzielić liczbę przez zero.
+- **`as e`**: Przechwytuje obiekt wyjątku, co pozwala na dostęp do szczegółów błędu.
+
+Wynik:
+
+```
+Błąd: division by zero
+```
+
+#### 2. Blok `else`
+
+Blok `else` można opcjonalnie dodać po blokach `try` i `except`. Jest on wykonywany tylko wtedy, gdy w bloku `try` nie wystąpi żaden błąd.
+
+**Przykład:**
+
+```python
+try:
+    result = 10 / 2
+except ZeroDivisionError as e:
+    print(f"Błąd: {e}")
+else:
+    print(f"Wynik: {result}")
+```
+
+Wynik:
+
+```
+Wynik: 5.0
+```
+
+#### 3. Blok `finally`
+
+Blok `finally` jest opcjonalny i jest wykonywany zawsze, niezależnie od tego, czy wyjątek został zgłoszony, czy nie. Jest użyteczny do czyszczenia zasobów, takich jak zamykanie plików lub połączeń z bazą danych.
+
+**Przykład:**
+
+```python
+try:
+    file = open('example.txt', 'r')
+    content = file.read()
+except FileNotFoundError as e:
+    print(f"Błąd: {e}")
+finally:
+    file.close()
+    print("Plik został zamknięty.")
+```
+
+Wynik:
+
+```
+Błąd: [Errno 2] No such file or directory: 'example.txt'
+Plik został zamknięty.
+```
+
+### Typy Wyjątków
+
+Python posiada wiele wbudowanych wyjątków, które mogą być zgłaszane w różnych sytuacjach. Oto kilka przykładów:
+
+- **`ZeroDivisionError`**: Dzielenie przez zero.
+- **`ValueError`**: Błędna wartość danych (np. konwersja napisu na liczbę).
+- **`TypeError`**: Błędny typ danych (np. próba dodania liczby do napisu).
+- **`FileNotFoundError`**: Próba otwarcia nieistniejącego pliku.
+- **`IndexError`**: Próba odwołania się do nieistniejącego indeksu w liście.
+- **`KeyError`**: Próba odwołania się do nieistniejącego klucza w słowniku.
+
+### Zgłaszanie Wyjątków
+
+W Pythonie można samodzielnie zgłaszać wyjątki za pomocą instrukcji `raise`. Jest to przydatne, gdy chcemy zasygnalizować nieprawidłową sytuację w naszym programie.
+
+**Przykład:**
+
+```python
+def check_age(age):
+    if age < 0:
+        raise ValueError("Wiek nie może być ujemny!")
+    return age
+
+try:
+    age = check_age(-5)
+except ValueError as e:
+    print(f"Błąd: {e}")
+```
+
+Wynik:
+
+```
+Błąd: Wiek nie może być ujemny!
+```
+
+### Tworzenie Własnych Wyjątków
+
+Możesz również definiować własne klasy wyjątków, które dziedziczą po klasie `Exception`.
+
+**Przykład:**
+
+```python
+class NegativeValueError(Exception):
+    pass
+
+def check_value(value):
+    if value < 0:
+        raise NegativeValueError("Wartość nie może być ujemna!")
+    return value
+
+try:
+    check_value(-10)
+except NegativeValueError as e:
+    print(f"Błąd: {e}")
+```
+
+Wynik:
+
+```
+Błąd: Wartość nie może być ujemna!
+```
+
+### Obsługa Błędów a Programowanie Defensywne
+
+Obsługa błędów jest integralną częścią programowania defensywnego, które polega na przewidywaniu i odpowiednim reagowaniu na możliwe problemy w kodzie. Dzięki właściwej obsłudze wyjątków, aplikacje mogą działać stabilniej i unikać niespodziewanych awarii.
+
+## SQLite
+
+SQLite jest lekką, samodzielną bazą danych, która jest zintegrowana z Pythonem. Biblioteka `sqlite3` umożliwia tworzenie, zarządzanie i manipulowanie bazami danych SQLite bez konieczności instalowania dodatkowego oprogramowania.
+
+### 1. Importowanie Biblioteki
+
+Aby zacząć korzystać z SQLite w Pythonie, najpierw należy zaimportować bibliotekę `sqlite3`, która jest standardową biblioteką w Pythonie.
+
+```python
+import sqlite3
+```
+
+### 2. Tworzenie Połączenia z Bazą Danych
+
+Połączenie z bazą danych SQLite jest realizowane za pomocą funkcji `sqlite3.connect()`. Jeśli baza danych nie istnieje, zostanie utworzona.
+
+**Przykład:**
+
+```python
+conn = sqlite3.connect('example.db')  # Łączy się z bazą danych 'example.db' (lub tworzy ją, jeśli nie istnieje)
+```
+
+- **`conn`**: Obiekt połączenia, który będzie używany do interakcji z bazą danych.
+
+### 3. Tworzenie Kursora
+
+Kursor jest obiektem, który umożliwia wykonywanie zapytań SQL oraz przetwarzanie wyników.
+
+**Przykład:**
+
+```python
+cursor = conn.cursor()
+```
+
+- **`cursor`**: Obiekt kursora używany do wykonywania operacji SQL na bazie danych.
+
+### 4. Tworzenie Tabeli
+
+Tabele w bazie danych można tworzyć za pomocą polecenia SQL `CREATE TABLE`. Poniżej znajduje się przykład tworzenia tabeli `users` z trzema kolumnami: `id`, `name`, `age`.
+
+**Przykład:**
+
+```python
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY,
+        name TEXT,
+        age INTEGER
+    )
+''')
+```
+
+- **`CREATE TABLE IF NOT EXISTS`**: Tworzy tabelę tylko wtedy, gdy jeszcze nie istnieje.
+
+### 5. Wstawianie Danych do Tabeli
+
+Dane można wstawiać do tabeli za pomocą polecenia `INSERT INTO`.
+
+**Przykład:**
+
+```python
+cursor.execute('''
+    INSERT INTO users (name, age) VALUES (?, ?)
+''', ('Alice', 25))
+```
+
+- **`?`**: Placeholdery dla wartości wstawianych do tabeli.
+- **`('Alice', 25)`**: Dane wstawiane do tabeli.
+
+Można również wstawiać wiele rekordów na raz:
+
+```python
+users = [
+    ('Bob', 30),
+    ('Charlie', 35),
+    ('David', 40)
+]
+
+cursor.executemany('''
+    INSERT INTO users (name, age) VALUES (?, ?)
+''', users)
+```
+
+### 6. Pobieranie Danych z Tabeli
+
+Aby pobrać dane z tabeli, używa się polecenia `SELECT`.
+
+**Przykład:**
+
+```python
+cursor.execute('SELECT * FROM users')
+rows = cursor.fetchall()
+
+for row in rows:
+    print(row)
+```
+
+- **`SELECT * FROM users`**: Pobiera wszystkie kolumny z tabeli `users`.
+- **`fetchall()`**: Zwraca wszystkie wyniki zapytania jako listę krotek.
+
+Można również pobierać dane z warunkami:
+
+```python
+cursor.execute('SELECT * FROM users WHERE age > 30')
+rows = cursor.fetchall()
+
+for row in rows:
+    print(row)
+```
+
+### 7. Aktualizowanie Danych
+
+Aby zaktualizować dane w tabeli, używa się polecenia `UPDATE`.
+
+**Przykład:**
+
+```python
+cursor.execute('''
+    UPDATE users SET age = ? WHERE name = ?
+''', (26, 'Alice'))
+```
+
+- **`UPDATE users SET age = ? WHERE name = ?`**: Aktualizuje wiek użytkownika o imieniu "Alice".
+
+### 8. Usuwanie Danych
+
+Aby usunąć dane z tabeli, używa się polecenia `DELETE`.
+
+**Przykład:**
+
+```python
+cursor.execute('''
+    DELETE FROM users WHERE name = ?
+''', ('Charlie',))
+```
+
+- **`DELETE FROM users WHERE name = ?`**: Usuwa użytkownika o imieniu "Charlie".
+
+### 9. Zatwierdzanie Zmian
+
+Po wprowadzeniu zmian (wstawianie, aktualizowanie, usuwanie) należy zatwierdzić te zmiany w bazie danych za pomocą `commit()`.
+
+**Przykład:**
+
+```python
+conn.commit()
+```
+
+### 10. Zamykanie Połączenia
+
+Po zakończeniu pracy z bazą danych należy zamknąć połączenie, aby zwolnić zasoby.
+
+**Przykład:**
+
+```python
+conn.close()
+```
+
+### 11. Obsługa Błędów
+
+Podczas pracy z bazą danych warto obsługiwać możliwe błędy za pomocą mechanizmu `try-except`.
+
+**Przykład:**
+
+```python
+try:
+    conn = sqlite3.connect('example.db')
+    cursor = conn.cursor()
+    # operacje na bazie danych
+    conn.commit()
+except sqlite3.Error as e:
+    print(f"Błąd bazy danych: {e}")
+finally:
+    if conn:
+        conn.close()
+```
+
+### 12. Przykładowy Kompletny Program
+
+Poniżej znajduje się przykładowy program, który pokazuje całą operację od tworzenia bazy danych po wstawianie, pobieranie, aktualizowanie i usuwanie danych:
+
+```python
+import sqlite3
+
+def create_connection(db_file):
+    try:
+        conn = sqlite3.connect(db_file)
+        return conn
+    except sqlite3.Error as e:
+        print(e)
+    return None
+
+def create_table(conn):
+    cursor = conn.cursor()
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY,
+            name TEXT NOT NULL,
+            age INTEGER
+        )
+    ''')
+    conn.commit()
+
+def insert_user(conn, user):
+    cursor = conn.cursor()
+    cursor.execute('''
+        INSERT INTO users (name, age) VALUES (?, ?)
+    ''', user)
+    conn.commit()
+
+def select_all_users(conn):
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM users')
+    rows = cursor.fetchall()
+    return rows
+
+def update_user(conn, user):
+    cursor = conn.cursor()
+    cursor.execute('''
+        UPDATE users SET age = ? WHERE name = ?
+    ''', user)
+    conn.commit()
+
+def delete_user(conn, name):
+    cursor = conn.cursor()
+    cursor.execute('''
+        DELETE FROM users WHERE name = ?
+    ''', (name,))
+    conn.commit()
+
+def main():
+    database = "example.db"
+    conn = create_connection(database)
+
+    if conn is not None:
+        create_table(conn)
+
+        # Wstawianie danych
+        insert_user(conn, ('Alice', 25))
+        insert_user(conn, ('Bob', 30))
+        insert_user(conn, ('Charlie', 35))
+
+        # Pobieranie i wyświetlanie danych
+        users = select_all_users(conn)
+        print("Użytkownicy:")
+        for user in users:
+            print(user)
+
+        # Aktualizacja danych
+        update_user(conn, (26, 'Alice'))
+
+        # Usuwanie danych
+        delete_user(conn, 'Charlie')
+
+        # Wyświetlanie danych po zmianach
+        users = select_all_users(conn)
+        print("Użytkownicy po zmianach:")
+        for user in users:
+            print(user)
+
+        conn.close()
+    else:
+        print("Nie można połączyć się z bazą danych.")
+
+if __name__ == '__main__':
+    main()
+```
+
 ## Tkinter
 
 **Tkinter** to wbudowana biblioteka Pythona służąca do tworzenia graficznych interfejsów użytkownika (GUI). W tej instrukcji przejdziemy przez najważniejsze aspekty tworzenia aplikacji GUI przy użyciu Tkinter, od podstawowych elementów po bardziej zaawansowane koncepcje.
@@ -1663,11 +2168,57 @@ root.geometry("400x300")
 root.mainloop()
 ```
 
-### 3. Dodawanie widżetów
+### 3. Kontenery w Tkinter
+
+Kontenery są używane do grupowania widżetów, co pozwala na lepszą organizację i zarządzanie układem.
+
+#### 3.1. Ramka (`Frame`)
+
+`Frame` jest podstawowym kontenerem, który można używać do organizowania innych widżetów w grupy.
+
+**Przykład:**
+
+```python
+frame = tk.Frame(root, bg="lightblue")  # Tworzy ramkę z tłem w kolorze jasnoniebieskim
+frame.pack(pady=10)  # Dodaje ramkę do głównego okna z odstępem w pionie
+```
+
+#### 3.2. PanedWindow
+
+`PanedWindow` pozwala na podział okna na kilka paneli, które mogą być przeciągane w celu zmiany rozmiaru.
+
+**Przykład:**
+
+```python
+paned_window = tk.PanedWindow(root, orient=tk.HORIZONTAL)
+paned_window.pack(fill=tk.BOTH, expand=True)
+
+left_frame = tk.Frame(paned_window, bg="lightgreen", width=100)
+right_frame = tk.Frame(paned_window, bg="lightyellow")
+
+paned_window.add(left_frame)
+paned_window.add(right_frame)
+```
+
+#### 3.3. Canvas
+
+`Canvas` jest używany do rysowania i tworzenia złożonych układów, takich jak wykresy czy diagramy.
+
+**Przykład:**
+
+```python
+canvas = tk.Canvas(root, bg="white", width=300, height=200)
+canvas.pack()
+
+# Rysowanie prostokąta
+canvas.create_rectangle(50, 50, 150, 100, fill="blue")
+```
+
+### 4. Dodawanie widżetów
 
 Widżety to podstawowe elementy interfejsu, takie jak przyciski, etykiety, pola tekstowe itp. Tkinter oferuje wiele rodzajów widżetów.
 
-#### 3.1. Etykieta (`Label`)
+#### 4.1. Etykieta (`Label`)
 
 **Etykieta** służy do wyświetlania tekstu lub obrazów.
 
@@ -1678,7 +2229,7 @@ label = tk.Label(root, text="Witaj w Tkinter!", font=("Arial", 16))
 label.pack()
 ```
 
-#### 3.2. Przycisk (`Button`)
+#### 4.2. Przycisk (`Button`)
 
 **Przycisk** to widżet, który pozwala na wykonanie akcji po kliknięciu.
 
@@ -1692,7 +2243,7 @@ button = tk.Button(root, text="Kliknij mnie", command=on_button_click)
 button.pack()
 ```
 
-#### 3.3. Pole tekstowe (`Entry`)
+#### 4.3. Pole tekstowe (`Entry`)
 
 **Pole tekstowe** pozwala użytkownikowi na wprowadzenie tekstu.
 
@@ -1703,7 +2254,7 @@ entry = tk.Entry(root)
 entry.pack()
 ```
 
-#### 3.4. Pole wyboru (`Checkbutton`)
+#### 4.4. Pole wyboru (`Checkbutton`)
 
 **Pole wyboru** umożliwia zaznaczanie i odznaczanie opcji.
 
@@ -1715,7 +2266,7 @@ checkbox = tk.Checkbutton(root, text="Zaznacz mnie", variable=var)
 checkbox.pack()
 ```
 
-#### 3.5. Lista rozwijana (`OptionMenu`)
+#### 4.5. Lista rozwijana (`OptionMenu`)
 
 **Lista rozwijana** pozwala użytkownikowi wybrać jedną opcję z listy.
 
@@ -1730,31 +2281,145 @@ option_menu = tk.OptionMenu(root, selected_option, *options)
 option_menu.pack()
 ```
 
-### 4. Organizacja widżetów
+### 5. Organizacja widżetów
 
-Tkinter oferuje kilka metod organizacji widżetów w oknie:
+Układ widżetów w Tkinter odnosi się do sposobu, w jaki są one rozmieszczane wewnątrz kontenerów takich jak główne okno aplikacji, ramki (`Frame`), czy inne kontenery. Tkinter oferuje trzy główne metody układania widżetów: `pack()`, `grid()` oraz `place()`. Każda z tych metod ma swoje unikalne cechy i zastosowania, co pozwala na elastyczne projektowanie interfejsu użytkownika.
 
-- **`pack()`**: Automatycznie układa widżety jeden po drugim (pionowo lub poziomo).
-- **`grid()`**: Umożliwia organizację widżetów w formie siatki.
-- **`place()`**: Pozwala na ręczne umieszczanie widżetów w określonych miejscach.
+#### 5.1. Metoda `pack()`
 
-**Przykład użycia `grid()`:**
+Metoda `pack()` to najprostszy sposób rozmieszczania widżetów w Tkinter. Automatycznie umieszcza widżety w kontenerze, kolejno jeden za drugim, zgodnie z określoną orientacją.
+
+**Cechy i Parametry `pack()`:**
+
+- **Orientacja**: Widżety mogą być rozmieszczane pionowo (domyślnie) lub poziomo, w zależności od parametru `side`.
+
+  - `side=tk.TOP` (domyślnie) – umieszcza widżety od góry kontenera.
+  - `side=tk.BOTTOM` – umieszcza widżety od dołu kontenera.
+  - `side=tk.LEFT` – umieszcza widżety od lewej strony kontenera.
+  - `side=tk.RIGHT` – umieszcza widżety od prawej strony kontenera.
+
+- **Wypełnienie (`fill`)**: Określa, czy widżet powinien rozciągać się, aby wypełnić dostępne miejsce w kontenerze.
+
+  - `fill=tk.X` – widżet wypełnia szerokość kontenera.
+  - `fill=tk.Y` – widżet wypełnia wysokość kontenera.
+  - `fill=tk.BOTH` – widżet wypełnia zarówno szerokość, jak i wysokość kontenera.
+
+- **Rozszerzanie (`expand`)**: Jeśli jest ustawione na `True`, widżet zajmuje dodatkowe miejsce dostępne w kontenerze.
+
+- **Marginesy**: Możesz użyć parametrów `padx` (margines poziomy) i `pady` (margines pionowy) do dodania odstępów wokół widżetu.
+
+**Przykład:**
 
 ```python
-label1 = tk.Label(root, text="Imię:")
-label1.grid(row=0, column=0)
+import tkinter as tk
 
-entry1 = tk.Entry(root)
-entry1.grid(row=0, column=1)
+root = tk.Tk()
 
-label2 = tk.Label(root, text="Nazwisko:")
-label2.grid(row=1, column=0)
+button1 = tk.Button(root, text="Przycisk 1")
+button1.pack(side=tk.LEFT, padx=10, pady=10)
 
-entry2 = tk.Entry(root)
-entry2.grid(row=1, column=1)
+button2 = tk.Button(root, text="Przycisk 2")
+button2.pack(side=tk.RIGHT, padx=10, pady=10)
+
+root.mainloop()
 ```
 
-### 5. Obsługa zdarzeń
+**Opis:**
+
+- `button1` jest umieszczony po lewej stronie (`side=tk.LEFT`) z marginesami 10 pikseli z każdej strony.
+- `button2` jest umieszczony po prawej stronie (`side=tk.RIGHT`) z podobnymi marginesami.
+
+#### 5.2. Metoda `grid()`
+
+Metoda `grid()` rozmieszcza widżety w formie siatki (gridu) z wierszami (`row`) i kolumnami (`column`). Jest bardziej precyzyjna niż `pack()` i pozwala na kontrolowanie układu w dwóch wymiarach.
+
+**Cechy i Parametry `grid()`:**
+
+- **Wiersze i Kolumny**: Każdy widżet jest przypisany do konkretnego wiersza i kolumny siatki.
+
+  - `row`: numer wiersza, zaczyna się od 0.
+  - `column`: numer kolumny, zaczyna się od 0.
+
+- **Łączenie komórek (`columnspan` i `rowspan`)**: Możesz rozszerzyć widżet na więcej niż jedną kolumnę lub wiersz.
+
+  - `columnspan`: liczba kolumn, które widżet zajmuje.
+  - `rowspan`: liczba wierszy, które widżet zajmuje.
+
+- **Marginesy**: Podobnie jak w `pack()`, możesz użyć parametrów `padx` i `pady` do dodania marginesów wokół widżetu.
+
+- **Wyrównanie (`sticky`)**: Określa, do której krawędzi komórki widżet powinien być przyklejony.
+  - `sticky=tk.W`: wyrównanie do lewej krawędzi (West).
+  - `sticky=tk.E`: wyrównanie do prawej krawędzi (East).
+  - `sticky=tk.N`: wyrównanie do górnej krawędzi (North).
+  - `sticky=tk.S`: wyrównanie do dolnej krawędzi (South).
+  - Można też łączyć te wartości np. `sticky=tk.NE` (górny prawy róg).
+
+**Przykład:**
+
+```python
+import tkinter as tk
+
+root = tk.Tk()
+
+label1 = tk.Label(root, text="Etykieta 1")
+label1.grid(row=0, column=0, padx=10, pady=10)
+
+label2 = tk.Label(root, text="Etykieta 2")
+label2.grid(row=0, column=1, padx=10, pady=10)
+
+label3 = tk.Label(root, text="Etykieta 3")
+label3.grid(row=1, column=0, columnspan=2, sticky="we", padx=10, pady=10)
+
+root.mainloop()
+```
+
+**Opis:**
+
+- `label1` jest umieszczony w pierwszym wierszu i pierwszej kolumnie (`row=0`, `column=0`).
+- `label2` jest umieszczony w pierwszym wierszu i drugiej kolumnie (`row=0`, `column=1`).
+- `label3` jest umieszczony w drugim wierszu, ale zajmuje dwie kolumny (`columnspan=2`) i jest rozciągnięty poziomo (`sticky="we"`).
+
+#### 5.3. Metoda `place()`
+
+Metoda `place()` pozwala na dokładne określenie pozycji widżetów za pomocą współrzędnych pikseli. Jest najbardziej precyzyjna, ale wymaga, byś ręcznie określił pozycję każdego widżetu, co może być trudne w większych aplikacjach.
+
+**Cechy i Parametry `place()`:**
+
+- **Współrzędne (`x`, `y`)**: Określasz dokładną pozycję widżetu w kontenerze.
+- **Rozmiar**: Można ustawić rozmiar widżetu za pomocą `width` i `height`.
+
+- **Relatywne pozycjonowanie**: Możesz używać wartości procentowych zamiast absolutnych, używając parametrów `relx` i `rely` (względem szerokości i wysokości kontenera).
+- **Przykład:** Jeśli `relx=0.5`, widżet będzie umieszczony w połowie szerokości kontenera.
+
+**Przykład:**
+
+```python
+import tkinter as tk
+
+root = tk.Tk()
+
+button = tk.Button(root, text="Przycisk")
+button.place(x=50, y=100)
+
+label = tk.Label(root, text="Etykieta")
+label.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
+
+root.mainloop()
+```
+
+**Opis:**
+
+- `button` jest umieszczony dokładnie 50 pikseli od lewej krawędzi i 100 pikseli od górnej krawędzi okna.
+- `label` jest umieszczony na środku okna (`relx=0.5`, `rely=0.5`), a punkt zaczepienia widżetu (anchor) to jego środek (`anchor=tk.CENTER`).
+
+### Kiedy używać poszczególnych metod?
+
+- **`pack()`**: Używaj, gdy chcesz, aby widżety były rozmieszczone sekwencyjnie wzdłuż jednej osi (pionowo lub poziomo) i nie potrzebujesz precyzyjnego kontrolowania ich pozycji.
+- **`grid()`**: Najlepszy wybór, gdy tworzysz bardziej złożone układy, które wymagają umieszczania widżetów w tabelach, siatkach czy formularzach.
+
+- **`place()`**: Używaj, gdy potrzebujesz pełnej kontroli nad pozycjonowaniem widżetów, np. w aplikacjach graficznych, gdzie precyzja co do piksela ma kluczowe znaczenie.
+
+### 6. Obsługa zdarzeń
 
 Tkinter umożliwia reagowanie na różne zdarzenia, takie jak kliknięcia myszą, wciśnięcia klawiszy, zmiany w widżetach itp.
 
@@ -1765,38 +2430,6 @@ def on_key_press(event):
     print(f"Wciśnięto klawisz: {event.char}")
 
 root.bind("<Key>", on_key_press)
-```
-
-### 6. Zaawansowane widżety
-
-#### 6.1. Ramki (`Frame`)
-
-**Ramki** służą do grupowania innych widżetów i organizowania interfejsu w bardziej skomplikowany sposób.
-
-**Przykład:**
-
-```python
-frame = tk.Frame(root, bg="lightblue", bd=5)
-frame.place(relx=0.5, rely=0.5, anchor="center")
-
-label = tk.Label(frame, text="Jestem w ramce!")
-label.pack()
-```
-
-#### 6.2. Paski przewijania (`Scrollbar`)
-
-**Paski przewijania** są używane w połączeniu z widżetami, które mogą zawierać dużo treści, takich jak `Text` lub `Listbox`.
-
-**Przykład:**
-
-```python
-text = tk.Text(root, height=10, width=50)
-text.pack(side=tk.LEFT)
-
-scrollbar = tk.Scrollbar(root, command=text.yview)
-scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
-
-text.config(yscrollcommand=scrollbar.set)
 ```
 
 ### 7. Menu i paski narzędzi
@@ -1883,7 +2516,335 @@ class MyApp:
 app = MyApp(root)
 ```
 
-### 10. Przykładowy projekt wykorzystujący biblioteke TKinter
+### 10. Obsługa bardziej złożonych widżetów w Tkinter
+
+Tkinter oferuje kilka bardziej zaawansowanych widżetów, które są przydatne w złożonych aplikacjach. Poniżej omówimy trzy z nich: `Treeview`, `Text` oraz `Scrollbar`.
+
+#### 10.1. Widżet `Treeview`
+
+Widżet `Treeview` jest potężnym narzędziem do wyświetlania danych w formie hierarchicznej lub tabelarycznej. Jest idealny do tworzenia list, drzew katalogów, czy też wyświetlania tabeli danych.
+
+**Cechy `Treeview`:**
+
+- **Kolumny**: Możesz tworzyć wiele kolumn, z których każda może zawierać różne typy danych.
+- **Nagłówki**: `Treeview` umożliwia dodawanie nagłówków do kolumn.
+- **Rozwijanie/zwijanie**: Jeśli używasz struktury drzewa, węzły mogą być rozwijane lub zwijane.
+- **Zaznaczenie**: Użytkownik może zaznaczać pojedyncze wiersze lub wiele wierszy jednocześnie.
+
+**Przykład:**
+
+```python
+import tkinter as tk
+from tkinter import ttk
+
+root = tk.Tk()
+
+tree = ttk.Treeview(root, columns=("Name", "Age"), show="headings")
+tree.heading("Name", text="Name")
+tree.heading("Age", text="Age")
+
+# Dodawanie danych
+tree.insert("", "end", values=("John", 28))
+tree.insert("", "end", values=("Alice", 24))
+
+tree.pack()
+
+root.mainloop()
+```
+
+**Opis:**
+
+- W przykładzie tworzony jest widżet `Treeview` z dwoma kolumnami: `Name` i `Age`.
+- Dane są dodawane za pomocą metody `insert()`.
+
+#### 10.2. Widżet `Text`
+
+Widżet `Text` umożliwia wprowadzanie i wyświetlanie dużych fragmentów tekstu, z obsługą wielolinijkowego tekstu, formatowania, oraz różnych stylów tekstu.
+
+**Cechy `Text`:**
+
+- **Wieloliniowość**: Umożliwia wprowadzanie tekstu na wielu liniach.
+- **Formatowanie**: Obsługuje różne style tekstu, takie jak pogrubienie, kursywa, zmiana koloru itp.
+- **Znaczniki**: Można definiować znaczniki tekstu, aby stosować różne style do wybranych fragmentów.
+
+**Przykład:**
+
+```python
+import tkinter as tk
+
+root = tk.Tk()
+
+text = tk.Text(root, wrap="word", width=40, height=10)
+text.insert("1.0", "To jest przykładowy tekst w widżecie Text.\nMożesz tu pisać dowolnie wiele tekstu.")
+text.pack()
+
+root.mainloop()
+```
+
+**Opis:**
+
+- W przykładzie tworzony jest widżet `Text` o szerokości 40 znaków i wysokości 10 linii.
+- Tekst wprowadzony do widżetu automatycznie owija się w linijki.
+
+#### 10.3. Widżet `Scrollbar`
+
+Widżet `Scrollbar` dodaje możliwość przewijania w przypadku długich widżetów, takich jak `Text`, `Listbox`, czy `Treeview`.
+
+**Cechy `Scrollbar`:**
+
+- **Orientacja**: Można ustawić orientację poziomą (`horizontal`) lub pionową (`vertical`).
+- **Integracja z innymi widżetami**: `Scrollbar` może być powiązany z innymi widżetami, aby umożliwić przewijanie ich zawartości.
+
+**Przykład:**
+
+```python
+import tkinter as tk
+
+root = tk.Tk()
+
+text = tk.Text(root, wrap="none")
+scrollbar = tk.Scrollbar(root, command=text.yview)
+text.configure(yscrollcommand=scrollbar.set)
+
+text.pack(side="left", fill="both", expand=True)
+scrollbar.pack(side="right", fill="y")
+
+root.mainloop()
+```
+
+**Opis:**
+
+- `Text` jest powiązany z pionowym `Scrollbar`, który umożliwia przewijanie zawartości tekstu.
+
+### 11. Walidacja Danych w Tkinter
+
+Walidacja danych to kluczowy aspekt tworzenia aplikacji, które przyjmują dane od użytkowników. W Tkinter można skutecznie implementować walidację danych w różnych widżetach, szczególnie w widżetach wejściowych takich jak `Entry` i `Text`. Poniżej przedstawimy rozszerzone podejście do walidacji danych, w tym bardziej zaawansowane techniki i przykłady.
+
+#### 11.1. Walidacja w Widżecie `Entry`
+
+Widżet `Entry` służy do wprowadzania pojedynczej linii tekstu. Walidacja w `Entry` może być realizowana na kilka sposobów:
+
+**A. Walidacja za pomocą funkcji**
+
+Można zdefiniować funkcję walidującą i przypisać ją do widżetu `Entry`. Funkcja ta może być wywoływana za każdym razem, gdy użytkownik wprowadza dane.
+
+**Przykład:**
+
+```python
+import tkinter as tk
+
+def validate_input(new_value):
+    # Sprawdza, czy nowa wartość jest liczbą całkowitą
+    if new_value.isdigit() or new_value == "":
+        return True
+    else:
+        return False
+
+root = tk.Tk()
+
+validate_command = root.register(validate_input)
+
+entry = tk.Entry(root, validate="key", validatecommand=(validate_command, '%P'))
+entry.pack()
+
+root.mainloop()
+```
+
+**Opis:**
+
+- `validate_input` sprawdza, czy nowa wartość (argument `new_value`) jest liczbą całkowitą lub pustym ciągiem (co pozwala na edytowanie tekstu).
+- `'%P'` jest specjalnym parametrem, który przekazuje nową wartość, którą użytkownik wprowadza.
+
+**B. Walidacja za pomocą metod `validate` i `validatecommand`**
+
+- **`validate`**: Określa, kiedy walidacja powinna być przeprowadzona. Możliwe wartości to:
+
+  - `"focusin"` – walidacja przy wejściu do pola
+  - `"focusout"` – walidacja przy wyjściu z pola
+  - `"key"` – walidacja podczas każdej zmiany klawiatury
+  - `"all"` – walidacja we wszystkich przypadkach
+
+- **`validatecommand`**: Parametr przyjmuje krotkę zawierającą funkcję walidacyjną oraz dodatkowe argumenty. Przykłady argumentów to:
+  - `'%P'` – nowa wartość wprowadzanego tekstu
+  - `'%S'` – wprowadzony znak
+  - `'%d'` – typ zmiany (np. `1` oznacza dodanie, `0` oznacza usunięcie)
+
+#### 11.2. Walidacja w Widżecie `Text`
+
+Widżet `Text` pozwala na wprowadzanie wieloliniowego tekstu. Można walidować dane wprowadzone do `Text` w bardziej złożony sposób, np. poprzez używanie znaczników lub sprawdzanie tekstu po zakończeniu edycji.
+
+**A. Walidacja za pomocą funkcji**
+
+Można użyć funkcji do walidacji tekstu po jego wprowadzeniu lub edytowaniu.
+
+**Przykład:**
+
+```python
+import tkinter as tk
+
+def validate_text():
+    content = text.get("1.0", tk.END)
+    if "error" in content:
+        print("Tekst zawiera słowo 'error'.")
+    else:
+        print("Tekst jest poprawny.")
+
+root = tk.Tk()
+
+text = tk.Text(root, wrap="word")
+text.pack()
+
+validate_button = tk.Button(root, text="Sprawdź tekst", command=validate_text)
+validate_button.pack()
+
+root.mainloop()
+```
+
+**Opis:**
+
+- `validate_text` jest funkcją, która sprawdza, czy tekst zawiera słowo "error". Może być wywoływana na przykład po naciśnięciu przycisku.
+
+**B. Używanie znaczników**
+
+Możesz używać znaczników w widżecie `Text`, aby stosować różne style do fragmentów tekstu i walidować ich zawartość.
+
+**Przykład:**
+
+```python
+import tkinter as tk
+
+def apply_tag():
+    text.tag_add("highlight", "1.0", "1.end")
+    text.tag_config("highlight", background="yellow")
+
+root = tk.Tk()
+
+text = tk.Text(root, wrap="word")
+text.pack()
+
+apply_tag_button = tk.Button(root, text="Podświetl pierwszy wiersz", command=apply_tag)
+apply_tag_button.pack()
+
+root.mainloop()
+```
+
+**Opis:**
+
+- `apply_tag` używa znaczników, aby podświetlić pierwszy wiersz tekstu na żółto. Jest to przykład jak można zarządzać stylizacją tekstu oraz walidować jego zawartość.
+
+#### 11.3. Walidacja na poziomie aplikacji
+
+Czasami walidacja jest realizowana na poziomie aplikacji, czyli po zakończeniu edycji danych przez użytkownika. Można wtedy sprawdzić, czy wszystkie wprowadzone dane są poprawne przed wykonaniem jakiejkolwiek akcji (np. zapisaniem danych).
+
+**Przykład:**
+
+```python
+import tkinter as tk
+from tkinter import messagebox
+
+def submit_form():
+    name = name_entry.get()
+    age = age_entry.get()
+
+    if not name or not age.isdigit():
+        messagebox.showerror("Błąd walidacji", "Wprowadź poprawne dane.")
+    else:
+        messagebox.showinfo("Sukces", f"Imię: {name}, Wiek: {age}")
+
+root = tk.Tk()
+
+tk.Label(root, text="Imię:").pack()
+name_entry = tk.Entry(root)
+name_entry.pack()
+
+tk.Label(root, text="Wiek:").pack()
+age_entry = tk.Entry(root)
+age_entry.pack()
+
+submit_button = tk.Button(root, text="Wyślij", command=submit_form)
+submit_button.pack()
+
+root.mainloop()
+```
+
+**Opis:**
+
+- `submit_form` sprawdza, czy pola `name_entry` i `age_entry` są poprawnie wypełnione. Jeśli dane są niepoprawne, wyświetla komunikat o błędzie; jeśli są poprawne, wyświetla komunikat o sukcesie.
+
+### Podsumowanie
+
+Walidacja danych jest niezbędna do zapewnienia, że wprowadzane informacje są poprawne i zgodne z wymaganiami aplikacji. Tkinter oferuje różne mechanizmy do walidacji danych, w tym:
+
+- **`Entry`** z funkcjami walidacyjnymi oraz parametrami `validate` i `validatecommand`.
+- **`Text`** z walidacją zawartości oraz używaniem znaczników do stylizacji.
+- **Walidacja na poziomie aplikacji**, która sprawdza dane po ich wprowadzeniu i przed podjęciem dalszych działań.
+
+### 12. Zarządzanie wieloma oknami w Tkinter
+
+W bardziej złożonych aplikacjach może być konieczne zarządzanie więcej niż jednym oknem. Tkinter umożliwia łatwe tworzenie i zarządzanie wieloma oknami.
+
+#### 12.1. Tworzenie nowego okna
+
+Nowe okno można stworzyć przy pomocy klasy `Toplevel`, która tworzy niezależne okno podrzędne.
+
+**Przykład:**
+
+```python
+import tkinter as tk
+
+def open_new_window():
+    new_window = tk.Toplevel(root)
+    new_window.title("Nowe Okno")
+    label = tk.Label(new_window, text="To jest nowe okno")
+    label.pack()
+
+root = tk.Tk()
+
+button = tk.Button(root, text="Otwórz nowe okno", command=open_new_window)
+button.pack()
+
+root.mainloop()
+```
+
+**Opis:**
+
+- `Toplevel` tworzy nowe okno, które jest niezależne od głównego okna.
+- W przykładzie przycisk otwiera nowe okno z etykietą.
+
+#### 12.2. Zarządzanie oknami
+
+Aby zarządzać oknami, można przypisywać różne właściwości i operacje do każdego z nich, np. ustawianie tytułu, wymiarów, położenia, czy też zamykanie okna po wykonaniu określonego działania.
+
+**Przykład zarządzania wieloma oknami:**
+
+```python
+import tkinter as tk
+
+def open_new_window():
+    new_window = tk.Toplevel(root)
+    new_window.title("Nowe Okno")
+    new_window.geometry("300x200")
+
+    label = tk.Label(new_window, text="To jest nowe okno")
+    label.pack()
+
+    close_button = tk.Button(new_window, text="Zamknij", command=new_window.destroy)
+    close_button.pack()
+
+root = tk.Tk()
+
+button = tk.Button(root, text="Otwórz nowe okno", command=open_new_window)
+button.pack()
+
+root.mainloop()
+```
+
+**Opis:**
+
+- `new_window.geometry("300x200")` ustawia rozmiar nowego okna.
+- Przycisk w nowym oknie pozwala na jego zamknięcie za pomocą `new_window.destroy`.
+
+### 13. Przykładowy projekt wykorzystujący biblioteke TKinter
 
 ### Funkcjonalności aplikacji:
 
@@ -1896,38 +2857,50 @@ app = MyApp(root)
 
 ```python
 import tkinter as tk
-from tkinter import messagebox, filedialog
+from tkinter import ttk, messagebox, filedialog
 
 class ToDoApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Menedżer Zadań")
-        self.root.geometry("500x400")
+        self.root.geometry("940x300")
 
         self.tasks = []
 
         self.create_widgets()
 
     def create_widgets(self):
+        # Main frame
+        main_frame = ttk.Frame(self.root, padding="10")
+        main_frame.grid(row=0, column=0, sticky="nsew")
+
+        # Left frame for task entry and buttons
+        left_frame = ttk.Frame(main_frame)
+        left_frame.grid(row=0, column=0, sticky="nsew", padx=(0, 10))
+
+        # Right frame for task list
+        right_frame = ttk.Frame(main_frame)
+        right_frame.grid(row=0, column=1, sticky="nsew")
+
         # Pole tekstowe do wpisywania nowych zadań
-        self.task_entry = tk.Entry(self.root, width=50)
+        self.task_entry = ttk.Entry(left_frame, width=50)
         self.task_entry.pack(pady=10)
 
         # Przycisk dodawania zadania
-        self.add_button = tk.Button(self.root, text="Dodaj zadanie", command=self.add_task)
+        self.add_button = ttk.Button(left_frame, text="Dodaj zadanie", command=self.add_task)
         self.add_button.pack(pady=5)
 
-        # Lista zadań
-        self.task_listbox = tk.Listbox(self.root, selectmode=tk.SINGLE, width=50, height=15)
-        self.task_listbox.pack(pady=10)
-
         # Przycisk usuwania zadania
-        self.delete_button = tk.Button(self.root, text="Usuń zadanie", command=self.delete_task)
+        self.delete_button = ttk.Button(left_frame, text="Usuń zadanie", command=self.delete_task)
         self.delete_button.pack(pady=5)
 
         # Przycisk oznaczania zadania jako wykonanego
-        self.complete_button = tk.Button(self.root, text="Oznacz jako wykonane", command=self.complete_task)
+        self.complete_button = ttk.Button(left_frame, text="Oznacz jako wykonane", command=self.complete_task)
         self.complete_button.pack(pady=5)
+
+        # Lista zadań
+        self.task_listbox = tk.Listbox(right_frame, selectmode=tk.SINGLE, width=50, height=15)
+        self.task_listbox.pack(pady=10)
 
         # Menu
         self.menu = tk.Menu(self.root)
@@ -1964,33 +2937,30 @@ class ToDoApp:
             task = self.task_listbox.get(selected_index)
             self.task_listbox.delete(selected_index)
             self.tasks[selected_index] = f"{task} ✔"
-            self.task_listbox.insert(selected_index, f"{task} ✔")
-            self.task_listbox.itemconfig(selected_index, {'fg': 'green'})
+            self.task_listbox.insert(selected_index, self.tasks[selected_index])
         except IndexError:
             messagebox.showwarning("Błąd", "Nie wybrano żadnego zadania do oznaczenia jako wykonane")
 
     def save_tasks(self):
-        file_path = filedialog.asksaveasfilename(defaultextension=".txt", filetypes=[("Text files", "*.txt")])
+        file_path = filedialog.asksaveasfilename(defaultextension=".txt", filetypes=[("Pliki tekstowe", "*.txt")])
         if file_path:
-            with open(file_path, 'w') as file:
+            with open(file_path, "w") as file:
                 for task in self.tasks:
-                    file.write(task + "\n")
+                    file.write(f"{task}\n")
 
     def load_tasks(self):
-        file_path = filedialog.askopenfilename(filetypes=[("Text files", "*.txt")])
+        file_path = filedialog.askopenfilename(filetypes=[("Pliki tekstowe", "*.txt")])
         if file_path:
-            with open(file_path, 'r') as file:
-                self.tasks = [line.strip() for line in file.readlines()]
-
-            self.task_listbox.delete(0, tk.END)
-            for task in self.tasks:
-                self.task_listbox.insert(tk.END, task)
-                if task.endswith("✔"):
-                    index = self.tasks.index(task)
-                    self.task_listbox.itemconfig(index, {'fg': 'green'})
+            with open(file_path, "r") as file:
+                self.tasks = file.read().splitlines()
+                self.task_listbox.delete(0, tk.END)
+                for task in self.tasks:
+                    self.task_listbox.insert(tk.END, task)
 
 if __name__ == "__main__":
     root = tk.Tk()
+    style = ttk.Style(root)
+    style.theme_use('clam')  # Use a modern theme
     app = ToDoApp(root)
     root.mainloop()
 ```
