@@ -39,7 +39,7 @@ Python to wszechstronny język programowania idealny dla początkujących i zaaw
 
 Chcesz przyczynić się do rozwoju naszych kursów? Zapraszamy do współpracy! Wystarczy, że wykonasz fork repozytorium, wprowadzisz swoje zmiany, a następnie stworzysz Pull Request. Z radością przyjmiemy wszelkie sugestie i poprawki.
 
-Dziękujemy za odwiedzenie mojego repozytorium. Życzę owocnej nauki! 🎓
+Dziękuje za odwiedzenie mojego repozytorium. Życzę owocnej nauki! 🎓
 
 ---
 
