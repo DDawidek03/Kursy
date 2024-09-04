@@ -111,3 +111,119 @@
 14. Znajdź wszystkie komentarze, które zawierają słowo "important". _(Na podstawie tabeli `comments`)_
 
 15. Wyświetl tytuły zadań, usuwając z nich wszystkie spacje. _(Na podstawie tabeli `tasks`)_
+
+# EN
+
+📑 Data Manipulation Language (DML)
+
+🔭 SQL Queries (search and clauses)
+
+1. Find all tasks assigned to the user named jdoe. (Joining tasks and users tables)
+
+2. Find all projects that have the word "Upgrade" in their name. (Based on the projects table)
+
+3. Find all comments from users whose email addresses end with "@example.com". (Joining comments and users tables)
+
+4. Find all files attached to tasks marked as "Completed". (Joining files and tasks tables)
+
+5. Find all high-priority tasks that are due within the next 7 days. (Based on the tasks table)
+
+6. Find all tasks assigned to users with the role "Manager". (Joining tasks, users, and roles tables)
+
+7. Find all comments added in the last 24 hours. (Based on the comments table)
+
+8. Find all projects created in the year 2024. (Based on the projects table)
+
+9. Find all tasks that do not have any attached files. (Joining tasks and files tables)
+
+10. Find all roles that have the permission "Edit Tasks". (Joining roles and permissions tables)
+
+11. Find all tasks created by the user asmith. (Joining tasks and users tables)
+
+12. Find all users who do not have any assigned roles. (Based on the users and roles tables)
+
+13. Find all files attached to tasks with the status "Pending". (Joining files and tasks tables)
+
+14. Find all projects that have more than 5 tasks. (Joining projects and tasks tables)
+
+15. Find all comments by the user mjones that contain the word "completed". (Joining comments and users tables)
+
+#### 📥 **Grouping, Sorting, and HAVING Clause**
+
+1. Group all tasks by priority and display the number of tasks in each group. (Based on the tasks table)
+
+2. Group users by roles and display the number of users in each role. (Joining users and roles tables)
+
+3. Find all projects that have more than 3 assigned tasks and are in the status "In Progress". (Joining projects and tasks tables)
+
+4. Sort users alphabetically by username. (Based on the users table)
+
+5. Sort tasks by creation date, with the newest on top. (Based on the tasks table)
+
+6. Group comments by user and display the number of comments added by each user. (Joining comments and users tables)
+
+7. Find all tasks that have at least 2 attached files. (Joining tasks and files tables)
+
+8. Sort projects by the number of tasks, from the highest to the lowest number of tasks. (Joining projects and tasks tables)
+
+9. Group roles by the number of assigned users and display those that have more than 1 user. (Joining roles and users tables)
+
+10. Find all tasks that have more than 3 assigned comments. (Joining tasks and comments tables)
+
+11. Sort users by the number of assigned tasks, from the highest to the lowest number. (Joining users and tasks tables)
+
+12. Sort comments by the length of the comment text, from the longest to the shortest. (Based on the comments table)
+
+13. Group tasks by status and display the number of tasks created by the user mjones. (Joining tasks and users tables)
+
+#### 🔣 **Functions**
+
+**Aggregate Functions:**
+
+1. Calculate the total number of files assigned to each project. (Joining projects, tasks, and files tables)
+
+2. Calculate the average number of tasks assigned to users. (Joining tasks and users tables)
+
+3. Calculate the maximum number of comments assigned to a single task. (Joining comments and tasks tables)
+
+4. Find the project with the highest number of assigned users. (Joining projects and users tables)
+
+5. Calculate the average number of files assigned to tasks. (Joining tasks and files tables)
+
+6. Calculate the total duration of tasks assigned to the user mjones. (Joining tasks and users tables - assuming there is a duration column)
+
+7. Find the average number of tasks assigned to projects with the status "Pending". (Joining projects and tasks tables)
+
+8. Calculate the total number of users who have more than one role. (Joining users and roles tables)
+
+**Text Functions:**
+
+1. Find all tasks whose titles start with "Implement". (Based on the tasks table)
+
+2. Find users whose email addresses contain the word "admin". (Based on the users table)
+
+3. Display the titles of all tasks, converting them to uppercase. (Based on the tasks table)
+
+4. Find all comments that contain exactly 10 words. (Based on the comments table)
+
+5. Display the first 10 characters of each project name. (Based on the projects table)
+
+6. Find all tasks whose titles contain the word "review". (Based on the tasks table)
+
+7. Display comments, converting their text to lowercase. (Based on the comments table)
+
+8. Find users whose first name ends with "son". (Based on the users table)
+
+9. Display users' last names without the first three letters. (Based on the users table)
+
+10. Find projects whose names have more than 15 characters. (Based on the projects table)
+
+11. Display task titles, replacing all occurrences of the word "task" with "job". (Based on the tasks table)
+
+12. Find users who have exactly 8 characters in their username. (Based on the users table)
+
+13. Display the last 5 characters of each task title. (Based on the tasks table)
+
+14. Find all comments that contain the word "important". (Based on the comments table)
+
+15. Display task titles, removing all spaces from them. (Based on the tasks table)
