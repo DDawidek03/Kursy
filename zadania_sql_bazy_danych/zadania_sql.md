@@ -20,7 +20,7 @@
 10. Wyświetl wszystkich klientów, którzy zapłacili za faktury wydane w 2023 roku.
 11. Znajdź wszystkie faktury, gdzie kwota całkowita jest większa niż 500 zł i nie zostały jeszcze zapłacone.
 12. Wyświetl klientów, którzy dokonali płatności przelewem lub gotówką.
-13. Pokaż opinie, które zostały wystawione na samochody z oceną poniżej 4.
+13. Pokaż faktury, które zostały wystawione na samochody z oceną poniżej 4.
 14. Znajdź klientów, którzy wypożyczali samochody i zostawili co najmniej dwie różne opinie.
 
 ### Grupowanie danych
