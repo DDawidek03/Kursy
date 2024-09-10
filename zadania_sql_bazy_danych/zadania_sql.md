@@ -45,15 +45,14 @@
 24. Znajdź miasta, gdzie średnia kwota faktur jest wyższa niż 600 zł.
 25. Wyświetl klientów, którzy mają łączną kwotę płatności większą niż 1000 zł.
 26. Pokaż typy płatności, które mają średnią kwotę powyżej 500 zł.
-27. Znajdź wszystkich klientów, którzy zostawili co najmniej trzy opinie na różne samochody.
-28. Wyświetl liczbę faktur i sumę kwot płatności dla każdego klienta.
+27. Wyświetl liczbę faktur i sumę kwot płatności dla każdego klienta.
 
 ### Łączenie tabel
 
 #### Zadania (29-33)
 
-29. Wyświetl wszystkie faktury wraz z powiązanymi danymi o płatnościach.
-30. Pokaż wszystkich klientów i ich opinie o samochodach.
-31. Wyświetl listę klientów wraz z ich wszystkimi fakturami.
-32. Pokaż szczegóły faktur i powiązanych płatności nawet, jeśli nie zostały zapłacone.
-33. Wyświetl szczegóły klientów, którzy dokonali płatności kartą i jednocześnie wystawili co najmniej jedną opinię.
+28. Wyświetl wszystkie faktury wraz z powiązanymi danymi o płatnościach.
+29. Pokaż wszystkich klientów i ich opinie o samochodach.
+30. Wyświetl listę klientów wraz z ich wszystkimi fakturami.
+31. Pokaż szczegóły faktur i powiązanych płatności nawet, jeśli nie zostały zapłacone.
+32. Wyświetl szczegóły klientów, którzy dokonali płatności kartą i jednocześnie wystawili co najmniej jedną opinię.
