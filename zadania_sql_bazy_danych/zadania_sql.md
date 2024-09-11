@@ -36,13 +36,13 @@
 
 19. Wyświetl wszystkich klientów, którzy dokonali co najmniej dwóch płatności.
 20. Znajdź średnią ocenę samochodów na podstawie opinii klientów.
-21. Pokaż liczbę faktur zapłaconych przez klientów z każdej miejscowości.
+21. Pokaż liczbę faktur zapłaconych przez klientów z każdej miejscowości. <- znajdź błąd, i go zgłoś
 22. Wyświetl wszystkich klientów, którzy mają średnią ocenę co najmniej 4 w swoich opiniach.
 23. Pokaż liczbę faktur dla każdego roku i miesiąca.
 
 #### Zadania trudne (24-28)
 
-24. Znajdź miasta, gdzie średnia kwota faktur jest wyższa niż 600 zł.
+24. Znajdź osoby, gdzie średnia kwota faktur jest wyższa niż 600 zł.
 25. Wyświetl klientów, którzy mają łączną kwotę płatności większą niż 1000 zł.
 26. Pokaż typy płatności, które mają średnią kwotę powyżej 500 zł.
 27. Wyświetl liczbę faktur i sumę kwot płatności dla każdego klienta.
