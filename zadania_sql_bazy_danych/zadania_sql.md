@@ -67,7 +67,7 @@
 
 2. **Zadanie 2:** Wyświetl listę samochodów oraz ich średnią ocenę na podstawie opinii klientów. Posortuj wyniki malejąco według średniej oceny.
 
-3. **Zadanie 3:** Wyświetl listę pracowników i liczbę różnych samochodów, które były oceniane w opiniach, przy założeniu, że samochody były przypisane do wypożyczeń obsługiwanych przez tych pracowników. Posortuj wyniki malejąco według liczby samochodów.
+3. **Zadanie 3:** Wyświetl listę klientów i liczbę różnych samochodów, które były oceniane w opiniach, przy założeniu, że samochody były przypisane do wypożyczeń obsługiwanych przez tych klientów. Posortuj wyniki malejąco według liczby samochodów.
 
 4. **Zadanie 4:** Wyświetl listę wszystkich dostępnych (niewypożyczonych) samochodów, pokazując ich markę, model oraz datę ostatniego przeglądu technicznego. Posortuj wyniki według daty ostatniego przeglądu malejąco.
 
