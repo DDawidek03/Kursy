@@ -81,7 +81,7 @@
 
 9. **Zadanie 9:** Wyświetl 10 najczęściej wypożyczanych samochodów wraz z liczbą wypożyczeń dla każdego z nich. Posortuj wyniki malejąco według liczby wypożyczeń.
 
-10. **Zadanie 10:** Wyświetl średnią wartość wypożyczeń obsłużonych przez każdego pracownika, który obsłużył więcej niż 5 wypożyczeń. Posortuj wyniki malejąco według średniej wartości.
+10. **Zadanie 10:** Wyświetl średnią wartość wypożyczeń dla każdego klienta, który miał więcej niż 5 wypożyczeń. Posortuj wyniki malejąco według średniej wartości.
 
 11. **Zadanie 11:** Wyświetl listę samochodów, które były wypożyczane przynajmniej raz w ciągu ostatnich 6 miesięcy, wraz z informacją o liczbie dni, które były dostępne do wypożyczenia (gdy nie były wypożyczone).
 
@@ -93,7 +93,7 @@
 
 15. **Zadanie 15:** Wyświetl listę samochodów, które nigdy nie były wypożyczane.
 
-16. **Zadanie 16:** Wyświetl listę wszystkich pracowników wraz z liczbą wypożyczeń, które zostały anulowane, obsługiwanych przez każdego pracownika.
+16. **Zadanie 16:** Wyświetl liczbe pracowników na kazdym stanowisku, dodatkowo zostali zatrudnieni po 2020 roku. Posortuj wyniki według nazwiska.
 
 17. **Zadanie 17:** Wyświetl listę samochodów, których średnia ocena w opiniach jest mniejsza niż 3. Posortuj wyniki rosnąco według średniej oceny.
 
@@ -103,7 +103,7 @@
 
 20. **Zadanie 20:** Wyświetl listę wszystkich samochodów, które były wypożyczone przynajmniej raz w ciągu ostatnich 12 miesięcy, wraz z liczbą dni, przez które były wypożyczone. Posortuj wyniki malejąco według liczby dni.
 
-21. **Zadanie 21:** Wyświetl listę pracowników, którzy nie obsługiwali żadnego wypożyczenia w ciągu ostatnich 3 miesięcy.
+21. **Zadanie 21:** Wyświetl listę klientów razem z ich płatnosciami oraz samochodów, którzy nie wykonali żadnego wypożyczenia w ciągu ostatnich 3 miesięcy.
 
 22. **Zadanie 22:** Wyświetl listę samochodów, które zostały wypożyczone na największą liczbę dni w sumie w ciągu ostatnich 6 miesięcy. Posortuj wyniki malejąco według liczby dni.
 
@@ -111,4 +111,4 @@
 
 24. **Zadanie 24:** Wyświetl listę wszystkich samochodów, które były wypożyczane przez różnych klientów, wraz z informacją o liczbie różnych klientów, którzy wypożyczali każdy samochód.
 
-25. **Zadanie 25:** Wyświetl łączną liczbę wypożyczeń oraz łączną wartość wypożyczeń obsługiwanych przez każdego pracownika w ciągu ostatnich 12 miesięcy. Posortuj wyniki malejąco według łącznej wartości wypożyczeń.
+25. **Zadanie 25:** Wyświetl łączną liczbę wypożyczeń oraz łączną wartość wypożyczeń obsługiwanych przez każdego klienta w ciągu ostatnich 12 miesięcy. Posortuj wyniki malejąco według łącznej wartości wypożyczeń.
