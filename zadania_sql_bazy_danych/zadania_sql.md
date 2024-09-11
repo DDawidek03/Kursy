@@ -63,77 +63,52 @@
 
 ### Łączenie tabel
 
-1. **Zadanie 1:**
-   Wyświetl listę wszystkich klientów, którzy złożyli zamówienia, wraz z ich łączną wartością zamówień. Posortuj wyniki rosnąco według nazwiska klienta.
+1. **Zadanie 1:** Wyświetl listę wszystkich klientów, którzy otrzymali faktury, wraz z łączną kwotą ich faktur. Posortuj wyniki alfabetycznie według nazwiska klienta.
 
-2. **Zadanie 2:**
-   Wyświetl listę produktów wraz z ich średnią ceną sprzedaży. Wyniki posortuj malejąco według średniej ceny.
+2. **Zadanie 2:** Wyświetl listę samochodów oraz ich średnią ocenę na podstawie opinii klientów. Posortuj wyniki malejąco według średniej oceny.
 
-3. **Zadanie 3:**
-   Wyświetl listę dostawców i liczbę różnych produktów, które dostarczyli. Pokaż tylko tych dostawców, którzy dostarczyli więcej niż 5 różnych produktów. Wyniki posortuj malejąco według liczby produktów.
+3. **Zadanie 3:** Wyświetl listę pracowników i liczbę różnych samochodów, które były oceniane w opiniach, przy założeniu, że samochody były przypisane do wypożyczeń obsługiwanych przez tych pracowników. Posortuj wyniki malejąco według liczby samochodów.
 
-4. **Zadanie 4:**
-   Wyświetl listę zamówień, które zostały złożone w 2022 roku, wraz z nazwą klienta i łączną wartością zamówienia. Posortuj wyniki malejąco według wartości zamówienia.
+4. **Zadanie 4:** Wyświetl listę wszystkich dostępnych (niewypożyczonych) samochodów, pokazując ich markę, model oraz datę ostatniego przeglądu technicznego. Posortuj wyniki według daty ostatniego przeglądu malejąco.
 
-5. **Zadanie 5:**
-   Wyświetl listę produktów, które zostały zamówione przez klientów z miast zaczynających się na literę "W". Wyniki posortuj rosnąco według nazwy produktu.
+5. **Zadanie 5:** Wyświetl listę klientów, którzy złożyli zamówienia na wypożyczenie samochodów w danym okresie, z informacją o liczbie dni wypożyczenia i łącznej wartości wypożyczenia.
 
-6. **Zadanie 6:**
-   Wyświetl listę zamówień, w których łączna liczba zamówionych sztuk przekracza 50, wraz z nazwą klienta i całkowitą wartością zamówienia. Posortuj wyniki rosnąco według liczby zamówionych sztuk.
+6. **Zadanie 6:** Wyświetl listę pracowników, którzy obsługiwali najwięcej wypożyczeń, wraz z liczbą wypożyczeń obsłużonych przez każdego z nich. Posortuj wyniki malejąco według liczby wypożyczeń.
 
-7. **Zadanie 7:**
-   Wyświetl listę dostawców, którzy dostarczyli produkty zamówione przez klientów, których nazwiska kończą się na "ski". Wyświetl nazwę dostawcy, nazwę produktu i nazwisko klienta. Posortuj wyniki rosnąco według nazwiska klienta.
+7. **Zadanie 7:** Wyświetl listę samochodów, które nigdy nie zostały ocenione w opiniach klientów.
 
-8. **Zadanie 8:**
-   Wyświetl listę klientów i liczbę zamówień, które złożyli w każdym miesiącu w ciągu ostatnich dwóch lat. Uwzględnij tylko te miesiące, w których liczba zamówień przekroczyła 5. Posortuj wyniki według nazwiska klienta i miesiąca.
+8. **Zadanie 8:** Wyświetl listę klientów, którzy mają więcej niż jedno aktywne wypożyczenie. Posortuj wyniki alfabetycznie według nazwiska klienta.
 
-9. **Zadanie 9:**
-   Wyświetl listę klientów, którzy złożyli zamówienia w 2023 roku, wraz z liczbą zamówień, które złożyli w każdym miesiącu tego roku. Wyniki posortuj malejąco według liczby zamówień w miesiącu i rosnąco według nazwiska klienta.
+9. **Zadanie 9:** Wyświetl 10 najczęściej wypożyczanych samochodów wraz z liczbą wypożyczeń dla każdego z nich. Posortuj wyniki malejąco według liczby wypożyczeń.
 
-10. **Zadanie 10:**
-    Wyświetl wszystkie produkty, których nazwa zaczyna się na literę "A" lub "B", wraz z liczbą razy, kiedy zostały zamówione i całkowitą ilością sprzedanych sztuk. Wyniki posortuj rosnąco według nazwy produktu.
+10. **Zadanie 10:** Wyświetl średnią wartość wypożyczeń obsłużonych przez każdego pracownika, który obsłużył więcej niż 5 wypożyczeń. Posortuj wyniki malejąco według średniej wartości.
 
-11. **Zadanie 11:**
-    Znajdź dostawców, którzy dostarczają więcej niż trzy różne produkty. Wyświetl nazwę dostawcy, liczbę różnych produktów oraz średnią cenę produktów od tego dostawcy. Wyniki posortuj malejąco według liczby produktów.
+11. **Zadanie 11:** Wyświetl listę samochodów, które były wypożyczane przynajmniej raz w ciągu ostatnich 6 miesięcy, wraz z informacją o liczbie dni, które były dostępne do wypożyczenia (gdy nie były wypożyczone).
 
-12. **Zadanie 12:**
-    Wyświetl listę zamówień złożonych w ostatnich 6 miesiącach, wraz z nazwą klienta i łączną wartością zamówienia. Uwzględnij tylko te zamówienia, które mają wartość większą niż 1000 jednostek waluty. Posortuj wyniki malejąco według daty zamówienia.
+12. **Zadanie 12:** Wyświetl listę klientów, którzy wypożyczali samochody najwięcej razy w ostatnim roku, wraz z liczbą wypożyczeń dla każdego klienta. Posortuj wyniki malejąco według liczby wypożyczeń.
 
-13. **Zadanie 13:**
-    Wyświetl listę wszystkich produktów, które nigdy nie zostały zamówione przez klientów z miast, których nazwa zaczyna się na "K". Wyświetl nazwę produktu i nazwę dostawcy. Wyniki posortuj rosnąco według nazwy dostawcy.
+13. **Zadanie 13:** Wyświetl listę wszystkich samochodów, które były wypożyczane więcej niż 5 razy, z ich marką, modelem oraz średnią liczbą dni wypożyczeń.
 
-14. **Zadanie 14:**
-    Wyświetl listę klientów, którzy nigdy nie złożyli zamówienia o wartości powyżej 500 jednostek waluty. Wyświetl nazwę klienta oraz liczbę zamówień, które złożył. Posortuj wyniki rosnąco według liczby zamówień.
+14. **Zadanie 14:** Wyświetl listę klientów, którzy otrzymali opinie o swoich wypożyczeniach, wraz z liczbą opinii oraz średnią oceną.
 
-15. **Zadanie 15:**
-    Wyświetl listę produktów, które zostały zamówione w ilościach przekraczających 100 sztuk w jednym zamówieniu w ciągu ostatniego roku. Wyświetl nazwę produktu, datę zamówienia i liczbę zamówionych sztuk. Posortuj wyniki malejąco według liczby zamówionych sztuk.
+15. **Zadanie 15:** Wyświetl listę samochodów, które nigdy nie były wypożyczane.
 
-16. **Zadanie 16:**
-    Wyświetl listę dostawców, którzy dostarczali produkty, które były zamawiane w 2022 roku, wraz z liczbą tych produktów i łączną ilością sprzedanych sztuk. Wyniki posortuj malejąco według liczby różnych produktów dostarczanych przez dostawcę.
+16. **Zadanie 16:** Wyświetl listę wszystkich pracowników wraz z liczbą wypożyczeń, które zostały anulowane, obsługiwanych przez każdego pracownika.
 
-17. **Zadanie 17:**
-    Znajdź klientów, którzy złożyli zamówienia tylko w jednym miesiącu danego roku. Wyświetl nazwę klienta, miesiąc, liczbę zamówień i łączną wartość zamówień. Wyniki posortuj rosnąco według nazwiska klienta i miesiąca.
+17. **Zadanie 17:** Wyświetl listę samochodów, których średnia ocena w opiniach jest mniejsza niż 3. Posortuj wyniki rosnąco według średniej oceny.
 
-18. **Zadanie 18:**
-    Wyświetl listę wszystkich produktów, które zostały zamówione przez klientów z nazwiskami zawierającymi literę "e". Wyświetl nazwę produktu, nazwisko klienta i łączną wartość zamówienia. Posortuj wyniki alfabetycznie według nazwiska klienta.
+18. **Zadanie 18:** Wyświetl listę klientów, którzy wypożyczyli samochody przynajmniej 3 razy, ale nigdy nie wystawili opinii o wypożyczonym samochodzie.
 
-19. **Zadanie 19:**
-    Wyświetl listę wszystkich zamówień złożonych w grudniu dowolnego roku, wraz z nazwą klienta i wartością zamówienia. Posortuj wyniki malejąco według roku i rosnąco według wartości zamówienia.
+19. **Zadanie 19:** Wyświetl łączną liczbę wypożyczeń oraz ich łączną wartość dla każdego miesiąca z ostatnich dwóch lat. Posortuj wyniki według daty.
 
-20. **Zadanie 20:**
-    Wyświetl listę dostawców, którzy nigdy nie dostarczali produktów zamówionych w ciągu ostatnich 3 miesięcy. Wyświetl nazwę dostawcy i liczbę wszystkich dostarczonych produktów. Wyniki posortuj malejąco według liczby dostarczonych produktów.
+20. **Zadanie 20:** Wyświetl listę wszystkich samochodów, które były wypożyczone przynajmniej raz w ciągu ostatnich 12 miesięcy, wraz z liczbą dni, przez które były wypożyczone. Posortuj wyniki malejąco według liczby dni.
 
-21. **Zadanie 21:**
-    Wyświetl listę klientów, którzy złożyli zamówienia na produkty, których nazwa zaczyna się na literę "C". Posortuj wyniki według nazwiska klienta.
+21. **Zadanie 21:** Wyświetl listę pracowników, którzy nie obsługiwali żadnego wypożyczenia w ciągu ostatnich 3 miesięcy.
 
-22. **Zadanie 22:**
-    Wyświetl listę produktów, które były zamawiane przez klientów z miast zaczynających się na literę "M". Posortuj wyniki według nazwy produktu.
+22. **Zadanie 22:** Wyświetl listę samochodów, które zostały wypożyczone na największą liczbę dni w sumie w ciągu ostatnich 6 miesięcy. Posortuj wyniki malejąco według liczby dni.
 
-23. **Zadanie 23:**
-    Wyświetl listę dostawców, którzy dostarczali produkty zamówione przez klientów z nazwiskami zawierającymi literę "a". Posortuj wyniki według nazwy dostawcy.
+23. **Zadanie 23:** Wyświetl listę klientów, którzy mają najwięcej zaległych płatności za wypożyczenia, wraz z kwotą zaległości.
 
-24. **Zadanie 24:**
-    Wyświetl listę zamówień, które zostały złożone przez klientów z miast zaczynających się na literę "T", oraz zawierają produkty zamówione w ilościach większych niż 10 sztuk. Posortuj wyniki według daty zamówienia.
+24. **Zadanie 24:** Wyświetl listę wszystkich samochodów, które były wypożyczane przez różnych klientów, wraz z informacją o liczbie różnych klientów, którzy wypożyczali każdy samochód.
 
-25. **Zadanie 25:**
-    Wyświetl listę klientów, którzy zamówili produkty dostarczane przez dostawców z określonymi nazwami, na przykład "Dostawca A" lub "Dostawca B". Posortuj wyniki według nazwiska klienta.
+25. **Zadanie 25:** Wyświetl łączną liczbę wypożyczeń oraz łączną wartość wypożyczeń obsługiwanych przez każdego pracownika w ciągu ostatnich 12 miesięcy. Posortuj wyniki malejąco według łącznej wartości wypożyczeń.
