@@ -71,9 +71,9 @@
 
 4. **Zadanie 4:** Wyświetl listę wszystkich dostępnych (niewypożyczonych) samochodów, pokazując ich markę, model oraz datę ostatniego przeglądu technicznego. Posortuj wyniki według daty ostatniego przeglądu malejąco.
 
-5. **Zadanie 5:** Wyświetl listę klientów, którzy złożyli zamówienia na wypożyczenie samochodów w danym okresie, z informacją o liczbie dni wypożyczenia i łącznej wartości wypożyczenia.
+5. **Zadanie 5:** Wyświetl listę klientów, którzy złożyli zamówienia na wypożyczenie samochodów w danym okresie (_dowolny okres_), z informacją o liczbie dni wypożyczenia i łącznej wartości wypożyczenia.
 
-6. **Zadanie 6:** Wyświetl listę pracowników, którzy obsługiwali najwięcej wypożyczeń, wraz z liczbą wypożyczeń obsłużonych przez każdego z nich. Posortuj wyniki malejąco według liczby wypożyczeń.
+6. **Zadanie 6:** Wyświetl listę klientów, którzy wykonali najwięcej wypożyczeń, wraz z liczbą wypożyczeń obsłużonych przez każdego z nich. Posortuj wyniki malejąco według liczby wypożyczeń.
 
 7. **Zadanie 7:** Wyświetl listę samochodów, które nigdy nie zostały ocenione w opiniach klientów.
 
