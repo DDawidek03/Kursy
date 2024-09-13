@@ -32,7 +32,8 @@ CREATE TABLE `Faktury` (
   `id_wypozyczenia` int(11) DEFAULT NULL,
   `data_faktury` date NOT NULL,
   `kwota_calosci` decimal(10,2) NOT NULL,
-  `zaplacono` tinyint(1) DEFAULT '0'
+  `zaplacono` ENUM('tak', 'nie') DEFAULT 'nie',
+  PRIMARY KEY (`id_faktury`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -40,31 +41,32 @@ CREATE TABLE `Faktury` (
 --
 
 INSERT INTO `Faktury` (`id_faktury`, `id_wypozyczenia`, `data_faktury`, `kwota_calosci`, `zaplacono`) VALUES
-(1, 1, '2021-08-10', '1500.00', 1),
-(2, 2, '2023-09-10', '300.00', 0),
-(6, 8, '2021-07-22', '25120.00', 1),
-(7, 10, '2023-06-17', '400.00', 1),
-(8, 9, '2023-09-05', '700.00', 0),
-(14, 1, '2021-05-05', '450.00', 1),
-(15, 2, '2023-07-20', '65120.00', 1),
-(16, 8, '2022-06-15', '400.00', 0),
-(17, 9, '2023-08-25', '5550.00', 0),
-(18, 10, '2023-09-12', '750.00', 1),
-(19, 1, '2023-05-05', '45120.00', 1),
-(20, 2, '2019-07-20', '2650.00', 1),
-(21, 8, '2023-06-15', '4000.00', 0),
-(22, 9, '2023-08-25', '550.00', 0),
-(23, 10, '2019-09-12', '750.00', 1),
-(24, 1, '2023-05-05', '450.00', 1),
-(25, 2, '2022-07-20', '6500.00', 1),
-(26, 8, '2023-06-15', '400.00', 0),
-(27, 9, '2023-08-25', '550.00', 0),
-(28, 10, '2019-09-12', '750.00', 1),
-(29, 1, '2023-05-05', '4510.00', 1),
-(30, 2, '2023-07-20', '65120.00', 1),
-(31, 8, '2022-06-15', '400.00', 0),
-(32, 9, '2023-08-25', '510.00', 0),
-(33, 10, '2019-09-12', '750.00', 1);
+(1, 5, '2021-08-10', '1500.00', 'tak'),
+(2, 12, '2023-09-10', '300.00', 'nie'),
+(3, 8, '2021-07-22', '25120.00', 'tak'),
+(4, 20, '2023-06-17', '400.00', 'tak'),
+(5, 15, '2023-09-05', '700.00', 'nie'),
+(6, 3, '2021-05-05', '450.00', 'tak'),
+(7, 18, '2023-07-20', '65120.00', 'tak'),
+(8, 25, '2022-06-15', '400.00', 'nie'),
+(9, 9, '2023-08-25', '5550.00', 'nie'),
+(10, 27, '2023-09-12', '750.00', 'tak'),
+(11, 1, '2023-05-05', '45120.00', 'tak'),
+(12, 6, '2019-07-20', '2650.00', 'tak'),
+(13, 14, '2023-06-15', '4000.00', 'nie'),
+(14, 19, '2023-08-25', '550.00', 'nie'),
+(15, 10, '2019-09-12', '750.00', 'tak'),
+(16, 2, '2023-05-05', '450.00', 'tak'),
+(17, 22, '2022-07-20', '6500.00', 'tak'),
+(18, 30, '2023-06-15', '400.00', 'nie'),
+(19, 17, '2023-08-25', '550.00', 'nie'),
+(20, 4, '2019-09-12', '750.00', 'tak'),
+(21, 11, '2023-05-05', '4510.00', 'tak'),
+(22, 28, '2023-07-20', '65120.00', 'tak'),
+(23, 7, '2022-06-15', '400.00', 'nie'),
+(24, 13, '2023-08-25', '510.00', 'nie'),
+(25, 21, '2019-09-12', '750.00', 'tak');
+
 
 -- --------------------------------------------------------
 
@@ -118,13 +120,27 @@ CREATE TABLE `Opinie` (
 --
 
 INSERT INTO `Opinie` (`id_opinii`, `id_klienta`, `id_samochodu`, `ocena`, `komentarz`, `data_opinii`) VALUES
-(1, 1, 1, 5, 'Bardzo polecam, super auto!', '2023-08-12'),
-(2, 2, 3, 4, 'Dobre auto, ale serwis mógłby być szybszy.', '2023-09-15'),
-(3, 1, 1, 5, 'Świetny samochód, bardzo wygodny.', '2023-05-07'),
-(4, 2, 3, 4, 'Samochód w porządku, ale spalanie mogłoby być niższe.', '2023-08-22'),
-(5, 3, 5, 5, 'Super auto, polecam każdemu!', '2023-09-01'),
-(6, 4, 2, 3, 'Trochę za głośny, ale ogólnie OK.', '2023-07-20'),
-(7, 5, 4, 5, 'Najlepsze auto, jakie wynajmowałem!', '2023-09-13');
+(1, 1, 1, 5, 'Bardzo polecam, super auto! Jedno z najlepszych, jakie miałem.', '2021-08-12'),
+(2, 2, 10, 4, 'Dobre auto, ale serwis mógłby być szybszy. Przeciętne doświadczenie.', '2024-09-15'),
+(3, 7, 11, 5, 'Świetny samochód, bardzo wygodny. Idealny na długie trasy.', '2020-05-07'),
+(4, 5, 3, 4, 'Samochód w porządku, ale spalanie mogłoby być niższe. Komfortowy, ale drogi w eksploatacji.', '2022-08-22'),
+(5, 3, 7, 5, 'Super auto, polecam każdemu! Niezawodne w każdej sytuacji.', '2019-09-01'),
+(6, 4, 5, 3, 'Trochę za głośny, ale ogólnie OK. Można przywyknąć do hałasu.', '2023-07-20'),
+(7, 5, 4, 5, 'Najlepsze auto, jakie wynajmowałem! Perfekcyjne w każdym calu.', '2015-01-13'),
+(8, 6, 6, 4, 'Dobre auto, ale serwis mógłby być szybszy. Dobry wybór na miasto.', '2017-03-14'),
+(9, 4, 8, 3, 'Samochód w porządku, ale spalanie mogłoby być niższe. Czasami zdarzały się problemy.', '2023-05-15'),
+(10, 10, 9, 2, 'Trochę za głośny. Wymaga kilku poprawek dla lepszego komfortu.', '2010-07-16'),
+(11, 1, 2, 5, 'Bardzo polecam! Auto spisuje się doskonale, nie zawiodło mnie ani razu.', '2024-01-10'),
+(12, 8, 1, 4, 'Dobre auto, ale serwis mógłby być szybszy. Ogólnie jestem zadowolony.', '2021-02-25'),
+(13, 9, 3, 5, 'Świetny samochód, bardzo wygodny. Idealny do długich podróży.', '2020-03-15'),
+(14, 10, 4, 4, 'Samochód w porządku, ale spalanie mogłoby być niższe. W sumie dobry wybór.', '2023-04-30'),
+(15, 2, 5, 5, 'Super auto! Spełnia wszystkie oczekiwania, świetne w każdych warunkach.', '2021-05-22'),
+(16, 3, 6, 3, 'Trochę za głośny, ale dobrze się prowadzi. Przyzwoity samochód na codzień.', '2020-06-10'),
+(17, 4, 7, 5, 'Najlepsze auto, jakie miałem! Bezproblemowe użytkowanie i świetna jakość.', '2024-07-05'),
+(18, 5, 8, 4, 'Dobre auto, ale serwis mógłby być lepszy. Przydatne w mieście.', '2012-08-15'),
+(19, 6, 9, 3, 'Samochód OK, ale spalanie trochę za wysokie. Czasami występują drobne problemy.', '2021-09-01'),
+(20, 7, 10, 2, 'Trochę za głośny. Wymaga poprawy komfortu jazdy. Niezbyt zadowolony.', '2019-10-20');
+
 
 -- --------------------------------------------------------
 
@@ -145,10 +161,17 @@ CREATE TABLE `Platnosci` (
 --
 
 INSERT INTO `Platnosci` (`id_platnosci`, `id_faktury`, `data_platnosci`, `kwota`, `metoda_platnosci`) VALUES
-(1, 1, '2023-08-11', '500.00', 'karta'),
-(11, 1, '2023-05-06', '450.00', 'przelew'),
-(12, 2, '2023-07-21', '650.00', 'karta'),
-(13, 7, '2023-09-13', '750.00', 'gotówka');
+(1, 1, '2021-08-11', '512.00', 'karta'),
+(2, 1, '2023-05-06', '450.00', 'przelew'),
+(3, 2, '2023-07-21', '2050.00', 'karta'),
+(4, 7, '2023-09-13', '759.00', 'gotówka'),
+(5, 3, '2019-06-10', '1200.00', 'karta'),
+(6, 4, '2023-07-15', '400.00', 'przelew'),
+(7, 5, '2023-08-20', '3300.00', 'gotówka'),
+(8, 6, '2024-09-25', '800.00', 'karta'),
+(9, 8, '2023-10-01', '999.00', 'przelew'),
+(10, 9, '2018-11-05', '7000.00', 'gotówka'),
+(11, 10, '2023-12-10', '1100.00', 'karta');
 
 -- --------------------------------------------------------
 
@@ -234,36 +257,36 @@ CREATE TABLE `Serwisy` (
 --
 
 INSERT INTO `Serwisy` (`id_serwisu`, `id_samochodu`, `opis`, `data_serwisu`, `koszt`) VALUES
-(1, 1, 'Wymiana oleju', '2023-01-15', '200.00'),
+(1, 1, 'Wymiana oleju', '2019-01-15', '200.00'),
 (2, 3, 'Naprawa skrzyni biegów', '2023-05-20', '1200.00'),
-(3, 4, 'Wymiana klocków hamulcowych', '2023-07-25', '300.00'),
+(3, 4, 'Wymiana klocków hamulcowych', '20222-07-25', '300.00'),
 (4, 5, 'Naprawa silnika', '2022-12-10', '1500.00'),
-(5, 3, 'Wymiana opon', '2023-08-30', '400.00'),
+(5, 3, 'Wymiana opon', '2019-08-30', '400.00'),
 (6, 1, 'Wymiana klocków hamulcowych', '2023-03-10', '350.00'),
 (7, 4, 'Przegląd techniczny', '2023-05-22', '500.00'),
-(8, 2, 'Wymiana filtrów', '2023-06-15', '250.00'),
+(8, 2, 'Wymiana filtrów', '20222-06-15', '250.00'),
 (9, 5, 'Naprawa układu wydechowego', '2023-07-18', '700.00'),
 (10, 3, 'Wymiana akumulatora', '2023-08-05', '300.00'),
 (11, 1, 'Wymiana klocków hamulcowych', '2023-03-10', '350.00'),
-(12, 4, 'Przegląd techniczny', '2023-05-22', '500.00'),
-(13, 2, 'Wymiana filtrów', '2023-06-15', '250.00'),
+(12, 4, 'Przegląd techniczny', '2024-05-22', '500.00'),
+(13, 2, 'Wymiana filtrów', '2019-06-15', '250.00'),
 (14, 5, 'Naprawa układu wydechowego', '2023-07-18', '700.00'),
 (15, 3, 'Wymiana akumulatora', '2023-08-05', '300.00'),
 (16, 1, 'Wymiana klocków hamulcowych', '2023-03-10', '350.00'),
-(17, 4, 'Przegląd techniczny', '2023-05-22', '500.00'),
+(17, 4, 'Przegląd techniczny', '2024-05-22', '500.00'),
 (18, 2, 'Wymiana filtrów', '2023-06-15', '250.00'),
 (19, 5, 'Naprawa układu wydechowego', '2023-07-18', '700.00'),
-(20, 3, 'Wymiana akumulatora', '2023-08-05', '300.00'),
+(20, 3, 'Wymiana akumulatora', '2019-08-05', '300.00'),
 (21, 1, 'Wymiana klocków hamulcowych', '2023-03-10', '350.00'),
-(22, 4, 'Przegląd techniczny', '2023-05-22', '500.00'),
-(23, 2, 'Wymiana filtrów', '2023-06-15', '250.00'),
+(22, 4, 'Przegląd techniczny', '2024-05-22', '500.00'),
+(23, 2, 'Wymiana filtrów', '2019-06-15', '250.00'),
 (24, 5, 'Naprawa układu wydechowego', '2023-07-18', '700.00'),
-(25, 3, 'Wymiana akumulatora', '2023-08-05', '300.00'),
+(25, 3, 'Wymiana akumulatora', '20222-08-05', '300.00'),
 (26, 1, 'Wymiana klocków hamulcowych', '2023-03-10', '350.00'),
-(27, 4, 'Przegląd techniczny', '2023-05-22', '500.00'),
+(27, 4, 'Przegląd techniczny', '2024-05-22', '500.00'),
 (28, 2, 'Wymiana filtrów', '2023-06-15', '250.00'),
-(29, 5, 'Naprawa układu wydechowego', '2023-07-18', '700.00'),
-(30, 3, 'Wymiana akumulatora', '2023-08-05', '300.00');
+(29, 5, 'Naprawa układu wydechowego', '20222-07-18', '700.00'),
+(30, 3, 'Wymiana akumulatora', '2024-08-05', '300.00');
 
 -- --------------------------------------------------------
 
@@ -288,15 +311,34 @@ CREATE TABLE `Wypozyczenia` (
 INSERT INTO `Wypozyczenia` (`id_wypozyczenia`, `id_klienta`, `id_samochodu`, `data_wypozyczenia`, `data_zwrotu`, `kwota`, `status`) VALUES
 (1, 1, 2, '2022-08-01', '2023-08-10', '500.00', 'zwrócony'),
 (2, 2, 3, '2023-09-05', NULL, '300.00', 'wypożyczony'),
-(8, 1, 2, '2021-08-01', '2023-08-10', '500.00', 'zwrócony'),
-(9, 3, 1, '2023-07-15', NULL, '250.00', 'wypożyczony'),
-(10, 4, 4, '2020-06-10', '2023-06-17', '400.00', 'zwrócony'),
-(11, 5, 5, '2023-09-01', NULL, '700.00', 'wypożyczony'),
-(12, 2, 1, '2019-05-01', '2025-05-05', '450.00', 'zwrócony'),
-(13, 3, 5, '2023-07-12', '2026-07-20', '650.00', 'zwrócony'),
-(14, 4, 3, '2023-06-15', NULL, '400.00', 'wypożyczony'),
-(15, 5, 2, '2015-08-25', NULL, '550.00', 'wypożyczony'),
-(16, 1, 4, '2023-09-05', '2024-09-12', '750.00', 'zwrócony');
+(3, 1, 2, '2021-08-01', '2023-08-10', '500.00', 'zwrócony'),
+(4, 3, 1, '2023-07-15', NULL, '250.00', 'wypożyczony'),
+(5, 4, 4, '2020-06-10', '2023-06-17', '400.00', 'zwrócony'),
+(6, 5, 5, '2023-09-01', NULL, '700.00', 'wypożyczony'),
+(7, 2, 1, '2019-05-01', '2025-05-05', '450.00', 'zwrócony'),
+(8, 3, 5, '2023-07-12', '2026-07-20', '650.00', 'zwrócony'),
+(9, 4, 3, '2023-06-15', NULL, '400.00', 'wypożyczony'),
+(10, 5, 2, '2015-08-25', NULL, '550.00', 'wypożyczony'),
+(11, 1, 4, '2023-09-05', '2024-09-12', '7520.00', 'zwrócony'),
+(12, 6, 6, '2022-01-10', '2022-02-10', '800.00', 'zwrócony'),
+(13, 7, 7, '2021-03-15', '2021-04-15', '900.00', 'zwrócony'),
+(14, 8, 8, '2020-06-22', '2020-07-22', '1400.00', 'zwrócony'),
+(15, 9, 9, '2023-02-14', '2023-03-14', '1120.00', 'zwrócony'),
+(16, 10, 10, '2019-11-07', '2019-12-07', '1200.00', 'zwrócony'),
+(17, 1, 11, '2022-04-12', '2022-05-12', '1900.00', 'zwrócony'),
+(18, 2, 1, '2021-05-10', '2021-06-10', '1400.00', 'zwrócony'),
+(19, 3, 2, '2023-02-20', '2023-03-20', '1500.00', 'zwrócony'),
+(20, 4, 3, '2020-10-15', NULL, '1600.00', 'wypożyczony'),
+(21, 5, 4, '2022-09-07', '2022-10-07', '1700.00', 'zwrócony'),
+(22, 6, 5, '2023-01-10', '2023-02-10', '1800.00', 'zwrócony'),
+(23, 7, 6, '2021-03-15', '2021-04-15', '1990.00', 'zwrócony'),
+(24, 8, 7, '2020-06-22', '2020-07-22', '2000.00', 'zwrócony'),
+(25, 9, 8, '2023-02-14', NULL, '2100.00', 'wypożyczony'),
+(26, 10, 9, '2019-11-07', '2023-12-07', '4100.00', 'zwrócony'),
+(27, 1, 10, '2022-04-12', '2022-05-12', '2300.00', 'zwrócony'),
+(28, 2, 11, '2021-05-10', NULL, '2400.00', 'wypożyczony'),
+(29, 3, 1, '2023-02-20', '2023-03-20', '2580.00', 'zwrócony'),
+(30, 4, 2, '2020-10-15', '2020-11-15', '3900.00', 'zwrócony');
 
 --
 -- Indeksy dla zrzutów tabel
