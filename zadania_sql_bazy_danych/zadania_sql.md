@@ -83,7 +83,7 @@
 
 10. **Zadanie 10:** Wyświetl średnią wartość wypożyczeń dla każdego klienta, który miał więcej niż 5 wypożyczeń. Posortuj wyniki malejąco według średniej wartości.
 
-11. **Zadanie 11:** Wyświetl listę samochodów, które były wypożyczane przynajmniej raz w ciągu ostatnich 6 miesięcy, wraz z informacją o liczbie dni, które były dostępne do wypożyczenia (gdy nie były wypożyczone).
+11. **Zadanie 11:** Wyświetl listę samochodów, które były wypożyczane przynajmniej raz w ciągu ostatnich 6 miesięcy, wraz z informacją o liczbie dni, które były dostępne do wypożyczenia (gdy nie były wypożyczone). <-
 
 12. **Zadanie 12:** Wyświetl listę klientów, którzy wypożyczali samochody najwięcej razy w ostatnim roku, wraz z liczbą wypożyczeń dla każdego klienta. Posortuj wyniki malejąco według liczby wypożyczeń.
 
