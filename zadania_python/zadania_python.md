@@ -42,6 +42,39 @@
 4. Co to jest słownik w Pythonie i jak się z nim pracuje?
 5. Co to jest zmienna dynamiczna w Pythonie?
 
+### 3. **Funkcje i Łańcuchy znaków**
+
+1. Stwórz zmienną z łańcuchem znaków i wydrukuj ją na ekranie.
+2. Stwórz dwie zmienne z łańcuchami znaków i połącz je w jeden łańcuch.
+3. Oblicz długość łańcucha znaków.
+4. Wydrukuj pierwszy znak w łańcuchu.
+5. Wydrukuj ostatni znak w łańcuchu.
+6. Wydrukuj drugi i trzeci znak w łańcuchu.
+7. Odwróć łańcuch znaków.
+8. Sprawdź, czy łańcuch jest palindromem (czytany tak samo od przodu i od tyłu).
+9. Zamień wszystkie litery w łańcuchu na małe litery.
+10. Zamień wszystkie litery w łańcuchu na wielkie litery.
+11. Usuń wszystkie spacje z łańcucha.
+12. Podziel łańcuch na listę słów.
+13. Policz, ile razy każde słowo występuje w łańcuchu.
+14. Zastąp określone słowo w łańcuchu innym słowem.
+15. Usuń wszystkie wystąpienia określonego znaku w łańcuchu.
+16. Sprawdź, czy łańcuch zaczyna się od określonego prefiksu.
+17. Sprawdź, czy łańcuch kończy się określonym sufiksem.
+18. Wydrukuj łańcuch znaków w odwrotnej kolejności słów.
+19. Wydrukuj każde drugie słowo z łańcucha.
+20. Znajdź najdłuższe słowo w łańcuchu.
+21. Usuń wszystkie znaki interpunkcyjne z łańcucha.
+22. Znajdź i wydrukuj wszystkie unikalne słowa w łańcuchu.
+23. Zamień wszystkie spacje na podkreślenia w łańcuchu.
+24. Znajdź wszystkie wystąpienia wzorca w łańcuchu i wydrukuj ich pozycje.
+25. Podziel łańcuch na fragmenty na podstawie określonego znaku lub wzorca.
+26. Zamień wszystkie liczby w łańcuchu na ich kwadraty.
+27. Sprawdź, czy łańcuch jest poprawnym adresem e-mail.
+28. Oblicz sumę wszystkich liczb znajdujących się w łańcuchu.
+29. Wydrukuj łańcuch w formacie odwróconym, z każdym znakiem w odwrotnej kolejności.
+30. Stwórz funkcję, która przyjmuje łańcuch i zwraca go w formie odwróconej.
+
 ### 3. **Struktury Kontrolne**
 
 #### Zadania Praktyczne:
