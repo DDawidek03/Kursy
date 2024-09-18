@@ -110,6 +110,14 @@ SQL (Structured Query Language) to język zapytań strukturalnych używany do za
    \l
    ```
 
+### **Wybranie bazy danych**
+
+**MySQL:**
+
+```sql
+USE nazwa_bazy_danych;
+```
+
 ### **Sprawdzanie listy tabel w bazie:**
 
 1. **MySQL:**

@@ -110,3 +110,96 @@
 23. **Zadanie 24:** Wyświetl listę klientów, którzy mają aktywne wypożyczenia trwające dłużej niż 30 dni. Posortuj wyniki alfabetycznie według nazwiska klienta. <- _trudne_
 
 24. **Zadanie 25:** Wyświetl listę samochodów, które były wypożyczane przez klientów, którzy mają co różne imiona. Posortuj wyniki alfabetycznie według marki samochodu.
+
+---
+
+### **Zadania dotyczące tworzenia widoków**
+
+1. **Stwórz widok dla aktywnych klientów**  
+   Widok powinien wyświetlać wszystkich klientów, którzy w ciągu ostatnich 12 miesięcy dokonali przynajmniej jednego wypożyczenia, wraz z ich imieniem, nazwiskiem oraz datą ostatniego wypożyczenia.
+
+2. **Stwórz widok pokazujący całkowity czas wypożyczeń dla każdego klienta**  
+   Widok powinien prezentować imię i nazwisko każdego klienta oraz sumaryczny czas wszystkich jego wypożyczeń w dniach.
+
+3. **Stwórz widok pokazujący klientów, którzy wydali najwięcej na wypożyczenia**  
+   Widok powinien wyświetlać klientów, którzy w sumie wydali najwięcej pieniędzy na wypożyczenia, sortując ich od największej do najmniejszej kwoty.
+
+4. **Stwórz widok przedstawiający najdłuższe wypożyczenia**  
+   Widok powinien pokazywać wypożyczenia trwające dłużej niż 30 dni, wyświetlając datę wypożyczenia, datę zwrotu, nazwisko klienta oraz markę i model samochodu.
+
+5. **Stwórz widok prezentujący dostępne samochody**  
+   Widok ma wyświetlać wszystkie samochody, które są obecnie dostępne (nie są wypożyczone), pokazując markę, model i numer rejestracyjny oraz serwis (naprawy).
+
+6. **Stwórz widok sumujący liczbę wypożyczeń dla każdej marki samochodu**  
+   Widok powinien wyświetlać każdy marki samochodu oraz liczbę wypożyczeń dla każdej marki.
+
+7. **Stwórz widok przedstawiający klientów, którzy nigdy nie dokonali wypożyczenia**  
+   Widok powinien wyświetlać listę klientów, którzy zarejestrowali się w systemie, ale nigdy nie wypożyczyli samochodu.
+
+---
+
+### **Zadania dotyczące tworzenia użytkowników i nadawania im uprawnień**
+
+1. **Utwórz użytkownika o ograniczonych uprawnieniach**. Użytkownik `pracownik1` powinien mieć tylko możliwość odczytu danych z tabeli `Faktury`.
+
+2. **Utwórz użytkownika z pełnym dostępem do bazy**. Użytkownik `admin_bazy` powinien mieć pełny dostęp do wszystkich tabel w bazie danych.
+
+3. ! wykonaj to dopiero po wykonaniu zadań dla uzytkownika !
+   **Cofnij użytkownikowi uprawnienia**. Użytkownikowi `pracownik1` należy cofnąć uprawnienia do tabeli `Faktury`.
+
+4. **Utwórz użytkownika z ograniczonym dostępem do wypożyczeń**. Użytkownik `pracownik_wypozyczen` powinien mieć możliwość odczytu oraz aktualizacji danych w tabeli `Wypozyczenia`, ale bez możliwości ich usuwania.
+
+5. **Stwórz użytkownika z pełnym dostępem do tabeli samochodów**. Użytkownik `manager_samochodow` powinien mieć pełny dostęp do wszystkich danych w tabeli `Samochody`, w tym możliwość dodawania, modyfikowania i usuwania wpisów.
+
+6. **Utwórz użytkownika tylko z możliwością odczytu**. Użytkownik `kontroler` powinien mieć uprawnienia wyłącznie do odczytu danych z wszystkich tabel w bazie danych.
+
+7. **Utwórz użytkownika z ograniczonym dostępem do faktur**. Użytkownik `pracownik_faktur` powinien mieć możliwość odczytu i aktualizacji danych w tabeli `Faktury`, ale bez możliwości usuwania faktur.
+
+8. **Nadaj użytkownikowi uprawnienia do tworzenia widoków**. Użytkownik `analityk` powinien mieć możliwość odczytu danych z tabeli `Wypozyczenia` oraz tworzenia widoków na jej podstawie.
+
+9. **Utwórz użytkownika z dostępem do wszystkich danych dotyczących klientów**. Użytkownik `pracownik_klientow` powinien mieć pełny dostęp do wszystkich danych w tabeli `Klienci`, ale bez dostępu do innych tabel.
+
+10. **Nadaj użytkownikowi uprawnienia do usuwania rekordów**. Użytkownikowi `manager_wypozyczen` należy przyznać dodatkowe uprawnienia do usuwania danych z tabeli `Wypozyczenia`.
+
+11. **Odbierz użytkownikowi uprawnienia do aktualizacji danych**. Użytkownikowi `pracownik_wypozyczen` należy cofnąć uprawnienia do aktualizacji danych w tabeli `Wypozyczenia`, pozostawiając jedynie możliwość odczytu.
+
+12. **Utwórz użytkownika tymczasowego z pełnym dostępem do bazy danych**. Użytkownik `temp_admin` powinien mieć pełny dostęp do wszystkich tabel, ale dostęp ten powinien być ograniczony. (_WITH MAX_USER_CONNECTIONS 0;_)
+
+---
+
+### **Zadania dotyczące logowania i wykonywania poleceń w terminalu**
+
+1. **Zaloguj się na użytkownika `pracownik1`** i wykonaj zapytanie wyświetlające wszystkie rekordy z tabeli `Faktury`.
+
+2. **Zaloguj się na użytkownika `admin_bazy`** i wykonaj następujące operacje:
+
+   - Dodaj nowy rekord do tabeli `Faktury`.
+   - Zaktualizuj istniejący rekord w tabeli `Faktury`.
+   - Stwórz nową tabelę o nazwie Promocje z następującymi kolumnami:
+     - ID (INTEGER, PRIMARY KEY, AUTOINCREMENT)
+     - Nazwa (VARCHAR(255), NOT NULL)
+     - Opis (TEXT)
+     - Data_rozpoczecia (DATE, NOT NULL)
+     - Data_zakonczenia (DATE)
+     - Rabat (DECIMAL(5,2), NOT NULL)
+     - ID_Pracownika (INT, Foreign Key)
+
+3. **Zaloguj się na użytkownika `pracownik_wypozyczen`** i wykonaj zapytanie aktualizujące status wypożyczenia, np. zmień datę zwrotu dla rekordu w tabeli `Wypozyczenia`.
+
+4. **Zaloguj się na użytkownika `manager_samochodow`** i wykonaj następujące operacje:
+
+   - Dodaj nowy rekord do tabeli `Samochody`, wprowadzając dane nowego samochodu dostępnego w wypożyczalni.
+
+5. **Zaloguj się na użytkownika `kontroler`** i wykonaj zapytanie wyświetlające pełną listę klientów z tabeli `Klienci`, bez możliwości modyfikacji danych.
+
+6. **Zaloguj się na użytkownika `pracownik_faktur`** i wykonaj zapytanie aktualizujące kwotę dla wybranej faktury w tabeli `Faktury`, np. popraw błędnie wprowadzoną wartość.
+
+7. **Zaloguj się na użytkownika `analityk`** i wykonaj zapytanie tworzące widok, który wyświetli wszystkie aktywne wypożyczenia (te, które nie mają daty zwrotu) z tabeli `Wypozyczenia`.
+
+8. **Zaloguj się na użytkownika `pracownik_klientow`** i wykonaj zapytanie dodające nowego klienta do tabeli `Klienci`, wprowadzając wszystkie niezbędne dane, takie jak imię, nazwisko i adres.
+
+9. **Zaloguj się na użytkownika `manager_wypozyczen`** i wykonaj zapytanie usuwające rekord dotyczący wypożyczenia, które zostało zakończone ponad rok temu, z tabeli `Wypozyczenia`.
+
+10. **Zaloguj się na użytkownika `pracownik_wypozyczen`** i wykonaj zapytanie wyświetlające wszystkie wypożyczenia dla wybranego klienta na podstawie jego ID z tabeli `Wypozyczenia`.
+
+11. **Zaloguj się na użytkownika `temp_admin`** i wykonaj zapytanie tworzące nową tabelę w bazie danych o nazwie `Promocje`.
