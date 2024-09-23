@@ -85,6 +85,24 @@
 4. Stwórz skrypt, który generuje tabliczkę mnożenia dla liczb od 1 do 10.
 5. Utwórz program, który pyta użytkownika o słowo i sprawdza, czy jest ono palindromem.
 
+#### Zadania Praktyczne (dodatkowe):
+
+1. Stwórz program, który sprawdza, czy podany ciąg znaków jest palindromem (czytany
+   tak samo od przodu i od tyłu).
+2. Napisz funkcję, która sprawdza, czy podana liczba jest liczbą pierwszą.
+3. Zaimplementuj program, który konwertuje temperaturę z Celsiusza na Fahrenheit lub
+   odwrotnie, w zależności od wyboru użytkownika.
+4. Stwórz program, który ocenia wynik testu na podstawie podanej liczby punktów,
+   przyjmując pod uwagę progi ocen.
+5. Napisz funkcję, która przyjmuje datę w formacie "dd.mm.rrrr" i sprawdza, czy jest
+   ona poprawna.
+6. Zaimplementuj program, który oblicza BMI (indeks masy ciała) na podstawie masy
+   ciała i wzrostu, a następnie informuje użytkownika, czy jest w normie, niedowagą czy
+   nadwagą.
+7. Stwórz prostą grę, w której użytkownik zgaduje liczbę, którą komputer wylosował,
+   dając mu wskazówki, czy jest za duża czy za mała.
+8. Napisz program, który przyjmuje wiek użytkownika i
+
 #### Projekt Końcowy:
 
 - Napisz prostą grę "Zgadnij liczbę", w której użytkownik ma za zadanie odgadnąć liczbę losową z zakresu 1-100. Program powinien podpowiadać, czy liczba jest za duża, za mała, czy trafiona.
