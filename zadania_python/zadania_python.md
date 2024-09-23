@@ -85,11 +85,8 @@
 4. Stwórz skrypt, który generuje tabliczkę mnożenia dla liczb od 1 do 10.
 5. Utwórz program, który pyta użytkownika o słowo i sprawdza, czy jest ono palindromem.
 
-#### Zadania Praktyczne (dodatkowe):
+#### Zadania Praktyczne (dodatkowe if):
 
-1. Stwórz program, który sprawdza, czy podany ciąg znaków jest palindromem (czytany
-   tak samo od przodu i od tyłu).
-2. Napisz funkcję, która sprawdza, czy podana liczba jest liczbą pierwszą.
 3. Zaimplementuj program, który konwertuje temperaturę z Celsiusza na Fahrenheit lub
    odwrotnie, w zależności od wyboru użytkownika.
 4. Stwórz program, który ocenia wynik testu na podstawie podanej liczby punktów,
@@ -99,9 +96,32 @@
 6. Zaimplementuj program, który oblicza BMI (indeks masy ciała) na podstawie masy
    ciała i wzrostu, a następnie informuje użytkownika, czy jest w normie, niedowagą czy
    nadwagą.
-7. Stwórz prostą grę, w której użytkownik zgaduje liczbę, którą komputer wylosował,
-   dając mu wskazówki, czy jest za duża czy za mała.
-8. Napisz program, który przyjmuje wiek użytkownika i
+
+7. Napisz program, który sprawdza, czy trzy podane liczby mogą być długościami boków trójkąta. Skorzystaj z warunku trójkąta (suma dwóch dowolnych boków musi być większa od trzeciego).
+
+8. Napisz program, który pobiera od użytkownika rok i sprawdza, czy jest to rok przestępny (rok przestępny to taki, który jest podzielny przez 4, ale nie przez 100, chyba że jest podzielny przez 400).
+
+9. Napisz program, który pobiera od użytkownika trzy liczby i sprawdza, która z nich jest największa.
+
+10. Napisz program, który pobiera od użytkownika wiek i na jego podstawie wyświetla kategorię wiekową: dziecko (0-12), nastolatek (13-17), dorosły (18-64), senior (65+).
+
+11. Napisz program, który poprosi użytkownika o hasło. Jeśli hasło będzie równe „python123”, program wyświetli komunikat „Dostęp przyznany”. W przeciwnym razie wyświetli „Dostęp zabroniony”.
+
+12. Walidator daty:
+    Napisz program, który pobiera od użytkownika dzień, miesiąc i rok, a następnie sprawdza, czy podana data jest poprawna. Program powinien uwzględniać:
+
+    - Zasady dotyczące dni w miesiącach (np. luty ma 28 dni, chyba że to rok przestępny),
+    - Zasady dotyczące lat przestępnych,
+    - Miesiące mające 30 lub 31 dni.
+    - Jeśli data jest poprawna, program wyświetla komunikat "Data poprawna", w przeciwnym wypadku "Data niepoprawna".
+
+13. Kalkulator opłat parkingowych
+    Napisz program, który obliczy opłatę parkingową na podstawie ilości godzin oraz rodzaju pojazdu. Program powinien poprosić użytkownika o podanie liczby godzin parkowania oraz typu pojazdu (samochód osobowy, motocykl, autobus) i na tej podstawie obliczyć opłatę według następującego cennika:
+
+    - Samochód osobowy: 5 zł za godzinę, maksymalnie 40 zł,
+    - Motocykl: 3 zł za godzinę, maksymalnie 20 zł,
+    - Autobus: 10 zł za godzinę, maksymalnie 100 zł.
+    - Jeśli liczba godzin przekroczy limit opłat, program powinien poinformować o osiągnięciu maksymalnej kwoty.
 
 #### Projekt Końcowy:
 
