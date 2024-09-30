@@ -135,6 +135,46 @@
 4. Czym różni się pętla `while` od pętli `for`?
 5. Co to jest instrukcja `break` i `continue`?
 
+### 3.1 Petle for
+
+1. Dodawanie elementów: Napisz program, który pozwala użytkownikowi dodawać
+   elementy do listy, aż do momentu, gdy wprowadzi "q" lub inną wartość 8.
+2. Usunięcie elementu: Stwórz program, który pozwala użytkownikowi usunąć
+   określony element z listy, podając jego wartość.
+3. Sortowanie odwrócone: Posortuj listę liczb w kolejności od największej do
+   najmniejszej bez używania funkcji sort().
+4. łączenie list: Połącz dwie listy w jedną, bez używania operatora konkatenacji (+).
+5. Unikalne elementy: Stwórz listę, usuwając z niej duplikaty, pozostawiając tylko
+   unikalne elementy.
+6. Zliczanie wystąpień: Napisz program, który liczy ilość wystąpień określonej wartości
+   w liście.
+7. Rozłączanie listy: Rozłóż listę na dwie różne listy, jedną zawierającą elementy
+   parzyste, a drugą zawierającą elementy nieparzyste.
+8. Odwrócenie kolejności: Odwróć kolejność elementów na liście, nie korzystając z
+   funkcji reverse().
+9. Sprawdź puste listy: Napisz program, który sprawdza, czy dwie listy podane przez
+   użytkownika są puste.
+10. Operacje na elementach: Napisz program, który wykonuje operacje matematyczne
+    (np. dodawanie, mnożenie) na wszystkich elementach dwóch list i tworzy nową listę
+    wyników.
+11. Suma elementów: Napisz program, który oblicza sumę wszystkich elementów na
+    liście.
+12. Średnia arytmetyczna: Oblicz średnią arytmetyczną wszystkich liczb na liście.
+13. Maksimum i minimum: Znajdź największy i najmniejszy element na liście.
+14. Filtrowanie: Stwórz nową listę, zawierającą tylko parzyste lub tylko nieparzyste
+    liczby z danej listy.
+15. Podwajanie elementów: Przeiteruj przez listę i podwój wartość każdego elementu.
+16. Zliczanie elementów: Zapytaj użytkownika o liczbę a następnie oblicz, ile razy
+    określona wartość występuje na liście.
+17. Usuwanie duplikatów: Usuń duplikaty z listy, zachowując jedno wystąpienie
+    każdego elementu.
+18. Wyszukiwanie elementu: Stwórz program, który sprawdza, czy określona wartość
+    znajduje się na liście.
+19. Sklejanie napisów: Przeiteruj przez listę zawierającą napisy i sklej je w jeden długi
+    napis.
+20. Sortowanie: Posortuj listę liczb rosnąco lub malejąco, używając odpowiedniej funkcji
+    sortującej.
+
 ### 4. **Praca z Plikami**
 
 #### Zadania Praktyczne:
