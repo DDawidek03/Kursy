@@ -206,10 +206,6 @@
 
 ## Projekt **SQL**
 
-Aby baza danych była bardziej złożona i obejmowała więcej tabel, oto rozszerzona wersja zadań, które obejmują wiele tabel oraz pracę na dużej ilości danych:
-
----
-
 ### **Zadanie 1: Tworzenie nowego użytkownika i nadanie uprawnień**
 
 1. Zaloguj się jako administrator MySQL.
