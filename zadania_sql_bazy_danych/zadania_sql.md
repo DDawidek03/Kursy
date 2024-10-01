@@ -203,3 +203,112 @@
 10. **Zaloguj się na użytkownika `pracownik_wypozyczen`** i wykonaj zapytanie wyświetlające wszystkie wypożyczenia dla wybranego klienta na podstawie jego ID z tabeli `Wypozyczenia`.
 
 11. **Zaloguj się na użytkownika `temp_admin`** i wykonaj zapytanie tworzące nową tabelę w bazie danych o nazwie `Promocje`.
+
+## Projekt **SQL**
+
+Aby baza danych była bardziej złożona i obejmowała więcej tabel, oto rozszerzona wersja zadań, które obejmują wiele tabel oraz pracę na dużej ilości danych:
+
+---
+
+### **Zadanie 1: Tworzenie nowego użytkownika i nadanie uprawnień**
+
+1. Zaloguj się jako administrator MySQL.
+2. Stwórz nowego użytkownika o nazwie `large_company_Admin` z hasłem `password123`.
+3. Nadaj użytkownikowi uprawnienia do tworzenia baz danych oraz tabel.
+4. Przyznaj mu uprawnienia do usuwania wierszy, wyświtlania danych, wstawiania wierszy, tworzenie obiektów, modyfikowania zawartości
+
+---
+
+### **Zadanie 2: Tworzenie bazy danych i tabel**
+
+1. Zaloguj się do MySQL jako użytkownik `user_test`.
+2. Stwórz nową bazę danych o nazwie `large_company_db`.
+3. Stwórz poniższe tabele w bazie danych, aby symulować bardziej złożony system firmowy:
+
+#### Tabela `employees`
+
+- `id`: identyfikator pracownika (liczba całkowita, klucz główny, autoinkrementacja),
+- `name`: imię pracownika (tekst o maksymalnej długości 50 znaków),
+- `position`: stanowisko pracownika (tekst o maksymalnej długości 50 znaków),
+- `salary`: pensja pracownika (liczba całkowita),
+- `department_id`: id działu, w którym pracuje pracownik (klucz obcy do tabeli `departments`),
+- `hire_date`: data zatrudnienia pracownika (data),
+- `status`: status pracownika (np. "aktywny" lub "zwolniony").
+
+#### Tabela `departments`
+
+- `id`: identyfikator działu (liczba całkowita, klucz główny, autoinkrementacja),
+- `name`: nazwa działu (tekst o maksymalnej długości 50 znaków),
+- `location`: lokalizacja działu (tekst o maksymalnej długości 100 znaków).
+
+#### Tabela `projects`
+
+- `id`: identyfikator projektu (liczba całkowita, klucz główny, autoinkrementacja),
+- `name`: nazwa projektu (tekst o maksymalnej długości 100 znaków),
+- `budget`: budżet projektu (liczba całkowita),
+- `start_date`: data rozpoczęcia projektu (data),
+- `end_date`: planowana data zakończenia projektu (data),
+- `department_id`: id działu, który zarządza projektem (klucz obcy do tabeli `departments`).
+
+#### Tabela `salaries`
+
+- `id`: identyfikator pensji (liczba całkowita, klucz główny, autoinkrementacja),
+- `employee_id`: identyfikator pracownika (klucz obcy do tabeli `employees`),
+- `salary_amount`: kwota pensji (liczba całkowita),
+- `date_paid`: data wypłaty (data).
+
+#### Tabela `attendances`
+
+- `id`: identyfikator obecności (liczba całkowita, klucz główny, autoinkrementacja),
+- `employee_id`: identyfikator pracownika (klucz obcy do tabeli `employees`),
+- `attendance_date`: data obecności (data),
+- `status`: status obecności (np. "obecny", "nieobecny", "spóźniony").
+
+---
+
+### **Zadanie 3: Wstawianie dużej ilości danych do tabel**
+
+1. Wstaw rekordy do tabeli `employees`:
+   - Pracownicy powinni mieć różne stanowiska, pensje, działy, daty zatrudnienia oraz statusy.
+2. Wstaw rekordy do tabeli `departments`:
+   - Różne działy, takie jak "IT", "HR", "Marketing", "Sprzedaż" itd.
+3. Wstaw rekordy dotabeli `projects`:
+   - Projekty powinny mieć różne budżety, daty rozpoczęcia i zakończenia oraz być przypisane do różnych działów.
+4. Wstaw rekordy dotabeli `salaries`:
+   - Każdy rekord powinien zawierać pensję dla pracownika za określony miesiąc.
+5. Wstaw rekordy dotabeli `attendances`:
+   - Każdy rekord powinien rejestrować obecność pracownika w określonym dniu.
+
+---
+
+### **Zadanie 4: Wykonywanie zapytań warunkowych na dużych danych**
+
+1. Wyświetl wszystkich pracowników, którzy są "aktywni" i mają pensję większą niż 4000.
+2. Znajdź wszystkich pracowników z działu "IT", którzy zostali zatrudnieni w ciągu ostatnich dwóch lat.
+3. Wyświetl wszystkie projekty o budżecie większym niż 500 000 złotych, sortując je według budżetu malejąco.
+
+---
+
+### **Zadanie 5: Grupowanie i filtrowanie danych**
+
+1. Pogrupuj pracowników według stanowisk i policz, ilu pracowników przypada na każde stanowisko.
+2. Policzenie średniej pensji w każdym dziale.
+3. Pogrupuj projekty według działów i policz łączny budżet projektów dla każdego działu.
+
+---
+
+### **Zadanie 6: Używanie operatorów `IN`, `NOT IN` i `LIKE`**
+
+1. Wyświetl wszystkich pracowników, którzy pracują w działach "HR", "IT" i "Marketing", używając operatora `IN`.
+2. Wyświetl wszystkie projekty, które nie należą do działu "Finanse", używając operatora `NOT IN`.
+3. Znajdź wszystkich pracowników, których imiona zaczynają się na literę "A" lub "M", używając operatora `LIKE`.
+
+---
+
+### **Zadanie 7: Usuwanie danych z tabel**
+
+1. Usuń wszystkich pracowników, którzy zostali zwolnieni.
+2. Usuń wszystkie projekty, które miały datę zakończenia wcześniej niż 3 lata temu.
+3. Usuń rekordy obecności starsze niż 5 lat.
+
+---
