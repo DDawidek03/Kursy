@@ -210,16 +210,14 @@
 
 1. Zaloguj się jako administrator MySQL.
 2. Stwórz nowego użytkownika o nazwie `large_company_Admin` z hasłem `password123`.
-3. Nadaj użytkownikowi uprawnienia do tworzenia baz danych oraz tabel.
-4. Przyznaj mu uprawnienia do usuwania wierszy, wyświtlania danych, wstawiania wierszy, tworzenie obiektów, modyfikowania zawartości
+3. Przyznaj mu uprawnienia do usuwania wierszy, wyświtlania danych, wstawiania wierszy, tworzenie obiektów, modyfikowania zawartości
 
 ---
 
 ### **Zadanie 2: Tworzenie bazy danych i tabel**
 
-1. Zaloguj się do MySQL jako użytkownik `user_test`.
+1. Zaloguj się do MySQL jako użytkownik `large_company_Admin`.
 2. Stwórz nową bazę danych o nazwie `large_company_db`.
-3. Stwórz poniższe tabele w bazie danych, aby symulować bardziej złożony system firmowy:
 
 #### Tabela `employees`
 
