@@ -135,7 +135,7 @@
 4. Czym różni się pętla `while` od pętli `for`?
 5. Co to jest instrukcja `break` i `continue`?
 
-### 3.1 Petle for
+### 3.1 Pętle
 
 1. Dodawanie elementów: Napisz program, który pozwala użytkownikowi dodawać
    elementy do listy, aż do momentu, gdy wprowadzi "q" lub inną wartość 8.
@@ -174,6 +174,26 @@
     napis.
 20. Sortowanie: Posortuj listę liczb rosnąco lub malejąco, używając odpowiedniej funkcji
     sortującej.
+
+### 3.2
+
+1. Dodawanie elementu do listy: Dodaj nowy element na końcu listy. Dodaj nazwę
+   miesiąca który jest obecnie.
+   list1=[”styczeń”, ”luty”, ”marzec”,”kwiecień”,”luty”,”luty”,”maj”]
+2. Usunięcie elementu z listy: Usuń określony element z listy.
+3. Sprawdzenie obecności elementu: Sprawdź, czy określony element jest obecny w liście.
+4. Złączenie dwóch list: Połącz dwie listy w jedną o nazwie list4.
+   list2=[”styczeń”,”luty”,”marzec”,”kwiecień”,”maj”,”czerwiec”]
+   list3=[”lipiec”,”sierpień”,”wrzesień”,”październik”,”listopad”,”grudzień”]
+5. Odwrotna kolejność elementów: Odwróć kolejność elementów w liście list3.
+6. Sortowanie listy: Stwórz listę list4 i każdemu miesiącowi przypisz numer. Posortuj
+   elementy listy w kolejności rosnącej i malejącej.
+7. Usunięcie duplikatów: Usuń duplikaty z listy list1, pozostawiając tylko unikalne
+   elementy.
+8. Wybór elementu o określonym indeksie: Wybierz elementy z listy na podstawie jego
+   indeksu. W liście powinny zostać miesiące które mają parzyste indeksy.
+9. Znalezienie maksimum i minimum: Znajdź maksymalną i minimalną wartość w liście.
+   Sprawdz napisany kod pod względem wyszukania na liczbach i łańcuchach zn
 
 ### 4. **Praca z Plikami**
 

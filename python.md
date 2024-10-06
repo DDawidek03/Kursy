@@ -359,7 +359,7 @@ else:
 Instrukcja **`match case`** w Pythonie, wprowadzona w Pythonie 3.10, służy do dopasowywania wzorców. Pozwala ona na dopasowywanie wzorców do wartości, zapewniając bardziej czytelny.
 
 ```python
-dzien = str(input("Poodaj dzień tygodnia"))
+dzien = int(input("Poodaj dzień tygodnia"))
 match dzien:
     case 1:
         print("Poniedziałek")
@@ -440,9 +440,9 @@ W Pythonie, obiekty sekwencyjne to obiekty, które przechowują sekwencje elemen
 
 ```python
 list = [1,2,3,4,5,]
-for elment in list:
+for element in list:
     print(element, end=" ") #1 2 3 4 5
-    if elment == 2:
+    if element == 2:
         print(f"znaleziono element o numerze:  {element}")
 
 
