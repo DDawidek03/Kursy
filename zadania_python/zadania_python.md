@@ -177,23 +177,42 @@
 
 ### 3.2 Słowniki
 
-1. Dodawanie elementu do listy: Dodaj nowy element na końcu listy. Dodaj nazwę
-   miesiąca który jest obecnie.
-   list1=[”styczeń”, ”luty”, ”marzec”,”kwiecień”,”luty”,”luty”,”maj”]
-2. Usunięcie elementu z listy: Usuń określony element z listy.
-3. Sprawdzenie obecności elementu: Sprawdź, czy określony element jest obecny w liście.
-4. Złączenie dwóch list: Połącz dwie listy w jedną o nazwie list4.
-   list2=[”styczeń”,”luty”,”marzec”,”kwiecień”,”maj”,”czerwiec”]
-   list3=[”lipiec”,”sierpień”,”wrzesień”,”październik”,”listopad”,”grudzień”]
-5. Odwrotna kolejność elementów: Odwróć kolejność elementów w liście list3.
-6. Sortowanie listy: Stwórz listę list4 i każdemu miesiącowi przypisz numer. Posortuj
-   elementy listy w kolejności rosnącej i malejącej.
-7. Usunięcie duplikatów: Usuń duplikaty z listy list1, pozostawiając tylko unikalne
-   elementy.
-8. Wybór elementu o określonym indeksie: Wybierz elementy z listy na podstawie jego
-   indeksu. W liście powinny zostać miesiące które mają parzyste indeksy.
-9. Znalezienie maksimum i minimum: Znajdź maksymalną i minimalną wartość w liście.
-   Sprawdz napisany kod pod względem wyszukania na liczbach i łańcuchach zn
+```Python
+lista_z_krotkami = [(1, 'jabłko'), (2, 'banan'), (3, 'gruszka'), (4,
+'śliwka')]
+```
+
+1. Dostęp do elementów krotki: Wybierz drugi element z pierwszej krotki na liście
+   lista_z_krotkami i wypisz go.
+2. Zmiana wartości krotki: Spróbuj zmienić drugi element drugiej krotki na liście na
+   "malina". Czy to zadanie jest możliwe?
+3. Wyszukiwanie krotki: Przeszukaj listę krotek, aby znaleźć krotkę, która ma pierwszy
+   element równy 3, a następnie wypisz jej drugi element.
+4. Dodawanie krotek do listy: Dodaj nową krotkę (5, 'winogrono') na koniec listy
+   lista_z_krotkami.
+5. Usuwanie krotki: Usuń krotkę (4, 'śliwka') z listy lista_z_krotkami.
+
+Zadania ze słownikami:
+
+```Python
+moj_slownik = {
+'imie': 'Jan',
+'nazwisko': 'Kowalski',
+'wiek': 30,
+'miasto': 'Warszawa'
+}
+```
+
+1. Wypisanie wartości: Wypisz imię z moj_slownik.
+2. Zmiana wartości: Zmień wiek w moj_slownik na 35.
+3. Dodawanie nowego klucza i wartości: Dodaj klucz 'email' z wartością 'jan.kowalski@gmail.com' do moj_slownik.
+4. Usunięcie klucza i wartości: Usuń 'miasto' z moj_slownik.
+5. Sprawdzanie obecności klucza: Sprawdź, czy 'nazwisko' istnieje jako klucz w moj_slownik.
+6. Pobieranie wszystkich kluczy: Pobierz wszystkie klucze ze słownika i wypisz je.
+7. Pobieranie wszystkich wartości: Pobierz wszystkie wartości ze słownika i wypisz je.
+8. Iterowanie przez klucze i wartości: Przeiteruj przez klucze i wartości w moj_slownik i wypisz je.
+9. Sprawdzanie obecności pary klucz-wartość: Sprawdź, czy istnieje para klucz-wartość 'nazwisko' - 'Kowalski' w moj_slownik.
+10. Czyszczenie słownika: Wyczyść zawartość moj_slownik tak, aby stał się pusty.
 
 ### 4. **Praca z Plikami**
 
