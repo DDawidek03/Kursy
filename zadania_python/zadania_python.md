@@ -138,7 +138,7 @@
 ### 3.1 Pętle
 
 1. Dodawanie elementów: Napisz program, który pozwala użytkownikowi dodawać
-   elementy do listy, aż do momentu, gdy wprowadzi "q" lub inną wartość 8.
+   elementy do listy, aż do momentu, gdy wprowadzi "q" lub wartość 0.
 2. Usunięcie elementu: Stwórz program, który pozwala użytkownikowi usunąć
    określony element z listy, podając jego wartość.
 3. Sortowanie odwrócone: Posortuj listę liczb w kolejności od największej do
@@ -175,7 +175,7 @@
 20. Sortowanie: Posortuj listę liczb rosnąco lub malejąco, używając odpowiedniej funkcji
     sortującej.
 
-### 3.2
+### 3.2 Słowniki
 
 1. Dodawanie elementu do listy: Dodaj nowy element na końcu listy. Dodaj nazwę
    miesiąca który jest obecnie.
