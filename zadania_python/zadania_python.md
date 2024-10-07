@@ -175,6 +175,23 @@
 20. Sortowanie: Posortuj listę liczb rosnąco lub malejąco, używając odpowiedniej funkcji
     sortującej.
 
+---
+
+21. Stwórz prosty kalkulator BMI, który pyta użytkownika o masę ciała i wzrost i oblicza
+    jego BMI, aż do momentu, gdy użytkownik zakończy działanie programu.
+22. Napisz program, który wczytuje liczby od użytkownika i wyświetla ich sumę, aż
+    użytkownik poda liczbę 0.
+23. Zaimplementuj program, który wypisuje liczby pierwsze od 2 do n, gdzie n to liczba
+    podana przez użytkownika.
+24. Stwórz grę, w której użytkownik próbuje odgadnąć ukryte słowo. Program
+    podpowiada użytkownikowi podając informacje które go naprowadzają.
+25. Napisz program, który pyta użytkownika o liczbę i sprawdza, czy jest ona liczbą
+    pierwszą.
+26. Zaimplementuj program, który generuje sekwencję Fibonacciego o zadanej długości
+    podanej przez użytkownika.
+27. Stwórz program, który symuluje rzut monetą (orzeł lub reszka) i wyświetla wynik, a
+    użytkownik decyduje, czy chce kontynuować rzuty monetą.
+
 ### 3.2 Słowniki
 
 ```Python
@@ -196,10 +213,10 @@ Zadania ze słownikami:
 
 ```Python
 moj_slownik = {
-'imie': 'Jan',
-'nazwisko': 'Kowalski',
-'wiek': 30,
-'miasto': 'Warszawa'
+   'imie': 'Jan',
+   'nazwisko': 'Kowalski',
+   'wiek': 30,
+   'miasto': 'Warszawa'
 }
 ```
 
