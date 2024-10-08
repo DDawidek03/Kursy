@@ -195,8 +195,7 @@
 ### 3.2 Słowniki
 
 ```Python
-lista_z_krotkami = [(1, 'jabłko'), (2, 'banan'), (3, 'gruszka'), (4,
-'śliwka')]
+lista_z_krotkami = [(1, 'jabłko'), (2, 'banan'), (3, 'gruszka'), (4,'śliwka')]
 ```
 
 1. Dostęp do elementów krotki: Wybierz drugi element z pierwszej krotki na liście

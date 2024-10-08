@@ -306,3 +306,65 @@
 3. Usuń rekordy obecności starsze niż 5 lat.
 
 ---
+
+### **Zadania 8: Funkcji daty i czasu:**
+
+#### 1. **Oblicz, ilu pracowników zostało zatrudnionych w ciągu ostatnich 6 miesięcy.**
+
+Napisz zapytanie, które zwróci liczbę pracowników zatrudnionych w ciągu ostatnich 6 miesięcy w stosunku do aktualnej daty.
+
+#### 2. **Wyświetl listę projektów, które rozpoczęły się w bieżącym roku.**
+
+Napisz zapytanie, które zwróci projekty, które rozpoczęły się od początku bieżącego roku.
+
+#### 3. **Wyświetl pensje pracowników wypłacone w bieżącym miesiącu.**
+
+Napisz zapytanie, które zwróci listę pensji pracowników, które zostały wypłacone w bieżącym miesiącu, wraz z imieniem pracownika i datą wypłaty.
+
+#### 4. **Znajdź pracowników, którzy przepracowali co najmniej 5 lat w firmie.**
+
+Napisz zapytanie, które zwróci imiona i stanowiska pracowników, którzy są zatrudnieni od co najmniej 5 lat.
+
+#### 5. **Wyświetl historię wynagrodzeń dla pracownika w ciągu ostatniego roku.**
+
+Napisz zapytanie, które zwróci wynagrodzenia pracownika w ciągu ostatniego roku, wraz z datami wypłaty.
+
+#### 6. **Znajdź projekty, które zakończyły się później niż planowana data zakończenia.**
+
+Napisz zapytanie, które zwróci projekty, których faktyczna data zakończenia (jeśli dostępna) jest późniejsza niż planowana data zakończenia.
+
+#### 7. **Wyświetl dni, w których każdy pracownik był nieobecny w pracy w danym roku.**
+
+Napisz zapytanie, które zwróci imię pracownika oraz liczbę dni, w których był on nieobecny w pracy w bieżącym roku.
+
+---
+
+### **Zadania 9: łączenia tabel:**
+
+#### 9. **Znajdź średnie wynagrodzenie pracowników w poszczególnych działach.**
+
+Napisz zapytanie, które zwróci nazwę działu oraz średnie wynagrodzenie pracowników w każdym z działów.
+
+#### 10. **Oblicz łączny budżet wszystkich projektów, które są realizowane przez dany dział.**
+
+Napisz zapytanie, które zwróci nazwę działu oraz sumaryczny budżet projektów, którymi zarządza ten dział.
+
+#### 11. **Wyświetl liczbę aktywnych pracowników w każdym dziale.**
+
+Napisz zapytanie, które zwróci nazwę działu oraz liczbę aktywnych pracowników w każdym z działów.
+
+#### 12. **Wyświetl projekty, które jeszcze trwają.**
+
+Napisz zapytanie, które zwróci listę projektów, które jeszcze się nie zakończyły (gdzie planowana data zakończenia projektu jest w przyszłości lub brak zakończenia).
+
+---
+
+### **Zadania 10: Tworzenia widoków:**
+
+#### 14. **Stwórz widok dla aktywnych pracowników z nazwą działu i liczbą przepracowanych dni w danym miesiącu.**
+
+Utwórz widok, który zawiera imię i nazwisko pracownika, nazwę działu, oraz liczbę dni, w których dany pracownik był obecny w bieżącym miesiącu.
+
+#### 15. **Stwórz widok dla pracowników zwolnionych, którzy przepracowali w firmie co najmniej 3 lata.**
+
+Utwórz widok, który zawiera imię i nazwisko pracownika oraz datę zatrudnienia i zwolnienia dla wszystkich pracowników, którzy zostali zwolnieni po przepracowaniu co najmniej 3 lat w firmie.

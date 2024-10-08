@@ -625,7 +625,9 @@ Listy mogą zawierać inne listy, tworząc struktury wielowymiarowe.
 **Przykład:**
 
 ```python
-nested_list = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+nested_list = [[1, 2, 3],
+               [4, 5, 6],
+               [7, 8, 9]]
 
 # Dostęp do elementu w zagnieżdżonej liście
 print(nested_list[0][1])  # Output: 2
