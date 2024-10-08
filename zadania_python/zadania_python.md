@@ -230,6 +230,25 @@ moj_slownik = {
 9. Sprawdzanie obecności pary klucz-wartość: Sprawdź, czy istnieje para klucz-wartość 'nazwisko' - 'Kowalski' w moj_slownik.
 10. Czyszczenie słownika: Wyczyść zawartość moj_slownik tak, aby stał się pusty.
 
+#### Projekt Końcowy:
+
+Opis projektu: Sklep internetowy - zarządzanie magazynem
+
+Cel:
+Stworzenie prostego systemu zarządzania magazynem produktów, który wykorzystuje słowniki i listy.
+
+Założenia:
+
+1. Produkty będą przechowywane w słowniku, gdzie klucz to nazwa produktu, a wartość to liczba dostępnych sztuk.
+2. Program będzie działał w pętli i pozwoli użytkownikowi na wykonywanie kilku operacji, takich jak:
+
+- Dodanie produktu do magazynu
+- Usunięcie produktu z magazynu
+- Sprawdzenie dostępności produktu
+- Wyświetlenie wszystkich produktów
+
+3. Operacje będą wykonywane na podstawie wyboru użytkownika przy użyciu instrukcji if.
+
 ### 4. **Praca z Plikami**
 
 #### Zadania Praktyczne:
