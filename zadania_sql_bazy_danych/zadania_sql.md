@@ -329,11 +329,7 @@ Napisz zapytanie, które zwróci imiona i stanowiska pracowników, którzy są z
 
 Napisz zapytanie, które zwróci wynagrodzenia pracownika w ciągu ostatniego roku, wraz z datami wypłaty.
 
-#### 6. **Znajdź projekty, które zakończyły się później niż planowana data zakończenia.**
-
-Napisz zapytanie, które zwróci projekty, których faktyczna data zakończenia (jeśli dostępna) jest późniejsza niż planowana data zakończenia.
-
-#### 7. **Wyświetl dni, w których każdy pracownik był nieobecny w pracy w danym roku.**
+#### 6. **Wyświetl dni, w których każdy pracownik był nieobecny w pracy w danym roku.**
 
 Napisz zapytanie, które zwróci imię pracownika oraz liczbę dni, w których był on nieobecny w pracy w bieżącym roku.
 
