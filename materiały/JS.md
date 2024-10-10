@@ -1,7 +1,3 @@
-Jasne! Zaktualizuję i rozszerzę każdą z sekcji kursu JavaScript, dodając więcej szczegółów, wyjaśnień i przykładów. Poniżej znajdziesz kompleksowe instrukcje dla kursu JavaScript, z uwzględnieniem dodatkowych szczegółów, które pomogą lepiej zrozumieć poszczególne tematy.
-
----
-
 ## **Kurs JavaScript - Kwalifikacja INF.03**
 
 ### **1. Wprowadzenie do JavaScript**
