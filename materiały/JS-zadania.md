@@ -26,7 +26,7 @@
 
 **Zadanie 3.1: Tworzenie zmiennych**
 
-- Stwórz pięć zmiennych, które przechowują różne typy danych (string, number, boolean, array, object). Następnie wyświetl ich wartości w konsoli.
+- Stwórz pięć zmiennych, które przechowują różne typy danych (string, number, boolean). Następnie wyświetl ich wartości w konsoli.
 
 **Zadanie 3.2: Przypisywanie nowych wartości**
 
