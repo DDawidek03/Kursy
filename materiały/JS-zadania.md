@@ -102,10 +102,6 @@ Napisz program, który przyjmuje od użytkownika ocenę (od 1 do 6) i wyświetla
 
 Sprawdź, czy podany numer miesiąca odpowiada miesiącowi letniemu (czerwiec, lipiec, sierpień) i wyświetl odpowiedni komunikat.
 
-### Zadanie 11:
-
-Napisz program, który przyjmuje od użytkownika hasło i sprawdza, czy hasło ma co najmniej 8 znaków. Jeśli tak, wyświetl wiadomość "Hasło jest poprawne", w przeciwnym razie wyświetl "Hasło jest za krótkie".
-
 ### Zadanie 12:
 
 Sprawdź, czy użytkownik podał liczbę parzystą oraz liczbę większą niż 100. Jeśli obie te rzeczy są prawdziwe, wyświetl odpowiedni komunikat.
