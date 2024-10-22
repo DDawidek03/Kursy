@@ -364,3 +364,46 @@ Utwórz widok, który zawiera imię i nazwisko pracownika, nazwę działu, oraz 
 #### 15. **Stwórz widok dla pracowników zwolnionych, którzy przepracowali w firmie co najmniej 3 lata.**
 
 Utwórz widok, który zawiera imię i nazwisko pracownika oraz datę zatrudnienia i zwolnienia dla wszystkich pracowników, którzy zostali zwolnieni po przepracowaniu co najmniej 3 lat w firmie.
+
+### Projekt na 6:
+
+### Projekt bazy danych
+
+#### Cel projektu
+
+Krótki opis projektu
+
+#### Struktura bazy danych
+
+Baza danych składa się z następujących głównych tabel:
+
+1. **Tabela 1**: Opis kolumn (minimum 4-6 kolumn)
+2. **Tabela 2**: Opis kolumn (minimum 4-6 kolumn)
+3. **Tabela 3**: Opis kolumn (minimum 4-6 kolumn)
+4. **Tabela 4**: Opis kolumn (minimum 4-6 kolumn)
+5. **Tabela 5**: Opis kolumn (minimum 4-6 kolumn)
+6. **Tabela 6**: Opis kolumn (minimum 4-6 kolumn)
+
+Każda z tabel posiada odpowiednie indeksy, które umożliwiają szybkie wyszukiwanie danych i zwiększają wydajność bazy. Dodatkowo, tabele są ze sobą powiązane poprzez klucze obce, co zapewnia spójność i integralność danych w systemie.
+
+#### Relacje między tabelami
+
+W projekcie zdefiniowano relacje między tabelami:
+
+- **Relacja 1**: Opis relacji (np. jeden-do-wielu, wiele-do-wielu)
+- **Relacja 2**: Opis relacji
+- **Relacja 3**: Opis relacji
+
+Relacje te umożliwiają powiązanie danych między różnymi tabelami, co pozwala na łatwe zarządzanie powiązanymi informacjami i eliminację redundancji.
+
+#### Diagram ER (Entity-Relationship)
+
+Diagram ER przedstawia wizualną reprezentację struktury bazy danych, pokazując tabele (byty) oraz relacje między nimi. Diagram ten jest kluczowym narzędziem do zrozumienia organizacji danych oraz sposobu, w jaki tabele są ze sobą powiązane.
+
+- **Byty**: Nazwy tabel, z zaznaczonymi atrybutami (kolumnami)
+- **Relacje**: Typy relacji (np. 1-n, n-n) między tabelami
+- **Klucze obce**: Połączenia między tabelami, zapewniające integralność danych
+
+#### Indeksy
+
+Aby zwiększyć wydajność bazy danych, w projekcie zdefiniowano indeksy na najczęściej wyszukiwanych kolumnach. Indeksy umożliwiają szybkie przeszukiwanie dużych ilości danych oraz optymalizują wykonywanie zapytań. Każdy indeks został stworzony z myślą o specyfice danej tabeli i rodzaju przechowywanych w niej danych.
