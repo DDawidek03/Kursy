@@ -353,87 +353,198 @@ Serwery mogą pełnić różne role w sieci, w zależności od tego, jakie usłu
 
 ## **Wprowadzenie do technologii chmurowych**
 
-### **1. Co to jest chmura obliczeniowa?**
+Technologie chmurowe rewolucjonizują sposób, w jaki firmy i osoby prywatne korzystają z zasobów IT. Chmura umożliwia dostęp do zasobów komputerowych, takich jak moc obliczeniowa, przechowywanie danych oraz aplikacje, bez potrzeby posiadania fizycznej infrastruktury na miejscu. Główną ideą chmury jest dostarczenie tych zasobów jako usługi, co pozwala na elastyczność, skalowalność i optymalizację kosztów.
 
-**Chmura obliczeniowa** (Cloud Computing) to model dostarczania usług IT przez internet. Zamiast kupować, utrzymywać i zarządzać lokalną infrastrukturą (np. serwerami, bazami danych, sieciami), organizacje mogą wynajmować zasoby obliczeniowe od dostawców chmurowych i korzystać z nich na żądanie.
+### 1. **Czym jest chmura?**
 
-W praktyce oznacza to, że dane, aplikacje i usługi IT nie muszą być lokalnie zainstalowane na komputerach użytkowników, ale są hostowane w zewnętrznych centrach danych, do których dostęp ma się zdalnie.
+Chmura komputerowa to metafora odnosząca się do przechowywania i przetwarzania danych na zdalnych serwerach, zamiast na lokalnych urządzeniach. Użytkownicy mogą korzystać z zasobów poprzez Internet, co eliminuje potrzebę posiadania własnych serwerów czy sprzętu.
 
-### **2. Zalety technologii chmurowych:**
+Zalety korzystania z technologii chmurowych obejmują:
 
-- **Elastyczność**: Możliwość szybkiego skalowania zasobów w górę lub w dół, w zależności od potrzeb (np. więcej mocy obliczeniowej w czasie szczytu użytkowania).
-- **Oszczędności**: Brak potrzeby inwestowania w drogie serwery i infrastrukturę, płaci się tylko za faktycznie używane zasoby.
-- **Wydajność**: Dzięki nowoczesnym technologiom chmurowym dostęp do mocy obliczeniowej, przechowywania danych i aplikacji jest szybki i niezawodny.
-- **Mobilność**: Użytkownicy mogą uzyskać dostęp do zasobów z dowolnego miejsca, mając połączenie z internetem.
-- **Bezpieczeństwo**: Duże firmy oferujące usługi chmurowe, takie jak Amazon Web Services (AWS), Google Cloud czy Microsoft Azure, często mają bardzo wysokie standardy bezpieczeństwa.
+- **Elastyczność**: Umożliwia szybkie zwiększanie lub zmniejszanie mocy obliczeniowej w zależności od zapotrzebowania.
+- **Skalowalność**: Dostosowywanie zasobów do zmieniających się potrzeb użytkowników.
+- **Dostępność**: Umożliwia dostęp do danych i aplikacji z dowolnego miejsca na świecie, o ile jest dostępne połączenie internetowe.
+- **Optymalizacja kosztów**: Klienci płacą tylko za zasoby, z których faktycznie korzystają, co eliminuje nadmierne wydatki na infrastrukturę IT.
 
----
+### 2. **Modele chmury**
 
-### **3. Modele chmurowe:**
+Istnieją trzy główne modele usług chmurowych:
 
-**Chmura** może przybierać różne formy w zależności od tego, jak są dostarczane zasoby i komu są udostępniane. Istnieją trzy główne modele:
+#### a) **Chmura publiczna**
 
-1. **Chmura publiczna**: Usługi chmurowe dostarczane przez zewnętrznego dostawcę, dostępne dla wielu użytkowników (np. AWS, Google Cloud, Microsoft Azure). Użytkownicy wynajmują zasoby obliczeniowe, płacąc za wykorzystanie, ale nie mają kontroli nad infrastrukturą fizyczną.
+To najpopularniejszy model, w którym zasoby IT są udostępniane publicznie przez dostawcę chmury, takiego jak Amazon Web Services (AWS), Microsoft Azure czy Google Cloud. W tym modelu infrastruktura jest współdzielona przez wielu użytkowników (firmy lub osoby prywatne), co pozwala na obniżenie kosztów.
 
-2. **Chmura prywatna**: Usługi chmurowe dostarczane wewnętrznie w organizacji, z wykorzystaniem jej własnej infrastruktury. Jest używana wyłącznie przez jedną organizację, co pozwala na większą kontrolę nad danymi i bezpieczeństwem.
+#### b) **Chmura prywatna**
 
-3. **Chmura hybrydowa**: Połączenie chmury publicznej i prywatnej, umożliwiające przenoszenie danych i aplikacji między różnymi środowiskami. Zapewnia elastyczność, gdyż część zasobów może być trzymana w chmurze prywatnej (dla krytycznych danych), a część w publicznej (dla mniej wrażliwych operacji).
+W chmurze prywatnej zasoby IT są dedykowane wyłącznie dla jednej organizacji. Infrastruktura może być zarządzana wewnętrznie przez firmę lub zlecona zewnętrznemu dostawcy. Chmura prywatna zapewnia wyższy poziom kontroli nad danymi i bezpieczeństwem, co jest szczególnie ważne dla sektorów regulowanych, takich jak finanse czy opieka zdrowotna.
 
----
+#### c) **Chmura hybrydowa**
 
-### **4. Modele usług chmurowych:**
+Chmura hybrydowa łączy elementy chmury publicznej i prywatnej, co umożliwia organizacjom korzystanie z zalet obu modeli. Na przykład firma może przechowywać wrażliwe dane w chmurze prywatnej, a jednocześnie wykorzystywać chmurę publiczną do skalowania obliczeń, gdy zapotrzebowanie na zasoby wzrasta.
 
-Usługi chmurowe są dostarczane w trzech podstawowych modelach, które określają zakres zarządzania infrastrukturą przez użytkowników:
+### 3. **Modele usług chmurowych**
 
-1. **IaaS (Infrastructure as a Service)** – **Infrastruktura jako usługa**:
+Technologie chmurowe oferują różne modele usług, które odpowiadają specyficznym potrzebom firm:
 
-   - Dostarcza podstawową infrastrukturę IT: wirtualne serwery, sieci, przestrzeń dyskową.
-   - Przykłady: AWS EC2, Google Compute Engine.
-   - Użytkownicy zarządzają systemem operacyjnym, aplikacjami, a dostawca chmury zarządza infrastrukturą fizyczną (serwerami, siecią).
+#### a) **SaaS (Software as a Service)**
 
-2. **PaaS (Platform as a Service)** – **Platforma jako usługa**:
+Jest to model, w którym aplikacje są dostarczane przez Internet i udostępniane użytkownikom końcowym. Przykładami SaaS są narzędzia biurowe, takie jak Google Workspace, czy aplikacje do zarządzania relacjami z klientami, jak Salesforce. Użytkownicy nie muszą martwić się o infrastrukturę, aktualizacje oprogramowania ani konserwację – wszystko to obsługuje dostawca.
 
-   - Dostarcza platformę do tworzenia, testowania i uruchamiania aplikacji. Użytkownicy nie muszą zarządzać infrastrukturą.
-   - Przykłady: Google App Engine, Microsoft Azure App Services.
-   - Dostawca zarządza systemem operacyjnym i infrastrukturą, a użytkownik koncentruje się na budowaniu aplikacji.
+#### b) **PaaS (Platform as a Service)**
 
-3. **SaaS (Software as a Service)** – **Oprogramowanie jako usługa**:
-   - Oprogramowanie jest dostarczane jako usługa przez internet. Użytkownicy korzystają z aplikacji, które są hostowane na serwerach dostawcy chmury.
-   - Przykłady: Gmail, Microsoft 365, Slack.
-   - Wszystkie aspekty zarządzania (serwery, infrastruktura, aktualizacje) są po stronie dostawcy chmury.
+PaaS dostarcza platformy, na której programiści mogą tworzyć, testować i wdrażać aplikacje. Użytkownicy mają do dyspozycji narzędzia programistyczne, systemy baz danych oraz serwery, ale nie muszą zarządzać infrastrukturą. Przykłady PaaS to Heroku i Google App Engine.
 
----
+#### c) **IaaS (Infrastructure as a Service)**
 
-### **5. Przykłady zastosowania chmury obliczeniowej:**
+IaaS oferuje podstawową infrastrukturę obliczeniową, taką jak serwery, sieci, pamięć masową i systemy operacyjne, które można dostosować do specyficznych potrzeb. Firmy korzystają z IaaS, aby wynajmować zasoby obliczeniowe zamiast inwestować w własne serwery. Przykładami IaaS są Amazon EC2 oraz Microsoft Azure.
 
-- **Przechowywanie danych**: Usługi takie jak Google Drive, Dropbox czy Microsoft OneDrive pozwalają użytkownikom przechowywać pliki w chmurze i uzyskiwać do nich dostęp z dowolnego miejsca.
-- **Przetwarzanie danych**: Chmura umożliwia przetwarzanie dużych ilości danych na platformach takich jak AWS, Azure czy Google Cloud, gdzie dostępna jest potężna moc obliczeniowa.
+### 4. **Zalety technologii chmurowych**
 
-- **Hostowanie stron internetowych i aplikacji**: Firmy mogą hostować swoje strony internetowe i aplikacje bez potrzeby utrzymywania własnych serwerów, korzystając z usług takich jak AWS czy Heroku.
+Korzystanie z chmury przynosi wiele korzyści:
 
-- **Kopii zapasowe i disaster recovery**: Chmura umożliwia tworzenie kopii zapasowych ważnych danych, które można szybko odzyskać w przypadku awarii.
+- **Redukcja kosztów**: Firmy nie muszą inwestować w drogi sprzęt, a opłaty za usługi są często naliczane według zużycia.
+- **Szybkie wdrażanie**: Nowe aplikacje i usługi można uruchamiać znacznie szybciej niż w przypadku tradycyjnych rozwiązań IT.
+- **Automatyzacja i łatwość zarządzania**: Narzędzia zarządzania chmurą pozwalają na automatyczne monitorowanie i skalowanie zasobów.
+- **Wysokie standardy bezpieczeństwa**: Dostawcy chmurowi oferują zaawansowane funkcje bezpieczeństwa, takie jak szyfrowanie danych, zapory ogniowe i mechanizmy kopii zapasowych.
 
----
+### 5. **Wyzwania i zagrożenia związane z chmurą**
 
-### **6. Bezpieczeństwo w chmurze:**
+Choć technologie chmurowe przynoszą liczne korzyści, istnieją również wyzwania:
 
-Wraz z rozwojem technologii chmurowych, bezpieczeństwo stało się kluczowym aspektem. Oto kilka mechanizmów zabezpieczających:
+- **Bezpieczeństwo danych**: Choć dostawcy chmurowi oferują zaawansowane zabezpieczenia, przeniesienie danych do chmury wciąż budzi obawy dotyczące prywatności i ochrony danych.
+- **Zależność od dostawcy**: Przejście na konkretnego dostawcę chmury może prowadzić do trudności w zmianie usługodawcy w przyszłości (tzw. vendor lock-in).
+- **Dostępność**: Choć chmura oferuje wysoką dostępność, awarie u dostawców chmurowych mogą prowadzić do przestojów w działalności firmy.
 
-1. **Szyfrowanie**: Dane w chmurze są szyfrowane zarówno podczas przesyłania, jak i przechowywania, co minimalizuje ryzyko ich przechwycenia.
-2. **Autoryzacja i uwierzytelnianie**: Złożone mechanizmy logowania i wieloskładnikowe uwierzytelnianie (MFA) pomagają chronić konta użytkowników.
-3. **Zarządzanie tożsamościami**: Narzędzia zarządzania tożsamościami i dostępem (IAM) pozwalają precyzyjnie kontrolować, kto i w jakim stopniu ma dostęp do zasobów w chmurze.
-4. **Audyt i monitorowanie**: Wiele usług chmurowych oferuje narzędzia do monitorowania aktywności oraz wykrywania zagrożeń, co pomaga w szybkim reagowaniu na potencjalne incydenty.
+### 6. **Przyszłość technologii chmurowych**
 
----
+Rozwój technologii chmurowych postępuje w szybkim tempie. Coraz większe znaczenie zdobywają:
 
-### **7. Przyszłość technologii chmurowych:**
-
-Technologie chmurowe szybko się rozwijają, a w przyszłości możemy spodziewać się wzrostu popularności rozwiązań opartych na sztucznej inteligencji (AI), uczeniu maszynowym (ML) oraz Internetu rzeczy (IoT). Nowe usługi będą jeszcze bardziej elastyczne, zautomatyzowane i dostosowane do potrzeb biznesów na każdym poziomie.
+- **Serverless computing**: Model obliczeń bezserwerowych, w którym użytkownicy płacą tylko za faktyczne wykonanie kodu, bez konieczności zarządzania serwerami.
+- **Multi-cloud**: Korzystanie z wielu dostawców chmurowych jednocześnie, aby zwiększyć elastyczność i zredukować ryzyko związane z awariami.
+- **AI i Big Data w chmurze**: Wykorzystanie sztucznej inteligencji i narzędzi analizy dużych danych w chmurze staje się coraz bardziej powszechne, co pozwala firmom na lepsze zrozumienie swoich klientów i optymalizację procesów.
 
 ---
 
-### **Podsumowanie:**
+### 7. **Strategie migracji do chmury**
 
-Chmura obliczeniowa zmieniła sposób, w jaki organizacje i użytkownicy indywidualni korzystają z zasobów IT. Dzięki elastyczności, oszczędnościom kosztów i zaawansowanym funkcjom, chmura stała się jednym z najważniejszych trendów w branży technologicznej. W połączeniu z klasycznymi sieciami komputerowymi, chmura oferuje dostęp do nieskończonych możliwości przetwarzania i przechowywania danych na żądanie.
+Migracja do chmury to proces przenoszenia danych, aplikacji i innych zasobów z lokalnych centrów danych do infrastruktury chmurowej. Istnieje kilka podejść do migracji, które organizacje mogą wybrać w zależności od swoich potrzeb:
+
+#### a) **Lift and Shift**
+
+Jest to najprostsza forma migracji, polegająca na przeniesieniu aplikacji i danych z istniejącej infrastruktury do chmury bez wprowadzania istotnych zmian w ich architekturze. Metoda ta pozwala na szybkie przeniesienie zasobów, jednak może nie wykorzystywać w pełni możliwości oferowanych przez chmurę.
+
+#### b) **Refactoring (Zmiana architektury)**
+
+W tym podejściu aplikacje są modyfikowane w celu pełnego wykorzystania funkcji chmury, takich jak elastyczne skalowanie czy zarządzanie danymi. Refaktoryzacja wymaga więcej czasu i zasobów, ale może przynieść długoterminowe korzyści, takie jak większa wydajność i oszczędności.
+
+#### c) **Rebuilding (Przebudowa)**
+
+W tym scenariuszu aplikacje są budowane od podstaw z myślą o działaniu w środowisku chmurowym. Jest to podejście czasochłonne, ale oferuje największą elastyczność i pozwala na pełne wykorzystanie najnowszych technologii chmurowych.
+
+#### d) **Rehosting**
+
+Wykorzystanie usług chmurowych do przeniesienia i odtworzenia środowisk w chmurze bez zmiany architektury, co pozwala na szybkie uruchomienie aplikacji w nowym środowisku.
+
+---
+
+### 8. **Trendy technologiczne w chmurze**
+
+Chmura stale się rozwija, a poniżej znajdują się niektóre z najważniejszych trendów, które mają wpływ na przyszłość tej technologii:
+
+#### a) **Konteneryzacja i Kubernetes**
+
+Konteneryzacja to technologia umożliwiająca izolowanie aplikacji i ich zależności w lekko skomplikowanych, przenośnych środowiskach. Kubernetes, platforma do zarządzania kontenerami, staje się standardem w chmurze, umożliwiając firmom łatwe skalowanie i zarządzanie aplikacjami w różnych środowiskach.
+
+#### b) **Sztuczna inteligencja i uczenie maszynowe w chmurze**
+
+Chmura staje się kluczowym środowiskiem dla rozwijania i trenowania modeli AI oraz uczenia maszynowego. Usługi takie jak Google AI, Amazon SageMaker i Microsoft Azure AI umożliwiają firmom dostęp do potężnych narzędzi analitycznych bez potrzeby budowania własnej infrastruktury.
+
+#### c) **Chmura Edge**
+
+Edge computing to model, w którym przetwarzanie danych odbywa się bliżej miejsca ich powstawania, zamiast w centralnych centrach danych. Połączenie edge computing z chmurą pozwala na lepszą wydajność, redukcję opóźnień oraz przetwarzanie danych w czasie rzeczywistym, co ma kluczowe znaczenie w aplikacjach IoT i przemyśle 4.0.
+
+#### d) **Green Cloud (Zielona chmura)**
+
+Rosnące zainteresowanie ekologicznymi rozwiązaniami sprawia, że dostawcy chmurowi kładą większy nacisk na zrównoważony rozwój. Wdrażane są technologie oszczędzające energię, a także optymalizacja zużycia zasobów, co pomaga zmniejszyć ślad węglowy operacji w chmurze.
+
+---
+
+### 9. **Najlepsze praktyki zarządzania chmurą**
+
+Aby w pełni wykorzystać możliwości chmury i jednocześnie zapewnić bezpieczeństwo oraz wydajność, organizacje powinny stosować odpowiednie praktyki zarządzania chmurą:
+
+#### a) **Optymalizacja kosztów**
+
+Kluczowym elementem efektywnego zarządzania chmurą jest optymalizacja kosztów. Firmy powinny regularnie monitorować zużycie zasobów, korzystać z narzędzi do automatycznego skalowania oraz wdrażać polityki oszczędzania energii, aby minimalizować niepotrzebne wydatki.
+
+#### b) **Zarządzanie bezpieczeństwem**
+
+Bezpieczeństwo w chmurze obejmuje takie aspekty jak szyfrowanie danych, zarządzanie tożsamościami, kontrola dostępu oraz regularne audyty bezpieczeństwa. Implementacja mechanizmów wielopoziomowej autoryzacji (np. MFA) oraz segmentacja sieci są kluczowe dla ochrony przed zagrożeniami.
+
+#### c) **Automatyzacja procesów**
+
+Wykorzystanie narzędzi do automatyzacji, takich jak skrypty i orchestration tools (np. Terraform, Ansible), pozwala na szybkie wdrażanie i zarządzanie zasobami chmurowymi, eliminując błędy wynikające z ręcznego zarządzania.
+
+#### d) **Monitorowanie i analiza**
+
+Korzystanie z narzędzi do monitorowania chmury, takich jak AWS CloudWatch czy Azure Monitor, pozwala na śledzenie wydajności aplikacji, zużycia zasobów oraz wczesne wykrywanie problemów. Regularna analiza tych danych pomaga w optymalizacji operacji i planowaniu przyszłych zasobów.
+
+---
+
+### **Amazon Web Services (AWS)**
+
+**Amazon Web Services (AWS)** to najpopularniejsza i największa platforma chmurowa na świecie, oferująca szeroki zakres usług dla firm, programistów i organizacji każdej wielkości. AWS powstał w 2006 roku jako jeden z pionierów w branży chmurowej, dostarczając usługi z zakresu przechowywania danych, mocy obliczeniowej, sieci, baz danych, sztucznej inteligencji i wielu innych.
+
+AWS działa w modelu **IaaS (Infrastructure as a Service)**, **PaaS (Platform as a Service)** oraz **SaaS (Software as a Service)**, co umożliwia różnym grupom użytkowników korzystanie z zasobów w sposób dostosowany do ich potrzeb.
+
+#### 1. **Główne usługi AWS**
+
+AWS oferuje setki różnych usług, z których najważniejsze to:
+
+- **Amazon EC2 (Elastic Compute Cloud)**: Usługa umożliwiająca wynajmowanie maszyn wirtualnych o różnej mocy obliczeniowej, dostosowanych do specyficznych potrzeb aplikacji.
+- **Amazon S3 (Simple Storage Service)**: Skalowalna usługa przechowywania obiektów, która pozwala na bezpieczne magazynowanie ogromnych ilości danych. S3 jest idealnym rozwiązaniem do przechowywania kopii zapasowych, archiwów oraz dużych plików multimedialnych.
+- **Amazon RDS (Relational Database Service)**: Zarządzana usługa baz danych, która obsługuje różne silniki, takie jak MySQL, PostgreSQL, MariaDB, Oracle i Microsoft SQL Server.
+- **AWS Lambda**: Usługa przetwarzania bezserwerowego (serverless), która umożliwia uruchamianie kodu w odpowiedzi na wydarzenia bez potrzeby zarządzania serwerami. Jest to idealne rozwiązanie dla aplikacji, które skalują się automatycznie i wymagają minimalnych zasobów na start.
+- **Amazon VPC (Virtual Private Cloud)**: Narzędzie pozwalające na tworzenie izolowanych środowisk wirtualnych w ramach chmury AWS. VPC umożliwia tworzenie własnych sieci i kontrolowanie ich zasobów tak, jak w tradycyjnej infrastrukturze sieciowej.
+
+- **Amazon EKS (Elastic Kubernetes Service)**: Zarządzana usługa Kubernetes, która upraszcza wdrażanie, zarządzanie i skalowanie aplikacji konteneryzowanych w chmurze.
+
+#### 2. **Zalety AWS**
+
+AWS wyróżnia się szeregiem korzyści, które przyciągają do niego zarówno startupy, jak i duże przedsiębiorstwa:
+
+- **Skalowalność**: AWS oferuje automatyczne skalowanie, co oznacza, że zasoby są dostosowywane w czasie rzeczywistym do potrzeb aplikacji. Dzięki temu firmy mogą szybko reagować na wzrosty zapotrzebowania bez konieczności inwestowania w dodatkowy sprzęt.
+
+- **Bezpieczeństwo**: Amazon stawia na wysokie standardy bezpieczeństwa, w tym zaawansowane mechanizmy szyfrowania danych, autoryzacji oraz systemy monitorujące. AWS spełnia również rygorystyczne wymagania związane z certyfikacjami, takimi jak ISO 27001, SOC 1/2/3 i inne.
+
+- **Elastyczność i różnorodność usług**: Dzięki szerokiemu wachlarzowi usług, firmy mogą korzystać z narzędzi dokładnie dopasowanych do ich potrzeb, od zarządzanych baz danych, przez sztuczną inteligencję, po serwisy big data.
+
+- **Globalna infrastruktura**: AWS posiada ogromną sieć centrów danych zlokalizowanych na całym świecie, co umożliwia dostarczanie zasobów o niskich opóźnieniach w różnych regionach. Dzięki temu firmy mogą umieszczać swoje aplikacje blisko użytkowników końcowych, co zwiększa wydajność.
+
+#### 3. **Przypadki użycia AWS**
+
+AWS znajduje zastosowanie w wielu dziedzinach i branżach, w tym:
+
+- **Przechowywanie danych i backup**: Dzięki usługom takim jak Amazon S3, firmy mogą bezpiecznie przechowywać duże ilości danych, korzystając z różnych poziomów redundancji i dostępności.
+
+- **Aplikacje webowe i mobilne**: AWS oferuje skalowalną infrastrukturę do uruchamiania aplikacji internetowych i mobilnych, zapewniając im wysoką wydajność oraz globalny zasięg.
+
+- **Big Data i analityka**: Narzędzia takie jak Amazon EMR (Elastic MapReduce) oraz Amazon Redshift umożliwiają przetwarzanie i analizowanie ogromnych ilości danych. Firmy mogą dzięki temu analizować swoje dane w czasie rzeczywistym i wykorzystywać je do podejmowania decyzji biznesowych.
+
+- **Sztuczna inteligencja i uczenie maszynowe**: AWS oferuje usługi AI i ML, takie jak Amazon SageMaker, które upraszczają proces budowania, trenowania i wdrażania modeli uczenia maszynowego na dużą skalę.
+
+#### 4. **Wyzwania związane z AWS**
+
+Chociaż AWS oferuje liczne korzyści, istnieją pewne wyzwania, które firmy muszą brać pod uwagę:
+
+- **Złożoność**: Ze względu na ogromną ilość usług, konfigurowanie i zarządzanie środowiskami AWS może być skomplikowane, zwłaszcza dla firm, które dopiero zaczynają korzystać z chmury. Wymaga to wykwalifikowanych specjalistów i dobrego planowania.
+
+- **Koszty**: Przy rosnącej liczbie używanych zasobów, koszty AWS mogą się szybko zwiększać. Niezbędne jest dokładne monitorowanie zużycia zasobów oraz optymalizacja kosztów.
+
+- **Vendor lock-in**: Przejście na AWS może sprawić, że firma stanie się silnie zależna od tej platformy. Migracja do innego dostawcy może być kosztowna i czasochłonna.
+
+#### 5. **Przyszłość AWS**
+
+AWS nieustannie rozwija swoje usługi, inwestując w nowe technologie, takie jak sztuczna inteligencja, machine learning, IoT oraz quantum computing. W najbliższej przyszłości można spodziewać się dalszego rozwoju usług bezserwerowych, zwiększenia efektywności przetwarzania danych na krawędzi (edge computing) oraz rozszerzenia globalnej infrastruktury.
 
 ---
