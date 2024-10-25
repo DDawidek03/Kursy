@@ -480,23 +480,22 @@ do {
 #### **Przerywanie pętli (`break` i `continue`)**
 
 - **`break`**: przerywa działanie pętli.
-  ```javascript
-  for (let i = 0;
-  ```
 
-i < 10; i++) {
-if (i === 5) break; // przerwie pętlę, gdy i = 5
-console.log(i);
+```javascript
+for (let i = 0; i < 10; i++) {
+  if (i === 5) break; // przerwie pętlę, gdy i = 5
+  console.log(i);
 }
+```
 
-````
 - **`continue`**: przerywa bieżącą iterację i przechodzi do następnej.
+
 ```javascript
 for (let i = 0; i < 5; i++) {
   if (i === 3) continue; // pominie iterację, gdy i = 3
   console.log(i);
 }
-````
+```
 
 ---
 
