@@ -1,38 +1,8 @@
 # **PHP**
 
-## **Spis treści**
-
-1. [Wprowadzenie](#wprowadzenie)
-2. [Konfiguracja środowiska](#konfiguracja-srodowiska)
-3. [Podstawy PHP](#podstawy-php)
-   - 3.1. [Składnia języka](#skladnia-jezyka)
-   - 3.2. [Zmienne i operacje arytmetyczne](#zmienne-operacje)
-4. [Operacje na danych](#operacje-na-danych)
-   - 4.1. [Tablice](#tablice)
-   - 4.2. [Funkcje](#funkcje)
-   - 4.3. [Pętle i instrukcje warunkowe](#petle-warunki)
-5. [Praca z formularzami](#formularze)
-   - 5.1. [Przesyłanie danych metodą POST](#post)
-   - 5.2. [Przesyłanie danych metodą GET](#get)
-   - 5.3. [Walidacja danych](#walidacja)
-6. [Operacje na bazach danych](#bazy-danych)
-   - 6.1. [Połączenie z bazą danych](#polaczenie-bazy)
-   - 6.2. [Operacje CRUD](#crud)
-7. [Praca z plikami](#pliki)
-   - 7.1. [Odczyt i zapis do plików](#odczyt-zapis)
-8. [Sesje i ciasteczka](#sesje-ciasteczka)
-   - 8.1. [Sesje](#sesje)
-   - 8.2. [Ciasteczka](#ciasteczka)
-9. [Zaawansowane zagadnienia PHP](#zaawansowane)
-   - 9.1. [PDO i bezpieczne zapytania SQL](#pdo)
-   - 9.2. [Obsługa wyjątków](#wyjatki)
-10. [Podsumowanie i wskazówki do egzaminu](#podsumowanie)
-
----
-
 ## **1. Wprowadzenie**
 
-Instrukcja ta zawiera podstawowe i zaawansowane zagadnienia związane z językiem PHP, które są wymagane na egzaminie INF.03. Zapoznaj się z nimi dokładnie i wykonaj odpowiednie ćwiczenia w każdym rozdziale.
+PHP, czyli Hypertext Preprocessor, to wszechstronny język skryptowy zaprojektowany do tworzenia dynamicznych stron internetowych. Jego popularność wśród programistów wynika z prostoty, elastyczności oraz szerokiego wsparcia dla różnych baz danych i systemów operacyjnych. Dzięki PHP możesz łatwo integrować skrypty z HTML, co pozwala na dynamiczne generowanie treści i interakcję z użytkownikami.
 
 ---
 
@@ -51,28 +21,168 @@ Instrukcja ta zawiera podstawowe i zaawansowane zagadnienia związane z językie
 - Każdy plik PHP rozpoczyna się od `<?php` i kończy `?>`.
 - Instrukcje kończą się średnikiem `;`.
 
-**Przykład:**
+### 3.2. Wstawianie kodu PHP w HTML
+
+Kod PHP umieszczany jest w plikach z rozszerzeniem `.php` i można go osadzać w dokumentach HTML. Kod PHP rozpoczyna się od tagu `<?php` i kończy na `?>`.
+
+**Przykład osadzenia kodu PHP w HTML:**
+
+```php
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Moja strona PHP</title>
+</head>
+<body>
+    <h1>Witaj na mojej stronie!</h1>
+    <?php
+        echo "To jest dynamicznie generowany tekst."; // Wypisuje tekst na stronie
+    ?>
+</body>
+</html>
+```
+
+### 3.3. Komentarze
+
+Komentarze są używane do dokumentowania kodu i mogą być jednolinijkowe lub wielolinijkowe.
+
+- **Komentarze jednolinijkowe** zaczynają się od `//` lub `#`.
+- **Komentarze wielolinijkowe** umieszczane są między `/*` i `*/`.
+
+**Przykład komentarzy:**
 
 ```php
 <?php
-    echo "Witaj na egzaminie INF.03!";
+// To jest komentarz jednolinijkowy
+# To również jest komentarz jednolinijkowy
+
+/*
+To jest komentarz
+wielolinijkowy
+*/
 ?>
 ```
 
-### 3.2. Zmienne i operacje arytmetyczne
+### 3.4. Zmienne
 
-Zmienne w PHP poprzedzone są symbolem `$`. Mogą przechowywać różne typy danych: liczby, łańcuchy znaków, tablice itp.
+Zmienna w PHP to symboliczna nazwa, która odnosi się do wartości, która może się zmieniać podczas wykonywania programu. Zmienne w PHP zaczynają się od znaku dolara `$`, a ich nazwy mogą składać się z liter, cyfr i podkreślników, ale muszą zaczynać się od litery lub podkreślnika.
 
-**Przykład:**
+#### 3.4.1. Nazewnictwo zmiennych
+
+- Zmienne są czułe na wielkość liter (`$zmienna` i `$Zmienna` to różne zmienne).
+- Nazwy zmiennych mogą zawierać litery (a-z, A-Z), cyfry (0-9) oraz znak podkreślenia (\_).
+- Nazwy zmiennych nie mogą zaczynać się od cyfry.
+
+**Przykład poprawnych nazw zmiennych:**
 
 ```php
-$a = 5;
-$b = 10;
-$suma = $a + $b;
-echo "Suma wynosi: " . $suma;
+$zmienna; // poprawna
+$zmienna_1; // poprawna
+$_zmienna; // poprawna
+$Zmienna; // poprawna
+
+// $1zmienna; // niepoprawna
 ```
 
----
+#### 3.4.2. Tworzenie i inicjalizacja zmiennych
+
+Zmienne można tworzyć i inicjalizować w jednej linii. PHP jest językiem dynamicznie typowanym, co oznacza, że nie trzeba deklarować typu zmiennej.
+
+**Przykład tworzenia zmiennych:**
+
+```php
+<?php
+$imie = "Anna"; // Zmienna typu string
+$wiek = 25; // Zmienna typu integer
+$waga = 60.5; // Zmienna typu float
+$czyZalogowany = true; // Zmienna typu boolean
+
+echo "Imię: $imie, Wiek: $wiek, Waga: $waga, Zalogowany: $czyZalogowany";
+?>
+```
+
+#### 3.4.3. Typy danych w PHP
+
+PHP obsługuje kilka podstawowych typów danych:
+
+- **String**: Ciąg znaków. Można go zapisać w pojedynczych (`'`) lub podwójnych (`"`) cudzysłowach.
+- **Integer**: Liczby całkowite.
+- **Float**: Liczby zmiennoprzecinkowe.
+- **Boolean**: Wartości prawda/fałsz (`true` lub `false`).
+- **Array**: Tablice, które mogą przechowywać wiele wartości.
+- **Object**: Obiekty klasy.
+- **NULL**: Specjalna zmienna oznaczająca, że zmienna nie ma przypisanej wartości.
+
+**Przykład różnych typów danych:**
+
+```php
+<?php
+$tekst = "To jest tekst"; // String
+$liczbaCal = 10; // Integer
+$liczbaZmiennoprzecinkowa = 10.5; // Float
+$czyPrawda = true; // Boolean
+$array = array(1, 2, 3, 4, 5); // Array
+$obiekt = null; // NULL
+
+echo "$tekst, Liczba całkowita: $liczbaCal, Liczba zmiennoprzecinkowa: $liczbaZmiennoprzecinkowa, Prawda: $czyPrawda";
+?>
+```
+
+### 3.5. Używanie zmiennych
+
+Zmiennych można używać w różnych kontekstach, takich jak wyrażenia, funkcje i konstrukcje kontrolne. Wartości zmiennych można również łączyć z innymi tekstami.
+
+**Przykład użycia zmiennych:**
+
+```php
+<?php
+$imie = "Anna";
+$wiek = 25;
+
+// Łączenie zmiennych z tekstem
+echo "Witaj, " . $imie . "! Masz " . $wiek . " lat.";
+
+// Można także używać interpolacji
+echo "Witaj, $imie! Masz $wiek lat.";
+?>
+```
+
+### 3.6. Stałe
+
+W PHP można definiować stałe, które są niezmienne w czasie działania programu. Stałe są definiowane za pomocą funkcji `define()`.
+
+**Przykład definiowania stałej:**
+
+```php
+<?php
+define("PI", 3.14); // Definicja stałej PI
+
+echo "Wartość PI to: " . PI;
+?>
+```
+
+### 3.7. Zakres zmiennych
+
+Zakres zmiennych odnosi się do miejsca, w którym zmienna jest zdefiniowana i dostępna. W PHP zmienne mogą mieć różne zakresy:
+
+- **Zasięg lokalny**: Zmienna zdefiniowana wewnątrz funkcji jest dostępna tylko w tej funkcji.
+- **Zasięg globalny**: Zmienna zdefiniowana na najwyższym poziomie skryptu (poza funkcjami) jest dostępna w całym skrypcie, ale nie jest domyślnie dostępna wewnątrz funkcji. Aby uzyskać dostęp do zmiennej globalnej w funkcji, należy użyć słowa kluczowego `global`.
+
+**Przykład zasięgu zmiennych:**
+
+```php
+<?php
+$zmiennaGlobalna = "Jestem globalny!";
+
+function test() {
+    global $zmiennaGlobalna; // Uzyskanie dostępu do zmiennej globalnej
+    echo $zmiennaGlobalna; // Wypisuje: Jestem globalny!
+}
+
+test();
+?>
+```
 
 ## **4. Operacje na danych**
 
@@ -123,33 +233,7 @@ $klasa = array(
   }
   ```
 
-### 4.2. Funkcje
-
-Funkcje w PHP służą do grupowania kodu, który można później wywoływać wielokrotnie. Pozwalają na tworzenie bardziej zorganizowanego i czytelnego kodu.
-
-#### Definiowanie funkcji
-
-```php
-function suma($a, $b) {
-    return $a + $b;
-}
-
-echo suma(5, 10); // Wyświetli: 15
-```
-
-#### Funkcje anonimowe
-
-Funkcje anonimowe są definiowane bez nazwy i mogą być przypisywane do zmiennych.
-
-```php
-$powitanie = function($imie) {
-    return "Witaj, " . $imie;
-};
-
-echo $powitanie("Jan");
-```
-
-### 4.3. Pętle i instrukcje warunkowe
+### 4.2. Pętle i instrukcje warunkowe
 
 #### Instrukcje warunkowe
 
@@ -167,30 +251,173 @@ if ($wiek > 18) {
 
 Pętle służą do wykonywania kodu wiele razy.
 
-- **for**: używana, gdy znamy liczbę powtórzeń.
+### Pętla `for`
 
-  ```php
-  for ($i = 0; $i < 5; $i++) {
-      echo $i;
-  }
-  ```
+Pętla `for` jest najczęściej używaną pętlą, gdy znana jest liczba iteracji z góry. Składa się z trzech części: inicjalizacji, warunku kontynuacji oraz inkrementacji.
 
-- **while**: wykonuje kod dopóki warunek jest prawdziwy.
+#### Składnia:
 
-  ```php
-  $i = 0;
-  while ($i < 5) {
-      echo $i;
-      $i++;
-  }
-  ```
+```php
+for (inicjalizacja; warunek; inkrementacja) {
+    // kod do wykonania w każdej iteracji
+}
+```
 
-- **foreach**: przeznaczona głównie do tablic.
-  ```php
-  foreach ($owoce as $owoc) {
-      echo $owoc;
-  }
-  ```
+#### Przykład:
+
+```php
+<?php
+// Wypisanie liczb od 1 do 5
+for ($i = 1; $i <= 5; $i++) {
+    echo "Liczba: $i<br>";
+}
+?>
+```
+
+**Wyjaśnienie:**
+
+1. **Inicjalizacja**: `$i = 1` – zmienna `$i` jest ustawiana na 1.
+2. **Warunek**: `$i <= 5` – pętla będzie wykonywana, dopóki `$i` jest mniejsze lub równe 5.
+3. **Inkrementacja**: `$i++` – po każdej iteracji zmienna `$i` jest zwiększana o 1.
+
+### Pętla `while`
+
+Pętla `while` jest używana, gdy nie wiadomo z góry, ile razy pętla powinna być wykonana. Pętla wykonuje kod dopóki spełniony jest dany warunek.
+
+#### Składnia:
+
+```php
+while (warunek) {
+    // kod do wykonania
+}
+```
+
+#### Przykład:
+
+```php
+<?php
+$i = 1; // inicjalizacja zmiennej
+while ($i <= 5) {
+    echo "Liczba: $i<br>";
+    $i++; // inkrementacja zmiennej
+}
+?>
+```
+
+**Wyjaśnienie:**
+
+1. **Warunek**: Pętla będzie kontynuować, dopóki `$i` jest mniejsze lub równe 5.
+2. W każdej iteracji wypisywana jest wartość `$i`, a następnie jest ona inkrementowana.
+
+### Pętla `do...while`
+
+Pętla `do...while` działa podobnie do pętli `while`, ale gwarantuje, że kod wewnątrz pętli zostanie wykonany przynajmniej raz, niezależnie od warunku.
+
+#### Składnia:
+
+```php
+do {
+    // kod do wykonania
+} while (warunek);
+```
+
+#### Przykład:
+
+```php
+<?php
+$i = 1; // inicjalizacja zmiennej
+do {
+    echo "Liczba: $i<br>";
+    $i++; // inkrementacja zmiennej
+} while ($i <= 5);
+?>
+```
+
+**Wyjaśnienie:**
+
+1. Kod wewnątrz bloku `do` zostanie wykonany przynajmniej raz, a następnie zostanie sprawdzony warunek `$i <= 5`.
+
+### Pętla `foreach`
+
+Pętla `foreach` jest specyficzną pętlą do iteracji przez tablice. Umożliwia łatwe przechodzenie przez elementy tablicy bez potrzeby zarządzania indeksem.
+
+#### Składnia:
+
+```php
+foreach ($tablica as $wartosc) {
+    // kod do wykonania
+}
+```
+
+#### Przykład:
+
+```php
+<?php
+$kolory = array("czerwony", "zielony", "niebieski");
+
+foreach ($kolory as $kolor) {
+    echo "Kolor: $kolor<br>";
+}
+?>
+```
+
+**Wyjaśnienie:**
+
+1. Pętla iteruje przez każdy element tablicy `$kolory`.
+2. W każdej iteracji zmienna `$kolor` przyjmuje wartość aktualnego elementu tablicy.
+
+### Pętla `for` z tablicami
+
+Możemy także używać pętli `for` do iteracji przez tablice, ale wymaga to zarządzania indeksem.
+
+#### Przykład:
+
+```php
+<?php
+$liczby = array(10, 20, 30, 40, 50);
+
+for ($i = 0; $i < count($liczby); $i++) {
+    echo "Liczba: " . $liczby[$i] . "<br>";
+}
+?>
+```
+
+**Wyjaśnienie:**
+
+1. `count($liczby)` zwraca liczbę elementów w tablicy, co pozwala pętli `for` iterować przez wszystkie indeksy tablicy.
+
+### Zakończenie pętli
+
+W każdej pętli można użyć słów kluczowych `break` i `continue`:
+
+- **`break`**: Przerywa wykonywanie pętli.
+- **`continue`**: Pomija resztę kodu w bieżącej iteracji i przechodzi do następnej iteracji.
+
+#### Przykład użycia `break`:
+
+```php
+<?php
+for ($i = 1; $i <= 10; $i++) {
+    if ($i == 5) {
+        break; // Przerwij, gdy $i osiągnie 5
+    }
+    echo "Liczba: $i<br>";
+}
+?>
+```
+
+#### Przykład użycia `continue`:
+
+```php
+<?php
+for ($i = 1; $i <= 10; $i++) {
+    if ($i % 2 == 0) {
+        continue; // Pomija liczby parzyste
+    }
+    echo "Liczba nieparzysta: $i<br>";
+}
+?>
+```
 
 ---
 
@@ -198,53 +425,93 @@ Pętle służą do wykonywania kodu wiele razy.
 
 Formularze w PHP umożliwiają zbieranie danych od użytkownika, które można przesłać na serwer do przetworzenia.
 
-### 5.1. Przesyłanie danych metodą POST
+#### 5.1. Przesyłanie danych metodą POST
 
-Metoda POST służy do przesyłania danych w tle, więc są one niewidoczne w URL. To najczęściej stosowana metoda do przesyłania formularzy zawierających informacje poufne.
+Metoda `POST` jest używana do przesyłania danych w tle. Oznacza to, że przesyłane informacje nie są widoczne w adresie URL, co czyni ją bezpieczniejszą dla informacji poufnych, takich jak hasła lub dane osobowe. Metoda ta jest najczęściej stosowana w formularzach, które wymagają przetwarzania danych na serwerze.
 
-#### Przykład formularza z metodą POST
+**Przykład formularza z metodą POST:**
 
 ```html
 <form action="przetworz.php" method="POST">
-  <label>Imię: <input type="text" name="imie" /></label>
-  <label>Wiek: <input type="number" name="wiek" /></label>
+  <label>Imię: <input type="text" name="imie" required /></label>
+  <label>Wiek: <input type="number" name="wiek" required min="0" /></label>
   <button type="submit">Wyślij</button>
 </form>
 ```
 
-#### Odbieranie danych z POST
+**Opis kodu:**
+
+- Atrybut `action` wskazuje na skrypt `przetworz.php`, który będzie przetwarzać dane formularza.
+- Atrybut `method` ustawiony na `POST` określa, że dane będą przesyłane metodą POST.
+- Użycie atrybutu `required` w polach wejściowych zapewnia, że formularz nie zostanie wysłany, jeśli pola są puste.
+- Dodatkowo, atrybut `min` w polu wieku wymusza, by wprowadzana wartość była nie mniejsza niż 0.
+
+**Odbieranie danych z POST:**
 
 ```php
-$imie = $_POST['imie'];
-$wiek = $_POST['wiek'];
-echo "Witaj, " . htmlspecialchars($imie) . ",
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Sprawdzanie, czy zmienne są ustawione i nie są puste
+    $imie = isset($_POST['imie']) ? trim($_POST['imie']) : '';
+    $wiek = isset($_POST['wiek']) ? (int)$_POST['wiek'] : 0;
 
- masz " . htmlspecialchars($wiek) . " lat.";
+    // Zabezpieczenie danych przed atakami XSS
+    echo "Witaj, " . htmlspecialchars($imie) . ", masz " . htmlspecialchars($wiek) . " lat.";
+}
 ```
 
-### 5.2. Przesyłanie danych metodą GET
+**Opis kodu:**
 
-Metoda GET przesyła dane jako część adresu URL, co pozwala na ich łatwe przekazywanie między stronami.
+- Sprawdzamy, czy metoda żądania to `POST`, co pozwala na bezpieczne przetwarzanie danych.
+- Użycie `isset()` i `trim()` zabezpiecza przed błędami, gdy zmienna nie jest ustawiona lub jest pusta.
+- Przekształcenie wieku na typ całkowity `(int)` zapewnia, że będzie to liczba.
+- Użycie `htmlspecialchars()` chroni przed atakami XSS, zamieniając niebezpieczne znaki na odpowiednie encje HTML.
 
-#### Przykład formularza z metodą GET
+#### 5.2. Przesyłanie danych metodą GET
+
+Metoda `GET` przesyła dane jako część adresu URL, co umożliwia łatwe przekazywanie danych między stronami. Może być używana do przesyłania danych, które nie są poufne, takich jak parametry wyszukiwania. Dane przesyłane metodą GET mogą być widoczne w pasku adresu przeglądarki.
+
+**Przykład formularza z metodą GET:**
 
 ```html
 <form action="przetworz.php" method="GET">
-  <label>Miasto: <input type="text" name="miasto" /></label>
+  <label>Miasto: <input type="text" name="miasto" required /></label>
   <button type="submit">Wyślij</button>
 </form>
 ```
 
-#### Odbieranie danych z GET
+**Opis kodu:**
+
+- Atrybut `action` wskazuje na skrypt `przetworz.php`, który będzie przetwarzać dane.
+- Atrybut `method` ustawiony na `GET` wskazuje, że dane będą przesyłane jako część adresu URL.
+- Użycie atrybutu `required` wymusza wypełnienie pola przed wysłaniem formularza.
+
+**Odbieranie danych z GET:**
 
 ```php
-$miasto = $_GET['miasto'];
-echo "Wybrane miasto to " . htmlspecialchars($miasto);
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    // Sprawdzanie, czy zmienna jest ustawiona
+    $miasto = isset($_GET['miasto']) ? trim($_GET['miasto']) : '';
+
+    // Zabezpieczenie danych przed atakami XSS
+    echo "Wybrane miasto to " . htmlspecialchars($miasto) . ".";
+}
 ```
+
+**Opis kodu:**
+
+- Sprawdzamy, czy metoda żądania to `GET`, co pozwala na odpowiednie przetwarzanie danych.
+- Użycie `isset()` i `trim()` zabezpiecza przed błędami związanymi z nieistniejącymi zmiennymi.
+- Zabezpieczenie danych przed atakami XSS za pomocą `htmlspecialchars()` zapewnia, że użytkownik nie może wprowadzić niebezpiecznych skryptów.
 
 ### 5.3. Walidacja danych
 
-Ważnym krokiem jest walidacja danych w celu zapewnienia ich poprawności i bezpieczeństwa.
+Walidacja danych jest kluczowym krokiem w procesie przetwarzania danych w formularzach. Jej celem jest zapewnienie, że dane wprowadzone przez użytkownika są poprawne, spójne oraz bezpieczne. Walidacja może obejmować sprawdzanie, czy dane są w odpowiednim formacie, czy nie są puste, oraz czy mieszczą się w określonych ramach (np. czy liczba nie jest ujemna).
+
+**Dlaczego walidacja jest ważna?**
+
+- **Bezpieczeństwo**: Zabezpiecza aplikację przed atakami, takimi jak SQL Injection czy XSS (Cross-Site Scripting).
+- **Użytkowość**: Zmniejsza liczbę błędów, które mogą wystąpić podczas przetwarzania danych, co wpływa na ogólne doświadczenia użytkownika.
+- **Spójność**: Gwarantuje, że dane wprowadzone do systemu są zgodne z oczekiwaniami aplikacji.
 
 #### Przykład prostej walidacji
 
@@ -256,6 +523,62 @@ if (isset($_POST['imie']) && !empty($_POST['imie'])) {
     echo "Pole 'Imię' jest wymagane!";
 }
 ```
+
+**Opis kodu:**
+
+1. **Sprawdzenie istnienia zmiennej**: `isset($_POST['imie'])` – Funkcja `isset()` sprawdza, czy zmienna `$_POST['imie']` została ustawiona. Jest to ważne, ponieważ formularz może zostać przesłany bez wypełnienia tego pola, co mogłoby prowadzić do błędów.
+
+2. **Sprawdzenie pustego pola**: `!empty($_POST['imie'])` – Funkcja `empty()` sprawdza, czy zmienna jest pusta. W tym przypadku, jeśli pole `imie` jest puste (np. użytkownik nic nie wpisał), to kod wewnątrz bloku `if` nie zostanie wykonany, a zamiast tego wyświetli komunikat o błędzie.
+
+3. **Sanitizacja danych**: `$imie = htmlspecialchars($_POST['imie']);` – Funkcja `htmlspecialchars()` konwertuje specjalne znaki na ich odpowiedniki HTML, co zapobiega atakom XSS. Na przykład, jeśli użytkownik wprowadzi `<script>alert('XSS');</script>`, funkcja ta zmieni ten tekst na `&lt;script&gt;alert('XSS');&lt;/script&gt;`, dzięki czemu nie zostanie on wykonany w przeglądarce.
+
+4. **Wyświetlenie komunikatu**: `echo "Witaj, " . $imie;` – Jeśli walidacja przebiegnie pomyślnie, program wyświetli powitanie użytkownika, używając bezpiecznie przetworzonych danych.
+
+5. **Komunikat o błędzie**: `echo "Pole 'Imię' jest wymagane!";` – Jeśli pole `imie` nie zostanie wypełnione, użytkownik otrzyma komunikat informujący, że to pole jest wymagane.
+
+#### Rozszerzenie walidacji
+
+Walidacja danych może być znacznie bardziej złożona, w zależności od potrzeb aplikacji. Oto kilka dodatkowych przykładów walidacji:
+
+1. **Walidacja długości tekstu**:
+
+   ```php
+   if (isset($_POST['imie']) && !empty($_POST['imie'])) {
+       $imie = htmlspecialchars($_POST['imie']);
+       if (strlen($imie) < 3) {
+           echo "Imię musi mieć co najmniej 3 znaki!";
+       } else {
+           echo "Witaj, " . $imie;
+       }
+   }
+   ```
+
+2. **Walidacja wieku**:
+
+   ```php
+   if (isset($_POST['wiek']) && is_numeric($_POST['wiek'])) {
+       $wiek = (int)$_POST['wiek'];
+       if ($wiek < 0 || $wiek > 120) {
+           echo "Wiek musi być liczbą z przedziału 0-120!";
+       } else {
+           echo "Masz " . $wiek . " lat.";
+       }
+   } else {
+       echo "Wiek jest wymagany i musi być liczbą!";
+   }
+   ```
+
+3. **Walidacja adresu e-mail**:
+   ```php
+   if (isset($_POST['email']) && !empty($_POST['email'])) {
+       $email = htmlspecialchars($_POST['email']);
+       if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+           echo "Podany adres e-mail jest niepoprawny!";
+       } else {
+           echo "Podany adres e-mail to: " . $email;
+       }
+   }
+   ```
 
 ---
 
@@ -296,32 +619,86 @@ Operacje CRUD są kluczowe dla każdej aplikacji zarządzającej danymi. Poniże
 
 Operacja `CREATE` polega na dodawaniu nowych rekordów do tabeli w bazie danych. Używamy do tego instrukcji SQL `INSERT INTO`.
 
-**Przykład dodawania nowego studenta do tabeli:**
+**Przykład dodawania nowego studenta do tabeli za pomocą formularza:**
+
+**1. Formularz HTML**
+
+```html
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dodaj Studenta</title>
+  </head>
+  <body>
+    <h1>Dodaj Nowego Studenta</h1>
+    <form action="dodaj_studenta.php" method="POST">
+      <label>Imię: <input type="text" name="imie" required /></label><br />
+      <label>Wiek: <input type="number" name="wiek" required min="0" /></label
+      ><br />
+      <button type="submit">Dodaj Studenta</button>
+    </form>
+  </body>
+</html>
+```
+
+**Opis formularza:**
+
+- Formularz wykorzystuje metodę `POST`, co oznacza, że dane nie będą widoczne w URL.
+- Użytkownik wprowadza imię i wiek studenta.
+- Użycie atrybutu `required` w polach formularza wymusza ich wypełnienie przed wysłaniem.
+
+**2. Skrypt PHP do przetwarzania formularza (`dodaj_studenta.php`)**
 
 ```php
 <?php
-// Zakładamy, że $polaczenie jest już nawiązane
-$imie = "Anna";
-$wiek = 21;
+// Ustanowienie połączenia z bazą danych
+$polaczenie = new mysqli("localhost", "root", "", "szkola");
 
-// Zapytanie SQL do dodania rekordu
-$sql = "INSERT INTO studenci (imie, wiek) VALUES ('$imie', $wiek)";
-
-// Wykonanie zapytania i sprawdzenie rezultatu
-if ($polaczenie->query($sql) === TRUE) {
-    echo "Nowy rekord został dodany: Imię: $imie, Wiek: $wiek";
-} else {
-    echo "Błąd podczas dodawania rekordu: " . $polaczenie->error;
+// Sprawdzenie połączenia
+if ($polaczenie->connect_error) {
+    die("Błąd połączenia: " . $polaczenie->connect_error);
 }
+
+// Sprawdzenie, czy formularz został przesłany
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Pobranie danych z formularza
+    $imie = $_POST['imie'];
+    $wiek = $_POST['wiek'];
+
+    // Zapytanie SQL do dodania rekordu
+    $sql = "INSERT INTO studenci (imie, wiek) VALUES ('$imie', $wiek)";
+
+    // Wykonanie zapytania
+    if ($polaczenie->query($sql)) {
+        echo "Nowy rekord został dodany: Imię: $imie, Wiek: $wiek";
+    } else {
+        echo "Błąd podczas dodawania rekordu: " . $polaczenie->error;
+    }
+}
+
+// Zamknięcie połączenia
+$polaczenie->close();
 ?>
+
 ```
 
-**Wyjaśnienie:**
+**Opis skryptu PHP:**
 
-1. Przygotowujemy dane, które chcemy wprowadzić do bazy danych.
-2. Tworzymy zapytanie SQL, które wstawia nowy rekord do tabeli `studenci`.
-3. Wykonujemy zapytanie za pomocą metody `query()` na obiekcie połączenia `$polaczenie`.
-4. Sprawdzamy, czy operacja zakończyła się sukcesem, a w przypadku błędu, wyświetlamy komunikat.
+1. **Ustanowienie połączenia z bazą danych**: Skrypt rozpoczyna się od nawiązania połączenia z bazą danych przy użyciu klasy `mysqli`. Należy dostosować zmienne `$serwer`, `$uzytkownik`, `$haslo` oraz `$baza_danych` do własnych ustawień.
+
+2. **Sprawdzanie połączenia**: Użycie warunku `if` pozwala na sprawdzenie, czy połączenie zostało nawiązane poprawnie. Jeśli nie, skrypt kończy działanie i wyświetla błąd.
+
+3. **Sprawdzanie metody żądania**: Skrypt sprawdza, czy metoda żądania to `POST`, co wskazuje, że formularz został przesłany.
+
+4. **Pobieranie danych z formularza**: Użycie `htmlspecialchars()` i `trim()` zabezpiecza przed potencjalnymi atakami XSS oraz eliminuje niepotrzebne białe znaki.
+
+5. **Tworzenie zapytania SQL**: Skrypt generuje zapytanie SQL do dodania nowego rekordu do tabeli `studenci`.
+
+6. **Wykonywanie zapytania**: Przy użyciu `$polaczenie->query($sql)` skrypt wykonuje zapytanie i sprawdza, czy dodanie rekordu się powiodło. Jeśli tak, wyświetla komunikat o sukcesie; w przeciwnym razie informuje o błędzie.
+
+7. **Zamknięcie połączenia**: Na końcu skryptu połączenie z bazą danych jest zamykane, co jest dobrą praktyką.
 
 #### Odczyt danych (Read)
 
