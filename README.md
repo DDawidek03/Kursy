@@ -8,6 +8,7 @@ Tutaj znajdziesz zasoby edukacyjne dotyczące różnych języków programowania.
 
 - [📘 Kurs MySQL](./sql.md)
 - [🐍 Kurs Python](./python.md)
+- [Kurs PHP](./php.md)
 
 ## 🌟 O Kursach
 
