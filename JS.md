@@ -599,6 +599,138 @@ Pętle w JavaScript to potężne narzędzie pozwalające na efektywne wykonywani
 - **`for...of`** – gdy iterujemy po elementach tablicy lub kolekcji.
 - **`for...in`** – gdy iterujemy po właściwościach obiektu.
 
+## Pętle w łańcuchach znaków
+
+### 1. Rozdzielanie tekstu na słowa przy pomocy `.split()`
+
+Najpierw rozdzielmy tekst na tablicę słów, a potem przejdźmy przez nią za pomocą pętli.
+
+#### Przykład
+
+```javascript
+const text = "JavaScript is a versatile programming language";
+const words = text.split(" "); // Dzielimy tekst na słowa przy użyciu spacji jako separatora
+
+for (let word of words) {
+  console.log(word);
+}
+```
+
+**Opis:**
+
+- `text.split(" ")` dzieli tekst na tablicę, gdzie każde słowo staje się osobnym elementem. Jako separator podaliśmy spację `" "`, więc każde wystąpienie spacji powoduje rozdzielenie tekstu na kolejne słowo.
+- `for...of` iteruje przez każdy element w tablicy `words`, czyli przez każde słowo.
+
+**Wynik:**
+
+```
+JavaScript
+is
+a
+versatile
+programming
+language
+```
+
+---
+
+### 2. Iterowanie z `forEach`
+
+Jeśli chcesz iterować po słowach przy użyciu funkcji `forEach`, można to zrobić w następujący sposób:
+
+```javascript
+const text = "Learning JavaScript step by step";
+const words = text.split(" ");
+
+words.forEach((word) => {
+  console.log(word);
+});
+```
+
+**Opis:**
+
+- `forEach` jest metodą tablicową, która wykonuje przekazaną funkcję dla każdego elementu w tablicy `words`. Tutaj każde słowo będzie przekazywane do `word`, które jest argumentem funkcji.
+
+---
+
+### 3. Iterowanie z `for...in` (indeksy słów)
+
+Jeśli potrzebujesz zarówno indeksów, jak i samych słów, możesz użyć `for...in`.
+
+```javascript
+const text = "JavaScript has many features";
+const words = text.split(" ");
+
+for (let index in words) {
+  console.log(`Word ${Number(index) + 1}: ${words[index]}`);
+}
+```
+
+**Opis:**
+
+- `for...in` zwraca indeksy elementów, które możesz wykorzystać do dostępu do poszczególnych słów w tablicy.
+
+**Wynik:**
+
+```
+Word 1: JavaScript
+Word 2: has
+Word 3: many
+Word 4: features
+```
+
+---
+
+### 4. Iterowanie z `for` (indeksy i dostęp do modyfikacji tablicy)
+
+Pętla `for` jest wygodna, jeśli chcesz mieć pełną kontrolę nad indeksami i może modyfikować tablicę w trakcie iteracji.
+
+```javascript
+const text = "JavaScript allows you to build powerful applications";
+const words = text.split(" ");
+
+for (let i = 0; i < words.length; i++) {
+  console.log(`Word ${i + 1}: ${words[i]}`);
+}
+```
+
+**Opis:**
+
+- `for` pozwala na pełną kontrolę nad tablicą oraz nad licznikiem `i`. Możesz modyfikować elementy `words[i]` lub dodać nowe, jeżeli zajdzie taka potrzeba.
+
+---
+
+### 5. Iterowanie i zmiana każdego słowa
+
+Jeśli chcesz przetworzyć każde słowo, np. zmienić je na wielkie litery lub dodać znak, możesz to zrobić tak:
+
+```javascript
+const text = "JavaScript is powerful";
+const words = text.split(" ");
+
+for (let i = 0; i < words.length; i++) {
+  words[i] = words[i].toUpperCase(); // Zmieniamy każde słowo na wielkie litery
+}
+
+console.log(words.join(" ")); // Łączymy przetworzone słowa z powrotem w tekst
+```
+
+**Wynik:**
+
+```
+JAVASCRIPT IS POWERFUL
+```
+
+---
+
+### Podsumowanie
+
+- **`split()`** rozdziela tekst na tablicę słów.
+- **`for...of`** jest najprostszą pętlą do iterowania po elementach tablicy, jakimi są słowa.
+- **`forEach`** wykonuje funkcję dla każdego elementu w tablicy.
+- **`for...in`** iteruje po indeksach tablicy, co jest przydatne, gdy potrzebujesz indeksów.
+- **`for`** daje pełną kontrolę nad tablicą i indeksem, pozwalając modyfikować elementy w trakcie iteracji.
+
 ### **9. Obiekt Math i liczby (`number`)**
 
 JavaScript oferuje wbudowane funkcje matematyczne za pomocą obiektu `Math`, który pozwala na wykonywanie bardziej zaawansowanych obliczeń matematycznych.
