@@ -439,13 +439,17 @@ console.log(nazwaDnia); // wynik: Środa
 
 ---
 
-### **8. Pętle**
-
-Pętle pozwalają na wykonywanie fragmentu kodu wielokrotnie, dopóki określony warunek jest spełniony. JavaScript oferuje kilka rodzajów pętli.
+### **Rodzaje Pętli w JavaScript**
 
 #### **Pętla `for`**
 
-Pętla `for` jest najbardziej uniwersalną pętlą. Ma trzy elementy: inicjalizację, warunek i aktualizację. Każda iteracja wykonuje blok kodu, dopóki warunek jest spełniony.
+Pętla `for` jest najbardziej wszechstronna. Składa się z trzech sekcji:
+
+1. **Inicjalizacja** – ustalamy zmienną początkową.
+2. **Warunek** – warunek kontynuacji pętli.
+3. **Aktualizacja** – modyfikacja wartości zmiennej w każdej iteracji.
+
+**Przykład: Wyświetlenie liczb od 0 do 4**
 
 ```javascript
 for (let i = 0; i < 5; i++) {
@@ -453,9 +457,21 @@ for (let i = 0; i < 5; i++) {
 }
 ```
 
+**Przykład: Wyświetlenie tylko liczb parzystych od 0 do 8**
+
+```javascript
+for (let i = 0; i <= 8; i += 2) {
+  console.log(i); // Wydrukuje: 0, 2, 4, 6, 8
+}
+```
+
+Pętla `for` jest wygodna do używania, kiedy wiemy, ile razy chcemy powtórzyć kod. Można również wykonywać bardziej skomplikowane operacje na licznikach, np. iterować od końca do początku lub zwiększać o inną wartość niż 1.
+
 #### **Pętla `while`**
 
-Pętla `while` wykonuje się, dopóki warunek jest prawdziwy. Sprawdza warunek przed każdą iteracją.
+Pętla `while` działa nieco inaczej. Jej cechą jest to, że sprawdza warunek przed każdym wykonaniem kodu. Jeśli warunek jest `true`, pętla wykonuje kod, a potem sprawdza go ponownie.
+
+**Przykład: Wyświetlenie liczb od 0 do 4 z pętlą `while`**
 
 ```javascript
 let i = 0;
@@ -465,39 +481,123 @@ while (i < 5) {
 }
 ```
 
-#### **Pętla `do-while`**
-
-Pętla `do-while` jest podobna do `while`, ale warunek sprawdzany jest po wykonaniu bloku kodu, dzięki czemu pętla wykona się co najmniej raz.
+**Przykład: Sprawdzenie warunku dla liczby**
 
 ```javascript
-let i = 0;
-do {
-  console.log(i);
-  i++;
-} while (i < 5); // Wydrukuje: 0, 1, 2, 3, 4
-```
-
-#### **Przerywanie pętli (`break` i `continue`)**
-
-- **`break`**: przerywa działanie pętli.
-
-```javascript
-for (let i = 0; i < 10; i++) {
-  if (i === 5) break; // przerwie pętlę, gdy i = 5
-  console.log(i);
+let num = 1;
+while (num <= 3) {
+  console.log("Liczba:", num); // Wydrukuje "Liczba: 1", "Liczba: 2", "Liczba: 3"
+  num++;
 }
 ```
 
-- **`continue`**: przerywa bieżącą iterację i przechodzi do następnej.
+Pętla `while` jest użyteczna, gdy nie znamy z góry liczby iteracji i zależy nam na kontynuowaniu dopóki warunek jest spełniony.
+
+#### **Pętla `do-while`**
+
+Pętla `do-while` jest bardzo podobna do `while`, ale ma istotną różnicę: wykonuje kod **co najmniej raz**, zanim sprawdzi warunek. Oznacza to, że nawet jeśli warunek początkowo nie jest spełniony, kod wykona się raz.
+
+**Przykład: Wyświetlenie liczby raz, niezależnie od warunku**
+
+```javascript
+let i = 10;
+do {
+  console.log(i); // Wydrukuje: 10
+  i++;
+} while (i < 5);
+```
+
+**Przykład: Powtarzanie pytania użytkownikowi**
+
+```javascript
+let answer;
+do {
+  answer = prompt("Podaj hasło:"); // Wykona się co najmniej raz
+} while (answer !== "tajneHaslo");
+console.log("Uzyskano poprawne hasło!");
+```
+
+Pętla `do-while` bywa przydatna, gdy chcemy mieć pewność, że kod wykona się przynajmniej raz – np. podczas uzyskiwania pierwszej wartości od użytkownika.
+
+#### **Przerywanie Pętli: `break` i `continue`**
+
+Dzięki instrukcjom `break` i `continue` mamy możliwość kontrolowania przepływu pętli w bardziej zaawansowany sposób.
+
+- **`break`**: przerywa pętlę całkowicie i przechodzi do następnego fragmentu kodu poza pętlą.
+
+  **Przykład: Zatrzymanie pętli `for` przy liczbie 3**
+
+  ```javascript
+  for (let i = 0; i < 5; i++) {
+    if (i === 3) break;
+    console.log(i); // Wydrukuje: 0, 1, 2
+  }
+  ```
+
+- **`continue`**: pomija bieżącą iterację i przechodzi do następnej.
+
+  **Przykład: Pominięcie liczby 3**
+
+  ```javascript
+  for (let i = 0; i < 5; i++) {
+    if (i === 3) continue;
+    console.log(i); // Wydrukuje: 0, 1, 2, 4
+  }
+  ```
+
+#### **Zagnieżdżanie Pętli**
+
+Możemy umieszczać pętle wewnątrz innych pętli, co pozwala na bardziej złożone operacje, np. iteracje przez dwuwymiarową tablicę.
+
+**Przykład: Tworzenie tablicy 5x5**
 
 ```javascript
 for (let i = 0; i < 5; i++) {
-  if (i === 3) continue; // pominie iterację, gdy i = 3
-  console.log(i);
+  let row = "";
+  for (let j = 0; j < 5; j++) {
+    row += "* ";
+  }
+  console.log(row); // Wydrukuje 5 wierszy z 5 gwiazdkami
 }
 ```
 
----
+Zagnieżdżone pętle są użyteczne np. przy przetwarzaniu macierzy, grafów, tabel danych itp.
+
+#### **Pętla `for...of`**
+
+Pętla `for...of` jest idealna do iterowania po elementach tablicy lub innej struktury danych iterowalnej.
+
+**Przykład: Iteracja po elementach tablicy**
+
+```javascript
+const fruits = ["jabłko", "banan", "pomarańcza"];
+for (const fruit of fruits) {
+  console.log(fruit); // Wydrukuje: jabłko, banan, pomarańcza
+}
+```
+
+#### **Pętla `for...in`**
+
+Pętla `for...in` jest używana do iterowania po właściwościach obiektu.
+
+**Przykład: Iteracja po właściwościach obiektu**
+
+```javascript
+const person = { name: "Jan", age: 30, city: "Warszawa" };
+for (const key in person) {
+  console.log(key + ": " + person[key]); // Wydrukuje: name: Jan, age: 30, city: Warszawa
+}
+```
+
+### **Podsumowanie**
+
+Pętle w JavaScript to potężne narzędzie pozwalające na efektywne wykonywanie powtarzalnych zadań. Oto kiedy najlepiej stosować poszczególne typy pętli:
+
+- **`for`** – gdy znamy liczbę iteracji lub chcemy pełną kontrolę nad iteracją.
+- **`while`** – gdy nie znamy z góry liczby iteracji, a kod ma być wykonywany dopóki warunek jest `true`.
+- **`do-while`** – gdy kod ma się wykonać przynajmniej raz.
+- **`for...of`** – gdy iterujemy po elementach tablicy lub kolekcji.
+- **`for...in`** – gdy iterujemy po właściwościach obiektu.
 
 ### **9. Obiekt Math i liczby (`number`)**
 
