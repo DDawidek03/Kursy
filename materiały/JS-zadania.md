@@ -137,3 +137,118 @@ Napisz program, który przyjmuje od użytkownika godzinę i wyświetla odpowiedn
 ### Zadanie 20:
 
 Napisz program, który przyjmuje od użytkownika liczbę i wyświetla odpowiedni komunikat, w zależności od tego, czy liczba jest podzielna przez 2, 3 lub 5.
+
+### **Zadania Podstawowe**
+
+1. **Suma liczb parzystych i nieparzystych**
+
+   - Napisz pętlę `for`, która obliczy sumę liczb parzystych i nieparzystych z zakresu od 1 do 100. Wynik dla obu sum wyświetl osobno.
+
+2. **Tabliczka mnożenia dla liczby**
+
+   - Używając pętli `for`, wypisz w konsoli tabliczkę mnożenia dla liczby 7 (czyli: 7, 14, 21, itd. do 10 razy 7).
+
+3. **Liczby podzielne przez 3 i 5**
+
+   - Używając pętli, wypisz wszystkie liczby od 1 do 50, które są podzielne zarówno przez 3, jak i przez 5.
+
+4. **Mnożenie liczb w tablicy**
+
+   - Mając tablicę liczb `[2, 4, 6, 8, 10]`, użyj pętli, aby policzyć iloczyn wszystkich jej elementów.
+
+5. **Odwracanie tablicy**
+
+   - Użyj pętli, aby odwrócić tablicę `[1, 2, 3, 4, 5]` i wyświetlić jej zawartość w odwrotnej kolejności.
+
+6. **Zliczanie samogłosek**
+
+   - Mając dany napis, np. `"javascript"`, użyj pętli, aby policzyć liczbę samogłosek (a, e, i, o, u) w tym napisie.
+
+7. **Potęgowanie liczby 3**
+
+   - Napisz pętlę `while`, która będzie wypisywać kolejne potęgi liczby 3 (3, 9, 27, …) aż do osiągnięcia lub przekroczenia wartości 1000.
+
+8. **Średnia liczb**
+
+   - Mając tablicę liczb `[5, 10, 15, 20, 25]`, użyj pętli, aby obliczyć średnią tych liczb.
+
+9. **Pierwsze 10 liczb Fibonacciego**
+
+   - Napisz pętlę, która wypisze pierwsze 10 liczb z ciągu Fibonacciego: 0, 1, 1, 2, 3, 5, ...
+
+10. **Zmiana wielkości liter**
+    - Napisz pętlę, która zamieni każdy mały znak na duży w ciągu `"Hello World!"`, i odwrotnie – duży na mały.
+
+---
+
+### **Zadania Średniozaawansowane**
+
+11. **Wyszukiwanie najmniejszej i największej liczby**
+
+    - Mając tablicę `[45, 12, 78, 4, 90, 3, 21]`, napisz pętlę, która znajdzie najmniejszą i największą liczbę.
+
+12. **Kwadraty liczb**
+
+    - Napisz pętlę, która doda do nowej tablicy kwadraty liczb z tablicy `[2, 3, 4, 5]` (czyli: `[4, 9, 16, 25]`).
+
+13. **Odwrócenie liczb**
+
+    - Napisz pętlę, która odwróci liczbę całkowitą, np. zamieni 1234 na 4321.
+
+14. **Wielokrotności liczby**
+
+    - Napisz pętlę `for`, która wyświetli wszystkie wielokrotności liczby 4 z zakresu od 1 do 100.
+
+15. **Znajdowanie wspólnych elementów**
+
+    - Mając dwie tablice `[1, 2, 3, 4, 5]` i `[4, 5, 6, 7, 8]`, użyj pętli, aby znaleźć ich wspólne elementy (czyli `[4, 5]`).
+
+16. **Tworzenie piramidy liczb**
+
+    - Użyj zagnieżdżonych pętli, aby wypisać piramidę liczb:
+      ```
+      1
+      1 2
+      1 2 3
+      1 2 3 4
+      1 2 3 4 5
+      ```
+
+17. **Sortowanie tablicy ręcznie (sortowanie bąbelkowe)**
+
+    - Napisz pętlę, która posortuje tablicę `[5, 3, 8, 1, 2]` w porządku rosnącym, używając algorytmu sortowania bąbelkowego.
+
+18. **Wyszukiwanie powtórzeń**
+    - Mając tablicę `[1, 2, 3, 4, 2, 5, 3]`, napisz pętlę, która wyświetli wszystkie elementy występujące więcej niż raz.
+
+---
+
+### **Zadania Zaawansowane** - Dla chetnych
+
+21. **Szyfrowanie tekstu metodą przesunięcia (Cezar)**
+
+    - Napisz pętlę, która przesunie każdy znak w napisie o 3 pozycje w prawo (np. "ABC" na "DEF").
+
+22. **Generowanie liczb pierwszych w zakresie**
+
+    - Używając pętli zagnieżdżonej, napisz kod, który wypisze wszystkie liczby pierwsze w zakresie od 1 do 50.
+
+23. **Liczby doskonałe**
+
+    - Liczba doskonała to taka, która jest równa sumie swoich dzielników (np. 6 = 1 + 2 + 3). Napisz pętlę, aby sprawdzić, czy liczba (np. 28) jest liczbą doskonałą.
+
+24. **Modyfikacja struktury tablicy**
+
+    - Mając tablicę dwuwymiarową, np. `[[1, 2], [3, 4], [5, 6]]`, napisz pętlę, która zamieni wszystkie elementy na ich kwadraty (czyli `[[1, 4], [9, 16], [25, 36]]`).
+
+25. **Tworzenie choinki z gwiazdek**
+    - Napisz pętlę zagnieżdżoną, która wygeneruje w konsoli choinkę:
+      ```
+         *
+        ***
+       *****
+      *******
+      *********
+      ```
+
+---
