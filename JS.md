@@ -646,61 +646,221 @@ let tekst = liczba.toString(); // tekst: '123'
 
 ---
 
-### **10. Tablice (`arrays`)**
+## **Tworzenie tablicy**
 
-Tablice w JavaScript to struktury danych, które mogą przechowywać wiele wartości w jednej zmiennej. Każdy element w tablicy ma indeks, zaczynający się od 0.
+Tablicę w JavaScript można utworzyć za pomocą:
 
-#### **Tworzenie tablicy**
+1. Nawiasów kwadratowych `[]`.
+2. Obiektu `Array`.
 
-Tablice można tworzyć za pomocą nawiasów kwadratowych:
+```javascript
+// Tworzenie tablicy z elementami
+let liczby = [1, 2, 3, 4, 5];
+let imiona = ["Jan", "Anna", "Piotr"];
+
+// Tworzenie pustej tablicy i dodawanie elementów później
+let pustaTablica = [];
+pustaTablica.push("element1");
+
+// Tworzenie za pomocą obiektu Array
+let tablica = new Array(5); // Tworzy tablicę o długości 5 z pustymi miejscami
+let mieszanaTablica = new Array("tekst", 42, true);
+```
+
+---
+
+## **Dostęp do elementów tablicy**
+
+Elementy w tablicy są numerowane od indeksu `0`. Aby odwołać się do konkretnego elementu, używamy indeksu.
+
+```javascript
+let liczby = [10, 20, 30];
+console.log(liczby[0]); // 10
+console.log(liczby[2]); // 30
+```
+
+> **Uwaga**: Jeśli odwołamy się do nieistniejącego indeksu, zwrócona zostanie `undefined`.
+
+---
+
+## **Podstawowe metody tablicowe**
+
+### Dodawanie i usuwanie elementów
+
+- **Dodawanie na końcu (`push`)**: Dodaje element na końcu tablicy.
+
+  ```javascript
+  liczby.push(40); // [10, 20, 30, 40]
+  ```
+
+- **Usuwanie z końca (`pop`)**: Usuwa ostatni element i zwraca go.
+
+  ```javascript
+  let ostatni = liczby.pop(); // [10, 20, 30], ostatni = 40
+  ```
+
+- **Dodawanie na początku (`unshift`)**: Dodaje element na początku tablicy.
+
+  ```javascript
+  liczby.unshift(5); // [5, 10, 20, 30]
+  ```
+
+- **Usuwanie z początku (`shift`)**: Usuwa pierwszy element i zwraca go.
+  ```javascript
+  let pierwszy = liczby.shift(); // [10, 20, 30], pierwszy = 5
+  ```
+
+### Inne przydatne metody tablicowe
+
+1. **`concat()`**: Łączy dwie lub więcej tablic, zwracając nową tablicę.
+
+   ```javascript
+   let liczby1 = [1, 2];
+   let liczby2 = [3, 4];
+   let polaczona = liczby1.concat(liczby2); // [1, 2, 3, 4]
+   ```
+
+2. **`slice()`**: Zwraca wycinek tablicy bez jej zmiany.
+
+   ```javascript
+   let liczby = [10, 20, 30, 40];
+   let fragment = liczby.slice(1, 3); // [20, 30]
+   ```
+
+3. **`splice()`**: Usuwa, zastępuje lub dodaje elementy do tablicy.
+
+   ```javascript
+   let liczby = [10, 20, 30, 40];
+   liczby.splice(1, 2, 25, 35); // [10, 25, 35, 40]
+   ```
+
+4. **`indexOf()` i `lastIndexOf()`**: Zwraca pierwszy lub ostatni indeks podanego elementu (lub `-1`, jeśli nie znaleziono).
+
+   ```javascript
+   let liczby = [10, 20, 10, 30];
+   liczby.indexOf(10); // 0
+   liczby.lastIndexOf(10); // 2
+   ```
+
+5. **`includes()`**: Sprawdza, czy tablica zawiera dany element.
+
+   ```javascript
+   liczby.includes(20); // true
+   liczby.includes(50); // false
+   ```
+
+6. **`join()`**: Łączy elementy tablicy w ciąg znaków z określonym separatorem.
+
+   ```javascript
+   let imiona = ["Jan", "Anna", "Piotr"];
+   let tekst = imiona.join(", "); // "Jan, Anna, Piotr"
+   ```
+
+7. **`reverse()`**: Odwraca kolejność elementów w tablicy.
+   ```javascript
+   let liczby = [1, 2, 3];
+   liczby.reverse(); // [3, 2, 1]
+   ```
+
+---
+
+## **Metody iteracyjne**
+
+JavaScript oferuje kilka metod do iteracji i manipulacji na tablicach.
+
+### `forEach()`
+
+Wykonuje funkcję dla każdego elementu tablicy.
+
+```javascript
+let liczby = [1, 2, 3];
+liczby.forEach((liczba) => {
+  console.log(liczba * 2); // 2, 4, 6
+});
+```
+
+### `map()`
+
+Tworzy nową tablicę, wykonując operację na każdym elemencie.
+
+```javascript
+let liczby = [1, 2, 3];
+let podwojone = liczby.map((x) => x * 2); // [2, 4, 6]
+```
+
+### `filter()`
+
+Tworzy nową tablicę zawierającą elementy spełniające określony warunek.
 
 ```javascript
 let liczby = [1, 2, 3, 4, 5];
-let imiona = ["Jan", "Anna", "Piotr"];
+let wiekszeNiz3 = liczby.filter((x) => x > 3); // [4, 5]
 ```
 
-#### **Dostęp do elementów tablicy**
+### `reduce()`
 
-Aby uzyskać dostęp do konkretnego elementu tablicy, używamy indeksu elementu:
+Redukuje tablicę do pojedynczej wartości, np. sumy.
 
 ```javascript
-let pierwszy = liczby[0]; // wartość: 1
-let drugi = liczby[1]; // wartość: 2
+let liczby = [1, 2, 3, 4];
+let suma = liczby.reduce((acc, curr) => acc + curr, 0); // 10
 ```
 
-#### **Dodawanie i usuwanie elementów tablicy**
+### `find()` i `findIndex()`
 
-- **Dodawanie elementów na końcu (`push`)**:
-  ```javascript
-  liczby.push(6); // tablica: [1, 2, 3, 4, 5, 6]
-  ```
-- **Usuwanie ostatniego elementu (`pop`)**:
-  ```javascript
-  liczby.pop(); // tablica: [1, 2, 3, 4, 5]
-  ```
-
-#### **Iteracja po tablicy**
-
-Pętla `for` jest często używana do iteracji po elementach tablicy:
+- **`find()`**: Zwraca pierwszy element, który spełnia warunek.
+- **`findIndex()`**: Zwraca indeks pierwszego elementu spełniającego warunek.
 
 ```javascript
-for (let i = 0; i < liczby.length; i++) {
-  console.log(liczby[i]);
-}
+let liczby = [5, 12, 8, 130, 44];
+let pierwszaDuza = liczby.find((x) => x > 10); // 12
+let indeksPierwszejDuzej = liczby.findIndex((x) => x > 10); // 1
 ```
 
-#### **Metody tablicowe**
+### `some()` i `every()`
 
-JavaScript dostarcza wiele przydatnych metod do pracy z tablicami:
+- **`some()`**: Sprawdza, czy przynajmniej jeden element spełnia warunek.
+- **`every()`**: Sprawdza, czy wszystkie elementy spełniają warunek.
 
-- **`map()`**: Tworzy nową tablicę na podstawie istniejącej, wykonując operację na każdym elemencie.
-  ```javascript
-  let podwojone = liczby.map((x) => x * 2); // [2, 4, 6, 8, 10]
-  ```
-- **`filter()`**: Tworzy nową tablicę, zawierającą tylko elementy, które spełniają określony warunek.
-  ```javascript
-  let wiekszeNiz3 = liczby.filter((x) => x > 3); // [4, 5]
-  ```
+```javascript
+let liczby = [1, 2, 3, 4, 5];
+liczby.some((x) => x > 4); // true
+liczby.every((x) => x > 0); // true
+```
+
+### `sort()`
+
+Sortuje elementy tablicy. Domyślnie sortuje jako ciągi znaków, więc dla liczb wymaga funkcji porównawczej.
+
+```javascript
+let liczby = [10, 3, 20, 15];
+liczby.sort((a, b) => a - b); // [3, 10, 15, 20]
+```
+
+---
+
+## **Operacje na wielowymiarowych tablicach**
+
+Tablice mogą zawierać inne tablice, tworząc tablice wielowymiarowe.
+
+```javascript
+let macierz = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
+
+console.log(macierz[1][2]); // 6
+```
+
+---
+
+## **Podsumowanie najważniejszych metod**
+
+- **Mutujące**: `push()`, `pop()`, `shift()`, `unshift()`, `splice()`, `reverse()`, `sort()`
+- **Nie-mutujące**: `concat()`, `slice()`, `map()`, `filter()`, `reduce()`
+- **Szukające**: `find()`, `findIndex()`, `indexOf()`, `includes()`
+- **Inne**: `forEach()`, `some()`, `every()`, `join()`, `flat()`
 
 ---
 
