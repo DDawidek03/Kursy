@@ -1378,9 +1378,7 @@ Funkcja jest rekurencyjna, gdy wywołuje samą siebie. Jest to przydatne w probl
 
 ```python
 def factorial(n):
-    if n ==
-
- 0:
+    if n == 0:
         return 1
     else:
         return n * factorial(n - 1)
