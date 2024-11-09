@@ -6,10 +6,10 @@ Tutaj znajdziesz zasoby edukacyjne dotyczące różnych języków programowania.
 
 ## 📜 Spis Treści
 
-- [📘 Kurs MySQL](./sql.md)
-- [🐍 Kurs Python](./python.md)
-- [Kurs PHP](./php.md)
-- [Kurs JavaScript](./JS.md)
+- [📘 Kurs MySQL](./Kursy/sql.md)
+- [🐍 Kurs Python](./Kursy/python.md)
+- [Kurs PHP](./Kursy/php.md)
+- [Kurs JavaScript](./Kursy/JS.md)
 
 ## 🌟 O Kursach
 
