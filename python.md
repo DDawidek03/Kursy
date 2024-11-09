@@ -1205,129 +1205,196 @@ Po uruchomieniu programu i dodaniu kilku kontaktów, plik `contacts.json` może 
 
 ## Funkcje
 
-Funkcje w Pythonie to blok kodu, który wykonuje określoną operację i może być wielokrotnie wywoływany w programie. Ułatwiają one organizację kodu, poprawiają jego czytelność i umożliwiają wielokrotne wykorzystanie tej samej logiki.
+W Pythonie **funkcje** to zorganizowane bloki kodu zaprojektowane do wykonania konkretnej operacji. Funkcje pozwalają nam uporządkować kod i umożliwiają jego **ponowne użycie** – możemy wywołać funkcję wiele razy z różnymi danymi wejściowymi (argumentami), a wynik działania funkcji będzie zależał od tych danych.
+
+Dzięki funkcjom:
+
+- Kod staje się bardziej **czytelny** i łatwiejszy do zrozumienia.
+- Programy są **krótsze**, ponieważ kod się nie powtarza.
+- Zwiększa się **modularność** kodu – możemy podzielić program na mniejsze części, łatwiejsze do napisania, przetestowania i utrzymania.
+
+---
 
 ### 1. Definiowanie funkcji
 
-Funkcja jest definiowana za pomocą słowa kluczowego `def`, po którym następuje nazwa funkcji, lista parametrów w nawiasach oraz dwukropek. Treść funkcji znajduje się w bloku kodu z odpowiednim wcięciem.
+Aby utworzyć funkcję, używamy słowa kluczowego `def`, po którym podajemy nazwę funkcji. Następnie w nawiasach `()` wymieniamy **parametry** funkcji (jeśli takowe są wymagane). Po nazwie i nawiasach stawiamy dwukropek `:`, który sygnalizuje, że wcięty kod poniżej należy do tej funkcji.
 
-**Przykład:**
+**Składnia definicji funkcji**:
+
+```python
+def nazwa_funkcji(parametr1, parametr2):
+    # ciało funkcji, czyli instrukcje, które zostaną wykonane
+    return wynik  # opcjonalnie zwracamy wynik
+```
+
+**Przykład funkcji powitalnej**:
 
 ```python
 def greet(name):
     print(f"Witaj, {name}!")
 ```
 
-W powyższym przykładzie funkcja `greet` przyjmuje jeden argument `name` i wypisuje wiadomość powitalną.
+W powyższym przykładzie:
+
+- `greet` to nazwa funkcji, której zadaniem jest powitanie użytkownika.
+- `name` to **parametr**, czyli zmienna, którą funkcja wykorzysta do wyświetlenia komunikatu.
+- `print(f"Witaj, {name}!")` to kod, który zostanie wykonany, gdy funkcja zostanie wywołana, wypisując komunikat z imieniem podanym jako argument.
+
+#### Dlaczego potrzebujemy parametrów?
+
+Parametry są zmiennymi, które pozwalają funkcji być bardziej elastyczną. Funkcja `greet` wyświetli inny komunikat w zależności od wartości `name`, którą przekażemy.
+
+---
 
 ### 2. Wywoływanie funkcji
 
-Aby wykonać funkcję, należy ją wywołać, podając jej nazwę i przekazując odpowiednie argumenty.
+Definicja funkcji sama w sobie nie wykonuje kodu w jej wnętrzu. Aby kod ten zadziałał, musimy **wywołać funkcję**. Robimy to, wpisując jej nazwę oraz podając odpowiednie **argumenty** – wartości, które zostaną przekazane jako parametry.
 
-**Przykład:**
+**Przykład wywołania funkcji**:
 
 ```python
-greet("Alice")
+greet("Alicja")
 ```
 
-To wywołanie spowoduje wydrukowanie: `Witaj, Alice!`.
+Po wywołaniu powyższej funkcji Python znajdzie jej definicję i wykona kod `print(f"Witaj, {name}!")`, zastępując `name` przekazanym argumentem `"Alicja"`. W efekcie zobaczymy na ekranie `Witaj, Alicja!`.
 
-### 3. Parametry i argumenty
+---
 
-- **Parametry** to zmienne określone w definicji funkcji. Są one traktowane jako miejsce na dane wejściowe, które funkcja może wykorzystać do wykonania swojej operacji.
-- **Argumenty** to rzeczywiste wartości przekazywane do funkcji podczas jej wywoływania.
+### 3. Parametry i argumenty: Co to znaczy?
 
-Funkcje mogą przyjmować dowolną liczbę parametrów, w tym domyślne wartości.
+Rozróżnienie między **parametrami** a **argumentami** jest istotne:
 
-**Przykład:**
+- **Parametry** – to nazwy zmiennych podane w definicji funkcji. Są jak „miejsca na wartości”, które funkcja może wykorzystać podczas wykonywania.
+- **Argumenty** – to rzeczywiste wartości przekazywane do funkcji podczas jej wywoływania.
+
+#### Przykład funkcji z dwoma parametrami i domyślnym argumentem
+
+Parametry mogą mieć również wartości domyślne, dzięki czemu nie musimy ich zawsze podawać przy wywołaniu funkcji. Takie domyślne parametry są użyteczne, gdy dana funkcja ma zazwyczaj działać w określony sposób, ale czasami chcemy dostosować jej działanie.
 
 ```python
 def greet(name, greeting="Witaj"):
     print(f"{greeting}, {name}!")
 ```
 
-Tutaj `greeting` ma wartość domyślną `"Witaj"`. Jeśli nie zostanie podana inna wartość, funkcja użyje tej domyślnej.
+W powyższej funkcji:
+
+- Jeśli wywołamy `greet("Alicja")`, funkcja wyświetli `Witaj, Alicja!`, ponieważ domyślnie `greeting` ma wartość `"Witaj"`.
+- Jeśli jednak wywołamy `greet("Alicja", "Cześć")`, zmienna `greeting` przyjmie wartość `"Cześć"`, a wyświetli się `Cześć, Alicja!`.
+
+---
 
 ### 4. Zwracanie wartości z funkcji
 
-Funkcje mogą zwracać wartości za pomocą słowa kluczowego `return`. Dzięki temu funkcja może zwrócić wynik swojej pracy, który można następnie wykorzystać w dalszej części programu.
+Funkcje mogą zwracać wyniki za pomocą słowa kluczowego `return`. Dzięki temu funkcja może obliczyć coś i zwrócić wynik, który możemy przypisać do zmiennej lub użyć dalej w programie.
 
-**Przykład:**
+**Przykład funkcji obliczającej sumę dwóch liczb**:
 
 ```python
 def add(a, b):
     return a + b
 
-result = add(3, 5)
-print(result)  # Wydrukuje: 8
+wynik = add(3, 5)
+print(wynik)  # Wyświetli: 8
 ```
 
-W tym przypadku funkcja `add` zwraca sumę dwóch liczb.
+Tutaj:
+
+- `return a + b` powoduje, że funkcja zwraca wynik sumowania liczb `a` i `b`.
+- Gdy wywołujemy `add(3, 5)`, funkcja zwraca 8, a wynik przypisujemy do zmiennej `wynik`.
+
+**Dlaczego `return` jest ważne?**
+Gdy funkcja zwraca wartość, możemy ją przetwarzać dalej lub przypisywać do innych zmiennych. Jeśli funkcja nie zwraca żadnej wartości (czyli brakuje w niej `return`), domyślnie zwróci `None`, co może być czasem problematyczne.
+
+---
 
 ### 5. Argumenty pozycyjne i nazwane
 
-- **Argumenty pozycyjne**: Przekazywane w odpowiedniej kolejności, zgodnie z definicją funkcji.
-- **Argumenty nazwane (keyword arguments)**: Przekazywane przy użyciu nazw parametrów, co pozwala na większą elastyczność w kolejności ich podawania.
+Podczas wywoływania funkcji możemy przekazywać argumenty na dwa sposoby:
 
-**Przykład:**
+- **Pozycyjnie** – argumenty są przekazywane w kolejności zgodnej z definicją funkcji.
+- **Nazwane (keyword arguments)** – argumenty są przekazywane z użyciem nazw parametrów, co pozwala na dowolną kolejność.
+
+**Przykład**:
 
 ```python
 def introduce(name, age):
     print(f"Nazywam się {name} i mam {age} lat.")
 
-introduce("Alice", 30)             # Argumenty pozycyjne
-introduce(age=30, name="Alice")    # Argumenty nazwane
+introduce("Alicja", 30)               # Argumenty pozycyjne
+introduce(age=30, name="Alicja")      # Argumenty nazwane
 ```
+
+Argumenty nazwane ułatwiają czytelność i zapobiegają błędom, zwłaszcza gdy funkcja ma wiele parametrów.
+
+---
 
 ### 6. Zasięg zmiennych i zmienne globalne
 
-Zmienne zdefiniowane wewnątrz funkcji mają zasięg lokalny, co oznacza, że są dostępne tylko w obrębie tej funkcji. Można jednak zadeklarować zmienną globalną, używając słowa kluczowego `global`.
+Zmienna może mieć różny **zasięg**:
 
-**Przykład:**
+- **Zasięg lokalny** – zmienne zdefiniowane wewnątrz funkcji są dostępne tylko w jej wnętrzu.
+- **Zasięg globalny** – zmienne zdefiniowane poza funkcją są dostępne w całym programie.
+
+Aby zmodyfikować zmienną globalną wewnątrz funkcji, stosujemy słowo kluczowe `global`.
+
+**Przykład**:
 
 ```python
-x = 10
+x = 10  # zmienna globalna
 
 def modify():
     global x
-    x = 20
+    x = 20  # modyfikujemy zmienną globalną
 
 modify()
-print(x)  # Wydrukuje: 20
+print(x)  # Wyświetli: 20
 ```
 
-W tym przypadku zmienna `x` została zmodyfikowana wewnątrz funkcji `modify` dzięki użyciu `global`.
+**Dlaczego unikać zmiennych globalnych?**
+Korzystanie z globalnych zmiennych może prowadzić do błędów i utrudniać debugowanie. W większości przypadków lepiej jest używać zmiennych lokalnych.
+
+---
 
 ### 7. Funkcje anonimowe (lambda)
 
-Python pozwala na tworzenie funkcji anonimowych za pomocą słowa kluczowego `lambda`. Funkcje te są krótkie i mają zazwyczaj jedną linijkę.
+Funkcje lambda to krótkie, anonimowe (bez nazw) funkcje, używane zwykle do prostych operacji. Używamy ich, gdy chcemy szybko zdefiniować krótką funkcję, często na jeden raz.
 
-**Przykład:**
+**Przykład funkcji lambda**:
 
 ```python
 multiply = lambda x, y: x * y
-print(multiply(2, 3))  # Wydrukuje: 6
+print(multiply(2, 3))  # Wyświetli: 6
 ```
 
-Funkcja `lambda` w powyższym przykładzie mnoży dwie liczby.
+Funkcje lambda są często stosowane w funkcjach wyższego rzędu (np. `map`, `filter`), gdzie możemy przekazać małe funkcje jako argumenty.
+
+---
 
 ### 8. Funkcje rekurencyjne
 
-Funkcje w Pythonie mogą wywoływać same siebie, co nazywamy rekursją. Jest to użyteczne w przypadku problemów, które można rozwiązać, dzieląc je na mniejsze podproblemy.
+Funkcja jest rekurencyjna, gdy wywołuje samą siebie. Jest to przydatne w problemach, które można podzielić na mniejsze, identyczne podproblemy, takich jak obliczanie silni, ciąg Fibonacciego czy przeszukiwanie struktur drzewiastych.
 
-**Przykład:**
+**Przykład: Rekurencyjne obliczanie silni**:
 
 ```python
 def factorial(n):
-    if n == 0:
+    if n ==
+
+ 0:
         return 1
     else:
         return n * factorial(n - 1)
 
-print(factorial(5))  # Wydrukuje: 120
+print(factorial(5))  # Wyświetli: 120
 ```
 
-Tutaj funkcja `factorial` oblicza silnię liczby `n` za pomocą rekursji.
+W funkcji `factorial` dla `n = 5`, funkcja będzie wywoływać się rekurencyjnie aż do osiągnięcia `n = 0`, co jest **warunkiem podstawowym** kończącym rekurencję.
+
+---
+
+### Podsumowanie
+
+Funkcje w Pythonie są narzędziem do organizacji i wielokrotnego użycia kodu. Dzięki funkcjom możemy pisać bardziej **modularny**, **czytelny** i **łatwiejszy do utrzymania** kod. W zależności od potrzeby możemy tworzyć funkcje proste (jak `greet`), funkcje zwracające wartość (`add`), czy bardziej zaawansowane, jak funkcje rekurencyjne i lambda.
 
 ## Programowanie Obiektowe
 
