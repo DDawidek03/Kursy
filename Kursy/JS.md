@@ -1566,6 +1566,222 @@ document.querySelector("#zmienTekst").addEventListener("click", () => {
 
 Praca z `querySelector` i `querySelectorAll` jest bardzo intuicyjna i elastyczna dzięki możliwości użycia selektorów CSS. Z ich pomocą możesz łatwo manipulować zarówno prostymi, jak i złożonymi strukturami DOM.
 
+### **Zdarzenia myszy**
+
+---
+
+### **1. Przykład przypisania zdarzeń myszy bez `addEventListener`**
+
+#### **a. Kliknięcie na element (onclick)**
+
+W HTML możesz przypisać zdarzenie kliknięcia bezpośrednio do elementu za pomocą atrybutu `onclick`:
+
+```html
+<button onclick="zmienKolor()">Kliknij mnie</button>
+
+<script>
+  function zmienKolor() {
+    document.body.style.backgroundColor = "lightblue";
+  }
+</script>
+```
+
+W tym przypadku, po kliknięciu na przycisk tło strony zmieni się na jasnoniebieskie.
+
+#### **b. Przechodzenie myszką nad elementem (onmouseover)**
+
+Aby reagować na najechanie myszką na element, możesz użyć zdarzenia `onmouseover`:
+
+```html
+<div onmouseover="zmienKolorTekstu()">Najedź na mnie</div>
+
+<script>
+  function zmienKolorTekstu() {
+    document.querySelector("div").style.color = "red";
+  }
+</script>
+```
+
+W tym przykładzie, gdy użytkownik najedzie myszką na `<div>`, jego tekst zmieni kolor na czerwony.
+
+#### **c. Znikanie efektu po opuszczeniu elementu (onmouseout)**
+
+Zdarzenie `onmouseout` jest wywoływane, gdy myszka opuści dany element:
+
+```html
+<div onmouseover="zmienKolorTekstu()" onmouseout="przywrocKolor()">
+  Najedź na mnie
+</div>
+
+<script>
+  function zmienKolorTekstu() {
+    document.querySelector("div").style.color = "blue";
+  }
+
+  function przywrocKolor() {
+    document.querySelector("div").style.color = "black";
+  }
+</script>
+```
+
+Po najedzeniu na element tekst zmienia kolor na niebieski, a po opuszczeniu wraca do czarnego.
+
+#### **d. Zdarzenie kliknięcia myszką (onmousedown i onmouseup)**
+
+Zdarzenia `onmousedown` i `onmouseup` są wywoływane, gdy użytkownik naciśnie lub puści przycisk myszy. Możemy ich używać do reakcji na te akcje.
+
+```html
+<div onmousedown="zmienKolorTla()" onmouseup="przywrocKolorTla()">
+  Kliknij mnie
+</div>
+
+<script>
+  function zmienKolorTla() {
+    document.querySelector("div").style.backgroundColor = "lightgreen";
+  }
+
+  function przywrocKolorTla() {
+    document.querySelector("div").style.backgroundColor = "";
+  }
+</script>
+```
+
+Tutaj, gdy użytkownik naciśnie na `<div>`, jego tło zmieni się na zielone, a po puszczeniu wróci do pierwotnego koloru.
+
+---
+
+### **2. Zmiana koloru tekstu, tła, rozmiaru itp. na zdarzenia myszy**
+
+Poniżej znajdziesz kilka przykładów, jak zmieniać różne właściwości CSS elementów w odpowiedzi na zdarzenia myszy.
+
+#### **a. Zmiana koloru tła po kliknięciu**
+
+```html
+<button onclick="zmienKolorTla()">Kliknij, aby zmienić tło</button>
+
+<script>
+  function zmienKolorTla() {
+    document.body.style.backgroundColor = "lightgreen";
+  }
+</script>
+```
+
+#### **b. Zmiana koloru tekstu na `hover`**
+
+```html
+<p onmouseover="zmienKolorTekstu()" onmouseout="przywrocKolorTekstu()">
+  Najedź na mnie!
+</p>
+
+<script>
+  function zmienKolorTekstu() {
+    document.querySelector("p").style.color = "blue";
+  }
+
+  function przywrocKolorTekstu() {
+    document.querySelector("p").style.color = "black";
+  }
+</script>
+```
+
+#### **c. Zmiana rozmiaru czcionki na `click`**
+
+```html
+<h1 onclick="zmienRozmiarCzcionki()">
+  Kliknij mnie, aby zmienić rozmiar czcionki
+</h1>
+
+<script>
+  function zmienRozmiarCzcionki() {
+    document.querySelector("h1").style.fontSize = "40px";
+  }
+</script>
+```
+
+#### **d. Zmiana obramowania na `mousedown` i `mouseup`**
+
+```html
+<div onmousedown="zmienObramowanie()" onmouseup="przywrocObramowanie()">
+  Kliknij na mnie
+</div>
+
+<script>
+  function zmienObramowanie() {
+    document.querySelector("div").style.border = "5px solid red";
+  }
+
+  function przywrocObramowanie() {
+    document.querySelector("div").style.border = "none";
+  }
+</script>
+```
+
+#### **e. Zmiana tła na `mouseover` i `mouseout`**
+
+```html
+<div onmouseover="zmienKolorTla()" onmouseout="przywrocKolorTla()">
+  Najedź na mnie
+</div>
+
+<script>
+  function zmienKolorTla() {
+    document.querySelector("div").style.backgroundColor = "lightyellow";
+  }
+
+  function przywrocKolorTla() {
+    document.querySelector("div").style.backgroundColor = "";
+  }
+</script>
+```
+
+---
+
+### **3. Kombinacja wielu efektów CSS**
+
+Często chcemy zastosować więcej niż jeden efekt naraz, np. zmienić kolor tła, tekstu oraz dodać obramowanie. Możemy to zrobić przypisując odpowiednie style do różnych właściwości elementów:
+
+```html
+<div onmouseover="zmienStyl()" onmouseout="przywrocStyl()">Najedź na mnie!</div>
+
+<script>
+  function zmienStyl() {
+    let div = document.querySelector("div");
+    div.style.backgroundColor = "lightcoral";
+    div.style.color = "white";
+    div.style.border = "2px solid black";
+    div.style.fontSize = "20px";
+  }
+
+  function przywrocStyl() {
+    let div = document.querySelector("div");
+    div.style.backgroundColor = "";
+    div.style.color = "";
+    div.style.border = "";
+    div.style.fontSize = "";
+  }
+</script>
+```
+
+Po najechaniu na element jego tło, kolor tekstu, obramowanie i rozmiar czcionki się zmienią, a po opuszczeniu myszki wrócą do pierwotnych wartości.
+
+---
+
+### **4. Zdarzenia myszki w formularzach**
+
+Formularze to kolejny obszar, w którym zdarzenia myszy mogą być użyteczne, np. zmiana koloru pola tekstowego po kliknięciu:
+
+```html
+<input type="text" value="Kliknij mnie" onclick="zmienKolorTlaInput()" />
+
+<script>
+  function zmienKolorTlaInput() {
+    document.querySelector("input").style.backgroundColor = "lightblue";
+  }
+</script>
+```
+
+---
+
 ## Animacje w JavaScript
 
 Animacje w JavaScript pozwalają na tworzenie dynamicznych efektów na stronach internetowych, które mogą poprawić doświadczenia użytkowników. Można je realizować na kilka sposobów.
