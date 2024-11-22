@@ -379,9 +379,3 @@ Stwórz formularz zawierający pole do wyboru liczby (input type="number") oraz 
 ### **Zadanie 15: Formularz do edycji tekstu**
 
 Stwórz formularz zawierający pole tekstowe i przycisk „Zatwierdź”. Po kliknięciu przycisku zmień tekst na stronie na wartość wprowadzoną w polu tekstowym.
-
----
-
-Oczywiście! Oto **proste zadanie obliczeniowe** dla formularza:
-
----
