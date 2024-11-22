@@ -252,3 +252,136 @@ Napisz program, który przyjmuje od użytkownika liczbę i wyświetla odpowiedni
       ```
 
 ---
+
+# **Zadania na DOM**
+
+---
+
+### **Zadanie 1: Formularz do obliczania sumy dwóch liczb**
+
+**Opis:**  
+Stwórz formularz, który pozwala użytkownikowi wprowadzić dwie liczby. Po kliknięciu przycisku formularz ma obliczyć sumę tych dwóch liczb i wyświetlić wynik na stronie.
+
+**Instrukcja:**
+
+1. Stwórz formularz z dwoma polami, w których użytkownik może wpisać liczby.
+2. Dodaj przycisk, który uruchomi obliczenie.
+3. Po kliknięciu przycisku oblicz sumę dwóch liczb i wyświetl wynik w formie komunikatu.
+
+---
+
+### **Zadanie 2: Formularz do obliczania średniej arytmetycznej trzech liczb**
+
+**Opis:**  
+Formularz umożliwia obliczenie średniej arytmetycznej trzech wprowadzonych liczb.
+
+**Instrukcja:**
+
+1. Stwórz formularz z trzema polami tekstowymi do wpisania liczb.
+2. Dodaj przycisk, który obliczy średnią arytmetyczną tych liczb.
+3. Po kliknięciu przycisku wyświetl wynik średniej.
+
+---
+
+### **Zadanie 3: Formularz do obliczania pola prostokąta**
+
+**Opis:**  
+Formularz pozwala na obliczenie pola prostokąta. Użytkownik wprowadza długość i szerokość prostokąta, a po kliknięciu przycisku wyświetla się wynik obliczenia pola.
+
+**Instrukcja:**
+
+1. Stwórz formularz z dwoma polami: jedno dla długości, drugie dla szerokości.
+2. Po kliknięciu przycisku, oblicz pole prostokąta (długość × szerokość).
+3. Wyświetl wynik na stronie.
+
+---
+
+### **Zadanie 4: Formularz do obliczania ceny po rabacie**
+
+**Opis:**  
+Stwórz formularz, który pozwala użytkownikowi obliczyć cenę produktu po rabacie. Użytkownik wpisuje cenę produktu oraz wysokość rabatu w procentach.
+
+**Instrukcja:**
+
+1. Stwórz pola do wpisania ceny produktu oraz procentu rabatu.
+2. Po kliknięciu przycisku, oblicz cenę po rabacie.
+3. Wyświetl wynik na stronie.
+
+---
+
+### **Zadanie 5: Formularz do obliczania BMI (Body Mass Index)**
+
+**Opis:**  
+Formularz, który oblicza BMI na podstawie wagi i wzrostu użytkownika.
+
+**Instrukcja:**
+
+1. Stwórz formularz z dwoma polami: jedno dla wagi w kilogramach, drugie dla wzrostu w metrach.
+2. Po kliknięciu przycisku, oblicz BMI (wzór: BMI = waga / (wzrost \* wzrost)).
+3. Wyświetl wynik BMI wraz z interpretacją (np. "niedowaga", "waga prawidłowa", "nadwaga").
+
+---
+
+### **Zadanie 6: Zmiana tekstu nagłówka po kliknięciu**
+
+Stwórz stronę z nagłówkiem i przyciskiem. Po kliknięciu przycisku, tekst nagłówka ma zostać zmieniony.
+
+---
+
+### **Zadanie 7: Zmiana koloru tła strony po kliknięciu przycisku**
+
+Stwórz przycisk, który po kliknięciu zmieni kolor tła całej strony na wybrany kolor.
+
+---
+
+### **Zadanie 8: Zmiana koloru tekstu po najechaniu na element**
+
+Stwórz stronę, która zawiera element (np. `<div>`). Po najechaniu myszką na ten element, jego tekst ma zmienić kolor.
+
+---
+
+### **Zadanie 9: Zmiana rozmiaru czcionki na kliknięcie**
+
+Stwórz stronę z nagłówkiem. Po kliknięciu na nagłówek jego czcionka powinna zwiększyć rozmiar.
+
+---
+
+### **Zadanie 10: Zmiana tła strony po najechaniu na element**
+
+Stwórz stronę, która po najechaniu myszką na określony element (np. `<p>`), zmieni kolor tła całej strony.
+
+---
+
+### **Zadanie 11: Zmiana tekstu i koloru po kliknięciu przycisku**
+
+Stwórz stronę, która zawiera przycisk oraz tekst. Po kliknięciu przycisku tekst powinien zmienić zawartość oraz kolor.
+
+---
+
+### **Zadanie 12: Efekt kliknięcia na przycisk - zmiana tła i tekstu**
+
+Stwórz stronę z przyciskiem i kilkoma elementami tekstowymi. Po kliknięciu na przycisk zmień tło strony i tekst pierwszego elementu.
+
+---
+
+### **Zadanie 13: Formularz do zbierania danych**
+
+Stwórz formularz zawierający pola: imię, nazwisko, adres e-mail. Po kliknięciu przycisku „Zatwierdź” wyświetl wszystkie dane w nowym elemencie na stronie i zapisz je w tablicy.
+
+---
+
+### **Zadanie 14: Formularz do wyboru liczby**
+
+Stwórz formularz zawierający pole do wyboru liczby (input type="number") oraz przycisk „Wyślij”. Po kliknięciu przycisku wyświetl komunikat informujący, czy liczba jest większa, mniejsza czy równa 10.
+
+---
+
+### **Zadanie 15: Formularz do edycji tekstu**
+
+Stwórz formularz zawierający pole tekstowe i przycisk „Zatwierdź”. Po kliknięciu przycisku zmień tekst na stronie na wartość wprowadzoną w polu tekstowym.
+
+---
+
+Oczywiście! Oto **proste zadanie obliczeniowe** dla formularza:
+
+---
