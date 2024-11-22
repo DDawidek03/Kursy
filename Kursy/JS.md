@@ -1055,105 +1055,516 @@ Funkcje strzałkowe są bardziej zwięzłe i polecane, szczególnie w przypadku 
 
 ---
 
-## Obiekty DOM (Document Object Model)
+## **Kompleksowy przewodnik po DOM (Document Object Model)**
 
-DOM (Document Object Model) to interfejs programowania aplikacji, który pozwala na dynamiczne manipulowanie strukturą dokumentu HTML lub XML. W JavaScript, DOM jest reprezentacją dokumentu jako hierarchii obiektów, co umożliwia programistom dostęp do jego zawartości i stylów, a także manipulowanie nimi.
+Document Object Model (DOM) jest jednym z fundamentów interakcji między JavaScript a stroną internetową. Pozwala programiście na dostęp do struktury HTML dokumentu, manipulowanie nią oraz reagowanie na działania użytkownika. W tej instrukcji wytłumaczę szczegółowo każdy aspekt pracy z DOM, ilustrując teorię przykładami i rozbudowanymi przypadkami użycia.
 
-### **Dostęp do elementów DOM**
+---
 
-Aby manipulować elementami na stronie, najpierw musimy uzyskać do nich dostęp. Najczęściej używane metody to:
+### **1. Struktura DOM**
 
-- **`document.getElementById()`**: Znajduje element na podstawie jego unikalnego identyfikatora.
+DOM reprezentuje dokument HTML jako hierarchiczny model drzewa, w którym:
+
+- Każdy element HTML jest węzłem (ang. **node**).
+- Typy węzłów:
+  - **Element Node**: reprezentuje znaczniki HTML (np. `<div>`, `<p>`).
+  - **Text Node**: zawiera tekst między znacznikami (np. "To jest tekst").
+  - **Attribute Node**: reprezentuje atrybuty elementu (np. `class="przykladowaKlasa"`).
+
+#### **Przykład drzewa DOM**
+
+Dla kodu HTML:
+
+```html
+<div id="container">
+  <h1 class="header">Nagłówek</h1>
+  <p>To jest paragraf.</p>
+</div>
+```
+
+DOM będzie wyglądał jak poniżej:
+
+```
+document
+└── <html>
+    ├── <head>
+    └── <body>
+        └── <div id="container">
+            ├── <h1 class="header">Nagłówek</h1>
+            └── <p>To jest paragraf.</p>
+```
+
+---
+
+### **2. Dostęp do elementów DOM**
+
+Przed manipulacją elementami należy je zidentyfikować. W DOM dostęp do elementów uzyskujemy za pomocą metod udostępnianych przez obiekt `document`.
+
+#### **a. Pobieranie elementów za pomocą ID**
+
+Metoda **`getElementById()`** pozwala znaleźć element o konkretnym identyfikatorze:
+
+```html
+<div id="unikatowy">To jest element z ID.</div>
+```
+
+```javascript
+let element = document.getElementById("unikatowy");
+console.log(element.textContent); // "To jest element z ID."
+```
+
+#### **b. Pobieranie elementów za pomocą klasy**
+
+Metoda **`getElementsByClassName()`** zwraca wszystkie elementy o danej klasie:
+
+```html
+<div class="klasa">Pierwszy</div>
+<div class="klasa">Drugi</div>
+```
+
+```javascript
+let elementy = document.getElementsByClassName("klasa");
+console.log(elementy[0].textContent); // "Pierwszy"
+```
+
+#### **c. Pobieranie elementów za pomocą tagu**
+
+Metoda **`getElementsByTagName()`** znajduje wszystkie elementy o podanym tagu:
+
+```html
+<p>Pierwszy akapit</p>
+<p>Drugi akapit</p>
+```
+
+```javascript
+let akapity = document.getElementsByTagName("p");
+console.log(akapity.length); // 2
+```
+
+#### **d. Wykorzystanie selektorów CSS**
+
+##### `querySelector()` - Pobiera pierwszy element pasujący do selektora CSS:
+
+```html
+<div class="box" id="pierwszy">Pierwszy</div>
+<div class="box">Drugi</div>
+```
+
+```javascript
+let element = document.querySelector(".box");
+console.log(element.textContent); // "Pierwszy"
+```
+
+##### `querySelectorAll()` - Pobiera wszystkie elementy pasujące do selektora CSS:
+
+```html
+let elementy = document.querySelectorAll(".box"); elementy.forEach(el =>
+console.log(el.textContent)); // "Pierwszy" // "Drugi"
+```
+
+---
+
+### **3. Manipulowanie elementami DOM**
+
+Po uzyskaniu dostępu do elementów można zmieniać ich treść, atrybuty, style, a nawet strukturę.
+
+#### **a. Zmiana tekstu i HTML wewnątrz elementu**
+
+- **`textContent`** - Ustawia tekst wewnątrz elementu (bez interpretacji HTML).
 
   ```javascript
-  let naglowek = document.getElementById("mojNaglowek");
+  let naglowek = document.querySelector("h1");
+  naglowek.textContent = "Nowa treść nagłówka";
   ```
 
-- **`document.getElementsByClassName()`**: Znajduje wszystkie elementy o danej klasie.
+- **`innerHTML`** - Ustawia zawartość HTML wewnątrz elementu.
 
   ```javascript
-  let elementy = document.getElementsByClassName("mojaKlasa");
+  let div = document.querySelector("#container");
+  div.innerHTML = "<strong>Zawartość HTML</strong>";
   ```
 
-- **`document.getElementsByTagName()`**: Znajduje wszystkie elementy o danej nazwie tagu.
+#### **b. Zmiana atrybutów elementu**
+
+- **`setAttribute()`** - Dodaje lub zmienia atrybut.
 
   ```javascript
-  let akapity = document.getElementsByTagName("p");
+  let obrazek = document.querySelector("img");
+  obrazek.setAttribute("alt", "Opis obrazka");
   ```
 
-- **`document.querySelector()`**: Znajduje pierwszy element pasujący do selektora CSS.
+- **`getAttribute()`** - Pobiera wartość atrybutu.
 
   ```javascript
-  let pierwszyDiv = document.querySelector("div");
+  let src = obrazek.getAttribute("src");
   ```
 
-- **`document.querySelectorAll()`**: Znajduje wszystkie elementy pasujące do selektora CSS.
+- **`removeAttribute()`** - Usuwa atrybut.
 
   ```javascript
-  let wszystkieDivy = document.querySelectorAll("div");
+  obrazek.removeAttribute("alt");
   ```
 
-### **Manipulowanie elementami DOM**
+#### **c. Dodawanie i usuwanie klas**
 
-Po uzyskaniu dostępu do elementów DOM, możemy zmieniać ich właściwości, atrybuty i style.
-
-- **Zmiana tekstu**:
+- **Dodanie klasy:**
 
   ```javascript
-  naglowek.textContent = "Nowy tekst nagłówka";
+  let element = document.querySelector("div");
+  element.classList.add("nowa-klasa");
   ```
 
-- **Zmiana atrybutów**:
+- **Usunięcie klasy:**
 
   ```javascript
-  naglowek.setAttribute("class", "nowaKlasa");
+  element.classList.remove("stara-klasa");
   ```
 
-- **Zmiana stylów**:
+- **Przełączenie klasy:**
 
   ```javascript
-  naglowek.style.color = "blue"; // zmiana koloru tekstu na niebieski
+  element.classList.toggle("ukryty");
   ```
 
-- **Dodawanie nowych elementów**:
+---
+
+### **4. Praca z formularzami i elementami `<input>`**
+
+Elementy formularzy, takie jak `<input>`, mają specyficzne właściwości umożliwiające ich odczyt i modyfikację.
+
+#### **a. Odczyt i ustawienie wartości**
+
+- **`value`** - Pobiera lub ustawia wartość pola.
+
+  ```html
+  <input type="text" id="poleTekstowe" value="Wartość domyślna" />
+  ```
+
+  ```javascript
+  let pole = document.getElementById("poleTekstowe");
+  console.log(pole.value); // "Wartość domyślna"
+  pole.value = "Nowa wartość";
+  ```
+
+#### **b. Sprawdzanie zaznaczenia w checkboxach i radio**
+
+- **Checkbox:**
+
+  ```html
+  <input type="checkbox" id="zgoda" checked />
+  ```
+
+  ```javascript
+  let zgoda = document.getElementById("zgoda");
+  console.log(zgoda.checked); // true
+  zgoda.checked = false;
+  ```
+
+- **Radio:**
+
+  ```html
+  <input type="radio" name="kolor" value="czerwony" checked />
+  <input type="radio" name="kolor" value="zielony" />
+  ```
+
+  ```javascript
+  let wybranyKolor = document.querySelector("input[name='kolor']:checked");
+  console.log(wybranyKolor.value); // "czerwony"
+  ```
+
+#### **c. Obsługa zdarzeń formularzy**
+
+Reagowanie na zmiany wartości w formularzach:
+
+```javascript
+let pole = document.getElementById("poleTekstowe");
+pole.addEventListener("input", () => {
+  console.log("Aktualna wartość:", pole.value);
+});
+```
+
+---
+
+### **5. Dodawanie i usuwanie elementów w DOM**
+
+#### **a. Tworzenie nowych elementów**
+
+- **`document.createElement()`**:
 
   ```javascript
   let nowyDiv = document.createElement("div");
   nowyDiv.textContent = "To jest nowy div";
-  document.body.appendChild(nowyDiv); // dodanie nowego elementu do ciała dokumentu
+  document.body.appendChild(nowyDiv);
   ```
 
-- **Usuwanie elementów**:
+#### **b. Usuwanie elementów**
+
+- **`remove()`**:
 
   ```javascript
-  let elementDoUsuniecia = document.getElementById("doUsuniecia");
-  elementDoUsuniecia.remove(); // usunięcie elementu
+  let element = document.getElementById("doUsuniecia");
+  element.remove();
   ```
 
-### **Obsługa zdarzeń**
+#### **c. Wstawianie w konkretnym miejscu**
 
-DOM pozwala również na reagowanie na zdarzenia, takie jak kliknięcia, najechanie myszą czy zmiany w formularzach.
-
-- **Dodawanie zdarzeń**:
+- **`insertBefore()`**:
 
   ```javascript
-  naglowek.addEventListener("click", function () {
-    alert("Nagłówek został kliknięty!");
-  });
-  ```
-
-- **Usuwanie zdarzeń**:
-
-  ```javascript
-  function obslugaKlikniecia() {
-    alert("To się nie zdarzy!");
-  }
-
-  naglowek.addEventListener("click", obslugaKlikniecia);
-  naglowek.removeEventListener("click", obslugaKlikniecia);
+  let parent = document.getElementById("kontener");
+  let nowyElement = document.createElement("p");
+  parent.insertBefore(nowyElement, parent.firstChild);
   ```
 
 ---
+
+### **6. Delegacja i obsługa zdarzeń w DOM**
+
+Delegacja zdarzeń pozwala na obsługę dynamicznie dodawanych elementów.
+
+#### **Przykład: Obsługa kliknięć na liście**
+
+```html
+<ul id="lista">
+  <li>Element 1</li>
+  <li>Element 2</li>
+</ul>
+```
+
+```javascript
+document.getElementById("lista").addEventListener("click", function (event) {
+  if (event.target.tagName === "LI") {
+    console.log("Kliknięto element listy:", event.target.textContent);
+  }
+});
+```
+
+---
+
+### **Praca z `querySelector` i `querySelectorAll` w DOM**
+
+Metody **`querySelector`** i **`querySelectorAll`** pozwalają na bardziej elastyczne i wszechstronne wyszukiwanie elementów w DOM za pomocą selektorów CSS. Dzięki nim możemy wyszukiwać elementy na podstawie klas, identyfikatorów, nazw tagów, a także bardziej zaawansowanych reguł CSS (np. selektorów atrybutów).
+
+---
+
+### **1. `querySelector`**
+
+#### **Czym jest `querySelector`?**
+
+Metoda **`querySelector`** zwraca **pierwszy** element pasujący do określonego selektora CSS. Jeśli żaden element nie spełnia kryteriów, zwraca `null`.
+
+#### **Przykłady użycia:**
+
+##### Pobieranie elementu na podstawie ID:
+
+```html
+<div id="unikatowy">To jest div z ID.</div>
+```
+
+```javascript
+let element = document.querySelector("#unikatowy");
+console.log(element.textContent); // "To jest div z ID."
+```
+
+##### Pobieranie elementu na podstawie klasy:
+
+```html
+<div class="moja-klasa">Pierwszy element</div>
+<div class="moja-klasa">Drugi element</div>
+```
+
+```javascript
+let element = document.querySelector(".moja-klasa");
+console.log(element.textContent); // "Pierwszy element"
+```
+
+##### Pobieranie elementu na podstawie tagu:
+
+```html
+<p>Pierwszy akapit</p>
+<p>Drugi akapit</p>
+```
+
+```javascript
+let element = document.querySelector("p");
+console.log(element.textContent); // "Pierwszy akapit"
+```
+
+##### Zagnieżdżone selektory:
+
+```html
+<div id="container">
+  <p class="tekst">Pierwszy paragraf</p>
+  <p>Drugi paragraf</p>
+</div>
+```
+
+```javascript
+let element = document.querySelector("#container .tekst");
+console.log(element.textContent); // "Pierwszy paragraf"
+```
+
+---
+
+### **2. `querySelectorAll`**
+
+#### **Czym jest `querySelectorAll`?**
+
+Metoda **`querySelectorAll`** zwraca **wszystkie** elementy pasujące do selektora CSS jako statyczną kolekcję (`NodeList`). Dzięki temu możemy iterować przez te elementy i wykonywać na nich operacje.
+
+#### **Przykłady użycia:**
+
+##### Pobieranie wszystkich elementów o danej klasie:
+
+```html
+<div class="moja-klasa">Pierwszy element</div>
+<div class="moja-klasa">Drugi element</div>
+```
+
+```javascript
+let elementy = document.querySelectorAll(".moja-klasa");
+elementy.forEach((element) => console.log(element.textContent));
+// "Pierwszy element"
+// "Drugi element"
+```
+
+##### Pobieranie wszystkich `<p>` w kontenerze:
+
+```html
+<div id="container">
+  <p class="tekst">Pierwszy paragraf</p>
+  <p>Drugi paragraf</p>
+</div>
+```
+
+```javascript
+let elementy = document.querySelectorAll("#container p");
+elementy.forEach((element) => console.log(element.textContent));
+// "Pierwszy paragraf"
+// "Drugi paragraf"
+```
+
+---
+
+### **3. Obsługa dynamicznych wartości (np. atrybutów)**
+
+##### Wybieranie elementów na podstawie atrybutów:
+
+```html
+<input type="text" name="username" /> <input type="password" name="password" />
+```
+
+```javascript
+let input = document.querySelector("input[name='username']");
+console.log(input); // <input type="text" name="username">
+```
+
+##### Wybieranie elementów z określoną klasą i atrybutem:
+
+```html
+<button class="btn" disabled>Wyłączony</button>
+<button class="btn">Aktywny</button>
+```
+
+```javascript
+let disabledButton = document.querySelector("button.btn[disabled]");
+console.log(disabledButton.textContent); // "Wyłączony"
+```
+
+---
+
+### **4. Manipulacja elementami znalezionymi przez `querySelector` i `querySelectorAll`**
+
+#### **Zmiana tekstu dla pierwszego dopasowanego elementu:**
+
+```html
+<h1 class="naglowek">Stary nagłówek</h1>
+<h1 class="naglowek">Inny nagłówek</h1>
+```
+
+```javascript
+let naglowek = document.querySelector(".naglowek");
+naglowek.textContent = "Nowy nagłówek";
+console.log(naglowek.textContent); // "Nowy nagłówek"
+```
+
+#### **Zmiana tekstu dla wszystkich elementów z klasą:**
+
+```javascript
+let naglowki = document.querySelectorAll(".naglowek");
+naglowki.forEach((el) => (el.textContent = "Nagłówek zaktualizowany"));
+```
+
+#### **Dodawanie klasy do elementów:**
+
+```javascript
+naglowki.forEach((el) => el.classList.add("zaktualizowany"));
+```
+
+---
+
+### **5. Kompleksowy przykład z `querySelector` i `querySelectorAll`**
+
+#### Kod HTML:
+
+```html
+<div id="kontener">
+  <p class="paragraf">Paragraf 1</p>
+  <p class="paragraf">Paragraf 2</p>
+  <p class="inny-paragraf">Paragraf 3</p>
+</div>
+<button id="zmienTekst">Zmień tekst</button>
+```
+
+#### Kod JavaScript:
+
+```javascript
+document.querySelector("#zmienTekst").addEventListener("click", () => {
+  // Pobieramy wszystkie paragrafy w kontenerze
+  let paragrafy = document.querySelectorAll("#kontener .paragraf");
+
+  // Zmieniamy tekst każdego paragrafu
+  paragrafy.forEach((el, index) => {
+    el.textContent = `Nowy tekst dla paragrafu ${index + 1}`;
+  });
+
+  // Dodajemy nową klasę do każdego paragrafu
+  paragrafy.forEach((el) => el.classList.add("zmieniony"));
+});
+```
+
+#### Wynik:
+
+- Po kliknięciu przycisku, teksty w paragrafach zostaną zmienione, a elementy dostaną nową klasę `zmieniony`.
+
+---
+
+### **6. Różnice między `querySelector` i `querySelectorAll`**
+
+| **Cechy**           | **`querySelector`**                             | **`querySelectorAll`**                    |
+| ------------------- | ----------------------------------------------- | ----------------------------------------- |
+| **Zwraca**          | Pierwszy dopasowany element                     | Wszystkie dopasowane elementy (NodeList)  |
+| **Ilość elementów** | Jeden element (lub `null` jeśli nie znaleziono) | Kolekcja elementów                        |
+| **Iteracja**        | Brak potrzeby iteracji                          | Iteracja wymagana (`forEach`, `for...of`) |
+
+---
+
+### **7. Kiedy używać `querySelector` i `querySelectorAll`?**
+
+- **`querySelector`**:
+
+  - Gdy potrzebujesz tylko pierwszego dopasowanego elementu.
+  - Gdy pracujesz z unikalnym elementem (np. ID).
+  - Dla prostszych operacji.
+
+- **`querySelectorAll`**:
+  - Gdy chcesz pracować z wieloma elementami.
+  - Gdy planujesz iterować po wszystkich dopasowaniach.
+  - Gdy selektory obejmują bardziej złożone struktury.
+
+---
+
+Praca z `querySelector` i `querySelectorAll` jest bardzo intuicyjna i elastyczna dzięki możliwości użycia selektorów CSS. Z ich pomocą możesz łatwo manipulować zarówno prostymi, jak i złożonymi strukturami DOM.
 
 ## Animacje w JavaScript
 
