@@ -319,9 +319,11 @@ Założenia:
 
 #### Zadania Praktyczne:
 
-1. Napisz skrypt, który próbuje podzielić dwie liczby i obsługuje przypadek dzielen
-
-ia przez zero. 2. Utwórz program, który próbuje otworzyć plik, który nie istnieje, i obsługuje odpowiedni błąd. 3. Napisz funkcję, która przyjmuje liczbę od użytkownika i obsługuje błąd, jeśli podana wartość nie jest liczbą. 4. Stwórz skrypt, który obsługuje błędy wprowadzania danych przez użytkownika (np. liczba zamiast tekstu). 5. Utwórz program, który próbuje uzyskać dostęp do elementu listy poza jej zakresem i obsługuje odpowiedni błąd.
+1. Napisz skrypt, który próbuje podzielić dwie liczby i obsługuje przypadek dzielenia przez zero.
+2. Utwórz program, który próbuje otworzyć plik, który nie istnieje, i obsługuje odpowiedni błąd.
+3. Napisz funkcję, która przyjmuje liczbę od użytkownika i obsługuje błąd, jeśli podana wartość nie jest liczbą.
+4. Stwórz skrypt, który obsługuje błędy wprowadzania danych przez użytkownika (np. liczba zamiast tekstu).
+5. Utwórz program, który próbuje uzyskać dostęp do elementu listy poza jej zakresem i obsługuje odpowiedni błąd.
 
 #### Projekt Końcowy:
 
@@ -359,17 +361,31 @@ ia przez zero. 2. Utwórz program, który próbuje otworzyć plik, który nie is
 
 ### 9. **Tkinter**
 
-#### Zadania Praktyczne:
+#### Zadania Praktyczne (Rozszerzone):
 
 1. Stwórz prostą aplikację z jednym przyciskiem, który wyświetla "Hello World" po naciśnięciu.
 2. Utwórz okno z polem tekstowym, gdzie użytkownik może wpisać tekst, który zostanie wyświetlony po kliknięciu przycisku.
 3. Napisz aplikację, która zmienia kolor tła okna po kliknięciu odpowiedniego przycisku.
 4. Stwórz kalkulator z prostym interfejsem użytkownika (dodawanie, odejmowanie, mnożenie, dzielenie).
 5. Utwórz aplikację, która wyświetla listę rozwijaną z opcjami do wyboru.
+6. Dodaj do okna aplikacji przycisk wyłączający aplikację po kliknięciu.
+7. Stwórz zegar cyfrowy, który aktualizuje się w czasie rzeczywistym.
+8. Napisz aplikację, która umożliwia rysowanie prostych kształtów na płótnie (Canvas).
+9. Utwórz prosty program wyświetlający aktualną pogodę na podstawie danych wprowadzonych przez użytkownika (np. wprowadzenie miasta).
+10. Dodaj do aplikacji możliwość zapisu tekstu z pola tekstowego do pliku na dysku.
 
-#### Projekt Końcowy:
+#### Projekty Końcowye:
 
-- Stwórz prostą aplikację ToDo List z GUI, która pozwala na dodawanie, usuwanie oraz oznaczanie zadań jako wykonane.
+1. **Gra "Kółko i Krzyżyk"**: Stwórz grę w kółko i krzyżyk dla dwóch graczy z możliwością resetowania rozgrywki.
+2. **Lista zakupów**: Aplikacja, która umożliwia dodawanie produktów, edycję ilości oraz oznaczanie ich jako zakupione.
+3. **Przelicznik jednostek**: Stwórz aplikację, która pozwala na konwersję między różnymi jednostkami (np. długości, masy, temperatury).
+4. **Mini-encyklopedia**: Program, który wyświetla opisy obiektów po ich wybraniu z listy rozwijanej.
+5. **Losowanie imienia**: Aplikacja, która losuje imię z listy wprowadzonej przez użytkownika.
+6. **Quiz z pytaniami wielokrotnego wyboru**: Stwórz aplikację, która zadaje użytkownikowi serię pytań i podaje wynik końcowy.
+7. **Konwerter walut**: Umożliwiający przeliczenie kwot między różnymi walutami na podstawie aktualnych kursów.
+8. **Aplikacja muzyczna**: Dodaj funkcję, która umożliwia odtwarzanie i pauzowanie plików dźwiękowych za pomocą przycisków.
+9. **Galeria obrazów**: Aplikacja pozwalająca na przeglądanie zdjęć w folderze z możliwością przewijania w przód i w tył.
+10. **Notatnik**: Z funkcjami zapisywania, otwierania plików tekstowych i podstawowej edycji tekstu.
 
 #### Pytania Teoretyczne:
 
