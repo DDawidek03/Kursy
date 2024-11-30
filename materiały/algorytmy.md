@@ -209,3 +209,141 @@ print("Po sortowaniu:", sorted_data)
 | Quick Sort     | O(n log n)                      | O(n²)                             | Nie            |
 | Merge Sort     | O(n log n)                      | O(n log n)                        | Tak            |
 | Bucket Sort    | O(n + k)                        | O(n²)                             | Tak            |
+
+# Kod obiektowy (z funkcjami i klasami):
+
+```python
+# Klasa dla figury geometrycznej
+class Shape:
+    def calculate_area(self):
+        raise NotImplementedError("Ta metoda powinna być zaimplementowana w klasie potomnej")
+
+# Klasa dla prostokąta dziedzicząca po Shape
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def calculate_area(self):
+        return self.width * self.height
+
+    def display_area(self):
+        print(f"Pole prostokąta o szerokości {self.width} i wysokości {self.height} wynosi {self.calculate_area()}.")
+
+# Klasa dla trójkąta dziedzicząca po Shape
+class Triangle(Shape):
+    def __init__(self, base, height):
+        self.base = base
+        self.height = height
+
+    def calculate_area(self):
+        return 0.5 * self.base * self.height
+
+    def display_area(self):
+        print(f"Pole trójkąta o podstawie {self.base} i wysokości {self.height} wynosi {self.calculate_area()}.")
+
+# Tworzenie obiektów i obliczanie pól
+rectangle = Rectangle(5, 10)
+rectangle.display_area()
+
+triangle = Triangle(6, 7)
+triangle.display_area()
+```
+
+**Opis kodu obiektowego:**
+
+1. **Dziedziczenie:** Klasa `Shape` jest klasą bazową, z której dziedziczą `Rectangle` i `Triangle`.
+2. **Polimorfizm:** Każda klasa potomna implementuje swoją wersję metody `calculate_area`.
+3. **Encapsulation:** Dane (np. szerokość, wysokość) są przechowywane wewnątrz obiektu i dostępne tylko przez metody klasy.
+4. **Reużywalność:** Możesz łatwo dodać nowe figury geometryczne, np. klasę dla koła, implementując jedynie nową metodę `calculate_area`.
+
+---
+
+### Kod proceduralny (bez funkcji i obiektowości):
+
+```python
+# Obliczanie pola prostokąta
+def calculate_rectangle_area(width, height):
+    return width * height
+
+def display_rectangle_area(width, height):
+    area = calculate_rectangle_area(width, height)
+    print(f"Pole prostokąta o szerokości {width} i wysokości {height} wynosi {area}.")
+
+# Obliczanie pola trójkąta
+def calculate_triangle_area(base, height):
+    return 0.5 * base * height
+
+def display_triangle_area(base, height):
+    area = calculate_triangle_area(base, height)
+    print(f"Pole trójkąta o podstawie {base} i wysokości {height} wynosi {area}.")
+
+# Wywołanie funkcji
+display_rectangle_area(5, 10)
+display_triangle_area(6, 7)
+```
+
+**Opis kodu proceduralnego:**
+
+1. Wszystkie operacje są rozdzielone na niezależne funkcje.
+2. Brak klas — każdy zestaw danych (np. szerokość i wysokość) jest przekazywany do funkcji jako argumenty.
+3. W przypadku potrzeby dodania nowej figury geometrycznej (np. koła), konieczne jest dodanie nowych funkcji, np. `calculate_circle_area`.
+
+---
+
+### Porównanie:
+
+#### Kod obiektowy:
+
+1. **Rozbudowa projektu:**
+   Dodanie nowej figury geometrycznej (np. koła) wymaga jedynie stworzenia nowej klasy, co nie wpływa na istniejący kod.
+
+   ```python
+   class Circle(Shape):
+       def __init__(self, radius):
+           self.radius = radius
+
+       def calculate_area(self):
+           return 3.14159 * self.radius**2
+
+       def display_area(self):
+           print(f"Pole koła o promieniu {self.radius} wynosi {self.calculate_area()}.")
+   ```
+
+2. **Zastosowanie w dużych projektach:**
+   Dzięki polimorfizmowi można używać listy różnych figur i obliczać ich pola bez znajomości szczegółów implementacji:
+
+   ```python
+   shapes = [Rectangle(5, 10), Triangle(6, 7), Circle(3)]
+   for shape in shapes:
+       shape.display_area()
+   ```
+
+#### Kod proceduralny:
+
+1. **Rozbudowa projektu:**
+   Dodanie nowej figury wymaga nowych funkcji, np. `calculate_circle_area`, co zwiększa ryzyko błędów i powtarzalności kodu.
+
+   ```python
+   def calculate_circle_area(radius):
+       return 3.14159 * radius**2
+
+   def display_circle_area(radius):
+       area = calculate_circle_area(radius)
+       print(f"Pole koła o promieniu {radius} wynosi {area}.")
+   ```
+
+2. **Trudności w zarządzaniu:**
+   Przy większej liczbie funkcji i danych (np. listach figur geometrycznych) kod staje się mniej czytelny i trudniejszy do utrzymania.
+
+---
+
+### Wnioski:
+
+| **Cecha**                            | **Kod obiektowy**                                                   | **Kod proceduralny**                                       |
+| ------------------------------------ | ------------------------------------------------------------------- | ---------------------------------------------------------- |
+| **Zastosowanie w dużych projektach** | Łatwo zarządzać, rozbudowywać i dodawać nowe elementy               | Trudności w organizacji przy skomplikowanych projektach    |
+| **Reużywalność kodu**                | Można wielokrotnie używać klas i metod                              | Kod jest mniej reużywalny                                  |
+| **Rozdzielenie odpowiedzialności**   | Dane i logika przetwarzania są związane z obiektami (encapsulation) | Dane są oddzielone od logiki, co utrudnia zarządzanie      |
+| **Rozbudowa**                        | Wystarczy dodać nową klasę z wymaganymi metodami                    | Konieczne dodawanie nowych funkcji i testowanie integracji |
+| **Czytelność**                       | Bardziej czytelny w dużych projektach                               | Może być prostszy w małych zadaniach                       |
