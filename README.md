@@ -37,6 +37,5 @@ Python to wszechstronny język programowania idealny dla początkujących i zaaw
 2. Przejrzyj dostępne materiały i zaczynaj naukę we własnym tempie.
 3. W razie pytań lub wątpliwości, śmiało kontaktuj się z nami za pośrednictwem sekcji Issues w repozytorium.
 
----
 
 > Autor: Damian Dawidek
