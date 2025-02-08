@@ -168,7 +168,3 @@ Po naprawieniu błędów testujemy aplikację ponownie, aby upewnić się, że z
 
 - Testy jednostkowe: 6/6 przeszło
 - Testy integracyjne: 5/6 przeszło (1 błąd zgłoszony do poprawy)
-
-## **8. Podsumowanie**
-
-Testowanie aplikacji jest kluczowym procesem zapewniającym jakość oprogramowania. W ramach kwalifikacji INF.04 ważne jest znajomość rodzajów testów, procesu testowania oraz narzędzi, które pomagają w wykrywaniu błędów i optymalizacji aplikacji.
