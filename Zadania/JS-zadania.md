@@ -379,3 +379,87 @@ Stwórz formularz zawierający pole do wyboru liczby (input type="number") oraz 
 ### **Zadanie 15: Formularz do edycji tekstu**
 
 Stwórz formularz zawierający pole tekstowe i przycisk „Zatwierdź”. Po kliknięciu przycisku zmień tekst na stronie na wartość wprowadzoną w polu tekstowym.
+
+## **🔹 Poziom 1 – Łatwe**
+
+### **✅ Zadanie 1: Liczenie zaznaczonych checkboxów**
+
+**📝 Opis:**  
+Napisz skrypt, który będzie zliczał, ile checkboxów zostało zaznaczonych i wyświetlał tę liczbę na stronie.
+
+**📌 Wymagania:**
+
+- Użyj **`addEventListener`** do obsługi kliknięcia przycisku.
+- Po kliknięciu przycisku użytkownik powinien zobaczyć komunikat np. `"Zaznaczono 3 opcje"`.
+
+---
+
+### **✅ Zadanie 2: Pobranie zaznaczonego radio buttona i zmiana tekstu**
+
+**📝 Opis:**  
+Stwórz formularz, w którym użytkownik wybiera swoją ulubioną porę roku (wiosna, lato, jesień, zima). Po kliknięciu przycisku na stronie ma się pojawić napis np. `"Wybrałeś: Lato"`.
+
+**📌 Wymagania:**
+
+- Pobierz wartość **zaznaczonego radio buttona**.
+- Wyświetl ją w paragrafie `<p>`.
+- Obsłuż sytuację, gdy użytkownik nie wybierze żadnej opcji (np. `"Nie wybrałeś pory roku"`).
+
+---
+
+## **🔹 Poziom 2 – Średnie**
+
+### **✅ Zadanie 3: Zmiana koloru tła na podstawie wyboru użytkownika**
+
+**📝 Opis:**  
+Stwórz zestaw **radio buttonów**, które pozwolą użytkownikowi zmienić kolor tła strony (np. czerwony, niebieski, zielony, biały).
+
+**📌 Wymagania:**
+
+- Po wybraniu opcji i kliknięciu przycisku tło strony powinno zmienić kolor.
+- Jeśli użytkownik nie wybierze koloru, nic nie powinno się zmienić.
+
+---
+
+### **✅ Zadanie 4: Dynamiczne ukrywanie i pokazywanie obrazu**
+
+**📝 Opis:**  
+Stwórz checkbox **"Pokaż obraz"**. Jeśli użytkownik go zaznaczy, obraz powinien się pojawić. Jeśli odznaczy – obraz powinien zniknąć.
+
+**📌 Wymagania:**
+
+- Użyj **`addEventListener`** do obsługi zmiany stanu checkboxa.
+- Manipuluj **stylem CSS** (`display: none` / `display: block`).
+
+---
+
+## **🔹 Poziom 3 – Trudne**
+
+### **✅ Zadanie 5: Wybór kilku efektów na obraz**
+
+**📝 Opis:**  
+Rozszerz przykład z efektami obrazu. Dodaj możliwość **wyboru kilku efektów naraz** (np. **rozmycie + negatyw**).
+
+**📌 Wymagania:**
+
+- Użyj **checkboxów**, aby użytkownik mógł zaznaczyć wiele efektów jednocześnie.
+- Po kliknięciu przycisku efekty powinny być zastosowane do obrazu.
+- Obsłuż sytuację, gdy użytkownik nie zaznaczy żadnego efektu (obraz powinien być normalny).
+
+---
+
+### **✅ Zadanie 6: Walidacja formularza zamówienia pizzy**
+
+**📝 Opis:**  
+Stwórz formularz zamówienia pizzy, w którym użytkownik:
+
+- Wybiera rozmiar pizzy (`radio`),
+- Wybiera dodatkowe składniki (`checkboxy`),
+- Wpisuje swoje imię w pole tekstowe.
+
+Po kliknięciu **"Zamów"** skrypt powinien sprawdzić:  
+✔ Czy użytkownik wybrał rozmiar.  
+✔ Czy wpisał swoje imię.  
+✔ Jeśli nie, powinien pojawić się komunikat `"Wypełnij wszystkie pola!"`.
+
+---
