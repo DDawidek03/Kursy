@@ -380,6 +380,8 @@ Stwórz formularz zawierający pole do wyboru liczby (input type="number") oraz 
 
 Stwórz formularz zawierający pole tekstowe i przycisk „Zatwierdź”. Po kliknięciu przycisku zmień tekst na stronie na wartość wprowadzoną w polu tekstowym.
 
+# **📌 Zadania do JavaScript – Formularze, `addEventListener` i Manipulacja Obrazem**
+
 ## **🔹 Poziom 1 – Łatwe**
 
 ### **✅ Zadanie 1: Liczenie zaznaczonych checkboxów**
