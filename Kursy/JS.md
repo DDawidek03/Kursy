@@ -1780,6 +1780,245 @@ Formularze to kolejny obszar, w którym zdarzenia myszy mogą być użyteczne, n
 </script>
 ```
 
+# 📘 **Pobieranie wartości z formularzy i manipulacja obrazem**
+
+> **🎯 Cel poradnika:**
+>
+> - Wytłumaczenie pobierania wartości z **checkboxów** i **radio buttonów**.
+> - Omówienie **`addEventListener`** – co to jest, jak działa i dlaczego go używamy.
+> - Pokazanie użycia pętli w JavaScript.
+> - Manipulacja obrazem na podstawie wyboru użytkownika.
+
+**👨‍🏫 Ten poradnik jest przeznaczony dla początkujących, którzy chcą zrozumieć temat od podstaw!**
+
+---
+
+# **📌 1. Jak pobrać wartości z formularzy?**
+
+## **1.1 Co to są checkboxy i radio buttony?**
+
+### **✔ Checkbox**
+
+- Pozwala zaznaczyć **więcej niż jedną opcję**.
+- Może być **zaznaczony (`checked = true`)** lub **odznaczony (`checked = false`)**.
+- Służy np. do wyboru zainteresowań, ulubionych smaków pizzy itp.
+
+### **✔ Radio button**
+
+- Pozwala użytkownikowi wybrać **tylko jedną opcję** spośród kilku.
+- Wszystkie radio buttony w jednej grupie mają **to samo `name`**.
+- Stosowany np. do wyboru płci, preferowanego języka czy sposobu dostawy.
+
+📌 **Jak sprawdzić, które opcje są zaznaczone?**  
+➡ Musimy przejrzeć wszystkie checkboxy/radio buttony i sprawdzić ich stan.  
+➡ Do tego użyjemy **pętli**, aby przejść przez listę elementów.
+
+---
+
+# **📌 2. `addEventListener` – co to jest i jak działa?**
+
+### **🎯 `addEventListener` to sposób na obsługę zdarzeń w JavaScript.**
+
+Zdarzenia to np. kliknięcie przycisku, zmiana wartości pola formularza, przesunięcie myszką itp.
+
+### **✔ Dlaczego warto używać `addEventListener` zamiast `onclick`?**
+
+1️⃣ Możemy dodać **kilka różnych funkcji** do jednego elementu.  
+2️⃣ Oddzielamy **HTML od JavaScriptu**, co jest lepszą praktyką.  
+3️⃣ Możemy później **usunąć nasłuchiwanie** (`removeEventListener`).
+
+---
+
+# **📌 3. Pobieranie wartości z checkboxów**
+
+## **🖥 Przykład 1: Checkboxy – jak sprawdzić, które są zaznaczone?**
+
+```html
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pobieranie wartości checkboxów</title>
+  </head>
+  <body>
+    <h2>Wybierz swoje zainteresowania:</h2>
+
+    <label><input type="checkbox" class="hobby" value="Sport" /> Sport</label>
+    <label><input type="checkbox" class="hobby" value="Muzyka" /> Muzyka</label>
+    <label><input type="checkbox" class="hobby" value="Gry" /> Gry</label>
+    <label
+      ><input type="checkbox" class="hobby" value="Podróże" /> Podróże</label
+    >
+
+    <button id="checkBtn">Sprawdź zaznaczone</button>
+
+    <p id="output"></p>
+
+    <script>
+      document
+        .getElementById("checkBtn")
+        .addEventListener("click", function () {
+          // Pobieramy wszystkie checkboxy
+          let checkboxes = document.querySelectorAll(".hobby");
+
+          // Tworzymy pustą tablicę na zaznaczone wartości
+          let selected = [];
+
+          // Przechodzimy przez każdy checkbox
+          checkboxes.forEach((checkbox) => {
+            if (checkbox.checked) {
+              // Jeśli checkbox jest zaznaczony
+              selected.push(checkbox.value);
+            }
+          });
+
+          // Wyświetlamy wynik
+          document.getElementById("output").textContent =
+            "Twoje zainteresowania: " +
+            (selected.length > 0 ? selected.join(", ") : "Nic nie wybrano");
+        });
+    </script>
+  </body>
+</html>
+```
+
+---
+
+### **🔍 Wyjaśnienie kodu:**
+
+**📌 Dlaczego używamy `forEach`?**
+
+- Checkboxy są przechowywane jako `NodeList`, czyli lista elementów.
+- `forEach` pozwala przejść przez każdy checkbox i sprawdzić jego `checked` (czy jest zaznaczony).
+
+---
+
+# **📌 4. Pobieranie wartości z radio buttonów**
+
+## **🖥 Przykład 2: Jak sprawdzić, który radio button jest zaznaczony?**
+
+```html
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pobieranie wartości radio</title>
+  </head>
+  <body>
+    <h2>Wybierz ulubiony kolor:</h2>
+
+    <label><input type="radio" name="color" value="Czerwony" /> Czerwony</label>
+    <label
+      ><input type="radio" name="color" value="Niebieski" /> Niebieski</label
+    >
+    <label><input type="radio" name="color" value="Zielony" /> Zielony</label>
+
+    <button id="radioBtn">Sprawdź wybór</button>
+
+    <p id="radioOutput"></p>
+
+    <script>
+      document
+        .getElementById("radioBtn")
+        .addEventListener("click", function () {
+          let radios = document.querySelectorAll('input[name="color"]');
+          let selectedColor = "";
+
+          radios.forEach((radio) => {
+            if (radio.checked) {
+              selectedColor = radio.value;
+            }
+          });
+
+          document.getElementById("radioOutput").textContent =
+            "Wybrano: " + (selectedColor || "Nic nie wybrano");
+        });
+    </script>
+  </body>
+</html>
+```
+
+---
+
+# **📌 5. Manipulacja obrazem na podstawie wyboru użytkownika**
+
+### **🎯 CSS Filters – jak działają?**
+
+- **`blur(5px)`** – rozmycie
+- **`invert(100%)`** – negatyw
+- **`grayscale(100%)`** – skala szarości
+
+---
+
+## **🖥 Przykład 3: Zmiana efektu obrazu**
+
+```html
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Efekty na obrazie</title>
+  </head>
+  <body>
+    <h2>Wybierz efekt na obraz:</h2>
+
+    <label><input type="radio" name="effect" value="blur" /> Rozmycie</label>
+    <label><input type="radio" name="effect" value="negative" /> Negatyw</label>
+    <label
+      ><input type="radio" name="effect" value="grayscale" /> Skala
+      szarości</label
+    >
+    <label><input type="radio" name="effect" value="none" /> Brak efektu</label>
+
+    <button id="effectBtn">Zastosuj efekt</button>
+
+    <br /><br />
+    <img
+      id="image"
+      src="https://via.placeholder.com/300"
+      alt="Obraz testowy"
+      style="width: 300px;" />
+
+    <script>
+      document
+        .getElementById("effectBtn")
+        .addEventListener("click", function () {
+          let radios = document.querySelectorAll('input[name="effect"]');
+          let selectedEffect = "none";
+
+          radios.forEach((radio) => {
+            if (radio.checked) {
+              selectedEffect = radio.value;
+            }
+          });
+
+          let image = document.getElementById("image");
+
+          let effects = {
+            blur: "blur(5px)",
+            negative: "invert(100%)",
+            grayscale: "grayscale(100%)",
+            none: "none",
+          };
+
+          image.style.filter = effects[selectedEffect];
+        });
+    </script>
+  </body>
+</html>
+```
+
+---
+
+# **🎯 Podsumowanie**
+
+✔ **`addEventListener`** służy do obsługi zdarzeń.  
+✔ Pobieranie wartości **checkboxów** i **radio buttonów** wymaga **pętli**.  
+✔ Możemy manipulować obrazem za pomocą **CSS filters**.
+
 ---
 
 ## Animacje w JavaScript
