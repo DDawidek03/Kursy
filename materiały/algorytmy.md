@@ -1,10 +1,126 @@
+## 📘 Algorytmy w Pythonie – instrukcja dla licealisty
+
+### Co to jest algorytm?
+
+Algorytm to ista instrukcji rozpisanych krok po kroku, służących do wykonania określonego zadania lub rozwiązania określonego problemu – np. posortować liczby, znaleźć największy element czy sprawdzić, czy liczba jest pierwsza.
+
+## Złożoność obliczeniowa
+
+### Definicja
+
+**Złożoność obliczeniowa** algorytmu to dziedzina informatyki teoretycznej zajmująca się badaniem, jak rośnie liczba operacji wymaganych przez algorytm wraz ze wzrostem rozmiaru danych wejściowych. Najczęściej analizujemy:
+
+- **Złożoność czasową** – ile kroków (operacji) wykona algorytm,
+- **Złożoność pamięciową** – ile dodatkowej pamięci zajmuje algorytm.
+
+---
+
+## Notacja asymptotyczna – notacja dużego O (ang. Big-O notation)
+
+Notacja dużego O opisuje **górne ograniczenie** liczby operacji wykonywanych przez algorytm w zależności od rozmiaru danych wejściowych `n`.
+
+Umożliwia porównywanie algorytmów niezależnie od komputera, języka programowania czy optymalizacji kodu.
+
+---
+
+## 📊 Najczęstsze klasy złożoności czasowej
+
+| Notacja    | Nazwa                 | Przykład działania                    | Opis                                |
+| ---------- | --------------------- | ------------------------------------- | ----------------------------------- |
+| O(1)       | Stała                 | Odczyt elementu z listy               | Liczba operacji nie zależy od `n`   |
+| O(log n)   | Logarytmiczna         | Wyszukiwanie binarne                  | Liczba operacji rośnie bardzo wolno |
+| O(n)       | Liniowa               | Przejście przez tablicę               | Jedna operacja dla każdego elementu |
+| O(n log n) | Liniowo-logarytmiczna | Szybkie sortowanie (Quicksort)        | Efektywne algorytmy sortowania      |
+| O(n²)      | Kwadratowa            | Sortowanie bąbelkowe                  | Dwie zagnieżdżone pętle             |
+| O(2ⁿ)      | Wykładnicza           | Rozwiązywanie niektórych problemów NP | Bardzo wolna dla dużych `n`         |
+| O(n!)      | Silnia                | Permutacje, brute-force               | Skrajnie nieefektywna złożoność     |
+
+---
+
+## Przykłady analizy
+
+### 1. **Pętla liniowa**
+
+```python
+for i in range(n):
+    print(i)
+```
+
+➡ Złożoność czasowa: **O(n)** – wykonuje `n` operacji.
+
+---
+
+### 2. **Zagnieżdżona pętla**
+
+```python
+for i in range(n):
+    for j in range(n):
+        print(i, j)
+```
+
+➡ Złożoność czasowa: **O(n²)** – `n * n` operacji.
+
+---
+
+### 3. **Wyszukiwanie binarne**
+
+```python
+def binary_search(lista, x):
+    lewy = 0
+    prawy = len(lista) - 1
+    while lewy <= prawy:
+        srodek = (lewy + prawy) // 2
+        if lista[srodek] == x:
+            return True
+        elif lista[srodek] < x:
+            lewy = srodek + 1
+        else:
+            prawy = srodek - 1
+    return False
+```
+
+➡ Złożoność czasowa: **O(log n)** – przy każdym kroku zakres wyszukiwania dzieli się przez 2.
+
+---
+
+### 4. **Obliczanie sumy z wykorzystaniem wzoru**
+
+```python
+def suma(n):
+    return n * (n + 1) // 2
+```
+
+➡ Złożoność czasowa: **O(1)** – niezależna od `n`.
+
+---
+
+## Złożoność pamięciowa
+
+Podobnie jak czasowa, złożoność pamięciowa określa **ile dodatkowej pamięci** (np. tablic, zmiennych, struktur danych) wymaga algorytm. Zwykle oznacza się ją również jako O(f(n)).
+
+### Przykłady:
+
+- Przechowywanie jednej zmiennej: **O(1)**
+- Tworzenie tablicy rozmiaru `n`: **O(n)**
+- Tablica dwuwymiarowa `n x n`: **O(n²)**
+
+---
+
+## Dlaczego to ważne?
+
+- Dzięki analizie złożoności możemy **przewidzieć efektywność algorytmu**.
+- Pozwala nam wybrać najlepszy algorytm dla dużych zbiorów danych.
+- Ma kluczowe znaczenie w projektowaniu wydajnych programów, systemów, aplikacji.
+
+---
+
 ## **1. Sortowanie Bąbelkowe (Bubble Sort)**
 
 ### **Działanie**
 
 Algorytm wielokrotnie przechodzi przez listę, za każdym razem „bąbelkując” największy element na koniec. W każdej iteracji porównuje sąsiednie elementy i zamienia je, jeśli są w złej kolejności.
 
-### **Kod z komentarzami**
+### **Kod**
 
 ```python
 def bubble_sort(arr):
