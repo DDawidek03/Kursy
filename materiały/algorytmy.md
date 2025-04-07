@@ -1,4 +1,4 @@
-## 📘 Algorytmy w Pythonie – instrukcja dla licealisty
+## 📘 Algorytmy w Pythonie
 
 ### Co to jest algorytm?
 
