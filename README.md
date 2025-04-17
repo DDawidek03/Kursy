@@ -60,9 +60,6 @@ Repozytorium zawiera profesjonalne materiały edukacyjne obejmujące:
 
 <!-- MySQL course card -->
 <div style=" border-radius: 10px; padding: 20px; margin-bottom: 30px; border: 5px solid #4479A1;">
-  <div align="right">
-    <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white" alt="MySQL"/>
-  </div>
   
   <h3>
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" width="25" height="25"/>
@@ -86,12 +83,13 @@ Repozytorium zawiera profesjonalne materiały edukacyjne obejmujące:
   </div>
 </div>
 
+<!-- Animated divider -->
+<p align="center">
+  <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="divider" width="100%">
+</p>
 <!-- Python course card -->
 <div style=" border-radius: 10px; padding: 20px; margin-bottom: 30px; border: 5px solid #4479A1;">
-  <div align="right">
-    <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python"/>
-  </div>
-  
+
   <h3>
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" width="25" height="25"/>
     Kurs Python
@@ -114,12 +112,13 @@ Repozytorium zawiera profesjonalne materiały edukacyjne obejmujące:
   </div>
 </div>
 
+<!-- Animated divider -->
+<p align="center">
+  <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="divider" width="100%">
+</p>
 <!-- PHP course card -->
 <div style=" border-radius: 10px; padding: 20px; margin-bottom: 30px; border: 5px solid #4479A1;">
-  <div align="right">
-    <img src="https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white" alt="PHP"/>
-  </div>
-  
+
   <h3>
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" width="25" height="25"/>
     Kurs PHP
@@ -142,12 +141,13 @@ Repozytorium zawiera profesjonalne materiały edukacyjne obejmujące:
   </div>
 </div>
 
+<!-- Animated divider -->
+<p align="center">
+  <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" alt="divider" width="100%">
+</p>
 <!-- JavaScript course card -->
 <div style=" border-radius: 10px; padding: 20px; margin-bottom: 30px; border: 5px solid #4479A1;">
-  <div align="right">
-    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript"/>
-  </div>
-  
+
   <h3>
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="25" height="25"/>
     Kurs JavaScript
@@ -212,15 +212,6 @@ Repozytorium zawiera profesjonalne materiały edukacyjne obejmujące:
 <!-- Footer -->
 <div align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer" width="100%">
-  <br>
-  <p>
-    <a href="https://dawidekdata.com">
-      <img src="https://img.shields.io/badge/Portfolio-00B0FF?style=for-the-badge&logo=internetexplorer&logoColor=white" alt="Portfolio"/>
-    </a>
-    <a href="https://github.com/DDawidek03">
-      <img src="https://img.shields.io/badge/GitHub-171515?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
-    </a>
 
-  </p>
   <p><sub>© 2023 | Autor: Damian Dawidek | Wszelkie prawa zastrzeżone</sub></p>
 </div>
