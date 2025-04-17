@@ -43,13 +43,6 @@ Repozytorium zawiera profesjonalne materiały edukacyjne obejmujące:
 </tr>
 </table>
 
-<br>
-
-<!-- Animated divider -->
-<p align="center">
-  <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" alt="divider" width="100%">
-</p>
-
 <h2 align="center">
   <img src="https://media.giphy.com/media/VdoIFLsMIlwzfKD520/giphy.gif" width="25">
   Dostępne kursy
