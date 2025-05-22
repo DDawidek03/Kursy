@@ -756,6 +756,4 @@ Technologie ETL i ELT szybko się rozwijają. Oto kluczowe trendy:
 
 </div>
 
-ETL i ELT to dwa sposoby na organizowanie danych. ETL jest uporządkowane i idealne do stałych raportów. ELT jest elastyczne i świetne dla dużych danych w chmurze. Zrozumienie ekstrakcji, transformacji i ładowania pomoże Ci w kursie i pracy z danymi. Rób ćwiczenia i eksperymentuj!
-
-**Powodzenia na Coursera!** 🚀
+ETL i ELT to dwa sposoby na organizowanie danych. ETL jest uporządkowane i idealne do stałych raportów. ELT jest elastyczne i świetne dla dużych danych w chmurze. Zrozumienie ekstrakcji, transformacji i ładowania pomoże Ci w kursie i pracy z danymi.
