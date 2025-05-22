@@ -787,20 +787,12 @@ Zaawansowane systemy (np. Apache Airflow) używają grafów DAG (Directed Acycli
 <div align="center">
   <pre>
   Pobierz dane → Oczyść dane → Transformuj dane → Załaduj dane
-       ↘                                       ↗
-       → Pobierz metadane → Przetwórz metadane →
+     ↘                                             ↗
+      → Pobierz metadane → Przetwórz metadane →
   </pre>
 </div>
 
 ---
-
-<div align="center">
-
-## 🏁 Podsumowanie
-
-</div>
-
-ETL i ELT to dwa podejścia do przetwarzania danych, każde z własnymi zaletami. ETL jest idealne dla uporządkowanych danych i stałych raportów, a ELT dla dużych, elastycznych analiz w chmurze. Ćwiczenia praktyczne i znajomość narzędzi (Python, SQL, chmura) pomogą Ci opanować te procesy. Powodzenia na kursie Coursera! 🎓
 
 <div align="center">
   <p><img width="45" src="https://github.com/tandpfun/skill-icons/raw/main/icons/Github-Dark.svg"></p>
