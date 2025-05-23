@@ -2223,7 +2223,7 @@ COMMIT;
 
 <div align="center" id="okna-funkcje-okienkowe">
 
-## 📊 Funkcje okienkowe (Window Functions) dla początkujących
+## 📊 Funkcje okienkowe (Window Functions)
 
 </div>
 
@@ -2445,7 +2445,7 @@ FROM budzet_domowy;
 
 <div align="center" id="common-table-expressions">
 
-## 📋 Wyrażenia CTE (Common Table Expressions) dla początkujących
+## 📋 Wyrażenia CTE (Common Table Expressions)
 
 </div>
 
@@ -2644,4 +2644,4 @@ CTE jest świetne, gdy:
   </table>
 </div>
 
-> 💡 **Porada początkującego**: Użyj CTE, gdy widzisz, że Twoje zapytanie ma kilka kroków logicznych. Zapisuj w CTE wyniki pośrednie, dzięki czemu kod będzie bardziej podobny do naturalnych kroków rozwiązywania problemu.
+> 💡 **Porada**: Użyj CTE, gdy widzisz, że Twoje zapytanie ma kilka kroków logicznych. Zapisuj w CTE wyniki pośrednie, dzięki czemu kod będzie bardziej podobny do naturalnych kroków rozwiązywania problemu.
