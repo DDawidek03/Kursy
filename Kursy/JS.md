@@ -1,4 +1,4 @@
-## **Kurs JavaScript - Kwalifikacja INF.03**
+## **Kurs JavaScript**
 
 ### **1. Wprowadzenie do JavaScript**
 
