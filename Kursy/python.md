@@ -19,7 +19,7 @@
 - 🖼️ [Tkinter](#tkinter)
 - 📊 [Matplotlib](#matplotlib) <- _Niedostępne_
 - 🐼 [Biblioteka Pandas](#biblioteka-pandas) <- _Niedostępne_
-- 🔍 [Debugowanie i Testowanie](#debugowanie-i-testowanie) <- _Niedostępne_
+- 🔍 [Debugowanie i Testowanie](#debugowanie-i-testowanie)
 
 ## Wprowadzenie
 
@@ -2345,14 +2345,12 @@ Metoda `pack()` to najprostszy sposób rozmieszczania widżetów w Tkinter. Auto
 **Cechy i Parametry `pack()`:**
 
 - **Orientacja**: Widżety mogą być rozmieszczane pionowo (domyślnie) lub poziomo, w zależności od parametru `side`.
-
   - `side=tk.TOP` (domyślnie) – umieszcza widżety od góry kontenera.
   - `side=tk.BOTTOM` – umieszcza widżety od dołu kontenera.
   - `side=tk.LEFT` – umieszcza widżety od lewej strony kontenera.
   - `side=tk.RIGHT` – umieszcza widżety od prawej strony kontenera.
 
 - **Wypełnienie (`fill`)**: Określa, czy widżet powinien rozciągać się, aby wypełnić dostępne miejsce w kontenerze.
-
   - `fill=tk.X` – widżet wypełnia szerokość kontenera.
   - `fill=tk.Y` – widżet wypełnia wysokość kontenera.
   - `fill=tk.BOTH` – widżet wypełnia zarówno szerokość, jak i wysokość kontenera.
@@ -2389,12 +2387,10 @@ Metoda `grid()` rozmieszcza widżety w formie siatki (gridu) z wierszami (`row`)
 **Cechy i Parametry `grid()`:**
 
 - **Wiersze i Kolumny**: Każdy widżet jest przypisany do konkretnego wiersza i kolumny siatki.
-
   - `row`: numer wiersza, zaczyna się od 0.
   - `column`: numer kolumny, zaczyna się od 0.
 
 - **Łączenie komórek (`columnspan` i `rowspan`)**: Możesz rozszerzyć widżet na więcej niż jedną kolumnę lub wiersz.
-
   - `columnspan`: liczba kolumn, które widżet zajmuje.
   - `rowspan`: liczba wierszy, które widżet zajmuje.
 
@@ -2711,7 +2707,6 @@ root.mainloop()
 **B. Walidacja za pomocą metod `validate` i `validatecommand`**
 
 - **`validate`**: Określa, kiedy walidacja powinna być przeprowadzona. Możliwe wartości to:
-
   - `"focusin"` – walidacja przy wejściu do pola
   - `"focusout"` – walidacja przy wyjściu z pola
   - `"key"` – walidacja podczas każdej zmiany klawiatury
@@ -3021,7 +3016,6 @@ if __name__ == "__main__":
 ### Wyjaśnienie kodu:
 
 1. **Klasa `ToDoApp`**:
-
    - Zawiera całą logikę aplikacji.
    - `__init__`: Inicjalizuje okno główne i wywołuje metodę `create_widgets`, która tworzy wszystkie elementy interfejsu.
    - `create_widgets`: Tworzy i rozmieszcza wszystkie widżety, takie jak pola tekstowe, przyciski, listy zadań, menu itp.
@@ -3032,7 +3026,6 @@ if __name__ == "__main__":
    - `load_tasks`: Wczytuje zadania z pliku.
 
 2. **Widżety**:
-
    - **Entry**: Pole tekstowe do wpisywania nowych zadań.
    - **Listbox**: Lista, która wyświetla wszystkie zadania.
    - **Button**: Przycisk do dodawania, usuwania i oznaczania zadań jako wykonane.
@@ -3047,3 +3040,504 @@ if __name__ == "__main__":
 - **Filtrowanie zadań**: Można dodać funkcję filtrowania zadań (np. pokazuj tylko te ukończone).
 - **Zaawansowane formatowanie**: Użycie różnych kolorów i stylów dla zadań w zależności od ich stanu.
 - **Termin wykonania**: Dodanie funkcji ustalania terminu wykonania zadania z przypomnieniami.
+
+## Debugowanie i Testowanie
+
+### 1. Co oznacza testowanie w praktyce INF.04?
+
+W zadaniach egzaminacyjnych najczęściej liczy się nie tylko to, czy program "działa", ale czy:
+
+- działa poprawnie dla danych typowych,
+- działa poprawnie dla danych skrajnych,
+- obsługuje błędy wejścia,
+- daje przewidywalny wynik.
+
+Testy automatyczne pomagają to udokumentować i szybko sprawdzić po każdej zmianie kodu.
+
+### 2. Dlaczego akurat pytest?
+
+Pytest jest najczęściej używanym narzędziem testowym w Pythonie, bo:
+
+- test to zwykła funkcja (prosto i czytelnie),
+- używa naturalnych asercji `assert`,
+- ma bardzo dobre raportowanie błędów,
+- wspiera fixtures, parametryzację, mockowanie i pomiar pokrycia.
+
+### 3. Instalacja i uruchamianie
+
+```bash
+pip install pytest
+```
+
+Uruchamianie testów:
+
+```bash
+pytest
+```
+
+Najczęściej używane opcje:
+
+```bash
+pytest -v                # więcej szczegółów
+pytest -k "login"        # tylko testy z nazwą zawierającą login
+pytest -x                # zatrzymaj po pierwszym błędzie
+pytest --maxfail=3       # zatrzymaj po 3 błędach
+pytest -q                # tryb skrócony
+```
+
+### 4. Konwencja nazw i struktura projektu
+
+Pytest automatycznie wykrywa:
+
+- pliki `test_*.py` lub `*_test.py`,
+- funkcje `test_*`.
+
+Przykładowa struktura:
+
+```text
+projekt/
+├── app/
+│   ├── calculator.py
+│   └── discounts.py
+└── tests/
+    ├── test_calculator.py
+    ├── test_discounts.py
+    └── conftest.py
+```
+
+### 5. Pierwszy test i schemat AAA
+
+Dobry test zwykle ma układ AAA:
+
+- Arrange: przygotuj dane,
+- Act: wykonaj operację,
+- Assert: sprawdź wynik.
+
+Kod aplikacji:
+
+```python
+# app/calculator.py
+def add(a: int, b: int) -> int:
+    return a + b
+```
+
+Test:
+
+```python
+# tests/test_calculator.py
+from app.calculator import add
+
+def test_add_two_positive_numbers():
+    # Arrange
+    a, b = 2, 3
+
+    # Act
+    result = add(a, b)
+
+    # Assert
+    assert result == 5
+```
+
+### 6. Dobre asercje i czytelne nazwy testów
+
+Nazwa testu ma mówić co sprawdzasz, np.:
+
+- `test_calculate_total_returns_zero_for_empty_cart`,
+- `test_login_rejects_invalid_password`.
+
+Przykłady asercji:
+
+```python
+def test_string_assertions():
+    text = "INF04"
+    assert text.startswith("INF")
+    assert text.endswith("04")
+    assert "N" in text
+
+def test_collection_assertions():
+    data = [10, 20, 30]
+    assert len(data) == 3
+    assert 20 in data
+```
+
+### 7. Testy wyjątków: `pytest.raises`
+
+W INF.04 często oceniana jest obsługa błędnych danych. To testujemy przez wyjątki.
+
+Kod aplikacji:
+
+```python
+# app/division.py
+def safe_divide(a: float, b: float) -> float:
+    if b == 0:
+        raise ValueError("Nie mozna dzielic przez zero")
+    return a / b
+```
+
+Test:
+
+```python
+# tests/test_division.py
+import pytest
+from app.division import safe_divide
+
+def test_safe_divide_raises_for_zero_divisor():
+    with pytest.raises(ValueError, match="Nie mozna dzielic przez zero"):
+        safe_divide(10, 0)
+```
+
+### 8. Parametryzacja: dużo danych, mało powtórzeń
+
+```python
+import pytest
+from app.calculator import add
+
+@pytest.mark.parametrize(
+    "a,b,expected",
+    [
+        (1, 2, 3),
+        (0, 0, 0),
+        (-1, 1, 0),
+        (-5, -7, -12),
+    ],
+)
+def test_add_parametrized(a, b, expected):
+    assert add(a, b) == expected
+```
+
+To bardzo ważne na egzaminie: jednym testem pokrywasz wiele przypadków.
+
+### 9. Granice i przypadki skrajne (edge cases)
+
+Przykład funkcji z walidacją rabatu:
+
+```python
+# app/discounts.py
+def apply_discount(price: float, percent: int) -> float:
+    if price < 0:
+        raise ValueError("Cena nie moze byc ujemna")
+    if percent < 0 or percent > 100:
+        raise ValueError("Rabat musi byc w zakresie 0-100")
+    return round(price * (1 - percent / 100), 2)
+```
+
+Testy graniczne:
+
+```python
+import pytest
+from app.discounts import apply_discount
+
+def test_apply_discount_zero_percent():
+    assert apply_discount(100, 0) == 100
+
+def test_apply_discount_hundred_percent():
+    assert apply_discount(100, 100) == 0
+
+@pytest.mark.parametrize("percent", [-1, 101])
+def test_apply_discount_invalid_percent(percent):
+    with pytest.raises(ValueError):
+        apply_discount(100, percent)
+```
+
+### 10. Fixtures: przygotowanie środowiska testowego
+
+Fixtures rozwiązują problem powtarzania setupu.
+
+```python
+# tests/test_with_fixture.py
+import pytest
+
+class Cart:
+    def __init__(self):
+        self.items = []
+
+    def add(self, name):
+        self.items.append(name)
+
+    def count(self):
+        return len(self.items)
+
+@pytest.fixture
+def empty_cart():
+    return Cart()
+
+def test_cart_is_empty_at_start(empty_cart):
+    assert empty_cart.count() == 0
+
+def test_cart_add_increases_count(empty_cart):
+    empty_cart.add("mysz")
+    assert empty_cart.count() == 1
+```
+
+#### Scope fixture
+
+- `function` (domyślnie): nowa fixture dla każdego testu,
+- `class`: jedna na klasę,
+- `module`: jedna na plik,
+- `session`: jedna na całą sesję testową.
+
+Przykład:
+
+```python
+@pytest.fixture(scope="module")
+def db_connection():
+    conn = "polaczenie_testowe"
+    yield conn
+    # tutaj cleanup, np. zamkniecie polaczenia
+```
+
+### 11. `conftest.py`: wspólne fixtures dla wielu plików
+
+Plik `conftest.py` to miejsce na współdzielone fixtures, bez importowania ich w każdym teście.
+
+```python
+# tests/conftest.py
+import pytest
+
+@pytest.fixture
+def sample_user():
+    return {"login": "admin", "role": "teacher"}
+```
+
+```python
+# tests/test_user.py
+def test_user_role(sample_user):
+    assert sample_user["role"] == "teacher"
+```
+
+### 12. Markery: grupowanie testów
+
+```python
+import pytest
+
+@pytest.mark.slow
+def test_report_generation():
+    assert True
+
+@pytest.mark.api
+def test_api_status():
+    assert 200 == 200
+```
+
+Uruchamianie wybranej grupy:
+
+```bash
+pytest -m slow
+pytest -m "api and not slow"
+```
+
+Warto dodać własne markery do konfiguracji `pytest.ini`:
+
+```ini
+[pytest]
+markers =
+    slow: testy wolne czasowo
+    api: testy integracyjne API
+```
+
+### 13. Skip i xfail
+
+- `skip`: pomijamy test, bo warunki nie są spełnione,
+- `xfail`: oczekujemy, że test na razie nie przejdzie (znany błąd).
+
+```python
+import pytest
+import sys
+
+@pytest.mark.skipif(sys.platform == "win32", reason="Przyklad: test tylko dla Linux/macOS")
+def test_only_unix():
+    assert True
+
+@pytest.mark.xfail(reason="Znany blad - poprawka zaplanowana")
+def test_known_bug():
+    assert 2 + 2 == 5
+```
+
+### 14. Mockowanie zależności (INF.04: izolacja modułu)
+
+Gdy moduł korzysta z API, czasu systemowego albo bazy, testujemy go bez prawdziwych usług zewnętrznych.
+
+Instalacja:
+
+```bash
+pip install pytest-mock
+```
+
+Kod aplikacji:
+
+```python
+# app/weather.py
+import requests
+
+def get_temperature(city: str) -> float:
+    response = requests.get(f"https://api.example.com/weather/{city}")
+    data = response.json()
+    return data["temperature"]
+```
+
+Test z mockiem:
+
+```python
+# tests/test_weather.py
+from app.weather import get_temperature
+
+def test_get_temperature(mocker):
+    mock_get = mocker.patch("app.weather.requests.get")
+    mock_get.return_value.json.return_value = {"temperature": 21.5}
+
+    result = get_temperature("Krakow")
+
+    assert result == 21.5
+    mock_get.assert_called_once_with("https://api.example.com/weather/Krakow")
+```
+
+### 15. Testowanie wejścia/wyjścia i printów (`capsys`)
+
+```python
+# app/messages.py
+def greet(name: str):
+    print(f"Witaj, {name}!")
+```
+
+```python
+# tests/test_messages.py
+from app.messages import greet
+
+def test_greet_prints_message(capsys):
+    greet("Ola")
+    captured = capsys.readouterr()
+    assert captured.out == "Witaj, Ola!\n"
+```
+
+### 16. Testowanie plików tymczasowych (`tmp_path`)
+
+To bardzo praktyczne do zadań typu: zapisz plik, odczytaj plik, przetwórz dane.
+
+```python
+# app/files.py
+def save_text(path, text):
+    path.write_text(text, encoding="utf-8")
+```
+
+```python
+# tests/test_files.py
+from app.files import save_text
+
+def test_save_text_creates_file(tmp_path):
+    file_path = tmp_path / "wynik.txt"
+    save_text(file_path, "INF04")
+
+    assert file_path.exists()
+    assert file_path.read_text(encoding="utf-8") == "INF04"
+```
+
+### 17. Testy klas i metod obiektowych
+
+Kod aplikacji:
+
+```python
+# app/bank.py
+class BankAccount:
+    def __init__(self, balance=0):
+        self.balance = balance
+
+    def deposit(self, amount):
+        if amount <= 0:
+            raise ValueError("Kwota musi byc dodatnia")
+        self.balance += amount
+
+    def withdraw(self, amount):
+        if amount > self.balance:
+            raise ValueError("Brak srodkow")
+        self.balance -= amount
+```
+
+Testy:
+
+```python
+import pytest
+from app.bank import BankAccount
+
+def test_deposit_increases_balance():
+    account = BankAccount(100)
+    account.deposit(50)
+    assert account.balance == 150
+
+def test_withdraw_raises_when_insufficient_funds():
+    account = BankAccount(100)
+    with pytest.raises(ValueError, match="Brak srodkow"):
+        account.withdraw(150)
+```
+
+### 18. Organizacja większego zestawu testów
+
+Dobre praktyki:
+
+- jeden plik testów na jeden moduł produkcyjny,
+- testy podzielone na sekcje: przypadki poprawne, błędne, graniczne,
+- brak logiki biznesowej w teście,
+- test ma być krótki i jednoznaczny.
+
+Przykład klasy grupującej testy:
+
+```python
+class TestApplyDiscount:
+    def test_valid_value(self):
+        assert apply_discount(200, 10) == 180
+
+    def test_invalid_percent(self):
+        import pytest
+        with pytest.raises(ValueError):
+            apply_discount(200, 120)
+```
+
+### 19. Pokrycie kodu testami (coverage)
+
+Instalacja:
+
+```bash
+pip install pytest-cov
+```
+
+Uruchomienie z raportem:
+
+```bash
+pytest --cov=app --cov-report=term-missing
+```
+
+Interpretacja:
+
+- 100% pokrycia nie gwarantuje braku błędów,
+- niskie pokrycie często oznacza, że nie testujesz ważnych ścieżek,
+- najważniejsze: testować logikę i przypadki graniczne.
+
+### 20. Mini zestaw zadań INF.04 do ćwiczeń
+
+1. Napisz funkcję `is_pesel_valid(pesel: str) -> bool` i testy:
+   - poprawna długość,
+   - znaki niebędące cyframi,
+   - przypadek pusty.
+2. Napisz funkcję `read_csv_rows(path) -> list[dict]` i testy:
+   - poprawny plik,
+   - brak pliku (`pytest.raises`),
+   - pusty plik.
+3. Napisz klasę `Inventory` z metodami `add_item` i `remove_item` + testy wyjątków.
+
+### 21. Najczęstsze błędy uczniów
+
+- testuje się tylko "szczęśliwą ścieżkę" (bez walidacji i wyjątków),
+- brak przypadków granicznych,
+- testy zależne od kolejności uruchamiania,
+- używanie prawdziwego API zamiast mocka,
+- za długie testy, które sprawdzają wiele rzeczy naraz.
+
+### 22. Checklista przed oddaniem projektu
+
+- Czy każdy moduł ma testy?
+- Czy są testy danych błędnych?
+- Czy są testy graniczne?
+- Czy nazwy testów są czytelne?
+- Czy testy przechodzą poleceniem `pytest -v`?
+- Czy masz minimum podstawowy raport pokrycia?
+
+Jeśli na te pytania odpowiadasz "tak", jesteś bardzo dobrze przygotowany pod praktyczne wymagania INF.04.
