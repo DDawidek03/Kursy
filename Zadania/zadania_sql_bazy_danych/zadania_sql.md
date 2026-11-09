@@ -105,11 +105,11 @@
 
 21. **Zadanie 21:** Wyświetl listę wszystkich klientów, którzy wypożyczyli samochód marki "BMW" więcej niż 3 razy w ciągu ostatnich 2 lat. Posortuj wyniki alfabetycznie według nazwiska klienta.
 
-22. **Zadanie 23:** Wyświetl listę samochodów, które były wypożyczane przez klientów w róznych okresach czasu. Posortuj wyniki alfabetycznie według marki samochodu.
+22. **Zadanie 22:** Wyświetl listę samochodów, które były wypożyczane przez klientów w róznych okresach czasu. Posortuj wyniki alfabetycznie według marki samochodu.
 
-23. **Zadanie 24:** Wyświetl listę klientów, którzy mają aktywne wypożyczenia trwające dłużej niż 30 dni. Posortuj wyniki alfabetycznie według nazwiska klienta. <- _trudne_
+23. **Zadanie 23:** Wyświetl listę klientów, którzy mają aktywne wypożyczenia trwające dłużej niż 30 dni. Posortuj wyniki alfabetycznie według nazwiska klienta. <- _trudne_
 
-24. **Zadanie 25:** Wyświetl listę samochodów, które były wypożyczane przez klientów, którzy mają co różne imiona. Posortuj wyniki alfabetycznie według marki samochodu.
+24. **Zadanie 24:** Wyświetl listę samochodów, które były wypożyczane przez klientów, którzy mają co różne imiona. Posortuj wyniki alfabetycznie według marki samochodu.
 
 ---
 
