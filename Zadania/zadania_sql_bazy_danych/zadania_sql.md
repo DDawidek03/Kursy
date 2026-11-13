@@ -136,6 +136,45 @@
 7. **Stwórz widok przedstawiający klientów, którzy nigdy nie dokonali wypożyczenia**  
    Widok powinien wyświetlać listę klientów, którzy zarejestrowali się w systemie, ale nigdy nie wypożyczyli samochodu.
 
+#### Dodatkowe zadania z widoków (8-17)
+
+8. **Stwórz widok `widok_auta_w_serwisie`**  
+   Widok powinien wyświetlać markę, model, rok produkcji i numer rejestracyjny samochodów, które mają obecnie status `serwis`.
+
+9. **Stwórz widok `widok_koszty_serwisu`**  
+   Dla każdego samochodu widok ma pokazywać markę, model, numer rejestracyjny, liczbę wykonanych serwisów oraz łączny koszt serwisów. Posortuj od najdroższego auta w utrzymaniu.
+
+10. **Stwórz widok `widok_oceny_samochodow`**  
+    Widok powinien wyświetlać markę i model samochodu, liczbę opinii oraz średnią ocenę zaokrągloną do 2 miejsc po przecinku (`ROUND`, `AVG`).
+
+11. **Stwórz widok `widok_niezaplacone_faktury`**  
+    Widok ma pokazywać numer faktury, datę faktury, kwotę całości oraz imię i nazwisko klienta dla faktur, które nie zostały zapłacone (`zaplacono = 'nie'`).  
+    *Podpowiedź: Faktury → Wypozyczenia → Klienci.*
+
+12. **Stwórz widok `widok_trwajace_wypozyczenia`**  
+    Widok powinien wyświetlać imię i nazwisko klienta, markę i model auta, datę wypożyczenia oraz liczbę dni, która minęła od wypożyczenia do dziś — tylko dla wypożyczeń ze statusem `wypożyczony`.  
+    *Podpowiedź: `DATEDIFF(CURDATE(), data_wypozyczenia)`.*
+
+13. **Stwórz widok `widok_metody_platnosci`**  
+    Widok ma pokazywać każdą metodę płatności, liczbę płatności wykonanych tą metodą oraz łączną kwotę.
+
+14. **Stwórz widok `widok_wypozyczenia_rocznie`**  
+    Widok powinien wyświetlać rok wypożyczenia, liczbę wypożyczeń w danym roku oraz sumę kwot. Posortuj według roku rosnąco.  
+    *Podpowiedź: `YEAR(data_wypozyczenia)`.*
+
+15. **Stwórz widok `widok_staz_pracownikow`**  
+    Widok ma pokazywać imię, nazwisko, stanowisko oraz staż pracy każdego pracownika w pełnych latach.  
+    *Podpowiedź: `TIMESTAMPDIFF(YEAR, data_zatrudnienia, CURDATE())`.*
+
+16. **Stwórz widok `widok_klienci_miasta`**  
+    Widok powinien wyświetlać nazwę miasta oraz liczbę klientów z tego miasta. Miasto wyciągnij z kolumny `adres` (jest przed przecinkiem).  
+    *Podpowiedź: `SUBSTRING_INDEX(adres, ',', 1)`.*
+
+17. **Praca na gotowych widokach**  
+    a) Korzystając z widoku `widok_koszty_serwisu` (zad. 9), wyświetl tylko samochody, których łączny koszt serwisów przekracza 2000 zł.  
+    b) Zmodyfikuj widok `widok_oceny_samochodow` (zad. 10) tak, aby pokazywał tylko auta ze średnią oceną co najmniej 4 (`CREATE OR REPLACE VIEW`).  
+    c) Usuń widok `widok_auta_w_serwisie` (`DROP VIEW`) i sprawdź poleceniem `SHOW FULL TABLES WHERE Table_type = 'VIEW';`, że go już nie ma.
+
 ---
 
 ### **Zadania dotyczące tworzenia użytkowników i nadawania im uprawnień**
